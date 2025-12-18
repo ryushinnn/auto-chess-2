@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efcd68015b8e476aba98111cce862be3, type: 3}
+  m_Name: DestinyDB
+  m_EditorClassIdentifier: 
+  roleConfigs:
+  - {fileID: 11400000, guid: ede993c164eeb86418fdd1fd8f744288, type: 2}
+  - {fileID: 11400000, guid: ec5dc1ec0ab099546862a1bda8a214b6, type: 2}
+  - {fileID: 11400000, guid: f601fc1b0f036b840883c90894ccf2e2, type: 2}
+  - {fileID: 11400000, guid: 2be38343ddd2db647b2a303124ef6495, type: 2}
+  - {fileID: 11400000, guid: 83626a9b7d3461e4dab8f74c5bf5ddcd, type: 2}
+  - {fileID: 11400000, guid: 7c76d120160a68b4eb83a4e2a6004ee9, type: 2}
+  realmConfigs:
+  - {fileID: 11400000, guid: afccdb8e829e5ce4c923d27f55b90503, type: 2}
+  - {fileID: 11400000, guid: 281a76e78404b524797e459add6cb1ba, type: 2}
+  - {fileID: 11400000, guid: 9dcd6580fa5c49d4f9837f957d4ee7e3, type: 2}
+  - {fileID: 11400000, guid: c85bf21e2ceb8a444b079724a9ae59b6, type: 2}
+  - {fileID: 11400000, guid: 47c3b3150c0e13f4986dcd2eb86e7a57, type: 2}

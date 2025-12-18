@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b65a41aa8b340bcbe84edad7f768cfd, type: 3}
+  m_Name: Mortal
+  m_EditorClassIdentifier: 
+  checkpoints: 01000000020000000400000006000000
+  destinyParams:
+  - key: mdmg
+    value: 20
+    isPercentage: 0
+  - key: pdmg
+    value: 20
+    isPercentage: 0
+  - key: ere
+    value: 0.2
+    isPercentage: 1
+  - key: crc
+    value: 0.1
+    isPercentage: 1
+  - key: crd
+    value: 0.3
+    isPercentage: 1
+  - key: pen
+    value: 0.1
+    isPercentage: 1
+  - key: attr_0
+    value: 1
+    isPercentage: 1
+  - key: attr_1
+    value: 1.2
+    isPercentage: 1
+  - key: attr_2
+    value: 1.5
+    isPercentage: 1
+  - key: attr_3
+    value: 2
+    isPercentage: 1
+  - key: tenacity_mul
+    value: 0.25
+    isPercentage: 1
+  - key: def
+    value: 30
+    isPercentage: 0
+  description: "M\u1ED7i <b>Ph\xE0m nh\xE2n</b> t\u0103ng m\u1ED9t lo\u1EA1i ch\u1EC9
+    s\u1ED1 ri\xEAng bi\u1EC7t cho b\u1EA3n th\xE2n v\xE0 c\xE1c <b>Ph\xE0m nh\xE2n</b>
+    kh\xE1c. N\u1EBFu trong \u0111\u1ED9i c\xF3 nhi\u1EC1u <b>Ph\xE0m nh\xE2n</b>,
+    l\u01B0\u1EE3ng ch\u1EC9 s\u1ED1 \u0111\u01B0\u1EE3c c\u01B0\u1EDDng ho\xE1.\n\nKh\xE1nh
+    Linh: #[0]<sprite name=mdmg>\nTrinh: #[1]<sprite name=pdmg>\nC\xE1t Linh: #[2]<sprite
+    name=ere>\nC\u1EA9m Thanh: #[3]<sprite name=crc>\nTr\xED T\xE2m: #[4]<sprite
+    name=crd>\nM\u1EF9 Ph\u01B0\u01A1ng: #[5]<sprite name=ppen><sprite name=mpen>\n<color=grey>\n<0>M\u1ED1c
+    &[0]: Nh\u1EADn #[6] ch\u1EC9 s\u1ED1</0>\n<1>M\u1ED1c &[1]: Nh\u1EADn #[7] ch\u1EC9
+    s\u1ED1</1>\n<2>M\u1ED1c &[2]: Nh\u1EADn #[8] ch\u1EC9 s\u1ED1</2>\n<3>M\u1ED1c
+    &[3]: Nh\u1EADn #[9] ch\u1EC9 s\u1ED1. Ngo\xE0i ra nh\u1EADn th\xEAm #[10]<sprite
+    name=ten>, #[11]<sprite name=arm><sprite name=res></3>\n</color>"
+  realm: 1

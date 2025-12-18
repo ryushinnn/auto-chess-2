@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Aatrox_Light
+  m_EditorClassIdentifier: 
+  id: Aatrox_Light
+  name: "A Ch\u1ED1c"
+  subName: "(Nguy\u1EC7t)"
+  summoned: 0
+  realm: 5
+  role: 3
+  reputation: 3
+  moveable: 1
+  mecanim: {fileID: 5429741766995380546, guid: f5f4ee1a0bc2be64c9e3036fa2d897ef, type: 3}
+  thumbnail: {fileID: 21300000, guid: 141df307ca98aad4f9b8267a08141bf8, type: 3}
+  skillIcon: {fileID: 21300000, guid: b0ae369dd797d3d4f9e1b624a1cf74a9, type: 3}
+  maxHp: 2540
+  physicalDamage: 0
+  magicalDamage: 200
+  armor: 100
+  resistance: 100
+  attackSpeed: 0.45
+  movementSpeed: 2
+  energyRegenPerAttack: 0
+  energyRegenPerHit: 0
+  attackRange: 1
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: life_steal
+      value: 0.1
+      type: 0
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: life_steal
+      value: 0.2
+      type: 0
+    - id: <will be auto generated>
+      key: tenacity
+      value: 0.2
+      type: 0
+  skillName: "Nguy\u1EC7t Th\u1EF1c: B\u1EA1ch V\xE2n Li\xEAn Tr\u1EA3m"
+  unstoppable: 1
+  skillParams:
+  - key: base_dmg
+    value: 80
+    isPercentage: 0
+  - key: dmg_mul_0
+    value: 0.7
+    isPercentage: 1
+  - key: dmg_mul_1
+    value: 1.5
+    isPercentage: 1
+  - key: dmg_mul_2
+    value: 2
+    isPercentage: 1
+  - key: airborne_duration_0
+    value: 0.2
+    isPercentage: 0
+  - key: airborne_duration_1
+    value: 0.2
+    isPercentage: 0
+  - key: airborne_duration_2
+    value: 0.5
+    isPercentage: 0
+  - key: vamp_0
+    value: 0.25
+    isPercentage: 1
+  - key: vamp_1
+    value: 0.5
+    isPercentage: 1
+  - key: vamp_2
+    value: 1
+    isPercentage: 1
+  - key: vamp_mul_on_low_hp
+    value: 2
+    isPercentage: 0
+  - key: hp_threshold
+    value: 0.5
+    isPercentage: 1
+  passiveDescription: 
+  activeDescription: "Ch\xE9m 3 nh\xE1t, l\u1EA7n l\u01B0\u1EE3t g\xE2y <color=grey>(#[0]
+    + #[1]/ #[2]/ #[3]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p
+    v\xE0 h\u1EA5t tung m\u1EE5c ti\xEAu trong <color=grey>#[4]s/ #[5]s/ #[6]s</color>
+    \u0111\u1ED3ng th\u1EDDi h\u1ED3i m\xE1u b\u1EB1ng <color=grey>#[7]/ #[8]/ #[9]</color>
+    s\xE1t th\u01B0\u01A1ng g\xE2y ra. N\u1EBFu b\u1EA3n th\xE2n c\xF3 th\u1EA5p
+    h\u01A1n #[11]<sprite name=hp>, l\u01B0\u1EE3ng m\xE1u h\u1ED3i ph\u1EE5c g\u1EA5p
+    #[10] l\u1EA7n."
+  specialKeys: []
+  dps: 90
+  physicalReduction: 50
+  magicalReduction: 50

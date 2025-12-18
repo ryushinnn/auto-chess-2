@@ -1,0 +1,318 @@
+fileFormatVersion: 2
+guid: a25c47734ffd71a49b4a6adaa291f162
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arms
+    second: {fileID: 2100000, guid: e68e34e054e357b4eb8a8a9f0e7d062f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: fa6857e8414d2d442a646facd1bc0de0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface01
+    second: {fileID: 2100000, guid: 53aad2587d4ff5b4bba83c7813b92ef8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface02
+    second: {fileID: 2100000, guid: e795903ddc2790848b401fc55a0cd348, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface03
+    second: {fileID: 2100000, guid: ffe4464077f798c459c6a6e34265909e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface04
+    second: {fileID: 2100000, guid: d6e2ff6c118597a42ae1b22da264a820, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface05
+    second: {fileID: 2100000, guid: e42d4c329a0fb41479a187d587225600, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface06
+    second: {fileID: 2100000, guid: d36b65aecaf02cc48b1fdb4976234cde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface07
+    second: {fileID: 2100000, guid: 30abd2845a12c474ba15f014cd75c7e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface08
+    second: {fileID: 2100000, guid: c2fb67bad65345f4698159ce93ac30cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface09
+    second: {fileID: 2100000, guid: a74b4accbfdcd4247a9aa9fd540956bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DrumSurface10
+    second: {fileID: 2100000, guid: b1e9b773708bb204d88a5e39b8b2db76, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Drums
+    second: {fileID: 2100000, guid: de13007042df21e4e8c5159fa7c7bc88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Engine
+    second: {fileID: 2100000, guid: d1b7da726cb60684bb3d9ff99e300bcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flowers
+    second: {fileID: 2100000, guid: f40f5465c622079408a74d8562bde877, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head
+    second: {fileID: 2100000, guid: 973b944db07031c4f942dbb182a61fa9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head1
+    second: {fileID: 2100000, guid: b5779629c7881b3469e4db110445efef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Propeller1
+    second: {fileID: 2100000, guid: 2b64483287391184c8c08654db7e0b11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Propeller2
+    second: {fileID: 2100000, guid: 31518f772d3c39c4684886131fc83dc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props
+    second: {fileID: 2100000, guid: ff639ba226d5748498e4fb9eb613e6af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shattered
+    second: {fileID: 2100000, guid: c65cc77365351f8429643f63b2aa6032, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 0.01
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 1
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>glTF-Transform v4.1.1
+
+    <b>Version: </b>2.0
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {fileID: -2924149655904766978, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -8048273588098311674, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -9103484930961366303, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -6276846335709149076, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 3170531198488047425, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 3912353240438630737, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 954267526019623431, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -8375765414521573622, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 5230710935534649205, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -8129758088962058008, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 4419002989690957756, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -8213010033356927415, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -2923090463362048286, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -1409421374340744902, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 5168201383138215746, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -8258669878725837121, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 7588625135491482284, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -3754824677850755465, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 4658301193636465058, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -680577616579426953, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 5948923825498413373, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  textures:
+  - {fileID: 6983701643236107813, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 8022499087761476943, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 5230624929818990856, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -2834534249764746836, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -409340629399409755, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -6477806308458343453, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 6960455510609624210, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 150502026991701941, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 2933329333178083999, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -22660439024615302, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -809988167731686972, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 5743815331122784290, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 7193558952320421103, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -2275718726046256121, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 3560622977116409970, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -1462800502094218808, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -8506249199374065407, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: 5857770040681355603, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -410426166806237867, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -158951856904712258, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  - {fileID: -1533294962236245339, guid: a25c47734ffd71a49b4a6adaa291f162, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 1
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations:
+  - name: Cast_Animation
+  - name: Cast_Cycle
+  - name: Cast_Damage
+  - name: Damage_Hurt
+  - name: Dance_In
+  - name: Dance_Loop
+  - name: Death
+  - name: Dive_In
+  - name: Dive_Out
+  - name: Dive_Toidle
+  - name: Idle_Base
+  - name: Idle_In
+  - name: Interact
+  - name: Joke_In
+  - name: Joke_Loop
+  - name: Laugh
+  - name: PetChibiMalphite_Dancetorun.anm
+  - name: PetChibiMalphite_Idle.anm
+  - name: PetChibiMalphite_Mecha_Finisher_C01.anm
+  - name: PetChibiMalphite_Mecha_Finisher_C02.anm
+  - name: PetChibiMalphite_Taunt.anm
+  - name: Recall
+  - name: Recall_Winddown
+  - name: Run_Base
+  - name: Run_Haste
+  - name: Taunt
+  _extensions:
+  - name: KHR_materials_unlit
+    supported: 1
+    used: 1
+    required: 0
+  - name: KHR_texture_transform
+    supported: 1
+    used: 1
+    required: 0
+  _textures:
+  - texture: {fileID: 6983701643236107813, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 8022499087761476943, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5230624929818990856, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -2834534249764746836, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -409340629399409755, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -6477806308458343453, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 6960455510609624210, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 150502026991701941, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2933329333178083999, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -22660439024615302, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -809988167731686972, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5743815331122784290, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 7193558952320421103, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -2275718726046256121, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 3560622977116409970, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -1462800502094218808, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -8506249199374065407, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5857770040681355603, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -410426166806237867, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -158951856904712258, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -1533294962236245339, guid: a25c47734ffd71a49b4a6adaa291f162,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  _mainAssetIdentifier: scenes/AuxScene
+  _importPlugins: []

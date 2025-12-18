@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Aatrox_Light
+  m_Controller: {fileID: 9100000, guid: 093382b87c793f3438a084c8f4178c36, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f55dcfbc478f5ff41bee66607506d702, type: 2}
+    m_OverrideClip: {fileID: 1188988059366453824, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 840a90694f0497949b0104a3c8e317bb, type: 2}
+    m_OverrideClip: {fileID: 1188988059366453824, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 5d804f41d6d9dd24e80bcaf9127e2d12, type: 2}
+    m_OverrideClip: {fileID: 4348485665485846014, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: ba50c5b60973bd848a3428ddc50bcbe7, type: 2}
+    m_OverrideClip: {fileID: -6641252749421423254, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: bcd56004c4e72a047aee0cec1b7c23cb, type: 2}
+    m_OverrideClip: {fileID: -6570874476733736779, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: a5f44e5e3406eb04f81b4e29e397853b, type: 2}
+    m_OverrideClip: {fileID: -6311719780386700726, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: c67a616657675024e9457154e6186a15, type: 2}
+    m_OverrideClip: {fileID: 2410030481897421158, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 83f9357eb4767514bb80ab8ecf9d74b1, type: 2}
+    m_OverrideClip: {fileID: -5897640659555878162, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}
+  - m_OriginalClip: {fileID: 7400000, guid: 4cbcb4ef29842e64fac1b7278c792a39, type: 2}
+    m_OverrideClip: {fileID: 441525846754978370, guid: df73bc11b7d011c4fa1bbd91d5e43a05,
+      type: 3}

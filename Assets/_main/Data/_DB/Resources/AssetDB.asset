@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662d7eb26c45fa44fbe77e2b3f31883c, type: 3}
+  m_Name: AssetDB
+  m_EditorClassIdentifier: 
+  markIcons:
+  - key: caitlyn_cake
+    value: {fileID: 21300000, guid: 8cd07347b8b1db745bf1a5b59f5d0144, type: 3}
+  - key: caitlyn_cake_atkspd
+    value: {fileID: 21300000, guid: 63369c84e44453843bf96b25f958ecdd, type: 3}
+  - key: teemo_hell_flame
+    value: {fileID: 21300000, guid: 292c77a806916f24f9218961a06ed371, type: 3}
+  - key: malphite_unstoppable
+    value: {fileID: 21300000, guid: 00591f64954dac443996bc42fcd70b1c, type: 3}
+  - key: yasuo_wind_claws
+    value: {fileID: 21300000, guid: 76384063e4261f14586d23518b4b3db9, type: 3}
+  - key: yone_weakening
+    value: {fileID: 21300000, guid: 4ca60a31c31ce664f8b9b55aa725ba53, type: 3}
+  - key: missfortune_shield_breaker
+    value: {fileID: 21300000, guid: 6e0b5b49d0b9d614685d600e37a89f27, type: 3}
+  - key: aatrox_curse
+    value: {fileID: 21300000, guid: a362ba6bf7adb9247bc84db0531db29a, type: 3}
+  - key: tristana_furious
+    value: {fileID: 21300000, guid: c32ad0ad524f8844fa25ee8f112be3bf, type: 3}
+  roleIcons:
+  - role: 1
+    value: {fileID: 21300000, guid: ee0d85a512d0e1c43ad73d74ee05c09b, type: 3}
+  - role: 2
+    value: {fileID: 21300000, guid: 871f825cbb1305d4fa70d057228c6f01, type: 3}
+  - role: 4
+    value: {fileID: 21300000, guid: 87f3727231980894dafa1cddf172634d, type: 3}
+  - role: 8
+    value: {fileID: 21300000, guid: 6064ff8ff35e4ac4e99574d23137bf37, type: 3}
+  - role: 16
+    value: {fileID: 21300000, guid: fb99730849bdc3f43b9fb44820fdfeb2, type: 3}
+  - role: 32
+    value: {fileID: 21300000, guid: 1ca555c57f2b74a4c9ca87444fc3403e, type: 3}
+  realmIcons:
+  - realm: 2
+    value: {fileID: 21300000, guid: e2a5eb06798f03f44a73afe06f37a90e, type: 3}
+  - realm: 1
+    value: {fileID: 21300000, guid: 1714af17bd50e8d42ba3135a9cf328d4, type: 3}
+  - realm: 3
+    value: {fileID: 21300000, guid: 9d0fbe9841820434194499706a7490cc, type: 3}
+  - realm: 5
+    value: {fileID: 21300000, guid: cb2575101cf7512409d69d269b093acf, type: 3}
+  - realm: 4
+    value: {fileID: 21300000, guid: 96d5150e6d68b504da048d652cb3b849, type: 3}
+  rankIcons:
+  - rank: 2
+    value: {fileID: 21300000, guid: 54a3d889ff41a6e4aa23f2d162b1497d, type: 3}
+  - rank: 1
+    value: {fileID: 21300000, guid: a9e1fa7020ffbec41b653940e0cbeb7a, type: 3}
+  - rank: 0
+    value: {fileID: 21300000, guid: 54d826ed12da25543a9893c364bd6b2b, type: 3}

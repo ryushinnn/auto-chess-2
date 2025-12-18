@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ef0f974f644ec384cf929bd0bafac9, type: 3}
+  m_Name: Stage 1
+  m_EditorClassIdentifier: 
+  matches:
+  - enemies:
+    - heroId: Katarina
+      rank: 0
+      gridPosition: {x: 6, y: 0}
+      items:
+      - {fileID: 11400000, guid: c3e80eb54b2e7c243b3acc98cee60f15, type: 2}
+      - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
+      hpScale: 3
+      damageScale: 0.7
+    - heroId: Ashe
+      rank: 1
+      gridPosition: {x: 7, y: 7}
+      items:
+      - {fileID: 11400000, guid: 0f127db188fcf194fbc635e930330236, type: 2}
+      - {fileID: 11400000, guid: 0f127db188fcf194fbc635e930330236, type: 2}
+      - {fileID: 11400000, guid: 9cb9dbec21006c749934620adc6fc89b, type: 2}
+      hpScale: 3
+      damageScale: 1
+    - heroId: Irelia
+      rank: 0
+      gridPosition: {x: 4, y: 2}
+      items:
+      - {fileID: 11400000, guid: 8be836fef515b094986252b4c9ce8c90, type: 2}
+      - {fileID: 11400000, guid: a63b2abbb81f59c4f909c732584c7bc2, type: 2}
+      hpScale: 4
+      damageScale: 1
+    - heroId: Malphite
+      rank: 2
+      gridPosition: {x: 4, y: 4}
+      items:
+      - {fileID: 11400000, guid: 25359fe44ec24e64d9ae1a596400dcea, type: 2}
+      - {fileID: 11400000, guid: 851278dc5771806489c4bf7478d6198f, type: 2}
+      - {fileID: 11400000, guid: fead64c9a8f57784ba0f727f2ec5df2d, type: 2}
+      hpScale: 7
+      damageScale: 1
+    - heroId: Aatrox_Dark
+      rank: 1
+      gridPosition: {x: 7, y: 3}
+      items:
+      - {fileID: 11400000, guid: 9bdc0497fc174d046ac5ed1bf6b4952b, type: 2}
+      - {fileID: 11400000, guid: aaa6831ad3d8d524988eab96faeaffa4, type: 2}
+      hpScale: 4
+      damageScale: 1
+    - heroId: Aatrox_Light
+      rank: 0
+      gridPosition: {x: 7, y: 5}
+      items:
+      - {fileID: 11400000, guid: bc4c391b519ec844fb6e365f9f88dfc8, type: 2}
+      - {fileID: 11400000, guid: 4ab3a9d7ec7957d4b8abef007aae52a6, type: 2}
+      hpScale: 4
+      damageScale: 1
+    - heroId: Zed
+      rank: 2
+      gridPosition: {x: 6, y: 7}
+      items:
+      - {fileID: 11400000, guid: 9bdc0497fc174d046ac5ed1bf6b4952b, type: 2}
+      - {fileID: 11400000, guid: 9bdc0497fc174d046ac5ed1bf6b4952b, type: 2}
+      - {fileID: 11400000, guid: aaa6831ad3d8d524988eab96faeaffa4, type: 2}
+      hpScale: 3
+      damageScale: 1
+    - heroId: Yone
+      rank: 2
+      gridPosition: {x: 5, y: 2}
+      items:
+      - {fileID: 11400000, guid: b4a39dd956d18c841a4f3208f7cae8fe, type: 2}
+      - {fileID: 11400000, guid: aaa6831ad3d8d524988eab96faeaffa4, type: 2}
+      - {fileID: 11400000, guid: 43102ea3bf9c1944ab94cb86feeefedb, type: 2}
+      hpScale: 3
+      damageScale: 1
+    rewards:
+    - type: hero
+      coins: 1
+      minCoins: 0
+      maxCoins: 0
+      reputation: 1
+      randomRewards: []
+    - type: hero
+      coins: 2
+      minCoins: 0
+      maxCoins: 0
+      reputation: 1
+      randomRewards: []
+    - type: coin
+      coins: 6
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: coin
+      coins: 6
+      minCoins: 1
+      maxCoins: 2
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: MissFortune
+      rank: 0
+      gridPosition: {x: 7, y: 3}
+      items: []
+      hpScale: 0.6
+      damageScale: 0.5
+    - heroId: Morgana
+      rank: 0
+      gridPosition: {x: 7, y: 4}
+      items: []
+      hpScale: 0.6
+      damageScale: 0.5
+    rewards:
+    - type: coin
+      coins: 8
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: coin
+      coins: 8
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: Yasuo
+      rank: 0
+      gridPosition: {x: 7, y: 0}
+      items:
+      - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
+      hpScale: 0.8
+      damageScale: 1
+    - heroId: Yasuo
+      rank: 0
+      gridPosition: {x: 6, y: 4}
+      items:
+      - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
+      hpScale: 0.8
+      damageScale: 1
+    - heroId: Yasuo
+      rank: 0
+      gridPosition: {x: 7, y: 7}
+      items:
+      - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
+      hpScale: 0.8
+      damageScale: 1
+    rewards:
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: forged_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: coin
+      coins: 10
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: Malphite
+      rank: 1
+      gridPosition: {x: 5, y: 4}
+      items:
+      - {fileID: 11400000, guid: fead64c9a8f57784ba0f727f2ec5df2d, type: 2}
+      - {fileID: 11400000, guid: 25359fe44ec24e64d9ae1a596400dcea, type: 2}
+      hpScale: 2
+      damageScale: 1.8
+    rewards:
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: raw_item
+      coins: 5
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: coin
+      coins: 12
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: random_coin
+      coins: 0
+      minCoins: 12
+      maxCoins: 18
+      reputation: 0
+      randomRewards: []
+    - type: hero
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 2
+      randomRewards: []
+    - type: forged_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db1017b714645c98893128408f341f8, type: 3}
+  m_Name: Sorcerer
+  m_EditorClassIdentifier: 
+  checkpoints: 020000000300000004000000
+  destinyParams:
+  - key: mdmg_0
+    value: 30
+    isPercentage: 0
+  - key: mdmg_1
+    value: 70
+    isPercentage: 0
+  - key: mdmg_2
+    value: 150
+    isPercentage: 0
+  - key: chance_0
+    value: 0.2
+    isPercentage: 1
+  - key: chance_1
+    value: 0.3
+    isPercentage: 1
+  - key: chance_2
+    value: 0.4
+    isPercentage: 1
+  description: "<b>Ph\xE1p s\u01B0</b> nh\u1EADn th\xEAm <sprite name=mdmg>. Sau
+    khi <b>Ph\xE1p s\u01B0</b> thi tri\u1EC3n k\u0129 n\u0103ng l\u1EA7n \u0111\u1EA7u,
+    c\xF3 t\u1EC9 l\u1EC7 thi tri\u1EC3n k\u0129 n\u0103ng th\xEAm m\u1ED9t l\u1EA7n
+    n\u1EEFa.\n<color=grey>\n<0>M\u1ED1c &[0]: #[0]<sprite name=mdmg>, #[3]</0>\n<1>M\u1ED1c
+    &[1]: #[1]<sprite name=mdmg>, #[4]</1>\n<2>M\u1ED1c &[2]: #[2]<sprite name=mdmg>,
+    #[5]</2>\n</color>"
+  role: 2

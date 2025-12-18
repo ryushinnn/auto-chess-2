@@ -1,0 +1,196 @@
+fileFormatVersion: 2
+guid: 4ffa2773fa14eba478f3075fe2a701ea
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 112ca326ee261c44f8cdd0ab25972790, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Boom1
+    second: {fileID: 2100000, guid: 780c645c52c4af343a08bd227cc195cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body_Boom2
+    second: {fileID: 2100000, guid: 5cf5848823bf3d9419a5c726eb3e9cbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Darts
+    second: {fileID: 2100000, guid: 97f2670a542896547b4cdb5da4ccdd6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Env_Groud
+    second: {fileID: 2100000, guid: 62c64841d6dd6a14d94b90ff2877558b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Env_Sky_A
+    second: {fileID: 2100000, guid: f1a76c5dd973ae0419098444cc6798da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Weapons
+    second: {fileID: 2100000, guid: f891d41660fa7854d9d18dd450788c55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Weapons01
+    second: {fileID: 2100000, guid: 526399ee5d5076e408a024a66abab84f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Weapons_Boom1
+    second: {fileID: 2100000, guid: 63f692efac2e4be4f88537a5ad814e66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Weapons_Boom2
+    second: {fileID: 2100000, guid: 3d9329cd7389f234eac9fc2d748ab17f, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 0.01
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 1
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>glTF-Transform v4.1.1
+
+    <b>Version: </b>2.0
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {fileID: 290626521206131018, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -4609150177984477704, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -9103484930961366303, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 7243435920607991906, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 1836420342603286296, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 4264925662631216906, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -7343101079502193182, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 3762370362657191196, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -7363349992876286760, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -5555294592097296254, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  textures:
+  - {fileID: 6983701643236107813, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 8022499087761476943, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 5230624929818990856, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -2834534249764746836, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -409340629399409755, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -6477806308458343453, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 6960455510609624210, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 150502026991701941, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: 2933329333178083999, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  - {fileID: -22660439024615302, guid: 4ffa2773fa14eba478f3075fe2a701ea, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 1
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations:
+  - name: Cast_Animation
+  - name: Cast_Cycle
+  - name: Cast_Damage
+  - name: Damage_Hurt
+  - name: Dance_In
+  - name: Dance_Loop
+  - name: Death
+  - name: Dive_In
+  - name: Dive_Out
+  - name: Greeting
+  - name: Idle_Base
+  - name: Idle_In
+  - name: Interact
+  - name: Joke
+  - name: Laugh
+  - name: PetChibiZed_Project_Finisher_Co1.anm
+  - name: PetChibiZed_Project_Finisher_Co2.anm
+  - name: PetChibiZed_Project_Finisher_Co3.anm
+  - name: PetChibiZed_Project_Finisher_Co4.anm
+  - name: PetChibiZed_Project_idle.anm
+  - name: Recall
+  - name: Recall_Winddown
+  - name: Run_Base
+  - name: Run_Haste
+  - name: Taunt
+  _extensions:
+  - name: KHR_materials_unlit
+    supported: 1
+    used: 1
+    required: 0
+  - name: KHR_texture_transform
+    supported: 1
+    used: 1
+    required: 0
+  _textures:
+  - texture: {fileID: 6983701643236107813, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 8022499087761476943, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5230624929818990856, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -2834534249764746836, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -409340629399409755, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -6477806308458343453, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 6960455510609624210, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 150502026991701941, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2933329333178083999, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -22660439024615302, guid: 4ffa2773fa14eba478f3075fe2a701ea,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  _mainAssetIdentifier: scenes/AuxScene
+  _importPlugins: []

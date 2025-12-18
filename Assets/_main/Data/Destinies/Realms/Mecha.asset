@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b65a41aa8b340bcbe84edad7f768cfd, type: 3}
+  m_Name: Mecha
+  m_EditorClassIdentifier: 
+  checkpoints: 02000000030000000400000005000000
+  destinyParams:
+  - key: dmg_deal_threshold
+    value: 150
+    isPercentage: 0
+  - key: dmg_deal_threshold
+    value: 300
+    isPercentage: 0
+  - key: rocket_dmg
+    value: 100
+    isPercentage: 0
+  - key: requirement_reduce
+    value: 0.3
+    isPercentage: 1
+  - key: rocket_dmg_bonus
+    value: 0.3
+    isPercentage: 1
+  - key: rocket_crit_chance
+    value: 0.33
+    isPercentage: 1
+  - key: rocket_crit_dmg
+    value: 1.5
+    isPercentage: 1
+  description: "V\u1EDBi m\u1ED7i <color=grey>#[0]</color> s\xE1t th\u01B0\u01A1ng
+    g\xE2y ra ho\u1EB7c <color=grey>#[1]</color> s\xE1t th\u01B0\u01A1ng nh\u1EADn
+    v\xE0o, c\xE1c <b>C\u01A1 gi\u1EDBi</b> g\u1EEDi y\xEAu c\u1EA7u h\u1ED7 tr\u1EE3
+    t\u1EDBi <color=orange>PHI \u0110\u1ED8I</color>. Khi nh\u1EADn \u0111\u01B0\u1EE3c
+    y\xEAu c\u1EA7u, <color=orange>PHI \u0110\u1ED8I</color> tri\u1EC7u g\u1ECDi
+    t\xEAn l\u1EEDa t\u1EA5n c\xF4ng k\u1EBB \u0111\u1ECBch th\u1EA5p m\xE1u nh\u1EA5t.\n<color=grey>\n<0>M\u1ED1c
+    &[0]: T\xEAn l\u1EEDa g\xE2y #[2] s\xE1t th\u01B0\u01A1ng v\u1EADt l\xFD/s\xE1t
+    th\u01B0\u01A1ng ph\xE9p (d\u1EF1a v\xE0o <sprite name=arm><sprite name=res>
+    c\u1EE7a m\u1EE5c ti\xEAu)</0>\n<1>M\u1ED1c &[1]: Gi\u1EA3m #[3] \u0111i\u1EC1u
+    ki\u1EC7n g\u1EEDi y\xEAu c\u1EA7u h\u1ED7 tr\u1EE3</1>\n<2>M\u1ED1c &[2]: T\xEAn
+    l\u1EEDa t\u0103ng #[4] s\xE1t th\u01B0\u01A1ng</2>\n<3>M\u1ED1c &[3]: T\xEAn
+    l\u1EEDa g\xE2y s\xE1t th\u01B0\u01A1ng chu\u1EA9n v\xE0 c\xF3 #[5]<sprite name=crc>,
+    g\xE2y #[6] s\xE1t th\u01B0\u01A1ng</3>\n</color>\n"
+  realm: 4

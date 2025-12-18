@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db1017b714645c98893128408f341f8, type: 3}
+  m_Name: Marksman
+  m_EditorClassIdentifier: 
+  checkpoints: 020000000300000004000000
+  destinyParams:
+  - key: bonus_atk_spd_0
+    value: 0.2
+    isPercentage: 1
+  - key: bonus_atk_spd_1
+    value: 0.4
+    isPercentage: 1
+  - key: bonus_atk_spd_2
+    value: 0.7
+    isPercentage: 1
+  - key: burst_duration_0
+    value: 5
+    isPercentage: 0
+  - key: burst_duration_1
+    value: 7
+    isPercentage: 0
+  - key: burst_duration_2
+    value: 12
+    isPercentage: 0
+  description: "<b>X\u1EA1 th\u1EE7</b> nh\u1EADn th\xEAm <sprite name=aspd>. M\u1ED7i
+    khi m\u1ED9t <b>X\u1EA1 th\u1EE7</b> t\u1EED tr\u1EADn, t\u1EA5t c\u1EA3 <b>X\u1EA1
+    th\u1EE7</b> c\xF2n s\u1ED1ng ti\u1EBFp t\u1EE5c nh\u1EADn l\u01B0\u1EE3ng <sprite
+    name=aspd> \u0111\xF3 trong m\u1ED9t kho\u1EA3ng th\u1EDDi gian (c\xF3 th\u1EC3
+    c\u1ED9ng d\u1ED3n).\n<color=grey>\n<0>M\u1ED1c &[0]: #[0]<sprite name=aspd>,
+    duy tr\xEC #[3]s</0>\n<1>M\u1ED1c &[1]: #[1]<sprite name=aspd>, duy tr\xEC #[4]s</1>\n<2>M\u1ED1c
+    &[2]: #[2]<sprite name=aspd>, duy tr\xEC #[5]s</2>\n</color>"
+  role: 4

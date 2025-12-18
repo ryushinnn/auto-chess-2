@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b65a41aa8b340bcbe84edad7f768cfd, type: 3}
+  m_Name: Divine
+  m_EditorClassIdentifier: 
+  checkpoints: 02000000030000000400000005000000
+  destinyParams:
+  - key: stun_chance_0
+    value: 0.1
+    isPercentage: 1
+  - key: stun_chance_1
+    value: 0.15
+    isPercentage: 1
+  - key: stun_chance_2
+    value: 0.2
+    isPercentage: 1
+  - key: stun_chance_3
+    value: 0.25
+    isPercentage: 1
+  - key: stun_duration
+    value: 1
+    isPercentage: 0
+  - key: crit_stun_chance_mul
+    value: 2
+    isPercentage: 0
+  - key: crit_stun_duration_mul
+    value: 0.5
+    isPercentage: 1
+  - key: dmg_bonus_0
+    value: 0.2
+    isPercentage: 1
+  - key: dmg_bonus_1
+    value: 0.4
+    isPercentage: 1
+  description: "\u0110\xF2n \u0111\xE1nh c\u1EE7a <b>Th\xE1nh th\u1EA7n</b> c\xF3
+    t\u1EC9 l\u1EC7 g\xE2y [<color=yellow>Cho\xE1ng</color>] trong #[4]s. \u0110\xF2n
+    \u0111\xE1nh ch\xED m\u1EA1ng ho\u1EB7c s\xE1t th\u01B0\u01A1ng chu\u1EA9n c\xF3
+    t\u1EC9 l\u1EC7 g\xE2y [<color=yellow>Cho\xE1ng</color>] g\u1EA5p #[5] l\u1EA7n
+    v\xE0 th\u1EDDi gian duy tr\xEC t\u0103ng #[6].\n<color=grey>\n<0>M\u1ED1c &[0]:
+    T\u1EC9 l\u1EC7 #[0]</0>\n<1>M\u1ED1c &[1]: T\u1EC9 l\u1EC7 #[1]</1>\n<2>M\u1ED1c
+    &[2]: T\u1EC9 l\u1EC7 #[2]. <b>Th\xE1nh th\u1EA7n</b> g\xE2y th\xEAm #[7] s\xE1t
+    th\u01B0\u01A1ng l\xEAn k\u1EBB \u0111\u1ECBch b\u1ECB [<color=yellow>Cho\xE1ng</color>]</2>\n<3>M\u1ED1c
+    &[3]: T\u1EC9 l\u1EC7 #[3]. <b>Th\xE1nh th\u1EA7n</b> g\xE2y th\xEAm #[8] s\xE1t
+    th\u01B0\u01A1ng l\xEAn k\u1EBB \u0111\u1ECBch b\u1ECB [<color=yellow>Cho\xE1ng</color>]</3>\n</color>"
+  realm: 2

@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Yone
+  m_EditorClassIdentifier: 
+  id: Yone
+  name: "Du Thi\xEAn"
+  subName: 
+  summoned: 0
+  realm: 3
+  role: 33
+  reputation: 3
+  moveable: 1
+  mecanim: {fileID: 7410290684134340985, guid: acacc7ffae828af479be1b7552135b27, type: 3}
+  thumbnail: {fileID: 21300000, guid: 5ec1fb7f84e0f56419f2c27e0ab827e3, type: 3}
+  skillIcon: {fileID: 21300000, guid: 5d7cf54957d4e484ca4ad33ccc8bb377, type: 3}
+  maxHp: 2120
+  physicalDamage: 168
+  magicalDamage: 0
+  armor: 28
+  resistance: 25
+  attackSpeed: 0.55
+  movementSpeed: 1.8
+  energyRegenPerAttack: 23
+  energyRegenPerHit: 0
+  attackRange: 1
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "Thi\xEAn \xC2n/Tuy\u1EC7t Di\u1EC7t"
+  unstoppable: 0
+  skillParams:
+  - key: eff_dmg_reduce_mul
+    value: -0.05
+    isPercentage: 1
+  - key: eff_max_stacks
+    value: 3
+    isPercentage: 0
+  - key: eff_duration
+    value: 5
+    isPercentage: 0
+  - key: vamp_min
+    value: 0
+    isPercentage: 1
+  - key: vamp_max
+    value: 0.2
+    isPercentage: 1
+  - key: divine_base_dmg
+    value: 200
+    isPercentage: 0
+  - key: divine_dmg_mul
+    value: 2
+    isPercentage: 1
+  - key: airbone_duration
+    value: 1.5
+    isPercentage: 0
+  - key: energy_regen
+    value: 50
+    isPercentage: 0
+  - key: devil_base_dmg_0
+    value: 60
+    isPercentage: 0
+  - key: devil_dmg_mul_0
+    value: 0.5
+    isPercentage: 1
+  - key: devil_base_dmg_1
+    value: 150
+    isPercentage: 0
+  - key: devil_dmg_mul_1
+    value: 2
+    isPercentage: 1
+  passiveDescription: "Thay \u0111\u1ED5i gi\u1EEFa 2 thanh ki\u1EBFm sau m\u1ED7i
+    \u0111\xF2n \u0111\xE1nh.\n- <color=yellow>Th\u1EA7n Ki\u1EBFm</color>: G\xE2y
+    (100% <sprite name=pdmg>) s\xE1t th\u01B0\u01A1ng v\u1EADt l\xFD v\xE0 th\xEAm
+    1 c\u1ED9ng d\u1ED3n (t\u1ED1i \u0111a #[1] c\u1ED9ng d\u1ED3n) v\xE0 l\xE0m
+    m\u1EDBi th\u1EDDi gian duy tr\xEC (#[2]s) hi\u1EC7u \u1EE9ng <color=orange>SUY
+    Y\u1EBEU</color> tr\xEAn m\u1EE5c ti\xEAu\n- <color=purple>Qu\u1EF7 Ki\u1EBFm</color>:
+    G\xE2y (100% <sprite name=pdmg>) s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0 nh\u1EADn
+    th\xEAm t\u1ED1i \u0111a #[4]<sprite name=ls>, d\u1EF1a tr\xEAn m\xE1u \u0111\xE3
+    m\u1EA5t\n\n[<color=orange>SUY Y\u1EBEU</color>] Gi\u1EA3m #[0]<sprite name=pdmg>
+    v\xE0 <sprite name=mdmg> c\u1EE7a m\u1EE5c ti\xEAu."
+  activeDescription: "Thanh Ki\u1EBFm \u0111ang s\u1EB5n s\xE0ng s\u1EBD quy\u1EBFt
+    \u0111\u1ECBnh k\u1EF9 n\u0103ng n\xE0o s\u1EBD \u0111\u01B0\u1EE3c k\xEDch ho\u1EA1t:\n-
+    <color=yellow>Th\u1EA7n Ki\u1EBFm</color>: Lao t\u1EDBi ch\xE9m 1 nh\xE1t g\xE2y
+    <color=grey>(#[5] + #[6]<sprite name=pdmg>)</color> s\xE1t th\u01B0\u01A1ng v\u1EADt
+    l\xFD v\xE0 h\u1EA5t tung m\u1EE5c ti\xEAu trong #[7]s. N\u1EBFu nh\xE1t ch\xE9m
+    n\xE0y ti\xEAu di\u1EC7t m\u1EE5c ti\xEAu, h\u1ED3i ph\u1EE5c #[8]<sprite name=eng>.\n-
+    <color=purple>Qu\u1EF7 Ki\u1EBFm</color>: Ch\xE9m li\xEAn ho\xE0n 4 nh\xE1t,
+    3 nh\xE1t \u0111\u1EA7u g\xE2y <color=grey>(#[9] + #[10]<sprite name=pdmg>)</color>
+    s\xE1t th\u01B0\u01A1ng ph\xE9p, nh\xE1t ch\xE9m cu\u1ED1i g\xE2y <color=grey>(#[11]
+    + #[12]<sprite name=pdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p, c\xE1c nh\xE1t
+    ch\xE9m n\xE0y \u0111\u1EC1u c\xF3 th\u1EC3 ch\xED m\u1EA1ng."
+  specialKeys:
+  - yone_weakening
+  dps: 92.4
+  physicalReduction: 21.875
+  magicalReduction: 20

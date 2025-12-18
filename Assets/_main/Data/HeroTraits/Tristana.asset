@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Tristana
+  m_EditorClassIdentifier: 
+  id: Tristana
+  name: "Tr\xED T\xE2m"
+  subName: 
+  summoned: 0
+  realm: 1
+  role: 4
+  reputation: 1
+  moveable: 1
+  mecanim: {fileID: 8864082493877353897, guid: 1f34d2d1205ca1a42a0590da7d2fbc94, type: 3}
+  thumbnail: {fileID: 21300000, guid: 18cdeddf21bb94d4daa215bdd6114dc3, type: 3}
+  skillIcon: {fileID: 21300000, guid: 3f5cb7c2c2cc98c49b1f20b100ff4dea, type: 3}
+  maxHp: 1980
+  physicalDamage: 125
+  magicalDamage: 0
+  armor: 20
+  resistance: 22
+  attackSpeed: 0.4
+  movementSpeed: 1.8
+  energyRegenPerAttack: 33
+  energyRegenPerHit: 4
+  attackRange: 4
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "Chi\u1EBFn Ph\xE1o Cu\u1ED3ng N\u1ED9"
+  unstoppable: 1
+  skillParams:
+  - key: atk_spd_mul
+    value: 5
+    isPercentage: 1
+  - key: crit_chance_mul
+    value: 0.2
+    isPercentage: 1
+  - key: duration
+    value: 4
+    isPercentage: 0
+  passiveDescription: 
+  activeDescription: "T\u0103ng #[0]<sprite name=aspd> v\xE0 #[1]<sprite name=crc>,
+    duy tr\xEC #[2]s."
+  specialKeys:
+  - tristana_furious
+  dps: 50
+  physicalReduction: 16.666666
+  magicalReduction: 18.032787

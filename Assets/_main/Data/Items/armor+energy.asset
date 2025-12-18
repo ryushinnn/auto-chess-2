@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92797996edde4d45b1f38b683a49f47, type: 3}
+  m_Name: armor+energy
+  m_EditorClassIdentifier: 
+  name: "Ch\xE2n B\u0103ng Gi\xE1p"
+  icon: {fileID: 21300000, guid: f33d2215500f0344b83a5d8d00e133d2, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
+  - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
+  modifiers:
+  - key: armor
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 20
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0
+  - key: energy_regen_eff
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 0.33
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0

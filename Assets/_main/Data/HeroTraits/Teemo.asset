@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Teemo
+  m_EditorClassIdentifier: 
+  id: Teemo
+  name: "Ti\xEAn M\u1EC7nh"
+  subName: 
+  summoned: 0
+  realm: 3
+  role: 34
+  reputation: 2
+  moveable: 1
+  mecanim: {fileID: 5778484270824746890, guid: 212cc5669baec5647bbbba991b380344, type: 3}
+  thumbnail: {fileID: 21300000, guid: 6802aed72ed13514abcaac7fa9620d11, type: 3}
+  skillIcon: {fileID: 21300000, guid: 7ce18f133a67e37408825bf635e3e5af, type: 3}
+  maxHp: 2540
+  physicalDamage: 0
+  magicalDamage: 130
+  armor: 32
+  resistance: 24
+  attackSpeed: 0.5
+  movementSpeed: 2
+  energyRegenPerAttack: 15
+  energyRegenPerHit: 7
+  attackRange: 2
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "Ho\u1EA3 Ng\u1EE5c T\xE0n H\u1ED3n"
+  unstoppable: 0
+  skillParams:
+  - key: dot_max_stacks
+    value: 5
+    isPercentage: 0
+  - key: dot_duration
+    value: 3
+    isPercentage: 0
+  - key: dot_interval
+    value: 0.5
+    isPercentage: 0
+  - key: dot_dmg_by_max_hp
+    value: 0.001
+    isPercentage: 1
+  - key: dot_dmg_mul_limit
+    value: 0.01
+    isPercentage: 1
+  - key: base_dmg
+    value: 50
+    isPercentage: 0
+  - key: dmg_mul
+    value: 0.8
+    isPercentage: 1
+  - key: bonus_base_dmg_per_stack
+    value: 20
+    isPercentage: 0
+  - key: bonus_dmg_mul_per_stack
+    value: 0.1
+    isPercentage: 1
+  passiveDescription: "\u0110\xF2n \u0111\xE1nh s\u1EBD th\xEAm 1 c\u1ED9ng d\u1ED3n
+    (t\u1ED1i \u0111a #[0] c\u1ED9ng d\u1ED3n) v\xE0 l\xE0m m\u1EDBi th\u1EDDi gian
+    duy tr\xEC (#[1]s) c\u1EE7a hi\u1EC7u \u1EE9ng <color=red>HO\u1EA2 NG\u1EE4C</color>.\n\n[<color=red>HO\u1EA2
+    NG\u1EE4C</color>] M\u1ED7i #[2]s g\xE2y s\xE1t th\u01B0\u01A1ng chu\u1EA9n b\u1EB1ng
+    #[3]<sprite name=hp> t\u1ED1i \u0111a c\u1EE7a m\u1EE5c ti\xEAu (kh\xF4ng v\u01B0\u1EE3t
+    qu\xE1 #[4]<sprite name=mdmg>) tr\xEAn m\u1ED7i c\u1ED9ng d\u1ED3n"
+  activeDescription: "N\xE9m 3 qu\u1EA3 bom, m\u1ED7i qu\u1EA3 bom g\xE2y <color=grey>(#[5]
+    + #[6]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p, t\u0103ng
+    <color=grey>(#[7] + #[8]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p
+    v\u1EDBi m\u1ED7i c\u1ED9ng d\u1ED3n <color=red>HO\u1EA2 NG\u1EE4C</color> tr\xEAn
+    m\u1EE5c ti\xEAu. M\u1ED7i qu\u1EA3 bom \u0111\u1EC1u th\xEAm 1 c\u1ED9ng d\u1ED3n
+    v\xE0 l\xE0m m\u1EDBi th\u1EDDi gian duy tr\xEC c\u1EE7a hi\u1EC7u \u1EE9ng <color=red>HO\u1EA2
+    NG\u1EE4C</color>. Qu\u1EA3 bom th\u1EE9 3 g\xE2y s\xE1t th\u01B0\u01A1ng ch\xED
+    m\u1EA1ng."
+  specialKeys:
+  - teemo_hell_flame
+  dps: 65
+  physicalReduction: 24.242424
+  magicalReduction: 19.35484

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b65a41aa8b340bcbe84edad7f768cfd, type: 3}
+  m_Name: Chaos
+  m_EditorClassIdentifier: 
+  checkpoints: 02000000
+  destinyParams:
+  - key: hp_bonus
+    value: 999
+    isPercentage: 0
+  - key: interval
+    value: 5
+    isPercentage: 0
+  - key: heal_by_hp_loss
+    value: 0.1
+    isPercentage: 1
+  - key: duration
+    value: 1
+    isPercentage: 0
+  description: "Tri\u1EC7u h\u1ED3i <color=red>Chi\u1EBFn Binh T\u1EADn Th\u1EBF</color>
+    tham chi\u1EBFn\n\nCh\u1EC9 s\u1ED1 c\u1EE7a <color=red>Chi\u1EBFn Binh T\u1EADn
+    Th\u1EBF</color> \u0111\u01B0\u1EE3c t\xEDnh d\u1EF1a tr\xEAn ch\u1EC9 s\u1ED1
+    c\u1EE7a A Ch\u1ED1c Nh\u1EADt m\u1EA1nh nh\u1EA5t v\xE0 A Ch\u1ED1c Nguy\u1EC7t
+    m\u1EA1nh nh\u1EA5t:\n<color=grey>T\u1ED5ng: <sprite name=hp><sprite name=pdmg><sprite
+    name=mdmg>\nTrung b\xECnh: <sprite name=arm><sprite name=res><sprite name=crc><sprite
+    name=crd>\nL\u1EDBn h\u01A1n: <sprite name=ppen><sprite name=mpen></color>\n\nNgo\xE0i
+    ra, <color=red>Chi\u1EBFn Binh T\u1EADn Th\u1EBF</color> nh\u1EADn th\xEAm #[0]<sprite
+    name=hp>. M\u1ED7i #[1]s, <color=red>Chi\u1EBFn Binh T\u1EADn Th\u1EBF</color>
+    h\u1ED3i ph\u1EE5c #[2]<sprite name=hp> \u0111\xE3 m\u1EA5t v\xE0 nh\u1EADn [<color=orange>V\xF4
+    \u0111\u1ECBch</color>], mi\u1EC5n s\xE1t th\u01B0\u01A1ng v\xE0 kh\u1ED1ng ch\u1EBF,
+    duy tr\xEC #[3]s."
+  realm: 5

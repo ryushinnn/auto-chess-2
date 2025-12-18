@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: MissFortune
+  m_EditorClassIdentifier: 
+  id: MissFortune
+  name: "M\u1EF9 Ph\u01B0\u01A1ng"
+  subName: 
+  summoned: 0
+  realm: 1
+  role: 4
+  reputation: 1
+  moveable: 1
+  mecanim: {fileID: 6243125059235353389, guid: 9031a1ae6b88eb146aabda9d9a26083f, type: 3}
+  thumbnail: {fileID: 21300000, guid: 92e727dc78c2c7b46a4de01dc62acb8c, type: 3}
+  skillIcon: {fileID: 21300000, guid: 89371ec5556c8af4095f4dbe0f720c9b, type: 3}
+  maxHp: 1980
+  physicalDamage: 50
+  magicalDamage: 50
+  armor: 0
+  resistance: 0
+  attackSpeed: 0.4
+  movementSpeed: 1.8
+  energyRegenPerAttack: 15
+  energyRegenPerHit: 4
+  attackRange: 4
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "H\u01A1i th\u1EDF c\u1EE7a Hoa C\u1EA3i!"
+  unstoppable: 0
+  skillParams:
+  - key: atk_pdmg_mul_0
+    value: 0.7
+    isPercentage: 1
+  - key: atk_mdmd_mul_0
+    value: 0.3
+    isPercentage: 1
+  - key: atk_pdmg_mul_1
+    value: 0.3
+    isPercentage: 1
+  - key: atk_pdmg_mul_1
+    value: 0.7
+    isPercentage: 1
+  - key: l_pdmg_mul_0
+    value: 0.6
+    isPercentage: 1
+  - key: l_mdmg_mul_0
+    value: 0.3
+    isPercentage: 1
+  - key: l_pdmg_mul_1
+    value: 0.3
+    isPercentage: 1
+  - key: l_mdmg_mul_1
+    value: 0.6
+    isPercentage: 1
+  - key: r_pdmg_mul_0
+    value: 1
+    isPercentage: 1
+  - key: r_mdmg_mul_0
+    value: 0.5
+    isPercentage: 1
+  - key: r_pdmg_mul_1
+    value: 0.5
+    isPercentage: 1
+  - key: r_mdmg_mul_1
+    value: 1
+    isPercentage: 1
+  - key: vamp_mul
+    value: 0.3
+    isPercentage: 1
+  - key: reduce_def_mul
+    value: -0.3
+    isPercentage: 1
+  - key: reduce_def_duration
+    value: 5
+    isPercentage: 0
+  passiveDescription: "\u0110\xF2n \u0111\xE1nh b\u1EAFn c\xF9ng l\xFAc 2 vi\xEAn
+    \u0111\u1EA1n. 1 vi\xEAn g\xE2y (#[0]<sprite name=pdmg> + #[1]<sprite name=mdmg>)
+    s\xE1t th\u01B0\u01A1ng v\u1EADt l\xFD, vi\xEAn c\xF2n l\u1EA1i g\xE2y (#[2]<sprite
+    name=pdmg> + #[3]<sprite name=mdmg>) s\xE1t th\u01B0\u01A1ng ph\xE9p."
+  activeDescription: "B\u1EAFn l\u1EA7n l\u01B0\u1EE3t 2 vi\xEAn \u0111\u1EA1n:\n-
+    Vi\xEAn \u0111\u1EA7u ti\xEAn: G\xE2y <color=grey>(#[4]<sprite name=pdmg> + #[5]<sprite
+    name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng v\u1EADt l\xFD c\xF9ng v\u1EDBi <color=grey>(#[6]<sprite
+    name=pdmg> + #[7]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p.
+    H\u1ED3i m\xE1u b\u1EB1ng #[12] s\xE1t th\u01B0\u01A1ng g\xE2y ra.\n- Vi\xEAn
+    th\u1EE9 2: G\xE2y <color=grey>(#[8]<sprite name=pdmg> + #[9]<sprite name=mdmg>)</color>
+    s\xE1t th\u01B0\u01A1ng v\u1EADt l\xFD c\xF9ng v\u1EDBi <color=grey>(#[10]<sprite
+    name=pdmg> + #[11]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p.
+    M\u1EE5c ti\xEAu b\u1ECB gi\u1EA3m #[13]<sprite name=arm> v\xE0 <sprite name=res>
+    trong #[14]s.\nC\xE1c vi\xEAn \u0111\u1EA1n \u0111\u1EC1u c\xF3 th\u1EC3 ch\xED
+    m\u1EA1ng."
+  specialKeys:
+  - missfortune_shield_breaker
+  dps: 40
+  physicalReduction: 0
+  magicalReduction: 0

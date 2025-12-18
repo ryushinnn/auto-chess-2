@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Caitlyn
+  m_EditorClassIdentifier: 
+  id: Caitlyn
+  name: "C\xE1t Linh"
+  subName: 
+  summoned: 0
+  realm: 1
+  role: 4
+  reputation: 1
+  moveable: 1
+  mecanim: {fileID: 2403688389232674053, guid: 02537cffa1e84804c80a4e88f1cbe203, type: 3}
+  thumbnail: {fileID: 21300000, guid: 32ad03a2a16d51d41bd41e14e349c810, type: 3}
+  skillIcon: {fileID: 21300000, guid: de04f368226a0894ba2e760d83746e50, type: 3}
+  maxHp: 1980
+  physicalDamage: 150
+  magicalDamage: 0
+  armor: 20
+  resistance: 22
+  attackSpeed: 0.3
+  movementSpeed: 1.8
+  energyRegenPerAttack: 15
+  energyRegenPerHit: 4
+  attackRange: 4
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "\u0110\u1EBFn gi\u1EDD tr\xE0 chi\u1EC1u r\u1ED3i! ^_^"
+  unstoppable: 1
+  skillParams:
+  - key: heal_by_hp_mul
+    value: 0.03
+    isPercentage: 1
+  - key: heal_by_dmg_mul
+    value: 0.15
+    isPercentage: 1
+  - key: duration
+    value: 1.5
+    isPercentage: 0
+  - key: interval
+    value: 0.25
+    isPercentage: 0
+  - key: atk_spd_mul
+    value: 0.25
+    isPercentage: 1
+  - key: atk_spd_duration
+    value: 3
+    isPercentage: 0
+  passiveDescription: 
+  activeDescription: "\u0102n b\xE1nh gi\xFAp h\u1ED3i m\xE1u trong #[2]s, m\u1ED7i
+    #[3]s h\u1ED3i <color=grey>(#[0]<sprite name=hp> t\u1ED1i \u0111a + #[1]<sprite
+    name=pdmg>)</color> m\xE1u. Sau \u0111\xF3 t\u0103ng #[4]<sprite name=aspd> trong
+    #[5]s."
+  specialKeys:
+  - caitlyn_cake
+  - caitlyn_cake_atkspd
+  dps: 45
+  physicalReduction: 16.666666
+  magicalReduction: 18.032787

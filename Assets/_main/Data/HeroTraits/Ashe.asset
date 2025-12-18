@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Ashe
+  m_EditorClassIdentifier: 
+  id: Ashe
+  name: "\xC1nh"
+  subName: 
+  summoned: 0
+  realm: 3
+  role: 4
+  reputation: 1
+  moveable: 1
+  mecanim: {fileID: 8303287721695520577, guid: 1ac1085c96e39e94095d9cda379a32f2, type: 3}
+  thumbnail: {fileID: 21300000, guid: 9ba403ddfe45c2d4babebcf1c076d982, type: 3}
+  skillIcon: {fileID: 21300000, guid: d1b1c52c80ee4b647b5e0e3d681247bd, type: 3}
+  maxHp: 1980
+  physicalDamage: 144
+  magicalDamage: 0
+  armor: 16
+  resistance: 15
+  attackSpeed: 0.48
+  movementSpeed: 1.8
+  energyRegenPerAttack: 30
+  energyRegenPerHit: 4
+  attackRange: 2
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 3.5
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "Thi\xEAn Gi\xE1ng Th\u1EA7n V\u0169 Ti\u1EC5n"
+  unstoppable: 0
+  skillParams:
+  - key: arrow_set_min
+    value: 10
+    isPercentage: 0
+  - key: arrow_set_max
+    value: 20
+    isPercentage: 0
+  - key: dmg_base
+    value: 5
+    isPercentage: 0
+  - key: pdmg_mul
+    value: 0.1
+    isPercentage: 1
+  - key: mdmg_mul
+    value: 0.2
+    isPercentage: 1
+  - key: total_time
+    value: 2
+    isPercentage: 0
+  - key: radius
+    value: 2
+    isPercentage: 0
+  passiveDescription: 
+  activeDescription: "B\u1EAFn ng\u1EABu nhi\xEAn <color=grey>#[0] ~ #[1]</color>
+    lo\u1EA1t m\u01B0a t\xEAn. M\u1ED7i lo\u1EA1t m\u01B0a t\xEAn g\xE2y <color=grey>(#[2]
+    + #[3]<sprite name=pdmg> + #[4]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng
+    v\u1EADt l\xFD (c\xF3 th\u1EC3 ch\xED m\u1EA1ng) cho t\u1EA5t c\u1EA3 m\u1EE5c
+    ti\xEAu trong v\xF9ng \u1EA3nh h\u01B0\u1EDFng."
+  specialKeys: []
+  dps: 69.119995
+  physicalReduction: 13.793103
+  magicalReduction: 13.043478

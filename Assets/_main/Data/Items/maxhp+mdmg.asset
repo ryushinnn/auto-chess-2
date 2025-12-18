@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92797996edde4d45b1f38b683a49f47, type: 3}
+  m_Name: maxhp+mdmg
+  m_EditorClassIdentifier: 
+  name: "L\u01B0u Quang Tr\u01B0\u1EE3ng"
+  icon: {fileID: 21300000, guid: 65ee0fb8b62a31743b6b6dc83c934dc9, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
+  - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
+  modifiers:
+  - key: max_hp
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 400
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0
+  - key: m_dmg
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 30
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0
+  - key: life_steal
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 0.15
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0

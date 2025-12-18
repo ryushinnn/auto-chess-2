@@ -1,0 +1,322 @@
+fileFormatVersion: 2
+guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ask
+    second: {fileID: 2100000, guid: 9a752dc2e46906c47b3bd64ab1f92762, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blush_Base
+    second: {fileID: 2100000, guid: 0c0eecfcf47adde448fe09f72491baba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 13f51b5174996bf44a91a06495e3f6ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Decor
+    second: {fileID: 2100000, guid: 9ff91f4948fe3b34881450e27546cd3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Angry
+    second: {fileID: 2100000, guid: 18250425668827f4297d44b1e2d5ff57, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Base
+    second: {fileID: 2100000, guid: af217dadb6d264c42a98c621817359b5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Close
+    second: {fileID: 2100000, guid: b606682884a51bf4f89169527f08f43c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Proud
+    second: {fileID: 2100000, guid: 751f8be5185fb624abee44c773266ac0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fruit
+    second: {fileID: 2100000, guid: a22fd8eb1e3c240429a06332d086aac4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glow1
+    second: {fileID: 2100000, guid: 7e4e3b96e587c554cb5b050e8984d429, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glow2
+    second: {fileID: 2100000, guid: ded5706d28f15774dbc6f8bbb595d13e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: ead5aea527c0dfb4db7247f011983cae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hand
+    second: {fileID: 2100000, guid: 7bf0b68765ab35942ae82cd19fc29d2f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Horn
+    second: {fileID: 2100000, guid: 366b59e8d193fa14aaccb583b8419d14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Matouqin
+    second: {fileID: 2100000, guid: a2bdc41db8b87914c802010e735603de, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Angry
+    second: {fileID: 2100000, guid: b017ac5ba5f62be4c8e77c3320867d6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Base
+    second: {fileID: 2100000, guid: 9141d310fb1f3e04dbe21981c4eef69c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Proud
+    second: {fileID: 2100000, guid: 4b1e05c76cf30b2459bbe93df2273fcc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shovel
+    second: {fileID: 2100000, guid: 2c29bbfbef19ee946b5b8d4ae120511d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sword1
+    second: {fileID: 2100000, guid: 3bbf222b0da2dde41b9491e5cdecb05e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sword2
+    second: {fileID: 2100000, guid: a96606dc122bbe548a4a9db938329fea, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
+  _removeEmptyRootObjects: 1
+  _scaleFactor: 0.01
+  _deduplicateResources: 0
+  _maximumLod: 300
+  _readWriteEnabled: 1
+  _generateColliders: 0
+  _swapUvs: 0
+  _generateLightmapUVs: 0
+  _importBlendShapeNames: 1
+  _blendShapeFrameWeight:
+    _option: 0
+    _multiplier: 1
+  _importNormals: 0
+  _importTangents: 0
+  _importCamera: 2
+  _importAnimations: 2
+  _mecanimHumanoidFlip: 0
+  _addAnimatorComponent: 0
+  _animationLoopTime: 1
+  _animationLoopPose: 0
+  _importMaterials: 1
+  _enableGpuInstancing: 0
+  _texturesReadWriteEnabled: 1
+  _generateMipMaps: 1
+  _useSceneNameIdentifier: 1
+  _textureCompression: -50
+  _gltfAsset: '<b>Generator: </b>glTF-Transform v4.1.1
+
+    <b>Version: </b>2.0
+
+'
+  optimizeGameObjects: 0
+  materials:
+  - {fileID: -6288824107298536643, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 8884829027940685150, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -7715964003120609574, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -6782570643876408150, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 251524048084956581, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -2062496679403981102, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 7088408875948934980, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 6894354282676437316, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 5109990643169307995, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -9121634615606093946, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 851212907205135456, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 5601832214650627588, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -4239061219803430974, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -1812237134918178744, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -1174590585716407870, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -9103484930961366303, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 5836874344318719176, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -4288583467269203127, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 6084735779216616014, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -7348506430690461011, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -6685486475723952197, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  textures:
+  - {fileID: 6983701643236107813, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 8022499087761476943, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 5230624929818990856, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -2834534249764746836, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -409340629399409755, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -6477806308458343453, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 6960455510609624210, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 150502026991701941, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 2933329333178083999, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -22660439024615302, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -809988167731686972, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 5743815331122784290, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 7193558952320421103, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -2275718726046256121, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 3560622977116409970, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -1462800502094218808, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -8506249199374065407, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: 5857770040681355603, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -410426166806237867, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -158951856904712258, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  - {fileID: -1533294962236245339, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043, type: 3}
+  hasSceneData: 1
+  hasAnimationData: 1
+  hasMaterialData: 1
+  hasTextureData: 1
+  animations:
+  - name: Cast_Animation
+  - name: Cast_Damage
+  - name: Cast_In
+  - name: Cast_Toidle
+  - name: Damage_Hurt
+  - name: Dance_In
+  - name: Dance_Loop
+  - name: Death_In
+  - name: Death_Loop
+  - name: Dive_In
+  - name: Dive_Out
+  - name: Dive_Outtoidle
+  - name: Finisher_C001
+  - name: Finisher_C002
+  - name: Finisher_C003
+  - name: Idle_Base
+  - name: Idle_In
+  - name: Interact
+  - name: Joke
+  - name: Laugh
+  - name: PetChibiYone_Blossom_cast_cycle.anm
+  - name: PetChibiYone_Blossom_Hurt_toidle.anm
+  - name: PetChibiYone_Blossom_Idle.anm
+  - name: Recall
+  - name: Recall_Winddown
+  - name: Run_Base
+  - name: Run_Haste
+  - name: RunToIdle
+  - name: TauntIn
+  - name: TauntLoop
+  _extensions:
+  - name: KHR_materials_unlit
+    supported: 1
+    used: 1
+    required: 0
+  - name: KHR_texture_transform
+    supported: 1
+    used: 1
+    required: 0
+  _textures:
+  - texture: {fileID: 6983701643236107813, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 8022499087761476943, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5230624929818990856, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -2834534249764746836, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -409340629399409755, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -6477806308458343453, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 6960455510609624210, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 150502026991701941, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 2933329333178083999, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -22660439024615302, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -809988167731686972, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5743815331122784290, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 7193558952320421103, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -2275718726046256121, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 3560622977116409970, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -1462800502094218808, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -8506249199374065407, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: 5857770040681355603, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -410426166806237867, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -158951856904712258, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  - texture: {fileID: -1533294962236245339, guid: 34a3ec2b7ff323c4c8ad2c3f19fa6043,
+      type: 3}
+    shouldBeLinear: 0
+    shouldBeNormalMap: 0
+  _mainAssetIdentifier: scenes/AuxScene
+  _importPlugins: []

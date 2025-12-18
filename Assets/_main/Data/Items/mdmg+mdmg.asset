@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92797996edde4d45b1f38b683a49f47, type: 3}
+  m_Name: mdmg+mdmg
+  m_EditorClassIdentifier: 
+  name: "Ma Di\u1EC7m Kh\xF4i"
+  icon: {fileID: 21300000, guid: b4e07631c394d12488a25b6ece46d95c, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
+  - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
+  modifiers:
+  - key: m_dmg
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 80
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0
+  - key: m_dmg
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 0.25
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92797996edde4d45b1f38b683a49f47, type: 3}
+  m_Name: armor+atkspd
+  m_EditorClassIdentifier: 
+  name: "Th\xE1i D\u01B0\u01A1ng Thu\u1EABn"
+  icon: {fileID: 21300000, guid: eb605d03095d4034faab0ab48f27d30a, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
+  - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
+  modifiers:
+  - key: armor
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 20
+    type: 0
+    stacks: 0
+    duration: 0
+    permanent: 0
+  - key: atk_spd
+    id: <will be auto generated>
+    owner: {fileID: 0}
+    effectKey: 
+    value: 0.2
+    type: 1
+    stacks: 0
+    duration: 0
+    permanent: 0

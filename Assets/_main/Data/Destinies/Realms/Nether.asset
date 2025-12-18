@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b65a41aa8b340bcbe84edad7f768cfd, type: 3}
+  m_Name: Nether
+  m_EditorClassIdentifier: 
+  checkpoints: 02000000030000000400000005000000
+  destinyParams:
+  - key: dmg_to_debt_0
+    value: 0.15
+    isPercentage: 1
+  - key: dmg_to_debt_1
+    value: 0.25
+    isPercentage: 1
+  - key: dmg_to_debt_2
+    value: 0.35
+    isPercentage: 1
+  - key: dmg_to_debt_3
+    value: 0.5
+    isPercentage: 1
+  - key: heal_by_debt
+    value: 0.4
+    isPercentage: 1
+  description: "<b>\xC2m ti</b> chuy\u1EC3n ho\xE1 m\u1ED9t ph\u1EA7n s\xE1t th\u01B0\u01A1ng
+    g\xE2y ra th\xE0nh c\xE1c c\u1ED9ng d\u1ED3n [<color=purple>N\u1EE3 m\xE1u</color>]
+    gi\u1EA3m d\u1EA7n theo th\u1EDDi gian l\xEAn k\u1EBB \u0111\u1ECBch. K\u1EBB
+    \u0111\u1ECBch c\xF3 m\xE1u th\u1EA5p h\u01A1n s\u1ED1 c\u1ED9ng d\u1ED3n [<color=purple>N\u1EE3
+    m\xE1u</color>] l\u1EADp t\u1EE9c b\u1ECB h\xE0nh quy\u1EBFt v\xE0 #[4] s\u1ED1
+    c\u1ED9ng d\u1ED3n [<color=purple>N\u1EE3 m\xE1u</color>] chuy\u1EC3n ho\xE1
+    th\xE0nh m\xE1u h\u1ED3i ph\u1EE5c chia \u0111\u1EC1u cho t\u1EA5t c\u1EA3 <b>\xC2m
+    ti</b> c\xF2n s\u1ED1ng.\n<color=grey>\n<0>M\u1ED1c &[0]: Chuy\u1EC3n ho\xE1
+    #[0]</0>\n<1>M\u1ED1c &[1]: Chuy\u1EC3n ho\xE1 #[1]</1>\n<2>M\u1ED1c &[2]: Chuy\u1EC3n
+    ho\xE1 #[2]</2>\n<3>M\u1ED1c &[3]: Chuy\u1EC3n ho\xE1 #[3]. C\xE1c c\u1ED9ng
+    d\u1ED3n [<color=purple>N\u1EE3 m\xE1u</color>] kh\xF4ng c\xF2n gi\u1EA3m d\u1EA7n
+    theo th\u1EDDi gian</3>\n</color>"
+  realm: 3
