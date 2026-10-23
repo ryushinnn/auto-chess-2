@@ -46,15 +46,12 @@ namespace AutoChess.Game {
 
         [SerializeField] RosterView lineUp;
         [SerializeField] BattleView battleField;
-        [SerializeField] Stage[] stages;
         [SerializeField] PresentationSettings settings = new();
         [SerializeField] bool randomSeed = true;
         [SerializeField, HideIf(nameof(randomSeed))] int seed = 1;
         [Tooltip("Accept cheat commands (always on in the editor and development builds).")]
         [SerializeField] bool allowCheats;
         [SerializeField] Item[] hackItems;
-        [Tooltip("Computer players of an offline match (TFT lobby of 1 + bots). 0 = the solo PvE campaign.")]
-        [SerializeField, Range(0, 7)] int offlineBots = 7;
         [SerializeField] string localName = "B\u1ea1n";
 
         IGameSession session;
@@ -70,10 +67,10 @@ namespace AutoChess.Game {
         public LocalGameSession LocalSession => session as LocalGameSession;
         /// <summary>The online match being shown, or null offline.</summary>
         public LockstepSession OnlineSession => session as LockstepSession;
-        /// <summary>Connection to the auto-chess-2-server (lobby, matchmaking); drives <see cref="OnlineSession"/>.</summary>
-        public OnlineClient Online { get; private set; }
+        /// <summary>Connection to the auto-chess-2-server (kept across scenes by <see cref="AppSession"/>).</summary>
+        public OnlineClient Online => AppSession.Online;
         /// <summary>Fingerprint of the game data; the server only matches clients with its own.</summary>
-        public ulong DataHash { get; private set; }
+        public ulong DataHash => ClientConfig.Instance.DataHash;
         public GameDatabase Db => session?.Db;
         public PresentationSettings Settings => settings;
         public RosterView Roster => lineUp;
@@ -101,21 +98,28 @@ namespace AutoChess.Game {
 
         public void ViewHome() => ViewPlayer(session.LocalPlayerId);
 
+        /// <summary>
+        /// Plays what the Lobby chose: the online match <see cref="AppSession"/> found, or an offline lobby of
+        /// <see cref="AppSession.OfflineBots"/> bots (also when the Arena scene is played directly in the editor).
+        /// </summary>
         void Start() {
             var board = BoardSpace.Instance;
-            var content = GameDataBuilder.BuildContent(stages, board.CellWidth, board.CellHeight);
-            database = content.ToDatabase();
-            DataHash = Lockstep.DataHash(GameDataJson.Write(content));
-            Online = new OnlineClient(database, DataHash);
-            Online.MatchStarted += match => {
-                Seed = match.Info.Seed;
-                Begin(match);
-            };
-            Online.Log += message => Debug.Log($"[Online] {message}");
-            if (GetComponent<OnlineLobbyUI>() == null) gameObject.AddComponent<OnlineLobbyUI>();
+            var config = ClientConfig.Instance;
+            database = config.Database;
+            if (!Mathf.Approximately(board.CellWidth, config.CellWidth) || !Mathf.Approximately(board.CellHeight, config.CellHeight)) {
+                Debug.LogError($"BoardSpace cell {board.CellWidth}x{board.CellHeight} != ClientConfig {config.CellWidth}x{config.CellHeight}: " +
+                               "units would be drawn off their cells. Make them equal.");
+            }
             if (GetComponent<MatchHud>() == null) gameObject.AddComponent<MatchHud>();
-            Seed = ResolveSeed();
-            UseSession(CreateOffline(Seed, offlineBots, false));
+            var online = AppSession.PendingMatch;
+            if (online != null) {
+                Seed = online.Info.Seed;
+                UseSession(online);
+            }
+            else {
+                Seed = ResolveSeed();
+                UseSession(CreateOffline(Seed, AppSession.OfflineBots, false));
+            }
 
             board.Bind(database.Grid);
             BenchSpace.Instance.Bind(database.Rules.BenchSize);
@@ -169,13 +173,13 @@ namespace AutoChess.Game {
         /// Throws the current match away and starts a new offline one in place (same scene, same views). During an
         /// online match this leaves it (the server keeps playing our roster).
         /// </summary>
-        /// <param name="bots">Computer players (default: the inspector's <c>offlineBots</c>).</param>
+        /// <param name="bots">Computer players (default: <see cref="AppSession.OfflineBots"/>).</param>
         /// <param name="untimed">Setup / preparation wait for the player instead of running on a clock.</param>
         public void Restart(ulong? seed = null, int? bots = null, bool untimed = false) {
             if (!IsReady) return;
             if (session is LockstepSession) Online.LeaveMatch();
             Seed = seed ?? (ulong)DateTime.UtcNow.Ticks;
-            Begin(CreateOffline(Seed, bots ?? offlineBots, untimed));
+            Begin(CreateOffline(Seed, bots ?? AppSession.OfflineBots, untimed));
         }
 
         ulong ResolveSeed() {
@@ -225,9 +229,6 @@ namespace AutoChess.Game {
             session.Submit(command, onResult);
         }
 
-        void OnDestroy() {
-            Online?.Dispose();
-        }
 
         // ---------------------------------------------------------------- development shortcuts
 

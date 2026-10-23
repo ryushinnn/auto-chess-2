@@ -15,12 +15,12 @@ namespace AutoChess.Game {
     /// last battle);</item>
     /// <item>round banner: stage-round, PvE / PvP and the opponent;</item>
     /// <item>toasts: damage taken, round income, sold units, eliminations;</item>
-    /// <item>sell zone while a unit is dragged, and the placement screen when the match is over for us.</item>
+    /// <item>sell zone while a unit is dragged, the placement screen when the match is over for us (back to the
+    /// Lobby, or play again offline), a back-to-lobby button and a notice when the connection drops.</item>
     /// </list>
     /// </summary>
     public class MatchHud : MonoBehaviour, ISessionView, ISessionResettable {
-        static readonly Color PanelColor = new(0.05f, 0.07f, 0.11f, 0.84f);
-        static readonly Color RowColor = new(0.12f, 0.15f, 0.21f, 0.92f);
+                static readonly Color RowColor = new(0.12f, 0.15f, 0.21f, 0.92f);
         static readonly Color LocalColor = new(0.85f, 0.65f, 0.18f, 1f);
         static readonly Color ViewedColor = new(0.35f, 0.75f, 1f, 1f);
         static readonly Color DeadColor = new(0.2f, 0.2f, 0.22f, 0.9f);
@@ -52,7 +52,7 @@ namespace AutoChess.Game {
         }
 
         GameManager game;
-        TMP_FontAsset font;
+        UiBuilder ui;
         RectTransform root;
 
         readonly List<PlayerWidget> rows = new();
@@ -85,6 +85,7 @@ namespace AutoChess.Game {
         GameObject endScreen;
         TMP_Text endTitle;
         TMP_Text endSubtitle;
+        GameObject playAgain;
         bool endShown;
         float nextRefresh;
 
@@ -98,6 +99,7 @@ namespace AutoChess.Game {
             UnitDragHandler.PickStarted += OnPickStarted;
             UnitDragHandler.PickEnded += OnPickEnded;
             UnitDragHandler.OverSellZone = OverSellZone;
+            AppSession.Online.Disconnected += OnDisconnected;
             OnSessionReset();
         }
 
@@ -109,6 +111,17 @@ namespace AutoChess.Game {
             UnitDragHandler.PickStarted -= OnPickStarted;
             UnitDragHandler.PickEnded -= OnPickEnded;
             if (UnitDragHandler.OverSellZone == OverSellZone) UnitDragHandler.OverSellZone = null;
+            AppSession.Online.Disconnected -= OnDisconnected;
+        }
+
+        void OnDisconnected(string reason) {
+            if (game == null || game.OnlineSession == null) return;
+            Toast($"Mất kết nối: {reason}", BadColor);
+            endShown = true;
+            endScreen.SetActive(true);
+            playAgain.SetActive(false);
+            endTitle.text = "Mất kết nối";
+            endSubtitle.text = "Trận đấu online đã dừng với bạn. Về sảnh để tìm trận khác.";
         }
 
         public void OnSessionReset() {
@@ -322,7 +335,7 @@ namespace AutoChess.Game {
         static string Short(string text, int max) => string.IsNullOrEmpty(text) || text.Length <= max ? text : text.Substring(0, max - 1) + ".";
 
         void Toast(string message, Color color) {
-            var text = MakeText(toastRoot, message, 26, TextAlignmentOptions.Center, color);
+            var text = ui.Text(toastRoot, message, 26, TextAlignmentOptions.Center, color);
             var rect = text.rectTransform;
             rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 1);
             rect.pivot = new Vector2(0.5f, 1);
@@ -338,6 +351,7 @@ namespace AutoChess.Game {
         void ShowEnd(int placement) {
             endShown = true;
             endScreen.SetActive(true);
+            playAgain.SetActive(game.OnlineSession == null);
             var players = game.Session.State.Players.Count;
             if (players <= 1) {
                 endTitle.text = game.LocalPlayer.Eliminated ? "Thất bại" : "Hoàn thành!";
@@ -367,51 +381,46 @@ namespace AutoChess.Game {
         // ------------------------------------------------------------------ building
 
         void Build() {
-            font = FindFont();
-            var canvasGo = new GameObject("MatchHud", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
-            canvasGo.transform.SetParent(transform, false);
-            var canvas = canvasGo.GetComponent<Canvas>();
-            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            canvas.sortingOrder = 40;
-            var scaler = canvasGo.GetComponent<CanvasScaler>();
-            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1920, 1080);
-            scaler.matchWidthOrHeight = 0.5f;
-            root = (RectTransform)canvasGo.transform;
+            ui = new UiBuilder(UiBuilder.FindFont());
+            root = UiBuilder.Canvas(transform, "MatchHud", 40);
 
             // Players / damage panel (top right, under the Online panel).
-            board = Panel(root, "Players", new Vector2(1, 1), new Vector2(-12, -52), new Vector2(300, TabsHeight + 8 * RowHeight));
-            playersTab = MakeButton(board, "Người chơi", () => ShowTab(false)).GetComponent<Image>();
-            Place(playersTab.rectTransform, new Vector2(0, 1), new Vector2(8, -6), new Vector2(140, 30), new Vector2(0, 1));
-            damageTab = MakeButton(board, "Sát thương", () => ShowTab(true)).GetComponent<Image>();
-            Place(damageTab.rectTransform, new Vector2(1, 1), new Vector2(-8, -6), new Vector2(140, 30), new Vector2(1, 1));
+            board = ui.Panel(root, "Players", new Vector2(1, 1), new Vector2(-12, -56), new Vector2(300, TabsHeight + 8 * RowHeight));
+            playersTab = ui.Button(board, "Người chơi", () => ShowTab(false)).GetComponent<Image>();
+            UiBuilder.Place(playersTab.rectTransform, new Vector2(0, 1), new Vector2(8, -6), new Vector2(140, 30), new Vector2(0, 1));
+            damageTab = ui.Button(board, "Sát thương", () => ShowTab(true)).GetComponent<Image>();
+            UiBuilder.Place(damageTab.rectTransform, new Vector2(1, 1), new Vector2(-8, -6), new Vector2(140, 30), new Vector2(1, 1));
 
             // Round banner and the scouting bar (top center).
-            var bannerPanel = Panel(root, "Banner", new Vector2(0.5f, 1), new Vector2(0, -10), new Vector2(640, 44));
-            banner = MakeText(bannerPanel, "", 26, TextAlignmentOptions.Center, Color.white);
-            Stretch(banner.rectTransform);
-            var scout = Panel(root, "Scouting", new Vector2(0.5f, 1), new Vector2(0, -60), new Vector2(640, 44));
+            var bannerPanel = ui.Panel(root, "Banner", new Vector2(0.5f, 1), new Vector2(0, -10), new Vector2(800, 44));
+            banner = ui.Text(bannerPanel, "", 26, TextAlignmentOptions.Center, Color.white);
+            UiBuilder.Stretch(banner.rectTransform);
+            var scout = ui.Panel(root, "Scouting", new Vector2(0.5f, 1), new Vector2(0, -60), new Vector2(800, 44));
             scoutBar = scout.gameObject;
-            scoutText = MakeText(scout, "", 22, TextAlignmentOptions.Left, ViewedColor);
-            Stretch(scoutText.rectTransform, 14, 170);
-            var home = MakeButton(scout, "Về nhà (Esc)", () => game.ViewHome());
-            Place(home, new Vector2(1, 0.5f), new Vector2(-8, 0), new Vector2(150, 34));
+            scoutText = ui.Text(scout, "", 22, TextAlignmentOptions.Left, ViewedColor);
+            UiBuilder.Stretch(scoutText.rectTransform, 14, 170);
+            var home = ui.Button(scout, "Về nhà (Esc)", () => game.ViewHome());
+            UiBuilder.Place(home, new Vector2(1, 0.5f), new Vector2(-8, 0), new Vector2(150, 34));
             scoutBar.SetActive(false);
 
+            // Back to the Lobby (top right; online the server keeps playing our roster).
+            var lobby = ui.Button(root, "Về sảnh", AppSession.BackToLobby);
+            UiBuilder.Place(lobby, new Vector2(1, 1), new Vector2(-12, -10), new Vector2(140, 36));
+
             // Damage tab: rows in the same panel, under a line naming whose units they are.
-            meterTitle = Label(board, "", new Vector2(10, -TabsHeight - 2));
+            meterTitle = ui.Label(board, "", new Vector2(10, -TabsHeight - 2));
             for (var i = 0; i < MaxMeterRows; i++) {
                 var rowRect = new GameObject($"Damage{i}", typeof(RectTransform)).GetComponent<RectTransform>();
                 rowRect.SetParent(board, false);
-                Place(rowRect, new Vector2(0, 1), new Vector2(8, -TabsHeight - 30 - i * MeterRowHeight), new Vector2(284, MeterRowHeight - 4), new Vector2(0, 1));
-                var fill = MakeImage(rowRect, "Fill", new Color(0.85f, 0.35f, 0.2f, 0.75f));
+                UiBuilder.Place(rowRect, new Vector2(0, 1), new Vector2(8, -TabsHeight - 30 - i * MeterRowHeight), new Vector2(284, MeterRowHeight - 4), new Vector2(0, 1));
+                var fill = UiBuilder.Image(rowRect, "Fill", new Color(0.85f, 0.35f, 0.2f, 0.75f));
                 fill.rectTransform.anchorMin = Vector2.zero;
                 fill.rectTransform.anchorMax = new Vector2(0, 1);
                 fill.rectTransform.offsetMin = fill.rectTransform.offsetMax = Vector2.zero;
-                var name = MakeText(rowRect, "", 18, TextAlignmentOptions.Left, Color.white);
-                Stretch(name.rectTransform, 6, 60);
-                var value = MakeText(rowRect, "", 18, TextAlignmentOptions.Right, Color.white);
-                Stretch(value.rectTransform, 6, 6);
+                var name = ui.Text(rowRect, "", 18, TextAlignmentOptions.Left, Color.white);
+                UiBuilder.Stretch(name.rectTransform, 6, 60);
+                var value = ui.Text(rowRect, "", 18, TextAlignmentOptions.Right, Color.white);
+                UiBuilder.Stretch(value.rectTransform, 6, 6);
                 meterRows.Add(new MeterRow { Root = rowRect.gameObject, Fill = fill, Name = name, Value = value });
                 rowRect.gameObject.SetActive(false);
             }
@@ -420,42 +429,45 @@ namespace AutoChess.Game {
             // Toasts (upper middle).
             toastRoot = new GameObject("Toasts", typeof(RectTransform)).GetComponent<RectTransform>();
             toastRoot.SetParent(root, false);
-            Place(toastRoot, new Vector2(0.5f, 1), new Vector2(0, -120), new Vector2(900, 160), new Vector2(0.5f, 1));
+            UiBuilder.Place(toastRoot, new Vector2(0.5f, 1), new Vector2(0, -120), new Vector2(900, 160), new Vector2(0.5f, 1));
 
             // Sell zone (bottom middle, over the round timer) while a unit is dragged.
-            var sell = Panel(root, "SellZone", new Vector2(0.5f, 0), new Vector2(0, 110), new Vector2(560, 90));
+            var sell = ui.Panel(root, "SellZone", new Vector2(0.5f, 0), new Vector2(0, 110), new Vector2(560, 90));
             sell.GetComponent<Image>().color = new Color(0.55f, 0.1f, 0.1f, 0.85f);
-            sellText = MakeText(sell, "", 26, TextAlignmentOptions.Center, Color.white);
-            Stretch(sellText.rectTransform);
+            sellText = ui.Text(sell, "", 26, TextAlignmentOptions.Center, Color.white);
+            UiBuilder.Stretch(sellText.rectTransform);
             sellZone = sell.gameObject;
             sellZone.SetActive(false);
 
             // Placement screen.
-            var dim = MakeImage(root, "EndScreen", new Color(0, 0, 0, 0.6f));
-            Stretch(dim.rectTransform);
+            var dim = UiBuilder.Image(root, "EndScreen", new Color(0, 0, 0, 0.6f));
+            UiBuilder.Stretch(dim.rectTransform);
             endScreen = dim.gameObject;
-            var endPanel = Panel(dim.rectTransform, "Panel", new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(620, 300), new Vector2(0.5f, 0.5f));
-            endTitle = MakeText(endPanel, "", 56, TextAlignmentOptions.Center, LocalColor);
-            Place(endTitle.rectTransform, new Vector2(0.5f, 1), new Vector2(0, -30), new Vector2(580, 70), new Vector2(0.5f, 1));
-            endSubtitle = MakeText(endPanel, "", 24, TextAlignmentOptions.Center, Color.white);
-            Place(endSubtitle.rectTransform, new Vector2(0.5f, 1), new Vector2(0, -115), new Vector2(580, 60), new Vector2(0.5f, 1));
-            var keepWatching = MakeButton(endPanel, "Xem tiếp", () => endScreen.SetActive(false));
-            Place(keepWatching, new Vector2(0.5f, 0), new Vector2(-140, 30), new Vector2(240, 54), new Vector2(0.5f, 0));
-            var again = MakeButton(endPanel, "Trận mới", () => {
+            var endPanel = ui.Panel(dim.rectTransform, "Panel", new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(620, 300), new Vector2(0.5f, 0.5f));
+            endTitle = ui.Text(endPanel, "", 56, TextAlignmentOptions.Center, LocalColor);
+            UiBuilder.Place(endTitle.rectTransform, new Vector2(0.5f, 1), new Vector2(0, -30), new Vector2(580, 70), new Vector2(0.5f, 1));
+            endSubtitle = ui.Text(endPanel, "", 24, TextAlignmentOptions.Center, Color.white);
+            UiBuilder.Place(endSubtitle.rectTransform, new Vector2(0.5f, 1), new Vector2(0, -115), new Vector2(580, 60), new Vector2(0.5f, 1));
+            var keepWatching = ui.Button(endPanel, "Xem tiếp", () => endScreen.SetActive(false));
+            UiBuilder.Place(keepWatching, new Vector2(0.5f, 0), new Vector2(-195, 30), new Vector2(180, 54), new Vector2(0.5f, 0));
+            var toLobby = ui.Button(endPanel, "Về sảnh", AppSession.BackToLobby);
+            UiBuilder.Place(toLobby, new Vector2(0.5f, 0), new Vector2(0, 30), new Vector2(180, 54), new Vector2(0.5f, 0));
+            var again = ui.Button(endPanel, "Chơi lại", () => {
                 endScreen.SetActive(false);
                 game.Restart();
             });
-            Place(again, new Vector2(0.5f, 0), new Vector2(140, 30), new Vector2(240, 54), new Vector2(0.5f, 0));
+            UiBuilder.Place(again, new Vector2(0.5f, 0), new Vector2(195, 30), new Vector2(180, 54), new Vector2(0.5f, 0));
+            playAgain = again.gameObject;
             endScreen.SetActive(false);
         }
 
         void EnsureWidgets(int count) {
             while (rows.Count < count) {
                 var row = Widget(board, $"Row{rows.Count}", new Vector2(284, RowHeight - 4));
-                Place(row.Rect, new Vector2(0, 1), new Vector2(8, -TabsHeight - rows.Count * RowHeight), new Vector2(284, RowHeight - 4), new Vector2(0, 1));
-                Stretch(row.Name.rectTransform, 8, 120);
-                Stretch(row.Info.rectTransform, 160, 52);
-                Stretch(row.Hp.rectTransform, 8, 8);
+                UiBuilder.Place(row.Rect, new Vector2(0, 1), new Vector2(8, -TabsHeight - rows.Count * RowHeight), new Vector2(284, RowHeight - 4), new Vector2(0, 1));
+                UiBuilder.Stretch(row.Name.rectTransform, 8, 120);
+                UiBuilder.Stretch(row.Info.rectTransform, 160, 52);
+                UiBuilder.Stretch(row.Hp.rectTransform, 8, 8);
                 rows.Add(row);
             }
             for (var i = 0; i < rows.Count; i++) rows[i].Rect.gameObject.SetActive(!damageTabOpen && i < count);
@@ -467,96 +479,24 @@ namespace AutoChess.Game {
 
         PlayerWidget Widget(RectTransform parent, string name, Vector2 size) {
             var w = new PlayerWidget();
-            w.Outline = MakeImage(parent, name, Color.clear);
+            w.Outline = UiBuilder.Image(parent, name, Color.clear);
             w.Rect = w.Outline.rectTransform;
             w.Rect.sizeDelta = size;
-            w.Background = MakeImage(w.Rect, "Background", RowColor);
-            Stretch(w.Background.rectTransform, 2, 2, 2, 2);
-            w.HpFill = MakeImage(w.Background.rectTransform, "Hp", GoodColor * 0.55f);
+            w.Background = UiBuilder.Image(w.Rect, "Background", RowColor);
+            UiBuilder.Stretch(w.Background.rectTransform, 2, 2, 2, 2);
+            w.HpFill = UiBuilder.Image(w.Background.rectTransform, "Hp", GoodColor * 0.55f);
             w.HpFill.rectTransform.anchorMin = Vector2.zero;
             w.HpFill.rectTransform.anchorMax = new Vector2(1, 1);
             w.HpFill.rectTransform.offsetMin = w.HpFill.rectTransform.offsetMax = Vector2.zero;
-            w.Name = MakeText(w.Rect, "", 18, TextAlignmentOptions.Left, Color.white);
-            w.Info = MakeText(w.Rect, "", 16, TextAlignmentOptions.Right, new Color(0.8f, 0.85f, 0.95f));
-            w.Hp = MakeText(w.Rect, "", 18, TextAlignmentOptions.Right, Color.white);
+            w.Name = ui.Text(w.Rect, "", 18, TextAlignmentOptions.Left, Color.white);
+            w.Info = ui.Text(w.Rect, "", 16, TextAlignmentOptions.Right, new Color(0.8f, 0.85f, 0.95f));
+            w.Hp = ui.Text(w.Rect, "", 18, TextAlignmentOptions.Right, Color.white);
             var button = w.Rect.gameObject.AddComponent<Button>();
             button.targetGraphic = w.Background;
             button.onClick.AddListener(() => {
                 if (w.PlayerId >= 0) game.ViewPlayer(w.PlayerId);
             });
             return w;
-        }
-
-        RectTransform Panel(RectTransform parent, string name, Vector2 anchor, Vector2 position, Vector2 size, Vector2? pivot = null) {
-            var image = MakeImage(parent, name, PanelColor);
-            Place(image.rectTransform, anchor, position, size, pivot ?? anchor);
-            return image.rectTransform;
-        }
-
-        TMP_Text Label(RectTransform parent, string text, Vector2 position) {
-            var label = MakeText(parent, text, 18, TextAlignmentOptions.TopLeft, new Color(0.75f, 0.8f, 0.9f));
-            Place(label.rectTransform, new Vector2(0, 1), position, new Vector2(280, 26), new Vector2(0, 1));
-            return label;
-        }
-
-        static Image MakeImage(Transform parent, string name, Color color) {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(parent, false);
-            var image = go.GetComponent<Image>();
-            image.color = color;
-            return image;
-        }
-
-        TMP_Text MakeText(Transform parent, string text, float size, TextAlignmentOptions alignment, Color color) {
-            var go = new GameObject("Text", typeof(RectTransform));
-            go.transform.SetParent(parent, false);
-            var t = go.AddComponent<TextMeshProUGUI>();
-            if (font != null) t.font = font;
-            t.text = text;
-            t.fontSize = size;
-            t.alignment = alignment;
-            t.color = color;
-            t.enableWordWrapping = false;
-            t.overflowMode = TextOverflowModes.Ellipsis;
-            t.raycastTarget = false;
-            return t;
-        }
-
-        RectTransform MakeButton(RectTransform parent, string label, UnityEngine.Events.UnityAction onClick) {
-            var image = MakeImage(parent, label, new Color(0.22f, 0.4f, 0.65f, 1f));
-            var button = image.gameObject.AddComponent<Button>();
-            button.targetGraphic = image;
-            button.onClick.AddListener(onClick);
-            var text = MakeText(image.rectTransform, label, 22, TextAlignmentOptions.Center, Color.white);
-            Stretch(text.rectTransform);
-            return image.rectTransform;
-        }
-
-        static void Place(RectTransform rect, Vector2 anchor, Vector2 position, Vector2 size, Vector2? pivot = null) {
-            rect.anchorMin = rect.anchorMax = anchor;
-            rect.pivot = pivot ?? anchor;
-            rect.anchoredPosition = position;
-            rect.sizeDelta = size;
-        }
-
-        static void Stretch(RectTransform rect, float left = 0, float right = 0, float top = 0, float bottom = 0) {
-            rect.anchorMin = Vector2.zero;
-            rect.anchorMax = Vector2.one;
-            rect.offsetMin = new Vector2(left, bottom);
-            rect.offsetMax = new Vector2(-right, -top);
-        }
-
-        /// <summary>The font of a scene text that shows Vietnamese (the HUD's labels need its glyphs).</summary>
-        static TMP_FontAsset FindFont() {
-            TMP_FontAsset any = null;
-            foreach (var text in FindObjectsOfType<TMP_Text>(true)) {
-                if (text.font == null) continue;
-                any ??= text.font;
-                foreach (var c in text.text ?? "") {
-                    if (c > 127) return text.font;
-                }
-            }
-            return any != null ? any : TMP_Settings.defaultFontAsset;
         }
     }
 }

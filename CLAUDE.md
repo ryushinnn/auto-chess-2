@@ -43,7 +43,9 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   the AutoTest `restart` op default to it: `bots=0 untimed=true`; the 8-player lobby is `bots=7 untimed=false`).
   Gameplay numbers: `GameRules` (code) + ScriptableObjects; fights are long (attack speed 0.2 - 0.6), hence the
   60 s battle clock.
-- New HUD widgets: build them in code like `MatchHud` (no scene / prefab YAML edits needed).
+- New HUD / screens: build them in code with `UiBuilder` like `MatchHud` / `LobbyUI` (no prefab YAML needed).
+- Scenes: Lobby (menus, matchmaking) -> Arena (the match only). Stages / cell size / UI font: `ClientConfig`
+  (Resources), not the scene. AutoTest scenarios run in the Arena; `ac_lobby_flow` starts from the Lobby.
 
 ## Checks after a change
 

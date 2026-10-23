@@ -1,0 +1,19 @@
+{
+  "note": "Lobby scene: an offline match started from the lobby loads the Arena with bots, the HUD's back-to-lobby button returns to the Lobby, and playing again loads a fresh Arena (the scenario ends there so the rest of the campaign keeps running in the Arena).",
+  "tags": ["lobby", "scene"],
+  "scene": "Assets/_main/Scenes/Lobby.unity",
+  "actions": [
+    {"action": "wait_ui", "path": "Lobby/LobbyCanvas/Lobby/Actions/Chơi với máy", "state": "interactable", "timeoutMs": 10000},
+    {"action": "assert_ui", "path": "Lobby/LobbyCanvas/Lobby/Actions/Tìm trận online", "expect": {"active": true}},
+    {"action": "screenshot", "name": "ac_lobby_flow_lobby"},
+    {"action": "click", "path": "Lobby/LobbyCanvas/Lobby/Actions/Chơi với máy", "label": "play offline"},
+    {"action": "wait_state", "path": "phase", "equals": "Setup", "timeoutMs": 15000, "label": "the Arena is loaded"},
+    {"action": "assert", "path": "players[1].name", "equals": "Bot 1", "label": "with bots"},
+    {"action": "assert", "path": "players[0].name", "equals": "Bạn", "label": "an offline match (online uses the lobby name)"},
+    {"action": "click", "path": "GameManager/MatchHud/Về sảnh", "label": "back to the lobby"},
+    {"action": "wait_ui", "path": "Lobby/LobbyCanvas/Lobby/Actions/Chơi với máy", "state": "interactable", "timeoutMs": 15000, "label": "the Lobby is back"},
+    {"action": "click", "path": "Lobby/LobbyCanvas/Lobby/Actions/Chơi với máy", "label": "play again"},
+    {"action": "wait_state", "path": "phase", "equals": "Setup", "timeoutMs": 15000},
+    {"action": "logs", "level": "error", "failOnRed": true}
+  ]
+}

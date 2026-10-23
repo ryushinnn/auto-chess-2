@@ -20,12 +20,9 @@ namespace AutoChess.Game.Editor {
 
         /// <summary>Exports and returns the absolute path of the file.</summary>
         public static string Export() {
-            var stages = FindStages();
-            var board = Object.FindObjectOfType<BoardSpace>(true);
-            var rules = new GameRules();
-            var content = GameDataBuilder.BuildContent(stages,
-                board != null ? board.CellWidth : rules.CellWidth,
-                board != null ? board.CellHeight : rules.CellHeight);
+            // Fresh from the assets (ClientConfig caches its content for the running game).
+            var config = ClientConfig.Instance;
+            var content = GameDataBuilder.BuildContent(config.Stages, config.CellWidth, config.CellHeight);
             content.ToDatabase(); // validates (throws on broken references)
 
             var root = Directory.GetParent(Application.dataPath)!.FullName;
@@ -33,23 +30,6 @@ namespace AutoChess.Game.Editor {
             Directory.CreateDirectory(Path.GetDirectoryName(path)!);
             File.WriteAllText(path, GameDataJson.Write(content) + "\n");
             return path;
-        }
-
-        /// <summary>The stages of the scene's GameManager, else every Stage asset by name.</summary>
-        public static Stage[] FindStages() {
-            var manager = Object.FindObjectOfType<GameManager>(true);
-            if (manager != null) {
-                var so = new SerializedObject(manager);
-                var list = so.FindProperty("stages");
-                if (list != null && list.arraySize > 0) {
-                    return Enumerable.Range(0, list.arraySize)
-                        .Select(i => list.GetArrayElementAtIndex(i).objectReferenceValue as Stage)
-                        .Where(s => s != null).ToArray();
-                }
-            }
-            return AssetDatabase.FindAssets("t:Stage")
-                .Select(g => AssetDatabase.LoadAssetAtPath<Stage>(AssetDatabase.GUIDToAssetPath(g)))
-                .Where(s => s != null).OrderBy(s => s.name).ToArray();
         }
     }
 }

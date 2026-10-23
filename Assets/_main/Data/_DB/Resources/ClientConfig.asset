@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa804e3bf9a9024eaf4ea053813d82a, type: 3}
+  m_Name: ClientConfig
+  m_EditorClassIdentifier:
+  stages:
+  - {fileID: 11400000, guid: 5fb88dd84a9c3ae429d94cc9815e1b7c, type: 2}
+  cellWidth: 1.88
+  cellHeight: 1.89
+  uiFont: {fileID: 11400000, guid: ac7ab33c1f9af404d80ff763ae854c94, type: 2}

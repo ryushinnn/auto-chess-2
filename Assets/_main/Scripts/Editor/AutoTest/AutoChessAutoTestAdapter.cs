@@ -319,7 +319,7 @@ namespace AutoChess.Game.Editor {
             var online = Game.Online;
             switch (op) {
                 case "online-connect":
-                    online.Connect(Str(args, "url", OnlineLobbyUI.DefaultUrl), Str(args, "name", "AutoTest"), Str(args, "device", "autotest-editor"));
+                    online.Connect(Str(args, "url", AppSession.DefaultUrl), Str(args, "name", "AutoTest"), Str(args, "device", "autotest-editor"));
                     break;
                 case "online-find": online.FindMatch(); break;
                 case "online-cancel": online.CancelFind(); break;

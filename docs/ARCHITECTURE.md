@@ -87,6 +87,13 @@ player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand
 
 ## Unity client (`Assets/_main/Scripts/Game`)
 
+* Scenes: **Lobby** (build index 0) - `LobbyUI` (built in code): name, server address, play offline against N
+  bots, or find an online match (connect, queue, cancel); **Arena** - the match only, back to the Lobby from the
+  HUD or the placement screen. `AppSession` (static, `DontDestroyOnLoad` driver) outlives the scenes: it owns the
+  `OnlineClient`, remembers the offline bot count, and loads the Arena when the server starts a match.
+  `ClientConfig` (Resources) holds the stages, the board cell size and the UI font both scenes need; the game
+  database is built from it once per run. Playing the Arena directly in the editor starts an offline lobby.
+
 * `GameManager` - composition root: builds the database, owns the session (`LocalGameSession` offline,
   `LockstepSession` online through `OnlineClient`), feeds it frame time (`Advance(Time.deltaTime)`), binds every
   `ISessionView`, relays session events (`GameManager.EventRaised`, survives `Restart` and session swaps),

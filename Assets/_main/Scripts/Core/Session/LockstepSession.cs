@@ -20,6 +20,8 @@ namespace AutoChess.Core {
         /// <summary>Above this many buffered frames the playback catches up (up to <see cref="MaxTicksPerAdvance"/> per call).</summary>
         public int MaxBuffer = 6;
         public int MaxTicksPerAdvance = 8;
+        /// <summary>Playback speed while more than TargetBuffer + 1 frames wait: drains a backlog (scene load, lag) back to low latency.</summary>
+        public float CatchUpRate = 1.25f;
 
         readonly Action<byte[]> send;
         readonly Queue<LockstepFrame> frames = new();
@@ -115,7 +117,7 @@ namespace AutoChess.Core {
                 if (frames.Count < TargetBuffer && !IsEnded) return;
                 playing = true;
             }
-            accumulator += Math.Max(0, deltaTime);
+            accumulator += Math.Max(0, deltaTime) * (frames.Count > TargetBuffer + 1 ? CatchUpRate : 1);
             var ticks = 0;
             while (frames.Count > 0 && ticks < MaxTicksPerAdvance && (accumulator >= dt || frames.Count > MaxBuffer)) {
                 Play(frames.Dequeue());
