@@ -18,21 +18,25 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
   - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
   modifiers:
-  - key: armor
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 20
+  - id: <will be auto generated>
+    key: armor
+    value: 18
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: atk_spd
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.2
+  - id: <will be auto generated>
+    key: atk_spd
+    value: 0.12
     type: 1
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: dmg_per_stack
+    value: 0.012
+    isPercentage: 1
+  - key: max_stacks
+    value: 20
+    isPercentage: 0
+  - key: def_at_max
+    value: 20
+    isPercentage: 0
+  description: "M\u1ED7i l\u1EA7n \u0111\xE1nh ho\u1EB7c tr\xFAng \u0111\xF2n: t\u0103ng
+    #[0] s\xE1t th\u01B0\u01A1ng g\xE2y ra (t\u1ED1i \u0111a #[1] c\u1ED9ng d\u1ED3n).
+    Khi \u0111\u1EE7 c\u1ED9ng d\u1ED3n, nh\u1EADn th\xEAm #[2]<sprite name=arm><sprite
+    name=res>."

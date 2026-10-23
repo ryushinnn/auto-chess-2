@@ -18,21 +18,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   modifiers:
-  - key: atk_spd
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.2
+  - id: <will be auto generated>
+    key: atk_spd
+    value: 0.12
     type: 1
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: max_hp
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 400
+  - id: <will be auto generated>
+    key: max_hp
+    value: 180
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: atk_spd
+    value: 0.45
+    isPercentage: 1
+  - key: duration
+    value: 5
+    isPercentage: 0
+  description: "Sau khi d\xF9ng k\u1EF9 n\u0103ng, t\u0103ng #[0]<sprite name=aspd>
+    trong #[1]s."

@@ -35,6 +35,7 @@ namespace AutoChess.Core {
                 ["units"] = Map(c.Units, WriteUnit),
                 ["items"] = Map(c.Items, i => new Dictionary<string, object> {
                     ["id"] = i.Id, ["name"] = i.Name, ["ingredients"] = i.Ingredients, ["modifiers"] = Map(i.Modifiers, WriteModifier),
+                    ["params"] = i.Params,
                 }),
                 ["traits"] = Map(c.Traits, t => new Dictionary<string, object> {
                     ["kind"] = t.Kind.ToString(),
@@ -102,6 +103,7 @@ namespace AutoChess.Core {
                 var d = (Dictionary<string, object>)o;
                 c.Items.Add(new ItemDefinition {
                     Id = S(d, "id"), Name = S(d, "name"), Ingredients = Strings(d, "ingredients"), Modifiers = Modifiers(List(d, "modifiers")),
+                    Params = Floats(d, "params"),
                 });
             }
             foreach (var o in List(root, "traits")) {

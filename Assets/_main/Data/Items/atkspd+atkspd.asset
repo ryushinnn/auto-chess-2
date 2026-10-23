@@ -18,21 +18,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
   - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
   modifiers:
-  - key: atk_spd
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.5
+  - id: <will be auto generated>
+    key: atk_spd
+    value: 0.24
     type: 1
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: tenacity
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: range
+    value: 1
+    isPercentage: 0
+  description: "T\u0103ng #[0] \xF4 t\u1EA7m \u0111\xE1nh."

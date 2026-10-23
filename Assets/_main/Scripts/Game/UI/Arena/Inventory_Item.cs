@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace AutoChess.Game {
-    public class Inventory_Item : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+    public class Inventory_Item : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler,
+        IPointerExitHandler {
         [SerializeField] Image iconImage;
         [SerializeField] TMP_Text quantityText;
 
@@ -35,7 +36,16 @@ namespace AutoChess.Game {
             ItemId = null;
         }
 
+        public void OnPointerEnter(PointerEventData eventData) {
+            if (!empty && !eventData.dragging) ItemTooltip.Show(ItemId, (RectTransform)transform);
+        }
+
+        public void OnPointerExit(PointerEventData eventData) => ItemTooltip.Hide();
+
+        void OnDisable() => ItemTooltip.Hide();
+
         public void OnBeginDrag(PointerEventData eventData) {
+            ItemTooltip.Hide();
             iconImage.color = new Color(1, 1, 1, 0.5f);
             quantityText.enabled = false;
             onPick?.Invoke();

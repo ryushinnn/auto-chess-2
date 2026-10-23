@@ -18,21 +18,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
   - {fileID: 11400000, guid: ad54fd8c2cb306649848b9dbc8143993, type: 2}
   modifiers:
-  - key: armor
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 20
+  - id: <will be auto generated>
+    key: armor
+    value: 18
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: p_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  - id: <will be auto generated>
+    key: p_dmg
+    value: 0.15
+    type: 1
+  itemParams:
+  - key: hp_threshold
+    value: 0.6
+    isPercentage: 1
+  - key: invulnerable
+    value: 1
+    isPercentage: 0
+  - key: atk_spd
+    value: 0.35
+    isPercentage: 1
+  - key: duration
+    value: 6
+    isPercentage: 0
+  description: "L\u1EA7n \u0111\u1EA7u m\xE1u xu\u1ED1ng d\u01B0\u1EDBi #[0]: [V\xF4
+    \u0111\u1ECBch] #[1]s, sau \u0111\xF3 t\u0103ng #[2]<sprite name=aspd> trong
+    #[3]s."

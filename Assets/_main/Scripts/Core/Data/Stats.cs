@@ -77,6 +77,14 @@ namespace AutoChess.Core {
             if (TryParse(key, out var stat)) return stat;
             throw new ArgumentException($"Unknown stat key '{key}'");
         }
+
+        /// <summary>Data key of a stat (inverse of <see cref="Parse"/>).</summary>
+        public static string KeyOf(StatKind stat) {
+            foreach (var pair in ByKey) {
+                if (pair.Value == stat) return pair.Key;
+            }
+            throw new ArgumentException($"No key for stat {stat}");
+        }
     }
 
     /// <summary>All stats of a unit, indexed by <see cref="StatKind"/>.</summary>

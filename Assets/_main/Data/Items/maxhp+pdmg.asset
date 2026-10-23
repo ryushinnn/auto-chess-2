@@ -18,30 +18,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   - {fileID: 11400000, guid: ad54fd8c2cb306649848b9dbc8143993, type: 2}
   modifiers:
-  - key: max_hp
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 400
+  - id: <will be auto generated>
+    key: max_hp
+    value: 180
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: p_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: life_steal
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
+  - id: <will be auto generated>
+    key: p_dmg
     value: 0.15
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+    type: 1
+  itemParams:
+  - key: hp_threshold
+    value: 0.6
+    isPercentage: 1
+  - key: shield
+    value: 0.25
+    isPercentage: 1
+  - key: pdmg
+    value: 0.25
+    isPercentage: 1
+  - key: duration
+    value: 8
+    isPercentage: 0
+  description: "L\u1EA7n \u0111\u1EA7u m\xE1u xu\u1ED1ng d\u01B0\u1EDBi #[0]: nh\u1EADn
+    [Khi\xEAn] b\u1EB1ng #[1]<sprite name=hp> t\u1ED1i \u0111a v\xE0 t\u0103ng #[2]<sprite
+    name=pdmg> trong #[3]s."

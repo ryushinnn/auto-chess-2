@@ -61,8 +61,11 @@ namespace AutoChess.Core {
         /// <summary>Two component ids for a combined (forged) item, empty for a component.</summary>
         public string[] Ingredients = Array.Empty<string>();
         public StatModifier[] Modifiers = Array.Empty<StatModifier>();
+        /// <summary>Numbers of the item's passives (Combat/ItemEffects.cs), in authoring order.</summary>
+        public double[] Params = Array.Empty<double>();
 
         public bool IsCombined => Ingredients.Length == 2;
+        public double Param(int index) => index >= 0 && index < Params.Length ? Params[index] : 0;
         public override string ToString() => Id;
     }
 

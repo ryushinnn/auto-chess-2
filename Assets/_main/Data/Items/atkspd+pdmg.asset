@@ -18,21 +18,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
   - {fileID: 11400000, guid: ad54fd8c2cb306649848b9dbc8143993, type: 2}
   modifiers:
-  - key: atk_spd
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.2
+  - id: <will be auto generated>
+    key: atk_spd
+    value: 0.12
     type: 1
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: p_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  - id: <will be auto generated>
+    key: p_dmg
+    value: 0.15
+    type: 1
+  itemParams:
+  - key: bonus_dmg
+    value: 0.25
+    isPercentage: 1
+  description: "G\xE2y th\xEAm #[0] s\xE1t th\u01B0\u01A1ng l\xEAn m\u1EE5c ti\xEAu
+    c\xF3 <sprite name=hp> t\u1ED1i \u0111a cao h\u01A1n ng\u01B0\u1EDDi mang."

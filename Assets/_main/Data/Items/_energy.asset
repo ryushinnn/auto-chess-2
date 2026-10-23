@@ -16,12 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: fd2660fd40a8bfd46997eef0413bcf0f, type: 3}
   ingredients: []
   modifiers:
-  - key: energy_regen_eff
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.2
+  - id: <will be auto generated>
+    key: energy_regen_eff
+    value: 0.25
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams: []
+  description: 

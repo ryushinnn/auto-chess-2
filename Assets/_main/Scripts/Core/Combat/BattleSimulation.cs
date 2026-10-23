@@ -179,6 +179,7 @@ namespace AutoChess.Core.Combat {
             foreach (var side in new[] { TeamSide.Home, TeamSide.Away }) {
                 if (Setup.Team(side).ApplyTraits) TraitEffects.Apply(this, side);
             }
+            foreach (var side in new[] { TeamSide.Home, TeamSide.Away }) ItemEffects.Apply(this, side);
             Emit(new BattleStartedEvent());
             CheckEnd();
         }
@@ -351,7 +352,7 @@ namespace AutoChess.Core.Combat {
         /// unit resists (unstoppable / invulnerable) or no cell is free.
         /// </summary>
         public int Displace(CombatUnit u, Vec2 toward, double duration) {
-            if (!u.Alive || u.Status.Unstoppable || u.Status.IsInvulnerable) return -1;
+            if (!u.Alive || u.ResistsCrowdControl) return -1;
             var own = u.OccupiedCell;
             var cell = Grid.NearestIndex(toward, c => c == own || cellState[c] == CellState.Empty);
             if (cell < 0) return -1;

@@ -123,13 +123,47 @@ def candidate_data(cfg):
         if params:
             assert len(params) == len(trait["params"]), (trait["value"], len(params), len(trait["params"]))
             trait["params"] = params
+    apply_items(data)
     return data
+
+
+ITEMS = ROOT / "Tools" / "items" / "items.json"
+
+
+def apply_items(data):
+    """Tools/items/items.json on the data: components' stats, combined = both components + extra, params."""
+    if not ITEMS.exists():
+        return
+    cfg = json.loads(ITEMS.read_text(encoding="utf-8"))
+    by_id = {i["id"]: i for i in data["items"]}
+
+    def merge(into, mods):
+        for m in mods:
+            same = next((x for x in into if x["stat"] == m["stat"] and x["type"] == m["type"]), None)
+            if same:
+                same["value"] += m["value"]
+            else:
+                into.append(dict(m))
+
+    for cid, mods in cfg["components"].items():
+        by_id[cid]["modifiers"] = [dict(m) for m in mods]
+        by_id[cid]["params"] = []
+    for entry in cfg["items"]:
+        item = by_id[entry["id"]]
+        mods = []
+        for ingredient in item["ingredients"]:
+            merge(mods, cfg["components"][ingredient])
+        merge(mods, entry.get("extra", []))
+        item["modifiers"] = mods
+        item["params"] = [p[1] for p in entry["params"]]
 
 
 # ------------------------------------------------------------------ simulation
 
-def run_report(data_path):
+def run_report(data_path, sections=None):
     env = dict(os.environ, AUTOCHESS_BALANCE="1", AUTOCHESS_GAME_DATA=str(data_path))
+    if sections:
+        env["AUTOCHESS_BALANCE_SECTIONS"] = sections
     proc = subprocess.run([sys.executable, str(ROOT / "Tools" / "core_tests" / "run_core_tests.py"), "--filter", "BalanceReport"],
                           cwd=str(ROOT), env=env, capture_output=True, text=True, encoding="utf-8")
     if proc.returncode != 0:
@@ -144,7 +178,19 @@ def write_candidate(cfg):
     return CANDIDATE
 
 
+def item_summary(report):
+    items = report.get("items") or {}
+    if not items:
+        return ""
+    values = sorted(items.values())
+    low = min(items, key=items.get)
+    high = max(items, key=items.get)
+    return (f"items median {values[len(values) // 2]:.0%}, low {low} {items[low]:.0%}, high {high} {items[high]:.0%}")
+
+
 def summary(report):
+    if "heroes" not in report:
+        return item_summary(report)
     heroes = report["heroes"]
     spread = {}
     for h in heroes.values():
@@ -256,13 +302,14 @@ def main():
     sub = parser.add_subparsers(dest="cmd", required=True)
     rep = sub.add_parser("report")
     rep.add_argument("--candidate", action="store_true", help="simulate the config applied to the data")
+    rep.add_argument("--sections", help="only these report sections (units,duels,profile,fights,traits,items)")
     cal = sub.add_parser("calibrate")
     cal.add_argument("--iterations", type=int, default=10)
     sub.add_parser("apply")
     args = parser.parse_args()
     cfg = load_config()
     if args.cmd == "report":
-        report = run_report(write_candidate(cfg) if args.candidate else DATA)
+        report = run_report(write_candidate(cfg) if args.candidate else DATA, args.sections)
         print(summary(report))
         print(f"full report: {REPORT_MD}")
     elif args.cmd == "calibrate":

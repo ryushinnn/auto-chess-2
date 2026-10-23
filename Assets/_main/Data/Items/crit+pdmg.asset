@@ -18,30 +18,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d7a1d281dffef14889710fafe4c94f9, type: 2}
   - {fileID: 11400000, guid: ad54fd8c2cb306649848b9dbc8143993, type: 2}
   modifiers:
-  - key: crit_chance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
+  - id: <will be auto generated>
+    key: crit_chance
+    value: 0.12
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: p_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
+  - id: <will be auto generated>
+    key: p_dmg
+    value: 0.15
+    type: 1
+  - id: <will be auto generated>
+    key: crit_dmg
+    value: 0.15
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: crit_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: true_share
+    value: 0.35
+    isPercentage: 1
+  description: "\u0110\xF2n \u0111\xE1nh ch\xED m\u1EA1ng g\xE2y th\xEAm s\xE1t th\u01B0\u01A1ng
+    chu\u1EA9n b\u1EB1ng #[0] s\xE1t th\u01B0\u01A1ng c\u1EE7a \u0111\xF2n \u0111\xF3."

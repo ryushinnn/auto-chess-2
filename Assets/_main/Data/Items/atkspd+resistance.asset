@@ -18,21 +18,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
   - {fileID: 11400000, guid: 57517d6f12e382740bc5b1d059e3c196, type: 2}
   modifiers:
-  - key: atk_spd
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.2
+  - id: <will be auto generated>
+    key: atk_spd
+    value: 0.12
     type: 1
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: resistance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 20
+  - id: <will be auto generated>
+    key: resistance
+    value: 18
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: share
+    value: 0.35
+    isPercentage: 1
+  description: "\u0110\xF2n \u0111\xE1nh b\u1EAFn th\xEAm m\u1ED9t m\u0169i v\xE0o
+    k\u1EBB \u0111\u1ECBch g\u1EA7n m\u1EE5c ti\xEAu nh\u1EA5t, g\xE2y #[0] s\xE1t
+    th\u01B0\u01A1ng c\u1EE7a \u0111\xF2n \u0111\xE1nh."

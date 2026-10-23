@@ -18,21 +18,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
   - {fileID: 11400000, guid: ad54fd8c2cb306649848b9dbc8143993, type: 2}
   modifiers:
-  - key: energy_regen_eff
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.33
+  - id: <will be auto generated>
+    key: energy_regen_eff
+    value: 0.25
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: p_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  - id: <will be auto generated>
+    key: p_dmg
+    value: 0.35000002
+    type: 1
+  itemParams:
+  - key: energy_per_attack
+    value: 10
+    isPercentage: 0
+  description: "M\u1ED7i \u0111\xF2n \u0111\xE1nh h\u1ED3i th\xEAm #[0]<sprite name=eng>."

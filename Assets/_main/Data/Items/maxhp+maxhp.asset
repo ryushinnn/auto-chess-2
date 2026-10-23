@@ -18,12 +18,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   modifiers:
-  - key: max_hp
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 1000
+  - id: <will be auto generated>
+    key: max_hp
+    value: 360
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: missing_hp_per_sec
+    value: 0.025
+    isPercentage: 1
+  description: "M\u1ED7i gi\xE2y h\u1ED3i #[0] m\xE1u \u0111\xE3 m\u1EA5t."

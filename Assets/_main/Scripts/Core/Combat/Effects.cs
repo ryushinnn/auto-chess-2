@@ -143,8 +143,11 @@ namespace AutoChess.Core.Combat {
         /// <summary>Immune to damage and crowd control.</summary>
         public double Invulnerable;
         public bool Unstoppable;
+        /// <summary>Seconds left immune to crowd control (an item), damage still lands.</summary>
+        public double CrowdControlImmune;
 
         public bool IsAirborne => Airborne > 0;
+        public bool IsCrowdControlImmune => CrowdControlImmune > 0;
         public bool IsStunned => Stun > 0;
         public bool IsSilenced => Silence > 0;
         public bool IsAntiHeal => AntiHeal > 0;
@@ -156,6 +159,7 @@ namespace AutoChess.Core.Combat {
             if (Silence > 0) Silence = Math.Max(0, Silence - dt);
             if (AntiHeal > 0) AntiHeal = Math.Max(0, AntiHeal - dt);
             if (Invulnerable > 0) Invulnerable = Math.Max(0, Invulnerable - dt);
+            if (CrowdControlImmune > 0) CrowdControlImmune = Math.Max(0, CrowdControlImmune - dt);
         }
     }
 }

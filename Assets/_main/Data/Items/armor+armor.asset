@@ -18,12 +18,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
   - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
   modifiers:
-  - key: armor
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 50
+  - id: <will be auto generated>
+    key: armor
+    value: 36
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: reflect_dmg
+    value: 50
+    isPercentage: 0
+  - key: cooldown
+    value: 1
+    isPercentage: 0
+  description: "\u0110\xF2n ch\xED m\u1EA1ng l\xEAn ng\u01B0\u1EDDi mang ch\u1EC9
+    g\xE2y s\xE1t th\u01B0\u01A1ng th\u01B0\u1EDDng.\nKhi tr\xFAng \u0111\xF2n \u0111\xE1nh,
+    g\xE2y #[0] s\xE1t th\u01B0\u01A1ng ph\xE9p l\xEAn k\u1EBB t\u1EA5n c\xF4ng (t\u1ED1i
+    \u0111a 1 l\u1EA7n m\u1ED7i #[1]s)."

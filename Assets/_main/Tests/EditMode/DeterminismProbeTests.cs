@@ -25,6 +25,15 @@ namespace AutoChess.Core.Tests {
             var units = db.Units.Where(u => !u.Summoned).Select(u => u.Id).ToArray();
             for (var p = 0; p < 2; p++) {
                 for (var i = 0; i < 6; i++) s.Execute(new CheatUnitCommand { PlayerId = p, UnitId = units[(i * 3 + p * 5) % units.Length] });
+                // two combined items per unit, cycling through all of them, so the item passives are fingerprinted too
+                var owned = s.State.Players[p].Units;
+                for (var i = 0; i < owned.Count; i++) {
+                    for (var k = 0; k < 2; k++) {
+                        var item = db.CombinedItems[(p * 12 + i * 2 + k) % db.CombinedItems.Count].Id;
+                        s.Execute(new CheatItemCommand { PlayerId = p, ItemId = item });
+                        s.Execute(new EquipItemCommand { PlayerId = p, ItemId = item, UnitId = owned[i].Id });
+                    }
+                }
                 s.Execute(new CheatGoldCommand { PlayerId = p, Amount = 50 });
                 s.Execute(new ReadyCommand { PlayerId = p });
             }

@@ -18,21 +18,28 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   modifiers:
-  - key: armor
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 20
+  - id: <will be auto generated>
+    key: armor
+    value: 18
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: max_hp
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 400
+  - id: <will be auto generated>
+    key: max_hp
+    value: 180
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: interval
+    value: 2
+    isPercentage: 0
+  - key: radius
+    value: 1
+    isPercentage: 0
+  - key: burn
+    value: 0.017
+    isPercentage: 1
+  - key: anti_heal
+    value: 3
+    isPercentage: 0
+  description: "M\u1ED7i #[0]s thi\xEAu \u0111\u1ED1t k\u1EBB \u0111\u1ECBch trong
+    ph\u1EA1m vi #[1] \xF4: g\xE2y s\xE1t th\u01B0\u01A1ng ph\xE9p b\u1EB1ng #[2]<sprite
+    name=hp> t\u1ED1i \u0111a c\u1EE7a ch\xFAng v\xE0 gi\u1EA3m h\u1ED3i m\xE1u trong
+    #[3]s."

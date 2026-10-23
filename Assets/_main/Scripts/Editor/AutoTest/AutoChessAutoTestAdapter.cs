@@ -187,7 +187,7 @@ namespace AutoChess.Game.Editor {
             "restart", "buy", "refresh", "lock", "buy-xp", "move", "equip", "ready", "choose-starter", "reroll-starter",
             "gold", "xp", "item", "unit", "skip-phase", "set-shop", "fast-forward", "speed", "set-seed",
             "export-data", "migrate", "missing-scripts", "unit-screen", "cell-screen", "can-move", "save-recording",
-            "online-connect", "online-find", "online-cancel", "online-leave", "online-disconnect", "view", "sell",
+            "online-connect", "online-find", "online-cancel", "online-leave", "online-disconnect", "view", "sell", "tooltip",
         };
 
         public IReadOnlyList<string> Ops => OpNames;
@@ -235,6 +235,17 @@ namespace AutoChess.Game.Editor {
                     });
                 case "skip-phase": return Submit(new CheatSkipPhaseCommand());
                 case "sell": return Submit(new SellUnitCommand { UnitId = UnitArg(args, p) });
+                case "tooltip": {
+                    // Item details as on hover: over the item bench slot holding item=<id>; no item = hide.
+                    if (!args.ContainsKey("item")) {
+                        AutoChess.Game.ItemTooltip.Hide();
+                        return new { shown = false };
+                    }
+                    var slot = UnityEngine.Object.FindObjectsOfType<AutoChess.Game.Inventory_Item>().FirstOrDefault(i => i.ItemId == Str(args, "item"));
+                    if (slot == null) throw new InvalidOperationException($"no item bench slot holds '{Str(args, "item")}' (open the item bench)");
+                    AutoChess.Game.ItemTooltip.Show(slot.ItemId, (RectTransform)slot.transform);
+                    return new { shown = true };
+                }
                 case "view":
                     // Scout another player's board (player=<id>); no argument = back home.
                     if (args.ContainsKey("player")) Game.ViewPlayer(Int(args, "player"));

@@ -54,6 +54,12 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
   cell nearest a point, airborne meanwhile), area / line queries (`UnitsInRadius`, `UnitsOnLine`, `WeakestAlly`,
   `IsEdgeCell`), `SkillBehaviour.Setup` (passives hooking into the battle) and presentation-only VFX requests
   (`PlayVisual` / `StopVisual` -> `VisualEvent`: burst, travel, beam or attached to a unit).
+* **Items** - components only add stats; a combined item = both components' stats (+ extras) + a passive:
+  `ItemEffects` maps item id -> `ItemEffect`, set up per copy on its holder when the battle starts (after the
+  synergies), reading `ItemDefinition.Params` by index. Design and numbers: `Tools/items/items.json` -> menu
+  *AutoChess/Items/Apply Item Config* (`Scripts/Editor/ItemConfigTool.cs`) -> `Data/Items` -> export; text in
+  `docs/ITEMS.md` (`Tools/items/item_doc.py`). In the client `ItemTooltip` shows an item's recipe, stats and passive
+  while the pointer is over it (item bench, hero info).
 * **Synergies** - `TraitEffects` holds one `TraitEffect` per role / realm, applied when the battle starts.
   Params come from `Data/Destinies/*` in asset order (the description's `#[i]`; each class documents its
   layout). Hooks for them: `IHitHook` (before / after every hit, with its `HitKind` = attack / ability /
@@ -171,3 +177,6 @@ player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand
   YAML text, GUIDs kept). Design numbers live in `Tools/balance/balance_config.json`: unit stats = role
   template x reputation tier x realm (Chaos +8%, Mortal -8%) x knob; synergy params per trait. After `apply`,
   re-export the game data. `apply` also regenerates `docs/SYNERGIES.md` (every synergy with its numbers, `synergy_doc.py`).
+* Items: the report's `items` section gives each combined item to its carrier (tag in `Tools/items/items.json`) on a
+  mirrored level-6 board; `balance.py report --candidate --sections items` simulates `items.json` without Unity.
+  Combined items sit at ~62-76% (median 70%).

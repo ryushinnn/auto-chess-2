@@ -18,30 +18,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d7a1d281dffef14889710fafe4c94f9, type: 2}
   - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
   modifiers:
-  - key: crit_chance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
+  - id: <will be auto generated>
+    key: crit_chance
+    value: 0.27
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: m_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
+  - id: <will be auto generated>
+    key: m_dmg
+    value: 0.15
+    type: 1
+  - id: <will be auto generated>
+    key: crit_dmg
+    value: 0.3
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: crit_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: energy_on_kill
+    value: 20
+    isPercentage: 0
+  description: "K\u1EF9 n\u0103ng c\xF3 th\u1EC3 ch\xED m\u1EA1ng.\nM\u1ED7i khi
+    h\u1EA1 g\u1EE5c k\u1EBB \u0111\u1ECBch, h\u1ED3i #[0]<sprite name=eng>."

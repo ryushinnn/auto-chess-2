@@ -32,6 +32,9 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   Heroes* (prefab, animator, `HeroTrait` in `HeroTraitDB`; docs/ARCHITECTURE.md "Unity client"). Stats: knob in
   `Tools/balance` (`balance.py calibrate` / `apply`). Re-export `GameData/game_data.json` (menu *AutoChess/Export
   Game Data*) so the real-data tests cover it. Skill VFX: `PlayVisual` in Core + a recipe in `VfxBuilder`.
+- Items: edit `Tools/items/items.json` (stats, passive params / text; a new passive = an `ItemEffect` in
+  `Core/Combat/ItemEffects.cs`), check with `balance.py report --candidate --sections items`, then menu
+  *AutoChess/Items/Apply Item Config*, re-export, `py Tools/items/item_doc.py`.
 - ScriptableObject / MonoBehaviour fields are serialized: rename with `[FormerlySerializedAs]`, move a
   script together with its `.meta` (`git mv`), never retype a field.
 - Online = lockstep (docs/ARCHITECTURE.md "Online play"): every client and the server run the same Core on the

@@ -2157,10 +2157,11 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 7,
+          "value": 18,
           "type": "Flat"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "_atkspd",
@@ -2169,10 +2170,11 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.10000000149011612,
+          "value": 0.11999999731779099,
           "type": "Percent"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "_crit",
@@ -2181,10 +2183,11 @@
       "modifiers": [
         {
           "stat": "CriticalChance",
-          "value": 0.10000000149011612,
+          "value": 0.11999999731779099,
           "type": "Flat"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "_energy",
@@ -2193,10 +2196,11 @@
       "modifiers": [
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.20000000298023224,
+          "value": 0.25,
           "type": "Flat"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "_maxhp",
@@ -2205,10 +2209,11 @@
       "modifiers": [
         {
           "stat": "MaxHp",
-          "value": 100,
+          "value": 180,
           "type": "Flat"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "_mdmg",
@@ -2217,10 +2222,11 @@
       "modifiers": [
         {
           "stat": "MagicalDamage",
-          "value": 10,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "_pdmg",
@@ -2229,10 +2235,11 @@
       "modifiers": [
         {
           "stat": "PhysicalDamage",
-          "value": 10,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "_resistance",
@@ -2241,10 +2248,11 @@
       "modifiers": [
         {
           "stat": "Resistance",
-          "value": 7,
+          "value": 18,
           "type": "Flat"
         }
-      ]
+      ],
+      "params": []
     },
     {
       "id": "armor+armor",
@@ -2256,9 +2264,13 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 50,
+          "value": 36,
           "type": "Flat"
         }
+      ],
+      "params": [
+        50,
+        1
       ]
     },
     {
@@ -2271,14 +2283,19 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         },
         {
           "stat": "AttackSpeed",
-          "value": 0.20000000298023224,
+          "value": 0.11999999731779099,
           "type": "Percent"
         }
+      ],
+      "params": [
+        0.012000000104308128,
+        20,
+        20
       ]
     },
     {
@@ -2291,14 +2308,23 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         },
         {
           "stat": "CriticalChance",
-          "value": 0.25,
+          "value": 0.11999999731779099,
+          "type": "Flat"
+        },
+        {
+          "stat": "CriticalDamage",
+          "value": 0.20000000298023224,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.40000000596046448,
+        5
       ]
     },
     {
@@ -2311,14 +2337,18 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         },
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.25,
           "type": "Flat"
         }
+      ],
+      "params": [
+        2,
+        0.2199999988079071
       ]
     },
     {
@@ -2331,14 +2361,20 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         },
         {
           "stat": "MaxHp",
-          "value": 400,
+          "value": 180,
           "type": "Flat"
         }
+      ],
+      "params": [
+        2,
+        1,
+        0.017000000923871994,
+        3
       ]
     },
     {
@@ -2351,14 +2387,18 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         },
         {
           "stat": "MagicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        0.30000001192092896,
+        8
       ]
     },
     {
@@ -2371,14 +2411,20 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         },
         {
           "stat": "PhysicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        0.60000002384185791,
+        1,
+        0.34999999403953552,
+        6
       ]
     },
     {
@@ -2391,19 +2437,18 @@
       "modifiers": [
         {
           "stat": "Armor",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         },
         {
           "stat": "Resistance",
-          "value": 20,
-          "type": "Flat"
-        },
-        {
-          "stat": "Tenacity",
-          "value": 0.25,
+          "value": 18,
           "type": "Flat"
         }
+      ],
+      "params": [
+        12,
+        5
       ]
     },
     {
@@ -2416,14 +2461,12 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.5,
+          "value": 0.23999999463558197,
           "type": "Percent"
-        },
-        {
-          "stat": "Tenacity",
-          "value": 0.25,
-          "type": "Flat"
         }
+      ],
+      "params": [
+        1
       ]
     },
     {
@@ -2436,14 +2479,18 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.20000000298023224,
+          "value": 0.11999999731779099,
           "type": "Percent"
         },
         {
           "stat": "CriticalChance",
-          "value": 0.25,
+          "value": 0.2199999988079071,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.5,
+        3
       ]
     },
     {
@@ -2456,14 +2503,19 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.20000000298023224,
+          "value": 0.11999999731779099,
           "type": "Percent"
         },
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.25,
           "type": "Flat"
         }
+      ],
+      "params": [
+        3,
+        65,
+        3
       ]
     },
     {
@@ -2476,14 +2528,18 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.20000000298023224,
+          "value": 0.11999999731779099,
           "type": "Percent"
         },
         {
           "stat": "MaxHp",
-          "value": 400,
+          "value": 180,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.44999998807907104,
+        5
       ]
     },
     {
@@ -2496,14 +2552,17 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.20000000298023224,
+          "value": 0.11999999731779099,
           "type": "Percent"
         },
         {
           "stat": "MagicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        0.039999999105930328
       ]
     },
     {
@@ -2516,14 +2575,17 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.20000000298023224,
+          "value": 0.11999999731779099,
           "type": "Percent"
         },
         {
           "stat": "PhysicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        0.25
       ]
     },
     {
@@ -2536,14 +2598,17 @@
       "modifiers": [
         {
           "stat": "AttackSpeed",
-          "value": 0.20000000298023224,
+          "value": 0.11999999731779099,
           "type": "Percent"
         },
         {
           "stat": "Resistance",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.34999999403953552
       ]
     },
     {
@@ -2556,14 +2621,18 @@
       "modifiers": [
         {
           "stat": "CriticalChance",
-          "value": 0.34999999403953552,
+          "value": 0.23999999463558197,
           "type": "Flat"
         },
         {
           "stat": "CriticalDamage",
-          "value": 0.5,
+          "value": 0.20000000298023224,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.039999999105930328,
+        10
       ]
     },
     {
@@ -2576,14 +2645,18 @@
       "modifiers": [
         {
           "stat": "CriticalChance",
-          "value": 0.25,
+          "value": 0.11999999731779099,
           "type": "Flat"
         },
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.25,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.15000000596046448,
+        0.5
       ]
     },
     {
@@ -2596,14 +2669,18 @@
       "modifiers": [
         {
           "stat": "CriticalChance",
-          "value": 0.25,
+          "value": 0.11999999731779099,
           "type": "Flat"
         },
         {
           "stat": "MaxHp",
-          "value": 400,
+          "value": 180,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.2199999988079071,
+        0.40000000596046448
       ]
     },
     {
@@ -2616,19 +2693,22 @@
       "modifiers": [
         {
           "stat": "CriticalChance",
-          "value": 0.25,
+          "value": 0.27000001072883606,
           "type": "Flat"
         },
         {
           "stat": "MagicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         },
         {
           "stat": "CriticalDamage",
-          "value": 0.25,
+          "value": 0.30000001192092896,
           "type": "Flat"
         }
+      ],
+      "params": [
+        20
       ]
     },
     {
@@ -2641,19 +2721,22 @@
       "modifiers": [
         {
           "stat": "CriticalChance",
-          "value": 0.25,
+          "value": 0.11999999731779099,
           "type": "Flat"
         },
         {
           "stat": "PhysicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         },
         {
           "stat": "CriticalDamage",
-          "value": 0.25,
+          "value": 0.15000000596046448,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.34999999403953552
       ]
     },
     {
@@ -2666,14 +2749,18 @@
       "modifiers": [
         {
           "stat": "CriticalChance",
-          "value": 0.25,
+          "value": 0.11999999731779099,
           "type": "Flat"
         },
         {
           "stat": "Resistance",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         }
+      ],
+      "params": [
+        12,
+        0.029999999329447746
       ]
     },
     {
@@ -2686,9 +2773,17 @@
       "modifiers": [
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.5,
           "type": "Flat"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        50
       ]
     },
     {
@@ -2701,14 +2796,19 @@
       "modifiers": [
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.25,
           "type": "Flat"
         },
         {
           "stat": "MaxHp",
-          "value": 400,
+          "value": 180,
           "type": "Flat"
         }
+      ],
+      "params": [
+        5,
+        0.090000003576278687,
+        2
       ]
     },
     {
@@ -2721,14 +2821,18 @@
       "modifiers": [
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.25,
           "type": "Flat"
         },
         {
           "stat": "MagicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        3,
+        0.059999998658895493
       ]
     },
     {
@@ -2741,14 +2845,17 @@
       "modifiers": [
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.25,
           "type": "Flat"
         },
         {
           "stat": "PhysicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.35000002384185791,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        10
       ]
     },
     {
@@ -2761,14 +2868,24 @@
       "modifiers": [
         {
           "stat": "EnergyRegenEfficiency",
-          "value": 0.33000001311302185,
+          "value": 0.25,
           "type": "Flat"
         },
         {
           "stat": "Resistance",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        40,
+        2,
+        15
       ]
     },
     {
@@ -2781,9 +2898,12 @@
       "modifiers": [
         {
           "stat": "MaxHp",
-          "value": 1000,
+          "value": 360,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.02500000037252903
       ]
     },
     {
@@ -2796,19 +2916,18 @@
       "modifiers": [
         {
           "stat": "MaxHp",
-          "value": 400,
+          "value": 180,
           "type": "Flat"
         },
         {
           "stat": "MagicalDamage",
-          "value": 30,
-          "type": "Flat"
-        },
-        {
-          "stat": "LifeSteal",
           "value": 0.15000000596046448,
-          "type": "Flat"
+          "type": "Percent"
         }
+      ],
+      "params": [
+        0.0099999997764825821,
+        5
       ]
     },
     {
@@ -2821,19 +2940,20 @@
       "modifiers": [
         {
           "stat": "MaxHp",
-          "value": 400,
+          "value": 180,
           "type": "Flat"
         },
         {
           "stat": "PhysicalDamage",
-          "value": 30,
-          "type": "Flat"
-        },
-        {
-          "stat": "LifeSteal",
           "value": 0.15000000596046448,
-          "type": "Flat"
+          "type": "Percent"
         }
+      ],
+      "params": [
+        0.60000002384185791,
+        0.25,
+        0.25,
+        8
       ]
     },
     {
@@ -2846,14 +2966,18 @@
       "modifiers": [
         {
           "stat": "MaxHp",
-          "value": 400,
+          "value": 180,
           "type": "Flat"
         },
         {
           "stat": "Resistance",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         }
+      ],
+      "params": [
+        2,
+        0.40000000596046448
       ]
     },
     {
@@ -2866,14 +2990,12 @@
       "modifiers": [
         {
           "stat": "MagicalDamage",
-          "value": 80,
-          "type": "Flat"
-        },
-        {
-          "stat": "MagicalDamage",
-          "value": 0.25,
+          "value": 0.30000001192092896,
           "type": "Percent"
         }
+      ],
+      "params": [
+        0.15000000596046448
       ]
     },
     {
@@ -2886,24 +3008,17 @@
       "modifiers": [
         {
           "stat": "MagicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         },
         {
           "stat": "PhysicalDamage",
-          "value": 30,
-          "type": "Flat"
-        },
-        {
-          "stat": "MagicalPenetration",
-          "value": 0.25,
-          "type": "Flat"
-        },
-        {
-          "stat": "PhysicalPenetration",
-          "value": 0.25,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         }
+      ],
+      "params": [
+        0.18000000715255737
       ]
     },
     {
@@ -2916,14 +3031,18 @@
       "modifiers": [
         {
           "stat": "MagicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         },
         {
           "stat": "Resistance",
-          "value": 20,
+          "value": 18,
           "type": "Flat"
         }
+      ],
+      "params": [
+        2,
+        0.5
       ]
     },
     {
@@ -2936,14 +3055,12 @@
       "modifiers": [
         {
           "stat": "PhysicalDamage",
-          "value": 80,
-          "type": "Flat"
-        },
-        {
-          "stat": "PhysicalDamage",
-          "value": 0.25,
+          "value": 0.30000001192092896,
           "type": "Percent"
         }
+      ],
+      "params": [
+        0.15000000596046448
       ]
     },
     {
@@ -2956,14 +3073,24 @@
       "modifiers": [
         {
           "stat": "PhysicalDamage",
-          "value": 30,
-          "type": "Flat"
+          "value": 0.15000000596046448,
+          "type": "Percent"
         },
         {
           "stat": "Resistance",
-          "value": 20,
+          "value": 18,
+          "type": "Flat"
+        },
+        {
+          "stat": "LifeSteal",
+          "value": 0.15000000596046448,
           "type": "Flat"
         }
+      ],
+      "params": [
+        0.40000000596046448,
+        0.20000000298023224,
+        5
       ]
     },
     {
@@ -2976,9 +3103,13 @@
       "modifiers": [
         {
           "stat": "Resistance",
-          "value": 50,
+          "value": 36,
           "type": "Flat"
         }
+      ],
+      "params": [
+        2,
+        0.02500000037252903
       ]
     }
   ],

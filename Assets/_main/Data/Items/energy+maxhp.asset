@@ -18,21 +18,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   modifiers:
-  - key: energy_regen_eff
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.33
+  - id: <will be auto generated>
+    key: energy_regen_eff
+    value: 0.25
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: max_hp
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 400
+  - id: <will be auto generated>
+    key: max_hp
+    value: 180
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: interval
+    value: 5
+    isPercentage: 0
+  - key: missing_hp
+    value: 0.09
+    isPercentage: 1
+  - key: radius
+    value: 2
+    isPercentage: 0
+  description: "M\u1ED7i #[0]s h\u1ED3i cho \u0111\u1ED3ng minh trong ph\u1EA1m vi
+    #[2] \xF4 (k\u1EC3 c\u1EA3 b\u1EA3n th\xE2n) #[1] m\xE1u \u0111\xE3 m\u1EA5t."

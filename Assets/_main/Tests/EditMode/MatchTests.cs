@@ -173,6 +173,36 @@ namespace AutoChess.Core.Tests {
         }
 
         [Test]
+        public void EveryCombinedItemHasAPassiveAndSurvivesABattle() {
+            var db = LoadOrIgnore();
+            var heroes = db.Units.Where(u => !u.Summoned).ToList();
+            var items = db.CombinedItems.ToList();
+            for (var i = 0; i < items.Count; i++) {
+                Assert.IsTrue(ItemEffects.HasPassive(items[i].Id), $"{items[i].Id} has no passive");
+                var setup = new BattleSetup { Seed = (ulong)(i * 17 + 3) };
+                setup.Home.ApplyTraits = setup.Away.ApplyTraits = true;
+                for (var k = 0; k < 3; k++) {
+                    // the item on every home unit and on one away unit, so holders win, lose, crit, cast and die
+                    setup.Home.Units.Add(new CombatantSetup {
+                        UnitId = heroes[(i + k) % heroes.Count].Id, Rank = HeroRank.A, Cell = new HexCoord(1 + k % 2, 2 + k),
+                        Items = new[] { items[i].Id },
+                    });
+                    setup.Away.Units.Add(new CombatantSetup {
+                        UnitId = heroes[(i + k + 7) % heroes.Count].Id, Rank = HeroRank.A, Cell = new HexCoord(6 - k % 2, 2 + k),
+                        Items = k == 0 ? new[] { items[i].Id } : new string[0],
+                    });
+                }
+                var battle = new BattleSimulation(i, db, setup, new EventBuffer());
+                Assert.DoesNotThrow(() => {
+                    for (var t = 0; t < 45 * 60 && !battle.Finished; t++) battle.Step();
+                }, items[i].Id);
+                foreach (var u in battle.Units) {
+                    Assert.IsFalse(double.IsNaN(u.Hp) || double.IsNaN(u.Position.X) || u.Hp > u.MaxHp + 1e-3, $"{items[i].Id}: {u}");
+                }
+            }
+        }
+
+        [Test]
         public void EveryHeroSurvivesAFullBattle() {
             var db = LoadOrIgnore();
             var heroes = db.Units.Where(u => !u.Summoned).ToList();

@@ -35,11 +35,15 @@ namespace AutoChess.Core.Tests {
             heroes = db.Units.Where(u => !u.Summoned).OrderBy(u => u.Reputation).ThenBy(u => u.Id).ToList();
 
             md.AppendLine($"# Balance report ({Path.GetFileName(path)})").AppendLine();
-            UnitTable();
-            Duels();
-            DummyMetrics();
-            TeamFights();
-            TraitValue();
+            // AUTOCHESS_BALANCE_SECTIONS (comma list: units, duels, profile, fights, traits, items) narrows the run.
+            var only = (Environment.GetEnvironmentVariable("AUTOCHESS_BALANCE_SECTIONS") ?? "").Split(',', StringSplitOptions.RemoveEmptyEntries);
+            bool Run(string section) => only.Length == 0 || only.Contains(section);
+            if (Run("units")) UnitTable();
+            if (Run("duels")) Duels();
+            if (Run("profile")) DummyMetrics();
+            if (Run("fights")) TeamFights();
+            if (Run("traits")) TraitValue();
+            if (Run("items")) ItemValue(Path.GetDirectoryName(Path.GetDirectoryName(path)));
 
             var dir = Path.Combine(Path.GetDirectoryName(Path.GetDirectoryName(path)) ?? ".", "Temp");
             Directory.CreateDirectory(dir);
@@ -404,7 +408,7 @@ namespace AutoChess.Core.Tests {
                 }
                 var rng = new DeterministicRandom((ulong)trait.Id.GetHashCode() & 0xffff);
                 double score = 0;
-                const int runs = 60;
+                const int runs = 120;
                 for (var i = 0; i < runs; i++) {
                     var forced = members.OrderBy(_ => rng.NextUInt()).Take(need).ToList();
                     var seed = rng.NextUInt();
@@ -421,6 +425,61 @@ namespace AutoChess.Core.Tests {
                 traitsJson[trait.Id.ToString()] = score / runs;
             }
             md.AppendLine().AppendLine("Both sides field the same units and synergies, except the tested trait (on one side, alternating home / away). Mirrored boards amplify small edges (+10% damage on one unit already wins ~75%), so ~70-85% at the first tier is healthy; 50% means the trait does nothing.").AppendLine();
+        }
+
+        /// <summary>
+        /// Each combined item on one unit of a random level-6 board (the unit its carrier tag in Tools/items/items.json
+        /// points at) against the same board without it; sides alternate.
+        /// </summary>
+        void ItemValue(string root) {
+            var carriers = new Dictionary<string, string>();
+            var config = root == null ? null : Path.Combine(root, "Tools", "items", "items.json");
+            if (config != null && File.Exists(config)) {
+                var items = (List<object>)((Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(config)))["items"];
+                foreach (Dictionary<string, object> item in items) carriers[(string)item["id"]] = (string)item["carrier"];
+            }
+            var itemsJson = new Dictionary<string, object>();
+            json["items"] = itemsJson;
+            md.AppendLine("## Item value (same board, one unit with the item vs without)").AppendLine();
+            md.AppendLine("| item | name | carrier | win rate |").AppendLine("|---|---|---|---|");
+            const int runs = 300;
+            const int level = 6;
+            foreach (var item in db.CombinedItems.OrderBy(i => i.Id, StringComparer.Ordinal)) {
+                carriers.TryGetValue(item.Id, out var carrier);
+                carrier ??= "any";
+                var rng = new DeterministicRandom((ulong)(item.Id.GetHashCode() & 0x7fffffff) + 17);
+                double score = 0;
+                for (var i = 0; i < runs; i++) {
+                    var seed = rng.NextUInt();
+                    var withHome = i % 2 == 0;
+                    var home = Board(level, new DeterministicRandom(seed), false);
+                    var away = Board(level, new DeterministicRandom(seed), true);
+                    var holder = withHome ? home : away;
+                    holder.Units[Carrier(holder, carrier)].Items = new[] { item.Id };
+                    var o = Run(new BattleSetup { Seed = rng.NextUInt(), Home = home, Away = away }).Battle.Outcome;
+                    var won = withHome ? BattleOutcome.HomeWin : BattleOutcome.AwayWin;
+                    score += o == won ? 1 : o == BattleOutcome.Draw ? 0.5 : 0;
+                }
+                md.AppendLine($"| {item.Id} | {item.Name} | {carrier} | {F(100 * score / runs)}% |");
+                itemsJson[item.Id] = score / runs;
+            }
+            md.AppendLine().AppendLine("One item on one of six units of a mirrored board; 50% = no effect.").AppendLine();
+        }
+
+        /// <summary>Index of the unit an item of <paramref name="carrier"/> type goes to.</summary>
+        int Carrier(TeamSetup team, string carrier) {
+            double Score(UnitDefinition d) => carrier switch {
+                "ad" => d.PhysicalDamage * d.AttackSpeed,
+                "ap" => d.MagicalDamage,
+                "tank" => d.MaxHp * (d.AttackRange <= 1 ? 2 : 1),
+                "attack" => (d.PhysicalDamage + d.MagicalDamage) * d.AttackSpeed,
+                _ => (int)d.Reputation * 10000 + d.MaxHp,
+            };
+            var best = 0;
+            for (var i = 1; i < team.Units.Count; i++) {
+                if (Score(db.Unit(team.Units[i].UnitId)) > Score(db.Unit(team.Units[best].UnitId))) best = i;
+            }
+            return best;
         }
 
         static double Median(List<double> v) => Percentile(v, 0.5);

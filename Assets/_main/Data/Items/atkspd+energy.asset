@@ -18,21 +18,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
   - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
   modifiers:
-  - key: atk_spd
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.2
+  - id: <will be auto generated>
+    key: atk_spd
+    value: 0.12
     type: 1
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: energy_regen_eff
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.33
+  - id: <will be auto generated>
+    key: energy_regen_eff
+    value: 0.25
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: every
+    value: 3
+    isPercentage: 0
+  - key: dmg
+    value: 65
+    isPercentage: 0
+  - key: targets
+    value: 3
+    isPercentage: 0
+  description: "M\u1ED7i \u0111\xF2n \u0111\xE1nh th\u1EE9 #[0] ph\xF3ng \u0111i\u1EC7n,
+    g\xE2y #[1] s\xE1t th\u01B0\u01A1ng ph\xE9p l\xEAn t\u1ED1i \u0111a #[2] k\u1EBB
+    \u0111\u1ECBch g\u1EA7n m\u1EE5c ti\xEAu."

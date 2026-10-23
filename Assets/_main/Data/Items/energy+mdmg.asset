@@ -18,21 +18,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
   - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
   modifiers:
-  - key: energy_regen_eff
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.33
+  - id: <will be auto generated>
+    key: energy_regen_eff
+    value: 0.25
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: m_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  - id: <will be auto generated>
+    key: m_dmg
+    value: 0.15
+    type: 1
+  itemParams:
+  - key: interval
+    value: 3
+    isPercentage: 0
+  - key: mdmg_per_stack
+    value: 0.06
+    isPercentage: 1
+  description: "M\u1ED7i #[0]s t\u0103ng #[1]<sprite name=mdmg> (c\u1ED9ng d\u1ED3n
+    \u0111\u1EBFn h\u1EBFt tr\u1EADn)."

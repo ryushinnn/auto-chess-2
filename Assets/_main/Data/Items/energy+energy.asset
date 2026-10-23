@@ -18,12 +18,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
   - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
   modifiers:
-  - key: energy_regen_eff
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.33
+  - id: <will be auto generated>
+    key: energy_regen_eff
+    value: 0.5
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  - id: <will be auto generated>
+    key: m_dmg
+    value: 0.15
+    type: 1
+  itemParams:
+  - key: energy_after_cast
+    value: 50
+    isPercentage: 0
+  description: "Sau khi d\xF9ng k\u1EF9 n\u0103ng, h\u1ED3i #[0]<sprite name=eng>."

@@ -18,30 +18,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
   modifiers:
-  - key: max_hp
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 400
+  - id: <will be auto generated>
+    key: max_hp
+    value: 180
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: m_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: life_steal
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
+  - id: <will be auto generated>
+    key: m_dmg
     value: 0.15
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+    type: 1
+  itemParams:
+  - key: burn_per_sec
+    value: 0.01
+    isPercentage: 1
+  - key: duration
+    value: 5
+    isPercentage: 0
+  description: "S\xE1t th\u01B0\u01A1ng k\u1EF9 n\u0103ng thi\xEAu \u0111\u1ED1t
+    m\u1EE5c ti\xEAu trong #[1]s: m\u1ED7i gi\xE2y g\xE2y s\xE1t th\u01B0\u01A1ng
+    chu\u1EA9n b\u1EB1ng #[0]<sprite name=hp> t\u1ED1i \u0111a c\u1EE7a m\u1EE5c
+    ti\xEAu, \u0111\u1ED3ng th\u1EDDi gi\u1EA3m h\u1ED3i m\xE1u."

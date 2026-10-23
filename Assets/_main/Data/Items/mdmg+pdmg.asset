@@ -18,39 +18,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
   - {fileID: 11400000, guid: ad54fd8c2cb306649848b9dbc8143993, type: 2}
   modifiers:
-  - key: m_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: p_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: m_pen
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: p_pen
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  - id: <will be auto generated>
+    key: m_dmg
+    value: 0.15
+    type: 1
+  - id: <will be auto generated>
+    key: p_dmg
+    value: 0.15
+    type: 1
+  itemParams:
+  - key: heal_share
+    value: 0.18
+    isPercentage: 1
+  description: "H\u1ED3i m\xE1u cho \u0111\u1ED3ng minh th\u1EA5p m\xE1u nh\u1EA5t
+    b\u1EB1ng #[0] s\xE1t th\u01B0\u01A1ng ng\u01B0\u1EDDi mang g\xE2y ra."

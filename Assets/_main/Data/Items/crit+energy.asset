@@ -18,21 +18,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d7a1d281dffef14889710fafe4c94f9, type: 2}
   - {fileID: 11400000, guid: 3cd54e7cb751d8a4da294938648ca728, type: 2}
   modifiers:
-  - key: crit_chance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
+  - id: <will be auto generated>
+    key: crit_chance
+    value: 0.12
+    type: 0
+  - id: <will be auto generated>
+    key: energy_regen_eff
     value: 0.25
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: energy_regen_eff
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.33
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: vamp
+    value: 0.15
+    isPercentage: 1
+  - key: hp_threshold
+    value: 0.5
+    isPercentage: 1
+  description: "H\u1ED3i m\xE1u b\u1EB1ng #[0] m\u1ECDi s\xE1t th\u01B0\u01A1ng g\xE2y
+    ra; g\u1EA5p \u0111\xF4i khi m\xE1u d\u01B0\u1EDBi #[1]."

@@ -18,30 +18,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
   - {fileID: 11400000, guid: 57517d6f12e382740bc5b1d059e3c196, type: 2}
   modifiers:
-  - key: armor
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 20
+  - id: <will be auto generated>
+    key: armor
+    value: 18
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: resistance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 20
+  - id: <will be auto generated>
+    key: resistance
+    value: 18
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: tenacity
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: def_per_enemy
+    value: 12
+    isPercentage: 0
+  - key: max_enemies
+    value: 5
+    isPercentage: 0
+  description: "Nh\u1EADn #[0]<sprite name=arm><sprite name=res> cho m\u1ED7i k\u1EBB
+    \u0111\u1ECBch \u0111ang nh\u1EAFm v\xE0o ng\u01B0\u1EDDi mang (t\u1ED1i \u0111a
+    #[1])."

@@ -70,7 +70,9 @@ namespace AutoChess.Game {
 
         public static ItemDefinition ToItem(Item item) {
             var ingredients = item.IsForgedItem() ? new[] { item.ingredients[0].Id, item.ingredients[1].Id } : Array.Empty<string>();
-            return new ItemDefinition { Id = item.Id, Name = item.name, Ingredients = ingredients, Modifiers = Convert(item.modifiers) };
+            var values = new double[item.itemParams?.Length ?? 0];
+            for (var i = 0; i < values.Length; i++) values[i] = item.itemParams[i].value;
+            return new ItemDefinition { Id = item.Id, Name = item.name, Ingredients = ingredients, Modifiers = Convert(item.modifiers), Params = values };
         }
 
         public static TraitDefinition ToTrait(DestinyConfig config) {

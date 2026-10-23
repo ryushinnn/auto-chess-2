@@ -104,7 +104,11 @@ namespace AutoChess.Core.Combat {
         public double LifeSteal => stats[StatKind.LifeSteal];
         public double Tenacity => stats[StatKind.Tenacity];
         public double MovementSpeed => Def.MovementSpeed;
-        public int AttackRange => Def.AttackRange;
+        public int AttackRange => Def.AttackRange + BonusRange;
+        /// <summary>Extra attack range in cells (items).</summary>
+        internal int BonusRange;
+        /// <summary>Immune to stuns, knock-ups, silences and forced moves right now.</summary>
+        public bool ResistsCrowdControl => Status.Unstoppable || Status.IsInvulnerable || Status.IsCrowdControlImmune;
         public double HpPercentage => MaxHp <= 0 ? 0 : Math.Clamp(Hp / MaxHp, 0, 1);
         public double HpLostPercentage => 1 - HpPercentage;
         public bool IsDrainingEnergy => drainRemaining > 0;
@@ -396,20 +400,20 @@ namespace AutoChess.Core.Combat {
         // ------------------------------------------------------------------ crowd control
 
         public void Airborne(double duration) {
-            if (!Alive || Status.Unstoppable || Status.IsInvulnerable) return;
+            if (!Alive || ResistsCrowdControl) return;
             Status.Airborne = duration;
             Battle.Emit(new UnitAirborneEvent { UnitId = Id, Duration = duration });
             InterruptActions();
         }
 
         public void Stun(double duration) {
-            if (!Alive || Status.Unstoppable || Status.IsInvulnerable) return;
+            if (!Alive || ResistsCrowdControl) return;
             Status.Stun = Math.Max(Status.Stun, duration * (1 - Tenacity));
             InterruptActions();
         }
 
         public void Silence(double duration) {
-            if (!Alive || Status.Unstoppable || Status.IsInvulnerable) return;
+            if (!Alive || ResistsCrowdControl) return;
             Status.Silence = Math.Max(Status.Silence, duration * (1 - Tenacity));
             Skill.Interrupt(this);
         }

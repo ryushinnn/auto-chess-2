@@ -18,21 +18,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d7a1d281dffef14889710fafe4c94f9, type: 2}
   - {fileID: 11400000, guid: 165a9a6ab51005b4281c529c52ae906b, type: 2}
   modifiers:
-  - key: crit_chance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.25
+  - id: <will be auto generated>
+    key: crit_chance
+    value: 0.12
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: max_hp
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 400
+  - id: <will be auto generated>
+    key: max_hp
+    value: 180
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: dmg_reduce
+    value: 0.22
+    isPercentage: 1
+  - key: hp_threshold
+    value: 0.4
+    isPercentage: 1
+  description: "Gi\u1EA3m #[0] s\xE1t th\u01B0\u01A1ng ph\u1EA3i nh\u1EADn khi m\xE1u
+    tr\xEAn #[1]."

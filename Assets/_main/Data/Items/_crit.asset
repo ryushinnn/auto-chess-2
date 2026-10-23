@@ -16,12 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 465b50b790cd1014cbc1f7c99b02ef86, type: 3}
   ingredients: []
   modifiers:
-  - key: crit_chance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.1
+  - id: <will be auto generated>
+    key: crit_chance
+    value: 0.12
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams: []
+  description: 

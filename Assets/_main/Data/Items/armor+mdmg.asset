@@ -18,21 +18,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b538eec87a753f34a992d366a3cd4321, type: 2}
   - {fileID: 11400000, guid: f9c09f8d99180754180d156bc02072f7, type: 2}
   modifiers:
-  - key: armor
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 20
+  - id: <will be auto generated>
+    key: armor
+    value: 18
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
-  - key: m_dmg
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 30
-    type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  - id: <will be auto generated>
+    key: m_dmg
+    value: 0.15
+    type: 1
+  itemParams:
+  - key: shield
+    value: 0.3
+    isPercentage: 1
+  - key: duration
+    value: 8
+    isPercentage: 0
+  description: "\u0110\u1EA7u tr\u1EADn nh\u1EADn [Khi\xEAn] b\u1EB1ng #[0]<sprite
+    name=hp> t\u1ED1i \u0111a trong #[1]s."

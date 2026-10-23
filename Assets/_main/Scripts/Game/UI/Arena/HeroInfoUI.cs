@@ -125,7 +125,7 @@ namespace AutoChess.Game {
         void UpdateItems(UnitInstance unit) {
             for (int i = 0; i < items.Length; i++) {
                 var item = i < unit.Items.Count ? ItemDB.Instance.Find(unit.Items[i]) : null;
-                items[i].SetData(item != null ? item.icon : null);
+                items[i].SetData(item);
             }
         }
 

@@ -18,12 +18,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 57517d6f12e382740bc5b1d059e3c196, type: 2}
   - {fileID: 11400000, guid: 57517d6f12e382740bc5b1d059e3c196, type: 2}
   modifiers:
-  - key: resistance
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 50
+  - id: <will be auto generated>
+    key: resistance
+    value: 36
     type: 0
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams:
+  - key: interval
+    value: 2
+    isPercentage: 0
+  - key: heal
+    value: 0.025
+    isPercentage: 1
+  description: "M\u1ED7i #[0]s h\u1ED3i #[1]<sprite name=hp> t\u1ED1i \u0111a."

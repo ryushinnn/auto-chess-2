@@ -1,0 +1,765 @@
+{
+  "note": "Item design: component stats, combined items = both components' stats + extra + one passive (Core/Combat/ItemEffects.cs reads params by index; #[i] in the description). carrier = who the balance simulator gives the item to (ad / ap / tank / attack / any). Applied to Data/Items by the menu AutoChess/Items/Apply Item Config; Tools/balance reads it for simulations.",
+  "components": {
+    "_pdmg": [
+      {
+        "stat": "PhysicalDamage",
+        "value": 0.15,
+        "type": "Percent"
+      }
+    ],
+    "_mdmg": [
+      {
+        "stat": "MagicalDamage",
+        "value": 0.15,
+        "type": "Percent"
+      }
+    ],
+    "_atkspd": [
+      {
+        "stat": "AttackSpeed",
+        "value": 0.12,
+        "type": "Percent"
+      }
+    ],
+    "_crit": [
+      {
+        "stat": "CriticalChance",
+        "value": 0.12,
+        "type": "Flat"
+      }
+    ],
+    "_energy": [
+      {
+        "stat": "EnergyRegenEfficiency",
+        "value": 0.25,
+        "type": "Flat"
+      }
+    ],
+    "_maxhp": [
+      {
+        "stat": "MaxHp",
+        "value": 180,
+        "type": "Flat"
+      }
+    ],
+    "_armor": [
+      {
+        "stat": "Armor",
+        "value": 18,
+        "type": "Flat"
+      }
+    ],
+    "_resistance": [
+      {
+        "stat": "Resistance",
+        "value": 18,
+        "type": "Flat"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "armor+armor",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "reflect_dmg",
+          50,
+          false
+        ],
+        [
+          "cooldown",
+          1,
+          false
+        ]
+      ],
+      "description": "Đòn chí mạng lên người mang chỉ gây sát thương thường.\nKhi trúng đòn đánh, gây #[0] sát thương phép lên kẻ tấn công (tối đa 1 lần mỗi #[1]s)."
+    },
+    {
+      "id": "armor+atkspd",
+      "carrier": "any",
+      "extra": [],
+      "params": [
+        [
+          "dmg_per_stack",
+          0.012,
+          true
+        ],
+        [
+          "max_stacks",
+          20,
+          false
+        ],
+        [
+          "def_at_max",
+          20,
+          false
+        ]
+      ],
+      "description": "Mỗi lần đánh hoặc trúng đòn: tăng #[0] sát thương gây ra (tối đa #[1] cộng dồn). Khi đủ cộng dồn, nhận thêm #[2]<sprite name=arm><sprite name=res>."
+    },
+    {
+      "id": "armor+crit",
+      "carrier": "ad",
+      "extra": [
+        {
+          "stat": "CriticalDamage",
+          "value": 0.2,
+          "type": "Flat"
+        }
+      ],
+      "params": [
+        [
+          "shield",
+          0.4,
+          true
+        ],
+        [
+          "duration",
+          5,
+          false
+        ]
+      ],
+      "description": "Mỗi khi hạ gục kẻ địch, nhận [Khiên] bằng #[0]<sprite name=hp> tối đa trong #[1]s."
+    },
+    {
+      "id": "armor+energy",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "radius",
+          2,
+          false
+        ],
+        [
+          "atk_spd_reduce",
+          0.22,
+          true
+        ]
+      ],
+      "description": "Kẻ địch trong phạm vi #[0] ô bị giảm #[1]<sprite name=aspd>."
+    },
+    {
+      "id": "armor+maxhp",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "interval",
+          2,
+          false
+        ],
+        [
+          "radius",
+          1,
+          false
+        ],
+        [
+          "burn",
+          0.017,
+          true
+        ],
+        [
+          "anti_heal",
+          3,
+          false
+        ]
+      ],
+      "description": "Mỗi #[0]s thiêu đốt kẻ địch trong phạm vi #[1] ô: gây sát thương phép bằng #[2]<sprite name=hp> tối đa của chúng và giảm hồi máu trong #[3]s."
+    },
+    {
+      "id": "armor+mdmg",
+      "carrier": "ap",
+      "extra": [],
+      "params": [
+        [
+          "shield",
+          0.3,
+          true
+        ],
+        [
+          "duration",
+          8,
+          false
+        ]
+      ],
+      "description": "Đầu trận nhận [Khiên] bằng #[0]<sprite name=hp> tối đa trong #[1]s."
+    },
+    {
+      "id": "armor+pdmg",
+      "carrier": "ad",
+      "extra": [],
+      "params": [
+        [
+          "hp_threshold",
+          0.6,
+          true
+        ],
+        [
+          "invulnerable",
+          1,
+          false
+        ],
+        [
+          "atk_spd",
+          0.35,
+          true
+        ],
+        [
+          "duration",
+          6,
+          false
+        ]
+      ],
+      "description": "Lần đầu máu xuống dưới #[0]: [Vô địch] #[1]s, sau đó tăng #[2]<sprite name=aspd> trong #[3]s."
+    },
+    {
+      "id": "armor+resistance",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "def_per_enemy",
+          12,
+          false
+        ],
+        [
+          "max_enemies",
+          5,
+          false
+        ]
+      ],
+      "description": "Nhận #[0]<sprite name=arm><sprite name=res> cho mỗi kẻ địch đang nhắm vào người mang (tối đa #[1])."
+    },
+    {
+      "id": "atkspd+atkspd",
+      "carrier": "attack",
+      "extra": [],
+      "params": [
+        [
+          "range",
+          1,
+          false
+        ]
+      ],
+      "description": "Tăng #[0] ô tầm đánh."
+    },
+    {
+      "id": "atkspd+crit",
+      "carrier": "ad",
+      "extra": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.1,
+          "type": "Flat"
+        }
+      ],
+      "params": [
+        [
+          "armor_reduce",
+          0.5,
+          true
+        ],
+        [
+          "duration",
+          3,
+          false
+        ]
+      ],
+      "description": "Đòn đánh chí mạng giảm #[0]<sprite name=arm> của mục tiêu trong #[1]s."
+    },
+    {
+      "id": "atkspd+energy",
+      "carrier": "attack",
+      "extra": [],
+      "params": [
+        [
+          "every",
+          3,
+          false
+        ],
+        [
+          "dmg",
+          65,
+          false
+        ],
+        [
+          "targets",
+          3,
+          false
+        ]
+      ],
+      "description": "Mỗi đòn đánh thứ #[0] phóng điện, gây #[1] sát thương phép lên tối đa #[2] kẻ địch gần mục tiêu."
+    },
+    {
+      "id": "atkspd+maxhp",
+      "carrier": "ap",
+      "extra": [],
+      "params": [
+        [
+          "atk_spd",
+          0.45,
+          true
+        ],
+        [
+          "duration",
+          5,
+          false
+        ]
+      ],
+      "description": "Sau khi dùng kỹ năng, tăng #[0]<sprite name=aspd> trong #[1]s."
+    },
+    {
+      "id": "atkspd+mdmg",
+      "carrier": "attack",
+      "extra": [],
+      "params": [
+        [
+          "atk_spd_per_hit",
+          0.04,
+          true
+        ]
+      ],
+      "description": "Mỗi đòn đánh tăng #[0]<sprite name=aspd> đến hết trận."
+    },
+    {
+      "id": "atkspd+pdmg",
+      "carrier": "ad",
+      "extra": [],
+      "params": [
+        [
+          "bonus_dmg",
+          0.25,
+          true
+        ]
+      ],
+      "description": "Gây thêm #[0] sát thương lên mục tiêu có <sprite name=hp> tối đa cao hơn người mang."
+    },
+    {
+      "id": "atkspd+resistance",
+      "carrier": "attack",
+      "extra": [],
+      "params": [
+        [
+          "share",
+          0.35,
+          true
+        ]
+      ],
+      "description": "Đòn đánh bắn thêm một mũi vào kẻ địch gần mục tiêu nhất, gây #[0] sát thương của đòn đánh."
+    },
+    {
+      "id": "crit+crit",
+      "carrier": "ad",
+      "extra": [
+        {
+          "stat": "CriticalDamage",
+          "value": 0.2,
+          "type": "Flat"
+        }
+      ],
+      "params": [
+        [
+          "atk_spd_per_crit",
+          0.04,
+          true
+        ],
+        [
+          "max_stacks",
+          10,
+          false
+        ]
+      ],
+      "description": "Mỗi lần chí mạng tăng #[0]<sprite name=aspd> (tối đa #[1] cộng dồn)."
+    },
+    {
+      "id": "crit+energy",
+      "carrier": "any",
+      "extra": [],
+      "params": [
+        [
+          "vamp",
+          0.15,
+          true
+        ],
+        [
+          "hp_threshold",
+          0.5,
+          true
+        ]
+      ],
+      "description": "Hồi máu bằng #[0] mọi sát thương gây ra; gấp đôi khi máu dưới #[1]."
+    },
+    {
+      "id": "crit+maxhp",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "dmg_reduce",
+          0.22,
+          true
+        ],
+        [
+          "hp_threshold",
+          0.4,
+          true
+        ]
+      ],
+      "description": "Giảm #[0] sát thương phải nhận khi máu trên #[1]."
+    },
+    {
+      "id": "crit+mdmg",
+      "carrier": "ap",
+      "extra": [
+        {
+          "stat": "CriticalDamage",
+          "value": 0.3,
+          "type": "Flat"
+        },
+        {
+          "stat": "CriticalChance",
+          "value": 0.15,
+          "type": "Flat"
+        }
+      ],
+      "params": [
+        [
+          "energy_on_kill",
+          20,
+          false
+        ]
+      ],
+      "description": "Kỹ năng có thể chí mạng.\nMỗi khi hạ gục kẻ địch, hồi #[0]<sprite name=eng>."
+    },
+    {
+      "id": "crit+pdmg",
+      "carrier": "ad",
+      "extra": [
+        {
+          "stat": "CriticalDamage",
+          "value": 0.15,
+          "type": "Flat"
+        }
+      ],
+      "params": [
+        [
+          "true_share",
+          0.35,
+          true
+        ]
+      ],
+      "description": "Đòn đánh chí mạng gây thêm sát thương chuẩn bằng #[0] sát thương của đòn đó."
+    },
+    {
+      "id": "crit+resistance",
+      "carrier": "any",
+      "extra": [],
+      "params": [
+        [
+          "duration",
+          12,
+          false
+        ],
+        [
+          "atk_spd_per_sec",
+          0.03,
+          true
+        ]
+      ],
+      "description": "Miễn nhiễm khống chế trong #[0]s đầu trận.\nTrong thời gian đó, mỗi giây tăng #[1]<sprite name=aspd> (giữ đến hết trận)."
+    },
+    {
+      "id": "energy+energy",
+      "carrier": "ap",
+      "extra": [
+        {
+          "stat": "MagicalDamage",
+          "value": 0.15,
+          "type": "Percent"
+        }
+      ],
+      "params": [
+        [
+          "energy_after_cast",
+          50,
+          false
+        ]
+      ],
+      "description": "Sau khi dùng kỹ năng, hồi #[0]<sprite name=eng>."
+    },
+    {
+      "id": "energy+maxhp",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "interval",
+          5,
+          false
+        ],
+        [
+          "missing_hp",
+          0.09,
+          true
+        ],
+        [
+          "radius",
+          2,
+          false
+        ]
+      ],
+      "description": "Mỗi #[0]s hồi cho đồng minh trong phạm vi #[2] ô (kể cả bản thân) #[1] máu đã mất."
+    },
+    {
+      "id": "energy+mdmg",
+      "carrier": "ap",
+      "extra": [],
+      "params": [
+        [
+          "interval",
+          3,
+          false
+        ],
+        [
+          "mdmg_per_stack",
+          0.06,
+          true
+        ]
+      ],
+      "description": "Mỗi #[0]s tăng #[1]<sprite name=mdmg> (cộng dồn đến hết trận)."
+    },
+    {
+      "id": "energy+pdmg",
+      "carrier": "ad",
+      "extra": [
+        {
+          "stat": "PhysicalDamage",
+          "value": 0.2,
+          "type": "Percent"
+        }
+      ],
+      "params": [
+        [
+          "energy_per_attack",
+          10,
+          false
+        ]
+      ],
+      "description": "Mỗi đòn đánh hồi thêm #[0]<sprite name=eng>."
+    },
+    {
+      "id": "energy+resistance",
+      "carrier": "ap",
+      "extra": [
+        {
+          "stat": "MagicalDamage",
+          "value": 0.15,
+          "type": "Percent"
+        }
+      ],
+      "params": [
+        [
+          "start_energy",
+          40,
+          false
+        ],
+        [
+          "interval",
+          2,
+          false
+        ],
+        [
+          "energy",
+          15,
+          false
+        ]
+      ],
+      "description": "Đầu trận nhận #[0]<sprite name=eng>; sau đó mỗi #[1]s hồi #[2]<sprite name=eng>."
+    },
+    {
+      "id": "maxhp+maxhp",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "missing_hp_per_sec",
+          0.025,
+          true
+        ]
+      ],
+      "description": "Mỗi giây hồi #[0] máu đã mất."
+    },
+    {
+      "id": "maxhp+mdmg",
+      "carrier": "ap",
+      "extra": [],
+      "params": [
+        [
+          "burn_per_sec",
+          0.01,
+          true
+        ],
+        [
+          "duration",
+          5,
+          false
+        ]
+      ],
+      "description": "Sát thương kỹ năng thiêu đốt mục tiêu trong #[1]s: mỗi giây gây sát thương chuẩn bằng #[0]<sprite name=hp> tối đa của mục tiêu, đồng thời giảm hồi máu."
+    },
+    {
+      "id": "maxhp+pdmg",
+      "carrier": "ad",
+      "extra": [],
+      "params": [
+        [
+          "hp_threshold",
+          0.6,
+          true
+        ],
+        [
+          "shield",
+          0.25,
+          true
+        ],
+        [
+          "pdmg",
+          0.25,
+          true
+        ],
+        [
+          "duration",
+          8,
+          false
+        ]
+      ],
+      "description": "Lần đầu máu xuống dưới #[0]: nhận [Khiên] bằng #[1]<sprite name=hp> tối đa và tăng #[2]<sprite name=pdmg> trong #[3]s."
+    },
+    {
+      "id": "maxhp+resistance",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "radius",
+          2,
+          false
+        ],
+        [
+          "armor_reduce",
+          0.4,
+          true
+        ]
+      ],
+      "description": "Kẻ địch trong phạm vi #[0] ô bị giảm #[1]<sprite name=arm>."
+    },
+    {
+      "id": "mdmg+mdmg",
+      "carrier": "ap",
+      "extra": [],
+      "params": [
+        [
+          "dmg_amp",
+          0.15,
+          true
+        ]
+      ],
+      "description": "Tăng #[0] sát thương gây ra."
+    },
+    {
+      "id": "mdmg+pdmg",
+      "carrier": "any",
+      "extra": [],
+      "params": [
+        [
+          "heal_share",
+          0.18,
+          true
+        ]
+      ],
+      "description": "Hồi máu cho đồng minh thấp máu nhất bằng #[0] sát thương người mang gây ra."
+    },
+    {
+      "id": "mdmg+resistance",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "radius",
+          2,
+          false
+        ],
+        [
+          "res_reduce",
+          0.5,
+          true
+        ]
+      ],
+      "description": "Kẻ địch trong phạm vi #[0] ô bị giảm #[1]<sprite name=res>."
+    },
+    {
+      "id": "pdmg+pdmg",
+      "carrier": "ad",
+      "extra": [],
+      "params": [
+        [
+          "dmg_amp",
+          0.15,
+          true
+        ]
+      ],
+      "description": "Tăng #[0] sát thương gây ra."
+    },
+    {
+      "id": "pdmg+resistance",
+      "carrier": "ad",
+      "extra": [
+        {
+          "stat": "LifeSteal",
+          "value": 0.15,
+          "type": "Flat"
+        }
+      ],
+      "params": [
+        [
+          "hp_threshold",
+          0.4,
+          true
+        ],
+        [
+          "shield",
+          0.2,
+          true
+        ],
+        [
+          "duration",
+          5,
+          false
+        ]
+      ],
+      "description": "Lần đầu máu xuống dưới #[0]: nhận [Khiên] bằng #[1]<sprite name=hp> tối đa trong #[2]s."
+    },
+    {
+      "id": "resistance+resistance",
+      "carrier": "tank",
+      "extra": [],
+      "params": [
+        [
+          "interval",
+          2,
+          false
+        ],
+        [
+          "heal",
+          0.025,
+          true
+        ]
+      ],
+      "description": "Mỗi #[0]s hồi #[1]<sprite name=hp> tối đa."
+    }
+  ]
+}

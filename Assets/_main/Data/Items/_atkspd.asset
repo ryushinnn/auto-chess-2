@@ -16,12 +16,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 2f645061b9dcfa84886a3b003c6dfa35, type: 3}
   ingredients: []
   modifiers:
-  - key: atk_spd
-    id: <will be auto generated>
-    owner: {fileID: 0}
-    effectKey: 
-    value: 0.1
+  - id: <will be auto generated>
+    key: atk_spd
+    value: 0.12
     type: 1
-    stacks: 0
-    duration: 0
-    permanent: 0
+  itemParams: []
+  description: 
