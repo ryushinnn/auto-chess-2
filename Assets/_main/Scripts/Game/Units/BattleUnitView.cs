@@ -16,15 +16,16 @@ namespace AutoChess.Game {
         IGameSession session;
         int lastNextCell = -1;
 
-        public void Bind(IGameSession gameSession, CombatUnit unit) {
+        /// <param name="allySide">Side of the player watching (their units are allies, drawn on the near half).</param>
+        public void Bind(IGameSession gameSession, CombatUnit unit, TeamSide allySide) {
             session = gameSession;
             combatUnit = unit;
             lastNextCell = -1;
-            var home = unit.Side == TeamSide.Home;
-            SetHero(HeroTraitDB.Instance.Find(unit.Def.Id), unit.Rank, home);
+            var ally = unit.Side == allySide;
+            SetHero(HeroTraitDB.Instance.Find(unit.Def.Id), unit.Rank, ally);
             name = $"({unit.Rank}){unit.Def.Id}#{unit.Id}";
-            WorldPosition = BoardSpace.ToWorld(unit.Position);
-            Rotation.Rotate(home ? Vector3.forward : -Vector3.forward, true);
+            WorldPosition = BoardSpace.BattleToWorld(unit.Position);
+            Rotation.Rotate(ally ? Vector3.forward : -Vector3.forward, true);
             ItemsView.SetItems(unit.Items);
             SwitchCanvas(false);
         }
@@ -37,12 +38,12 @@ namespace AutoChess.Game {
         void Update() {
             if (combatUnit == null) return;
             var t = session.TickProgress;
-            WorldPosition = BoardSpace.ToWorld(Vec2.Lerp(combatUnit.PreviousPosition, combatUnit.Position, t));
+            WorldPosition = BoardSpace.BattleToWorld(Vec2.Lerp(combatUnit.PreviousPosition, combatUnit.Position, t));
 
             var next = combatUnit.Movement.NextCell;
             if (next != lastNextCell) {
                 lastNextCell = next;
-                if (next >= 0) FaceTowards(BoardSpace.Instance.CellToWorld(next));
+                if (next >= 0) FaceTowards(BoardSpace.BattleToWorld(BoardSpace.Instance.Grid.Center(next)));
             }
 
             if (!combatUnit.Alive) return;

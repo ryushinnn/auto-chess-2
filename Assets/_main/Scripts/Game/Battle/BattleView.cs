@@ -6,8 +6,10 @@ using UnityEngine;
 
 namespace AutoChess.Game {
     /// <summary>
-    /// Shows the local player's battle (was BattleField): spawns a <see cref="BattleUnitView"/> per combat unit
-    /// once the portal opens, routes battle events to them, and plays projectiles, areas and effect VFX.
+    /// Shows the battle of the viewed player (<see cref="GameManager.ViewedPlayerId"/>: the local player, or the one
+    /// being scouted) (was BattleField): spawns a <see cref="BattleUnitView"/> per combat unit once the portal opens,
+    /// routes battle events to them, and plays projectiles, areas and effect VFX. When the viewed player visits
+    /// (Away team of a PvP battle) the battle is drawn rotated so their units stand on the near half.
     /// </summary>
     public class BattleView : MonoBehaviour, ISessionView, ISessionResettable {
         [SerializeField] BattleUnitView heroPrefab;
@@ -25,15 +27,36 @@ namespace AutoChess.Game {
 
         /// <summary>The battle currently drawn, or null.</summary>
         public BattleSimulation VisibleBattle => visible;
+        /// <summary>Side of the viewed player in <see cref="VisibleBattle"/>.</summary>
+        public TeamSide AllySide { get; private set; }
         public IReadOnlyDictionary<int, BattleUnitView> Views => views;
 
         public void Bind(GameManager gameManager) {
             game = gameManager;
             game.EventRaised += OnEvent;
+            game.ViewChanged += OnViewChanged;
         }
 
         void OnDestroy() {
-            if (game != null) game.EventRaised -= OnEvent;
+            if (game == null) return;
+            game.EventRaised -= OnEvent;
+            game.ViewChanged -= OnViewChanged;
+        }
+
+        /// <summary>Scouting another player mid-round: show their battle right away.</summary>
+        void OnViewChanged(int playerId) {
+            var phase = game.Session.State.Phase;
+            if (phase != MatchPhase.Transition && phase != MatchPhase.Battle) return;
+            var battle = game.Session.State.BattleOf(playerId);
+            if (battle == null || battle == visible) return;
+            Clear();
+            if (phase == MatchPhase.Transition) pending = battle;
+            else {
+                Spawn(battle);
+                foreach (var view in views.Values) {
+                    if (view.CombatUnit != null && view.CombatUnit.Alive) view.SwitchCanvas(true);
+                }
+            }
         }
 
         public void OnSessionReset() => Clear();
@@ -42,7 +65,7 @@ namespace AutoChess.Game {
 
         void OnEvent(GameEvent e) {
             switch (e) {
-                case BattleCreatedEvent created when created.PlayerId == game.Session.LocalPlayerId:
+                case BattleCreatedEvent created when created.PlayerId == game.ViewedPlayerId:
                     pending = game.Session.State.BattleOf(created.PlayerId);
                     break;
                 case PhaseChangedEvent phase:
@@ -88,12 +111,15 @@ namespace AutoChess.Game {
         void Spawn(BattleSimulation battle) {
             Clear();
             visible = battle;
+            var away = battle.Setup.Away;
+            AllySide = away.PlayerId == game.ViewedPlayerId && !away.Ghost ? TeamSide.Away : TeamSide.Home;
+            BoardSpace.BattleFlipped = AllySide == TeamSide.Away;
             foreach (var unit in battle.Units) {
                 if (!pool.TryDequeue(out var view)) view = Instantiate(heroPrefab, transform);
                 view.Activate();
-                view.Bind(game.Session, unit);
+                view.Bind(game.Session, unit, AllySide);
                 views[unit.Id] = view;
-                if (unit.Side == TeamSide.Home) view.Mecanim.DiveOut();
+                if (unit.Side == AllySide) view.Mecanim.DiveOut();
             }
         }
 
@@ -123,6 +149,7 @@ namespace AutoChess.Game {
             effects.Clear();
             visible = null;
             pending = null;
+            BoardSpace.BattleFlipped = false;
         }
 
         void OnBattleEvent(BattleEvent e) {
@@ -169,7 +196,7 @@ namespace AutoChess.Game {
         }
 
         void CreateArea(AreaCreatedEvent e) {
-            var position = BoardSpace.ToWorld(e.Position);
+            var position = BoardSpace.BattleToWorld(e.Position);
             var area = Instantiate(PrefabDB.Instance.DotArea, position, Quaternion.identity, transform);
             area.Show((float)e.Radius);
             var vfx = VfxPool.Instance.GetVfx(e.Visual);

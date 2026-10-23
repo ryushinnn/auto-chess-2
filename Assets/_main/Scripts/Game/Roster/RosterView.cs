@@ -5,8 +5,9 @@ using UnityEngine;
 
 namespace AutoChess.Game {
     /// <summary>
-    /// Shows the local player's owned units on the bench and the board (was LineUp). Every roster event
-    /// reconciles the views with the player state, so a view can never disagree with the model.
+    /// Shows the viewed player's owned units on the bench and the board (was LineUp): the local player's, or
+    /// another player's while scouting (read-only). Every roster event reconciles the views with the player
+    /// state, so a view can never disagree with the model.
     /// </summary>
     public class RosterView : MonoBehaviour, ISessionView, ISessionResettable {
         [SerializeField] RosterUnitView heroPrefab;
@@ -28,10 +29,27 @@ namespace AutoChess.Game {
         public void Bind(GameManager gameManager) {
             game = gameManager;
             game.EventRaised += OnEvent;
+            game.ViewChanged += OnViewChanged;
         }
 
         void OnDestroy() {
-            if (game != null) game.EventRaised -= OnEvent;
+            if (game == null) return;
+            game.EventRaised -= OnEvent;
+            game.ViewChanged -= OnViewChanged;
+        }
+
+        /// <summary>Another player's roster (scouting) or back home: rebuild every view for the new player.</summary>
+        void OnViewChanged(int playerId) {
+            OnSessionReset();
+            var phase = game.Session.State.Phase;
+            if (phase == MatchPhase.Preparation || phase == MatchPhase.Setup || phase == MatchPhase.Finished) {
+                ShowBoardUnits();
+                SetPickable(phase == MatchPhase.Preparation);
+            }
+            else {
+                boardHidden = true;
+                Sync(false);
+            }
         }
 
         public void OnSessionReset() {
@@ -50,7 +68,7 @@ namespace AutoChess.Game {
         public RosterUnitView FindView(int unitId) => views.TryGetValue(unitId, out var v) ? v : null;
 
         void OnEvent(GameEvent e) {
-            if (e is PlayerEvent pe && pe.PlayerId != game.Session.LocalPlayerId) return;
+            if (e is PlayerEvent pe && pe.PlayerId != game.ViewedPlayerId) return;
             switch (e) {
                 case UnitAddedEvent _:
                 case UnitRemovedEvent _:
@@ -69,7 +87,7 @@ namespace AutoChess.Game {
 
         /// <summary>Creates, removes, refreshes and places views to match the player state.</summary>
         void Sync(bool animateMoves, int movedUnit = -1) {
-            var player = game.Session.LocalPlayer;
+            var player = game.ViewedPlayer;
             stale.Clear();
             foreach (var id in views.Keys) {
                 if (player.FindUnit(id) == null) stale.Add(id);
@@ -125,15 +143,16 @@ namespace AutoChess.Game {
             }
         }
 
+        /// <summary>Only the local player's own units can be picked up, never a scouted roster.</summary>
         void SetPickable(bool value) {
-            pickable = value;
-            foreach (var view in views.Values) view.SwitchPickable(value);
+            pickable = value && !game.IsScouting && !game.LocalPlayer.Eliminated;
+            foreach (var view in views.Values) view.SwitchPickable(pickable);
         }
 
         void ShowBoardUnits() {
             diving = false;
             boardHidden = false;
-            var player = game.Session.LocalPlayer;
+            var player = game.ViewedPlayer;
             foreach (var unit in player.Units) {
                 if (!views.TryGetValue(unit.Id, out var view)) continue;
                 view.Activate();
@@ -147,7 +166,7 @@ namespace AutoChess.Game {
 
         /// <summary>Board units jump into the portal, then are hidden while the battle copies fight.</summary>
         void DiveIn() {
-            var player = game.Session.LocalPlayer;
+            var player = game.ViewedPlayer;
             diving = true; // the tiles stop showing them as occupied right away
             var anyone = false;
             foreach (var unit in player.Units) {
@@ -168,7 +187,7 @@ namespace AutoChess.Game {
             hideRoutine = null;
             boardHidden = true;
             if (!anyone) yield break;
-            var player = game.Session.LocalPlayer;
+            var player = game.ViewedPlayer;
             foreach (var unit in player.Units) {
                 if (unit.Location.IsBoard && views.TryGetValue(unit.Id, out var view)) view.Deactivate();
             }

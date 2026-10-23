@@ -1,0 +1,29 @@
+{
+  "note": "Offline TFT lobby: the local player + 7 bots on the round clock, scouting another player's board (read-only) and back home, selling a unit (full refund at 1 star), then a PvE round fought by everybody with no desync of the views.",
+  "tags": ["tft", "hud", "multiplayer"],
+  "actions": [
+    {"action": "op", "op": "restart", "params": {"seed": 23, "bots": 7, "untimed": false}, "expect": {"players": 8}, "label": "8-player lobby"},
+    {"action": "wait_state", "path": "phase", "equals": "Setup", "timeoutMs": 5000},
+    {"action": "assert", "path": "players[7].name", "equals": "Bot 7"},
+    {"action": "assert", "path": "player.health", "equals": 100},
+    {"action": "op", "op": "choose-starter", "params": {"offer": 0}, "expect": {"ok": true}},
+    {"action": "wait_state", "path": "phase", "equals": "Preparation", "timeoutMs": 20000, "label": "the bots pick their starters too"},
+    {"action": "assert", "path": "roundKind", "equals": "PvE"},
+    {"action": "op", "op": "view", "params": {"player": 3}, "expect": {"viewed": 3, "scouting": true}, "label": "scout Bot 3"},
+    {"action": "assert", "path": "viewed", "equals": 3},
+    {"action": "screenshot", "name": "ac_tft_lobby_scouting"},
+    {"action": "op", "op": "view", "expect": {"viewed": 0, "scouting": false}, "label": "back home"},
+    {"action": "state", "path": "player.units[0].id", "saveAs": "starter"},
+    {"action": "op", "op": "sell", "params": {"unit": "${starter}"}, "expect": {"ok": true}, "label": "sell the starter unit"},
+    {"action": "assert", "path": "player.unitCount", "equals": 0},
+    {"action": "assert", "path": "player.gold", "equals": 1, "label": "a 1-gold unit sells for 1"},
+    {"action": "assert", "path": "player.itemCount", "gte": 1, "label": "its item went back to the bench"},
+    {"action": "op", "op": "ready", "expect": {"ok": true}},
+    {"action": "wait_state", "path": "phase", "equals": "Battle", "timeoutMs": 40000},
+    {"action": "screenshot", "name": "ac_tft_lobby_battle"},
+    {"action": "wait_state", "path": "phase", "equals": "Summary", "timeoutMs": 90000},
+    {"action": "assert", "path": "player.health", "lte": 100},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "logs", "level": "error", "failOnRed": true}
+  ]
+}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using AutoChess.Core;
+using AutoChess.Core.AI;
 using AutoChess.Core.Net;
 using AutoChess.Net;
 using RExt.Patterns.Singleton;
@@ -52,10 +53,14 @@ namespace AutoChess.Game {
         [Tooltip("Accept cheat commands (always on in the editor and development builds).")]
         [SerializeField] bool allowCheats;
         [SerializeField] Item[] hackItems;
+        [Tooltip("Computer players of an offline match (TFT lobby of 1 + bots). 0 = the solo PvE campaign.")]
+        [SerializeField, Range(0, 7)] int offlineBots = 7;
+        [SerializeField] string localName = "B\u1ea1n";
 
         IGameSession session;
         GameDatabase database;
         readonly List<ISessionView> views = new();
+        readonly List<BotBrain> offlineBrains = new();
 
         /// <summary>Events of the current session (subscriptions survive restarts).</summary>
         public event Action<GameEvent> EventRaised;
@@ -80,6 +85,22 @@ namespace AutoChess.Game {
             : allowCheats || Application.isEditor || Debug.isDebugBuild;
         public ulong Seed { get; private set; }
 
+        /// <summary>Player whose board and battle are shown: the local player, or another one while scouting.</summary>
+        public int ViewedPlayerId { get; private set; }
+        public PlayerState ViewedPlayer => session?.State.Player(ViewedPlayerId) ?? LocalPlayer;
+        public bool IsScouting => session != null && ViewedPlayerId != session.LocalPlayerId;
+        /// <summary>The viewed player changed (scouting / back home); the board views rebuild.</summary>
+        public event Action<int> ViewChanged;
+
+        /// <summary>Shows another player's board (read-only) or, with the local id, comes back home.</summary>
+        public void ViewPlayer(int playerId) {
+            if (session?.State.Player(playerId) == null || playerId == ViewedPlayerId) return;
+            ViewedPlayerId = playerId;
+            ViewChanged?.Invoke(playerId);
+        }
+
+        public void ViewHome() => ViewPlayer(session.LocalPlayerId);
+
         void Start() {
             var board = BoardSpace.Instance;
             var content = GameDataBuilder.BuildContent(stages, board.CellWidth, board.CellHeight);
@@ -92,7 +113,9 @@ namespace AutoChess.Game {
             };
             Online.Log += message => Debug.Log($"[Online] {message}");
             if (GetComponent<OnlineLobbyUI>() == null) gameObject.AddComponent<OnlineLobbyUI>();
-            UseSession(new LocalGameSession(database, new MatchConfig { Seed = Seed = ResolveSeed(), AllowCheats = CheatsAllowed }));
+            if (GetComponent<MatchHud>() == null) gameObject.AddComponent<MatchHud>();
+            Seed = ResolveSeed();
+            UseSession(CreateOffline(Seed, offlineBots, false));
 
             board.Bind(database.Grid);
             BenchSpace.Instance.Bind(database.Rules.BenchSize);
@@ -112,6 +135,22 @@ namespace AutoChess.Game {
             if (session != null) session.EventRaised -= Relay;
             session = next;
             session.EventRaised += Relay;
+            ViewedPlayerId = session.LocalPlayerId;
+            if (!(session is LocalGameSession)) offlineBrains.Clear();
+        }
+
+        /// <param name="untimed">Setup / preparation wait for the player (AutoTest scenarios, the old campaign).</param>
+        LocalGameSession CreateOffline(ulong matchSeed, int bots, bool untimed) {
+            var cheats = allowCheats || Application.isEditor || Debug.isDebugBuild;
+            var names = new string[1 + Mathf.Clamp(bots, 0, 7)];
+            names[0] = localName;
+            for (var i = 1; i < names.Length; i++) names[i] = $"Bot {i}";
+            offlineBrains.Clear();
+            for (var i = 1; i < names.Length; i++) offlineBrains.Add(new BotBrain(i, matchSeed));
+            return new LocalGameSession(database, new MatchConfig {
+                Seed = matchSeed, AllowCheats = cheats, PlayerCount = names.Length, PlayerNames = names,
+                SetupSeconds = untimed ? 99999 : null, PreparationSeconds = untimed ? 99999 : null,
+            });
         }
 
         /// <summary>Shows <paramref name="next"/> instead of the current session (same scene, same views).</summary>
@@ -130,12 +169,13 @@ namespace AutoChess.Game {
         /// Throws the current match away and starts a new offline one in place (same scene, same views). During an
         /// online match this leaves it (the server keeps playing our roster).
         /// </summary>
-        public void Restart(ulong? seed = null) {
+        /// <param name="bots">Computer players (default: the inspector's <c>offlineBots</c>).</param>
+        /// <param name="untimed">Setup / preparation wait for the player instead of running on a clock.</param>
+        public void Restart(ulong? seed = null, int? bots = null, bool untimed = false) {
             if (!IsReady) return;
             if (session is LockstepSession) Online.LeaveMatch();
             Seed = seed ?? (ulong)DateTime.UtcNow.Ticks;
-            var cheats = allowCheats || Application.isEditor || Debug.isDebugBuild;
-            Begin(new LocalGameSession(database, new MatchConfig { Seed = Seed, AllowCheats = cheats }));
+            Begin(CreateOffline(Seed, bots ?? offlineBots, untimed));
         }
 
         ulong ResolveSeed() {
@@ -151,7 +191,22 @@ namespace AutoChess.Game {
             Online?.Update();
             if (!IsReady) return;
             if (Input.GetKeyDown(KeyCode.Space)) OnSpace();
+            if (Input.GetKeyDown(KeyCode.Escape) && IsScouting) ViewHome();
+            DriveOfflineBots();
             session.Advance(Time.deltaTime);
+        }
+
+        /// <summary>Offline the bots play inside this client (online the server runs them).</summary>
+        void DriveOfflineBots() {
+            if (offlineBrains.Count == 0 || !(session is LocalGameSession local)) return;
+            var match = local.Match;
+            if (match.Phase == MatchPhase.Finished) return;
+            foreach (var brain in offlineBrains) {
+                var command = brain.Think(match.State, match.Db, (unit, target) => match.CanMove(brain.PlayerId, unit, target));
+                if (command == null) continue;
+                command.PlayerId = brain.PlayerId;
+                local.Submit(command);
+            }
         }
 
         /// <summary>Space: ready up during preparation; skip the battle in development.</summary>

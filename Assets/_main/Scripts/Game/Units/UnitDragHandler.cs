@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using AutoChess.Core;
 using DG.Tweening;
@@ -9,7 +10,8 @@ using UnityEngine.EventSystems;
 namespace AutoChess.Game {
     /// <summary>
     /// Pick up an owned unit (hold, or start dragging), preview the drop on the bench / board, then submit a
-    /// MoveUnitCommand; a plain click opens the unit info (was HeroPicker). Driven by EventSystem pointer
+    /// MoveUnitCommand, or a SellUnitCommand when dropped on the HUD's sell zone (<see cref="OverSellZone"/>);
+    /// a plain click opens the unit info (was HeroPicker). Driven by EventSystem pointer
     /// events (PhysicsRaycaster on the camera), so mouse, touch and the AutoTest drag driver all work.
     /// </summary>
     public class UnitDragHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IDragHandler,
@@ -17,8 +19,14 @@ namespace AutoChess.Game {
         const float HOLD_TIME_THRESHOLD = 0.2f;
         const float DRAG_POS_Y = 1;
 
+        /// <summary>Set by the HUD: is this screen point over the sell zone?</summary>
+        public static Func<Vector2, bool> OverSellZone;
+        public static event Action<RosterUnitView> PickStarted;
+        public static event Action<RosterUnitView> PickEnded;
+
         RosterUnitView unit;
         LayerMask mapLayerMask;
+        bool overSell;
         bool pickable;
         bool isPicking;
         bool pointerDown;
@@ -95,6 +103,8 @@ namespace AutoChess.Game {
         void StartPicking(Vector2 screen) {
             isPicking = true;
             nextLocation = null;
+            overSell = false;
+            PickStarted?.Invoke(unit);
             liftTween?.Kill();
             liftTween = unit.Model.DOLocalMoveY(DRAG_POS_Y, 0.2f);
             offset = Vector3.zero;
@@ -104,11 +114,18 @@ namespace AutoChess.Game {
         }
 
         void HandlePicking(Vector2 screen) {
+            var map = MapVisual.Instance;
+            overSell = OverSellZone != null && OverSellZone(screen);
+            if (overSell) {
+                map.RemoveHighlight();
+                map.RemoveNotAvailable();
+                nextLocation = null;
+            }
             if (!RaycastMap(screen, out var hitPoint)) return;
             var point = hitPoint.ToZeroY();
             unit.transform.position = point + offset;
+            if (overSell) return;
 
-            var map = MapVisual.Instance;
             var session = GameManager.Instance.Session;
             if (BenchSpace.Instance.TryNearestSlot(point, out var slot)) {
                 // dropping on the bench is always possible (move or swap)
@@ -143,7 +160,15 @@ namespace AutoChess.Game {
             liftTween = unit.Model.DOLocalMoveY(0, 0.2f);
             MapVisual.Instance.RemoveHighlight();
             MapVisual.Instance.RemoveNotAvailable();
+            PickEnded?.Invoke(unit);
 
+            if (overSell) {
+                overSell = false;
+                GameManager.Instance.Session.Submit(new SellUnitCommand { UnitId = unit.UnitId }, result => {
+                    if (!result.Ok) unit.SnapBack();
+                });
+                return;
+            }
             if (nextLocation == null || nextLocation.Value == unit.Location) {
                 unit.SnapBack();
                 return;
@@ -158,6 +183,8 @@ namespace AutoChess.Game {
         void InterruptPicking() {
             isPicking = false;
             pointerDown = false;
+            overSell = false;
+            PickEnded?.Invoke(unit);
             liftTween?.Kill();
             unit.Model.localPosition = Vector3.zero;
             MapVisual.Instance.RemoveHighlight();

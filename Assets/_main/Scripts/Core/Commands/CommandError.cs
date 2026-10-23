@@ -16,6 +16,8 @@ namespace AutoChess.Core {
         ShopSlotEmpty,
         CheatsDisabled,
         Unsupported,
+        /// <summary>The player is out of the match.</summary>
+        Eliminated,
     }
 
     public readonly struct CommandResult {

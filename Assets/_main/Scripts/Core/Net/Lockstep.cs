@@ -10,7 +10,7 @@ namespace AutoChess.Core.Net {
     /// <see cref="Version"/> on any change; the server is built from these same sources.
     /// </summary>
     public static class Lockstep {
-        public const int Version = 1;
+        public const int Version = 2;
 
         // client -> server
         /// <summary>[version varint][data hash ulong][name string][device id string].</summary>

@@ -25,6 +25,16 @@ namespace AutoChess.Game {
         }
 
         public static Vector3 ToWorld(Vec2 p) => new((float)p.X, 0, (float)p.Y);
+
+        /// <summary>
+        /// The visible battle is drawn rotated half a turn: the viewed player is its visiting (Away) team, and like
+        /// in TFT a player always sees their own units on the near half. The grid is point-symmetric around the
+        /// origin (HexCoord.Mirror), so rotating the plane maps every cell onto its mirror.
+        /// </summary>
+        public static bool BattleFlipped;
+
+        /// <summary>World position of a battle-plane point, rotated when <see cref="BattleFlipped"/>.</summary>
+        public static Vector3 BattleToWorld(Vec2 p) => BattleFlipped ? new Vector3(-(float)p.X, 0, -(float)p.Y) : ToWorld(p);
         public static Vec2 ToPlane(Vector3 p) => new(p.x, p.z);
 
         public Vector3 CellToWorld(HexCoord cell) => ToWorld(grid.Center(cell));

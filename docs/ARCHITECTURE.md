@@ -57,6 +57,34 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
   never change another's luck), N players per match, PvP-ready `BattleSetups.FromBoardMirrored`,
   `IUnitPool` (unlimited today, shared TFT pool later).
 
+## TFT layer (matches of 2+ players)
+
+A match with one player is the original PvE campaign of the authored stages. With 2+ players
+(`MatchSimulation.IsMultiplayer`: offline = you + `GameManager.offlineBots` bots, online = the server's lobby)
+the Teamfight Tactics rules apply; their numbers live in `GameRules` (TFT values folded onto the three unit tiers):
+
+* Rounds: the authored stages (all PvE, stage 1 = TFT 1-2..1-4), then generated stages of 7 rounds, all PvP
+  except x-7, which replays an authored PvE round scaled by `PveScalingPerStage` per stage (`RoundAt`).
+* PvP: `Pairing` makes random pairs avoiding last round's opponent; an odd player out fights a ghost (copy of
+  a random other board, `TeamSetup.Ghost`, its owner takes nothing). One `BattleSimulation` per pair, shared in
+  `MatchState.Battles` by both players and listed once in `BattleList`; the visitor's board is mirrored.
+* Damage: the loser of a round (draw = both lose) takes `StageDamage[stage] + 1 per surviving enemy unit`
+  (`PlayerDamagedEvent`); at 0 health a player is eliminated (`PlayerEliminatedEvent`, placement = players left;
+  units / shop go back to the pool; commands refused with `Eliminated`). Last player standing wins
+  (`MatchFinishedEvent.WinnerId`); `MaxStages` caps a match.
+* Economy: each preparation pays `IncomeOfRound` (2, 2, 3, 4 then 5) + interest (1 per 10 gold, max 5) + streak
+  bonus (PvP streaks: 2-4 = 1, 5 = 2, 6+ = 3) as an `IncomeEvent`; a PvP win pays +1 at once.
+* `SharedUnitPool` (29 / 18 / 10 copies by tier): shops take copies, rerolls / sales / eliminations put them back.
+  `SellUnitCommand`: full price for 1-star, copies x price - 1 above; items return to the bench.
+* `BotBrain` (Core/AI) plays offline bots (driven by `GameManager`), the server's fill-in bots and test bots.
+
+UI (`Game/UI/Match/MatchHud.cs`, built in code on its own canvas): one panel with two tabs (players: health /
+level / streak / placement, the viewed player's opponent outlined in red, click = scout; damage:
+health removed by the viewed player's units, `UnitDamagedEvent.HpLost`), round banner, toasts (damage, income,
+sales, eliminations), sell zone while dragging a unit, placement screen. Scouting = `GameManager.ViewPlayer`:
+the roster, the map occupancy and the battle follow `ViewedPlayerId` (Esc = home); a battle where the viewed
+player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand on the near half.
+
 ## Unity client (`Assets/_main/Scripts/Game`)
 
 * `GameManager` - composition root: builds the database, owns the session (`LocalGameSession` offline,

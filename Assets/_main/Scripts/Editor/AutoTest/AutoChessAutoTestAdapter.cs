@@ -58,6 +58,12 @@ namespace AutoChess.Game.Editor {
                     ["battleRunning"] = battle != null && battle.Started && !battle.Finished,
                 },
                 ["player"] = PlayerBlock(p, rules),
+                ["roundKind"] = state.RoundKind.ToString(),
+                ["viewed"] = Game.ViewedPlayerId,
+                ["players"] = state.Players.Select(x => (object)new Dictionary<string, object> {
+                    ["id"] = x.Id, ["name"] = x.Name, ["health"] = x.Health, ["level"] = x.Level, ["gold"] = x.Gold,
+                    ["eliminated"] = x.Eliminated, ["placement"] = x.Placement, ["opponent"] = x.OpponentId,
+                }).ToList(),
                 ["battle"] = battle == null ? null : BattleBlock(battle),
                 ["views"] = new Dictionary<string, object> {
                     ["roster"] = Game.Roster.Views.Count,
@@ -115,6 +121,11 @@ namespace AutoChess.Game.Editor {
                 ["wins"] = p.Wins,
                 ["losses"] = p.Losses,
                 ["lastOutcome"] = p.LastOutcome.ToString(),
+                ["health"] = p.Health,
+                ["eliminated"] = p.Eliminated,
+                ["placement"] = p.Placement,
+                ["streak"] = p.Streak,
+                ["opponent"] = p.OpponentId,
                 ["units"] = units,
                 ["unitCount"] = units.Count,
                 ["bench"] = p.Bench.Select(u => (object)u?.Id).ToList(),
@@ -176,7 +187,7 @@ namespace AutoChess.Game.Editor {
             "restart", "buy", "refresh", "lock", "buy-xp", "move", "equip", "ready", "choose-starter", "reroll-starter",
             "gold", "xp", "item", "unit", "skip-phase", "set-shop", "fast-forward", "speed", "set-seed",
             "export-data", "migrate", "missing-scripts", "unit-screen", "cell-screen", "can-move", "save-recording",
-            "online-connect", "online-find", "online-cancel", "online-leave", "online-disconnect",
+            "online-connect", "online-find", "online-cancel", "online-leave", "online-disconnect", "view", "sell",
         };
 
         public IReadOnlyList<string> Ops => OpNames;
@@ -196,8 +207,13 @@ namespace AutoChess.Game.Editor {
             if (!IsAvailable()) throw new InvalidOperationException("the game is not running (enter Play mode in the Arena scene)");
             if (op.StartsWith("online-", StringComparison.Ordinal)) return OnlineOp(op, args);
             if (op == "restart") {
-                Game.Restart(args.ContainsKey("seed") ? (ulong)(uint)Int(args, "seed") : (ulong?)null);
-                return new { seed = Game.Seed.ToString(CultureInfo.InvariantCulture), phase = Session.State.Phase.ToString() };
+                // Defaults keep the scenarios' solo, untimed match; bots=7 untimed=false is the real offline lobby.
+                Game.Restart(args.ContainsKey("seed") ? (ulong)(uint)Int(args, "seed") : (ulong?)null, Int(args, "bots", 0),
+                    Bool(args, "untimed", true));
+                return new {
+                    seed = Game.Seed.ToString(CultureInfo.InvariantCulture), phase = Session.State.Phase.ToString(),
+                    players = Session.State.Players.Count
+                };
             }
             var p = Session.LocalPlayer;
             switch (op) {
@@ -218,6 +234,12 @@ namespace AutoChess.Game.Editor {
                         UnitId = Str(args, "unit"), Rank = (HeroRank)Enum.Parse(typeof(HeroRank), Str(args, "rank", "B"), true)
                     });
                 case "skip-phase": return Submit(new CheatSkipPhaseCommand());
+                case "sell": return Submit(new SellUnitCommand { UnitId = UnitArg(args, p) });
+                case "view":
+                    // Scout another player's board (player=<id>); no argument = back home.
+                    if (args.ContainsKey("player")) Game.ViewPlayer(Int(args, "player"));
+                    else Game.ViewHome();
+                    return new { viewed = Game.ViewedPlayerId, scouting = Game.IsScouting };
                 case "set-shop":
                     return Submit(new CheatSetShopCommand {
                         UnitIds = Str(args, "units", "").Split(',').Select(s => s.Trim()).Select(s => s.Length == 0 || s == "-" ? null : s).ToArray()
@@ -421,7 +443,7 @@ namespace AutoChess.Game.Editor {
                 }
             }
 
-            if (On("roster_views_match_model")) CheckRosterViews(p, state, Add);
+            if (On("roster_views_match_model")) CheckRosterViews(Game.ViewedPlayer, state, Add); // the board shows the viewed player
             var battle = state.BattleOf(p.Id);
             if (battle != null) {
                 if (On("battle_hp_bounds")) {
@@ -446,7 +468,8 @@ namespace AutoChess.Game.Editor {
                             continue;
                         }
                         var drawn = new Vector2(view.transform.position.x, view.transform.position.z);
-                        var model = new Vector2((float)u.Position.X, (float)u.Position.Y);
+                        var expected = BoardSpace.BattleToWorld(u.Position); // rotated when we are the visiting team
+                        var model = new Vector2(expected.x, expected.z);
                         var allowed = u.MovementSpeed * db.Grid.AverageCellDistance * rules.TickDelta * 2 + 0.05f;
                         if ((drawn - model).magnitude > allowed) {
                             Add("battle_views_match_model", "medium", $"unit {u.Id} drawn {(drawn - model).magnitude:0.00} away from its model");

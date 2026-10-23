@@ -28,9 +28,16 @@ namespace AutoChess.Core {
         public int RoundIndex;
         public int LastUnitId;
         public int LastBattleId;
+        /// <summary>Rounds started so far (all stages), 0 during the first one: drives the early income.</summary>
+        public int RoundNumber;
+        public RoundKind RoundKind;
         public readonly List<PlayerState> Players = new();
-        /// <summary>Running battle of each player (by player id).</summary>
+        /// <summary>Battle of each player (by player id); the two players of a PvP pair share theirs.</summary>
         public readonly Dictionary<int, BattleSimulation> Battles = new();
+        /// <summary>Every battle of the round once, in creation order (step / start these).</summary>
+        public readonly List<BattleSimulation> BattleList = new();
+        /// <summary>The finite unit pool of a multiplayer match (null when the pool is endless).</summary>
+        public SharedUnitPool SharedPool;
 
         public PlayerState Player(int id) {
             foreach (var p in Players) {
@@ -40,5 +47,15 @@ namespace AutoChess.Core {
         }
 
         public BattleSimulation BattleOf(int playerId) => Battles.TryGetValue(playerId, out var b) ? b : null;
+
+        public int AliveCount {
+            get {
+                var n = 0;
+                foreach (var p in Players) {
+                    if (!p.Eliminated) n++;
+                }
+                return n;
+            }
+        }
     }
 }

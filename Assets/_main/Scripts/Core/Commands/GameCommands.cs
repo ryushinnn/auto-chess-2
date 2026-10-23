@@ -9,6 +9,7 @@ namespace AutoChess.Core {
         MoveUnit = 7,
         EquipItem = 8,
         Ready = 9,
+        SellUnit = 10,
 
         // Development / test only (rejected unless MatchConfig.AllowCheats).
         CheatGold = 100,
@@ -53,6 +54,12 @@ namespace AutoChess.Core {
     public sealed class SetShopLockCommand : GameCommand {
         public bool Locked;
         public override CommandType Type => CommandType.SetShopLock;
+    }
+
+    /// <summary>Sells an owned unit (bench any time, board during preparation); its items go back to the item bench.</summary>
+    public sealed class SellUnitCommand : GameCommand {
+        public int UnitId;
+        public override CommandType Type => CommandType.SellUnit;
     }
 
     public sealed class BuyXpCommand : GameCommand {

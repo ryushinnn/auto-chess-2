@@ -15,7 +15,7 @@ MonoBehaviour:
   checkpoints: 02000000
   destinyParams:
   - key: hp_bonus
-    value: 999
+    value: 300
     isPercentage: 0
   - key: interval
     value: 5

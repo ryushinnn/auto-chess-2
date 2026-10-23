@@ -59,6 +59,13 @@ namespace AutoChess.Core {
         Finished,
     }
 
+    public enum RoundKind {
+        /// <summary>Against the round's creeps (authored stages, and round x-7 of later stages).</summary>
+        PvE,
+        /// <summary>Against another player's board (or a ghost copy of one when the count is odd).</summary>
+        PvP,
+    }
+
     public enum BattleOutcome {
         None,
         HomeWin,

@@ -4,7 +4,8 @@ using System.Collections.Generic;
 namespace AutoChess.Core.AI {
     /// <summary>
     /// A simple computer player: picks a starter, buys what it can afford (preferring copies of units it owns,
-    /// for the 3-of-a-kind merge), fields its bench, levels up with spare gold and readies up. Decides from the
+    /// for the 3-of-a-kind merge), fields its bench, sells loose units when the bench is full, levels up with
+    /// spare gold (keeping some for interest) and readies up. Decides from the
     /// state only and returns at most one command per call, so the same brain drives the server's fill-in bots
     /// (state = the authoritative match) and headless client bots (state = their replica).
     /// </summary>
@@ -33,7 +34,7 @@ namespace AutoChess.Core.AI {
         /// </summary>
         public GameCommand Think(MatchState state, GameDatabase db, Func<int, UnitLocation, CommandError> canMove) {
             var p = state.Player(PlayerId);
-            if (p == null) return null;
+            if (p == null || p.Eliminated) return null;
             var key = (state.StageIndex * 64 + state.RoundIndex) * 16 + (int)state.Phase;
             if (key != phaseKey) {
                 phaseKey = key;
@@ -63,6 +64,18 @@ namespace AutoChess.Core.AI {
                 for (var attempt = 0; attempt < 12; attempt++) {
                     var target = UnitLocation.Board(rng.Range(0, rules.BoardRows), rng.Range(0, rules.BoardColumns));
                     if (canMove(unit.Id, target) == CommandError.None) return new MoveUnitCommand { UnitId = unit.Id, Target = target };
+                }
+            }
+
+            // Bench full: sell a unit it has no other copy of, to make room.
+            if (Roster.FirstFreeBenchSlot(p) < 0 && rng.Chance(0.5)) {
+                foreach (var unit in p.Units) {
+                    if (!unit.Location.IsBench) continue;
+                    var copies = 0;
+                    foreach (var other in p.Units) {
+                        if (other.DefinitionId == unit.DefinitionId) copies++;
+                    }
+                    if (copies == 1) return new SellUnitCommand { UnitId = unit.Id };
                 }
             }
 

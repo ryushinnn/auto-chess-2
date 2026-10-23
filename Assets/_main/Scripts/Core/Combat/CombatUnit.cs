@@ -266,9 +266,10 @@ namespace AutoChess.Core.Combat {
         double Apply(Damage damage, CombatUnit source, int stackIndex) {
             if (!Alive) return 0;
             var dealt = Mitigate(damage);
+            var lost = Math.Min(dealt, Math.Max(0, Hp));
             Hp -= dealt;
             Battle.Emit(new UnitDamagedEvent {
-                UnitId = Id, SourceId = source?.Id ?? -1, Amount = dealt, Type = damage.Type, Crit = damage.Crit,
+                UnitId = Id, SourceId = source?.Id ?? -1, Amount = dealt, HpLost = lost, Type = damage.Type, Crit = damage.Crit,
                 StackIndex = stackIndex
             });
             if (Hp <= 0) Die(source);

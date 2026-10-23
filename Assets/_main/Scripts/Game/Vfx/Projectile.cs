@@ -10,13 +10,13 @@ namespace AutoChess.Game {
         public void Track(IGameSession gameSession, Core.Combat.Projectile projectile) {
             session = gameSession;
             model = projectile;
-            transform.position = BoardSpace.ToWorld(projectile.Position);
+            transform.position = BoardSpace.BattleToWorld(projectile.Position);
         }
 
         void Update() {
             if (model == null || session == null) return;
-            var position = BoardSpace.ToWorld(Vec2.Lerp(model.PreviousPosition, model.Position, session.TickProgress));
-            var direction = BoardSpace.ToWorld(model.Target.Position) - position;
+            var position = BoardSpace.BattleToWorld(Vec2.Lerp(model.PreviousPosition, model.Position, session.TickProgress));
+            var direction = BoardSpace.BattleToWorld(model.Target.Position) - position;
             if (direction.sqrMagnitude > 1e-6f) transform.rotation = Quaternion.LookRotation(direction);
             transform.position = position;
         }

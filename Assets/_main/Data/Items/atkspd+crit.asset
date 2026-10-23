@@ -27,7 +27,7 @@ MonoBehaviour:
     stacks: 0
     duration: 0
     permanent: 0
-  - key: max_hp
+  - key: crit_chance
     id: <will be auto generated>
     owner: {fileID: 0}
     effectKey: 

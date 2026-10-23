@@ -129,9 +129,24 @@ namespace AutoChess.Core {
 
         /// <summary>Rewards earned by the last battle, granted when the next preparation starts.</summary>
         public readonly List<RewardDefinition> PendingRewards = new();
+        /// <summary>Outcome of the last battle from this player's side (HomeWin = this player won).</summary>
         public BattleOutcome LastOutcome;
         public int Wins;
         public int Losses;
+
+        public int Health;
+        /// <summary>Out of the match (health reached 0); keeps its roster for scouting but no longer plays.</summary>
+        public bool Eliminated;
+        /// <summary>Final place (1 = winner), 0 while still playing.</summary>
+        public int Placement;
+        /// <summary>PvP win streak (> 0) or loss streak (&lt; 0).</summary>
+        public int Streak;
+        /// <summary>Opponent of the current / last battle: a player id, or -1 for a PvE round.</summary>
+        public int OpponentId = -1;
+        /// <summary>The opponent was a ghost: a copy of that player's board, who takes no damage from it.</summary>
+        public bool OpponentIsGhost;
+        /// <summary>Damage taken at the end of the last round (0 when it won).</summary>
+        public int LastDamageTaken;
 
         readonly int boardCols;
 
@@ -144,7 +159,10 @@ namespace AutoChess.Core {
             StarterOffers = new StarterOffer[rules.StarterOfferCount];
             for (var i = 0; i < StarterOffers.Length; i++) StarterOffers[i] = new StarterOffer();
             Gold = rules.StartingGold;
+            Health = rules.StartingHealth;
         }
+
+        public bool IsAlive => !Eliminated;
 
         public int BoardCount {
             get {
@@ -172,6 +190,6 @@ namespace AutoChess.Core {
             return 0;
         }
 
-        public override string ToString() => $"P{Id} gold={Gold} lv={Level} units={Units.Count}";
+        public override string ToString() => $"P{Id} hp={Health} gold={Gold} lv={Level} units={Units.Count}";
     }
 }

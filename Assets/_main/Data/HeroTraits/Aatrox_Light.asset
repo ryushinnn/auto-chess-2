@@ -26,8 +26,8 @@ MonoBehaviour:
   maxHp: 2540
   physicalDamage: 0
   magicalDamage: 200
-  armor: 100
-  resistance: 100
+  armor: 45
+  resistance: 45
   attackSpeed: 0.45
   movementSpeed: 2
   energyRegenPerAttack: 0
@@ -52,11 +52,11 @@ MonoBehaviour:
     modifiers:
     - id: <will be auto generated>
       key: max_hp
-      value: 3.5
+      value: 2.24
       type: 1
     - id: <will be auto generated>
       key: p_dmg
-      value: 3.5
+      value: 2.24
       type: 1
     - id: <will be auto generated>
       key: life_steal

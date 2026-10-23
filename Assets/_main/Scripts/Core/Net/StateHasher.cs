@@ -18,10 +18,11 @@ namespace AutoChess.Core.Net {
             Mix(ref h, state.StageIndex);
             Mix(ref h, state.RoundIndex);
             Mix(ref h, state.LastUnitId);
+            Mix(ref h, state.RoundNumber);
             foreach (var p in state.Players) MixPlayer(ref h, p);
-            foreach (var p in state.Players) {
-                var battle = state.BattleOf(p.Id);
-                if (battle != null) MixBattle(ref h, battle);
+            foreach (var battle in state.BattleList) MixBattle(ref h, battle);
+            if (state.SharedPool != null) {
+                foreach (var n in state.SharedPool.Remaining) Mix(ref h, n);
             }
             return h;
         }
@@ -39,6 +40,11 @@ namespace AutoChess.Core.Net {
             Mix(ref h, p.Xp);
             Mix(ref h, p.Wins);
             Mix(ref h, p.Losses);
+            Mix(ref h, p.Health);
+            Mix(ref h, p.Eliminated ? 1 : 0);
+            Mix(ref h, p.Placement);
+            Mix(ref h, p.Streak);
+            Mix(ref h, p.OpponentId);
             Mix(ref h, p.StarterChosen ? 1 : 0);
             foreach (var u in p.Units) {
                 Mix(ref h, u.Id);

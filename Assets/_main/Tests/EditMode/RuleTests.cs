@@ -8,10 +8,10 @@ namespace AutoChess.Core.Tests {
         public void XpLevelsUpAndCarriesTheRest() {
             var ctx = TestData.Context();
             var p = TestData.Player(ctx);
-            Assert.IsTrue(Economy.GainXp(ctx, p, 5)); // 2 to reach 2, then 3 of 4
-            Assert.AreEqual(2, p.Level);
-            Assert.AreEqual(3, p.Xp);
-            Assert.AreEqual(2, Economy.MaxBoardUnits(ctx.Rules, p));
+            Assert.IsTrue(Economy.GainXp(ctx, p, 5)); // 2 to reach 2, 2 to reach 3, then 1 of 6
+            Assert.AreEqual(3, p.Level);
+            Assert.AreEqual(1, p.Xp);
+            Assert.AreEqual(3, Economy.MaxBoardUnits(ctx.Rules, p));
         }
 
         [Test]
@@ -49,13 +49,13 @@ namespace AutoChess.Core.Tests {
         public void InsuranceGuaranteesALegendary() {
             var ctx = TestData.Context();
             var p = TestData.Player(ctx);
-            p.Level = 3; // 1% legendary odds -> insurance +1 per non legendary slot
+            p.Level = 5; // 2% legendary odds -> insurance +2 per non legendary slot
             var legendary = 0;
             for (var roll = 0; roll < 20; roll++) {
                 Shop.Roll(ctx, p);
                 legendary += p.Shop.Slots.Count(id => ctx.Db.Unit(id).Reputation == Reputation.Legendary);
             }
-            Assert.GreaterOrEqual(legendary, 1, "100 slots at 1% always include the pity legendary");
+            Assert.GreaterOrEqual(legendary, 1, "100 slots at 2% always include the pity legendary");
         }
 
         [Test]

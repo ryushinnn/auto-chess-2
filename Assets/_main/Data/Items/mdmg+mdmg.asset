@@ -32,7 +32,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     effectKey: 
     value: 0.25
-    type: 0
+    type: 1
     stacks: 0
     duration: 0
     permanent: 0

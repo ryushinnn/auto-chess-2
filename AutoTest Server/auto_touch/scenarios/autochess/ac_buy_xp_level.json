@@ -1,21 +1,21 @@
 {
-  "note": "Buy XP button: 4 gold for 4 xp, levels carry the extra xp over, the board limit grows with the level, and the button does nothing without gold.",
+  "note": "Buy XP button: 4 gold for 4 xp, levels carry the extra xp over (TFT curve: 2, 2, 6...), the board limit grows with the level, and the button does nothing without gold.",
   "tags": ["ui", "economy"],
   "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 41}}],
   "actions": [
     {"action": "op", "op": "gold", "params": {"amount": 10}},
     {"action": "click", "path": "ArenaUIManager/Arena/level", "label": "buy xp"},
-    {"action": "assert", "path": "player.level", "equals": 2},
-    {"action": "assert", "path": "player.xp", "equals": 2},
-    {"action": "assert", "path": "player.boardMax", "equals": 2},
+    {"action": "assert", "path": "player.level", "equals": 3},
+    {"action": "assert", "path": "player.xp", "equals": 0},
+    {"action": "assert", "path": "player.boardMax", "equals": 3},
     {"action": "assert", "path": "player.gold", "equals": 6},
     {"action": "click", "path": "ArenaUIManager/Arena/level", "label": "buy xp again"},
     {"action": "assert", "path": "player.level", "equals": 3},
-    {"action": "assert", "path": "player.xp", "equals": 2},
+    {"action": "assert", "path": "player.xp", "equals": 4},
     {"action": "assert", "path": "player.gold", "equals": 2},
     {"action": "click", "path": "ArenaUIManager/Arena/level", "label": "no gold left"},
     {"action": "assert", "path": "player.gold", "equals": 2},
-    {"action": "assert", "path": "player.xp", "equals": 2},
+    {"action": "assert", "path": "player.xp", "equals": 4},
     {"action": "assert_ui", "path": "ArenaUIManager/Arena/lineup&inventory/lineup", "expect": {"caption": "0/3"}, "label": "HUD shows the new limit"}
   ]
 }

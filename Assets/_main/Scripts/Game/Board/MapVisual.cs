@@ -84,15 +84,16 @@ namespace AutoChess.Game {
         }
 
         void RefreshOccupancy(GameManager game) {
-            var player = game.Session.LocalPlayer;
+            var player = game.ViewedPlayer;
             var battle = game.Battle.VisibleBattle;
+            var flipped = BoardSpace.BattleFlipped;
             var roster = game.Roster;
             var grid = game.Db.Grid;
             for (int i = 0; i < mapRow; i++) {
                 for (int j = 0; j < mapColumn; j++) {
                     var index = grid.IndexOf(new HexCoord(i, j));
                     bool occupied;
-                    if (battle != null) occupied = battle.IsCellOccupied(index);
+                    if (battle != null) occupied = battle.IsCellOccupied(flipped ? grid.IndexOf(new HexCoord(i, j).Mirror(grid.Rows, grid.Cols)) : index);
                     else occupied = roster.BoardVisible && player.Board[index] != null;
                     hexCells[i, j].SetOccupied(occupied);
                 }

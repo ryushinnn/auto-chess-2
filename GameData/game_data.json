@@ -16,8 +16,8 @@
       "maxHp": 2540,
       "physicalDamage": 200,
       "magicalDamage": 0,
-      "armor": 99,
-      "resistance": 100,
+      "armor": 45,
+      "resistance": 45,
       "attackSpeed": 0.44999998807907104,
       "movementSpeed": 2,
       "energyPerAttack": 0,
@@ -46,12 +46,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -113,8 +113,8 @@
       "maxHp": 2540,
       "physicalDamage": 0,
       "magicalDamage": 200,
-      "armor": 100,
-      "resistance": 100,
+      "armor": 45,
+      "resistance": 45,
       "attackSpeed": 0.44999998807907104,
       "movementSpeed": 2,
       "energyPerAttack": 0,
@@ -143,12 +143,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -205,7 +205,7 @@
       "physicalDamage": 90,
       "magicalDamage": 0,
       "armor": 30,
-      "resistance": 9999,
+      "resistance": 25,
       "attackSpeed": 0.60000002384185791,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 20,
@@ -234,12 +234,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -321,12 +321,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -398,12 +398,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -488,12 +488,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -556,12 +556,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -632,12 +632,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -685,7 +685,7 @@
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 15,
       "energyPerHit": 4,
-      "attackRange": 8,
+      "attackRange": 4,
       "unstoppable": true,
       "evolutions": [
         [],
@@ -709,12 +709,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -779,12 +779,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -847,12 +847,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -889,12 +889,12 @@
       "maxHp": 2540,
       "physicalDamage": 140,
       "magicalDamage": 0,
-      "armor": 100,
-      "resistance": 200,
+      "armor": 55,
+      "resistance": 45,
       "attackSpeed": 0.25,
       "movementSpeed": 1.2000000476837158,
       "energyPerAttack": 8,
-      "energyPerHit": 50,
+      "energyPerHit": 12,
       "attackRange": 2,
       "unstoppable": false,
       "evolutions": [
@@ -919,12 +919,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -965,8 +965,8 @@
       "maxHp": 1980,
       "physicalDamage": 50,
       "magicalDamage": 50,
-      "armor": 0,
-      "resistance": 0,
+      "armor": 20,
+      "resistance": 20,
       "attackSpeed": 0.40000000596046448,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 15,
@@ -995,12 +995,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -1089,12 +1089,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -1157,12 +1157,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -1239,12 +1239,12 @@
         [
           {
             "stat": "MaxHp",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
             "stat": "PhysicalDamage",
-            "value": 3.5,
+            "value": 2.2400000095367432,
             "type": "Percent"
           },
           {
@@ -1588,7 +1588,7 @@
           "type": "Percent"
         },
         {
-          "stat": "MaxHp",
+          "stat": "CriticalChance",
           "value": 0.25,
           "type": "Flat"
         }
@@ -2020,7 +2020,7 @@
         {
           "stat": "MagicalDamage",
           "value": 0.25,
-          "type": "Flat"
+          "type": "Percent"
         }
       ]
     },
@@ -2090,7 +2090,7 @@
         {
           "stat": "PhysicalDamage",
           "value": 0.25,
-          "type": "Flat"
+          "type": "Percent"
         }
       ]
     },
@@ -2252,7 +2252,7 @@
         2
       ],
       "params": [
-        999,
+        300,
         5,
         0.10000000149011612,
         1
@@ -2351,138 +2351,40 @@
         {
           "enemies": [
             {
-              "unit": "Katarina",
+              "unit": "Yasuo",
               "rank": "B",
               "row": 6,
-              "col": 0,
-              "items": [
-                "crit+mdmg",
-                "_mdmg"
-              ],
-              "hpScale": 3,
-              "damageScale": 0.699999988079071
+              "col": 3,
+              "items": [],
+              "hpScale": 0.5,
+              "damageScale": 0.40000000596046448
             },
             {
               "unit": "Ashe",
-              "rank": "A",
-              "row": 7,
-              "col": 7,
-              "items": [
-                "atkspd+atkspd",
-                "atkspd+atkspd",
-                "atkspd+pdmg"
-              ],
-              "hpScale": 3,
-              "damageScale": 1
-            },
-            {
-              "unit": "Irelia",
               "rank": "B",
-              "row": 4,
-              "col": 2,
-              "items": [
-                "armor+atkspd",
-                "pdmg+resistance"
-              ],
-              "hpScale": 4,
-              "damageScale": 1
-            },
-            {
-              "unit": "Malphite",
-              "rank": "S",
-              "row": 4,
+              "row": 7,
               "col": 4,
-              "items": [
-                "maxhp+maxhp",
-                "maxhp+resistance",
-                "armor+maxhp"
-              ],
-              "hpScale": 7,
-              "damageScale": 1
-            },
-            {
-              "unit": "Aatrox_Dark",
-              "rank": "A",
-              "row": 7,
-              "col": 3,
-              "items": [
-                "pdmg+pdmg",
-                "crit+pdmg"
-              ],
-              "hpScale": 4,
-              "damageScale": 1
-            },
-            {
-              "unit": "Aatrox_Light",
-              "rank": "B",
-              "row": 7,
-              "col": 5,
-              "items": [
-                "armor+mdmg",
-                "armor+energy"
-              ],
-              "hpScale": 4,
-              "damageScale": 1
-            },
-            {
-              "unit": "Zed",
-              "rank": "S",
-              "row": 6,
-              "col": 7,
-              "items": [
-                "pdmg+pdmg",
-                "pdmg+pdmg",
-                "crit+pdmg"
-              ],
-              "hpScale": 3,
-              "damageScale": 1
-            },
-            {
-              "unit": "Yone",
-              "rank": "S",
-              "row": 5,
-              "col": 2,
-              "items": [
-                "energy+pdmg",
-                "crit+pdmg",
-                "atkspd+crit"
-              ],
-              "hpScale": 3,
-              "damageScale": 1
+              "items": [],
+              "hpScale": 0.5,
+              "damageScale": 0.40000000596046448
             }
           ],
           "rewards": [
             {
               "kind": "Unit",
-              "coins": 1,
+              "coins": 0,
               "minCoins": 0,
               "maxCoins": 0,
               "reputation": "Unknown",
-              "options": []
-            },
-            {
-              "kind": "Unit",
-              "coins": 2,
-              "minCoins": 0,
-              "maxCoins": 0,
-              "reputation": "Unknown",
-              "options": []
-            },
-            {
-              "kind": "Coin",
-              "coins": 6,
-              "minCoins": 0,
-              "maxCoins": 0,
-              "reputation": "None",
               "options": []
             }
           ],
           "winRewards": [
             {
               "kind": "Coin",
-              "coins": 6,
-              "minCoins": 1,
-              "maxCoins": 2,
+              "coins": 2,
+              "minCoins": 0,
+              "maxCoins": 0,
               "reputation": "None",
               "options": []
             }
@@ -2512,7 +2414,7 @@
           "rewards": [
             {
               "kind": "Coin",
-              "coins": 8,
+              "coins": 2,
               "minCoins": 0,
               "maxCoins": 0,
               "reputation": "None",
@@ -2522,7 +2424,7 @@
           "winRewards": [
             {
               "kind": "Coin",
-              "coins": 8,
+              "coins": 2,
               "minCoins": 0,
               "maxCoins": 0,
               "reputation": "None",
@@ -2595,7 +2497,7 @@
           "winRewards": [
             {
               "kind": "Coin",
-              "coins": 10,
+              "coins": 3,
               "minCoins": 0,
               "maxCoins": 0,
               "reputation": "None",
@@ -2607,15 +2509,15 @@
           "enemies": [
             {
               "unit": "Malphite",
-              "rank": "A",
+              "rank": "B",
               "row": 5,
               "col": 4,
               "items": [
                 "armor+maxhp",
                 "maxhp+maxhp"
               ],
-              "hpScale": 2,
-              "damageScale": 1.7999999523162842
+              "hpScale": 1,
+              "damageScale": 1
             }
           ],
           "rewards": [
@@ -2629,7 +2531,7 @@
             },
             {
               "kind": "RawItem",
-              "coins": 5,
+              "coins": 0,
               "minCoins": 0,
               "maxCoins": 0,
               "reputation": "None",
@@ -2637,7 +2539,7 @@
             },
             {
               "kind": "Coin",
-              "coins": 12,
+              "coins": 3,
               "minCoins": 0,
               "maxCoins": 0,
               "reputation": "None",
@@ -2648,8 +2550,8 @@
             {
               "kind": "RandomCoin",
               "coins": 0,
-              "minCoins": 12,
-              "maxCoins": 18,
+              "minCoins": 2,
+              "maxCoins": 4,
               "reputation": "None",
               "options": []
             },

@@ -32,7 +32,7 @@ MonoBehaviour:
   movementSpeed: 1.8
   energyRegenPerAttack: 15
   energyRegenPerHit: 4
-  attackRange: 8
+  attackRange: 4
   evolutions:
   - rank: 1
     modifiers:
@@ -52,11 +52,11 @@ MonoBehaviour:
     modifiers:
     - id: <will be auto generated>
       key: max_hp
-      value: 3.5
+      value: 2.24
       type: 1
     - id: <will be auto generated>
       key: p_dmg
-      value: 3.5
+      value: 2.24
       type: 1
     - id: <will be auto generated>
       key: atk_spd

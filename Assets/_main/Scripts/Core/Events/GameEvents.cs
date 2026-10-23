@@ -42,7 +42,10 @@ namespace AutoChess.Core {
         public int Round;
     }
 
-    public sealed class MatchFinishedEvent : GameEvent { }
+    public sealed class MatchFinishedEvent : GameEvent {
+        /// <summary>Player placed first, or -1 (single-player match that ran out of rounds).</summary>
+        public int WinnerId = -1;
+    }
 
     public abstract class PlayerEvent : GameEvent {
         public int PlayerId;
@@ -111,6 +114,38 @@ namespace AutoChess.Core {
 
     public sealed class BattleCreatedEvent : PlayerEvent {
         public int BattleId;
+        /// <summary>Opponent player id, or -1 for a PvE round.</summary>
+        public int OpponentId = -1;
+        public bool OpponentIsGhost;
+        /// <summary>This player is the visiting (Away) team of the battle.</summary>
+        public bool Visiting;
+    }
+
+    /// <summary>A player lost a round and took damage.</summary>
+    public sealed class PlayerDamagedEvent : PlayerEvent {
+        public int Amount;
+        public int Health;
+        /// <summary>Who dealt it: a player id, or -1 for PvE creeps.</summary>
+        public int SourceId = -1;
+    }
+
+    public sealed class PlayerEliminatedEvent : PlayerEvent {
+        public int Placement;
+    }
+
+    /// <summary>Round income at the start of a preparation (already included in the gold).</summary>
+    public sealed class IncomeEvent : PlayerEvent {
+        public int Base;
+        public int Interest;
+        public int Streak;
+        public int Win;
+        public int Total => Base + Interest + Streak + Win;
+    }
+
+    public sealed class UnitSoldEvent : PlayerEvent {
+        public int UnitId;
+        public string DefinitionId;
+        public int Gold;
     }
 
     public sealed class BattleFinishedEvent : PlayerEvent {

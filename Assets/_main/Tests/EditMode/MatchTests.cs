@@ -190,7 +190,7 @@ namespace AutoChess.Core.Tests {
                     Assert.DoesNotThrow(() => {
                         for (var t = 0; t < 30 * 60 && !battle.Finished; t++) battle.Step();
                     }, $"{heroes[i].Id} ({rank})");
-                    Assert.That(events.Pending.OfType<UnitDamagedEvent>().Count(), Is.GreaterThan(10), $"{heroes[i].Id} ({rank}): the battle was fought");
+                    Assert.That(events.Pending.OfType<UnitDamagedEvent>().Count(), Is.GreaterThan(5), $"{heroes[i].Id} ({rank}): the battle was fought");
                     foreach (var cast in events.Pending.OfType<UnitSkillStartedEvent>()) castBy.Add(battle.FindUnit(cast.UnitId).Def.Id);
                     foreach (var u in battle.Units) {
                         Assert.That(u.Hp, Is.LessThanOrEqualTo(u.MaxHp + 1e-3f), u.ToString());

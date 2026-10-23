@@ -100,6 +100,34 @@ namespace AutoChess.Core {
             if (wasOnBoard) BoardChanged(ctx, p);
         }
 
+        /// <summary>Copies a unit of this rank is made of (1, 3, 9).</summary>
+        public static int Copies(GameRules rules, HeroRank rank) {
+            var n = 1;
+            for (var i = 0; i < (int)rank; i++) n *= rules.UnitsToRankUp;
+            return n;
+        }
+
+        /// <summary>TFT: full price for a 1-star (or any 1-gold) unit, one gold less for higher ranks.</summary>
+        public static int SellValue(GameDatabase db, UnitInstance unit) {
+            var price = db.Rules.PriceOf(db.Unit(unit.DefinitionId).Reputation);
+            var value = price * Copies(db.Rules, unit.Rank);
+            return unit.Rank > HeroRank.B && price > 1 ? value - 1 : value;
+        }
+
+        public static CommandResult Sell(MatchContext ctx, PlayerState p, UnitInstance unit, bool boardLocked) {
+            if (unit == null) return CommandError.InvalidUnit;
+            if (unit.Location.IsBoard && boardLocked) return CommandError.WrongPhase;
+            var gold = SellValue(ctx.Db, unit);
+            var items = unit.Items.ToArray();
+            unit.Items.Clear();
+            foreach (var item in items) Items.AddToBench(ctx, p, item);
+            Remove(ctx, p, unit);
+            ctx.Pool.Release(unit.DefinitionId, Copies(ctx.Rules, unit.Rank));
+            Economy.GainGold(ctx, p, gold);
+            ctx.Events.Add(new UnitSoldEvent { PlayerId = p.Id, UnitId = unit.Id, DefinitionId = unit.DefinitionId, Gold = gold });
+            return CommandResult.Success;
+        }
+
         public static int FirstFreeBenchSlot(PlayerState p) {
             for (var i = 0; i < p.Bench.Length; i++) {
                 if (p.Bench[i] == null) return i;

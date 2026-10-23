@@ -26,12 +26,12 @@ MonoBehaviour:
   maxHp: 2540
   physicalDamage: 140
   magicalDamage: 0
-  armor: 100
-  resistance: 200
+  armor: 55
+  resistance: 45
   attackSpeed: 0.25
   movementSpeed: 1.2
   energyRegenPerAttack: 8
-  energyRegenPerHit: 50
+  energyRegenPerHit: 12
   attackRange: 2
   evolutions:
   - rank: 1
@@ -52,11 +52,11 @@ MonoBehaviour:
     modifiers:
     - id: <will be auto generated>
       key: max_hp
-      value: 3.5
+      value: 2.24
       type: 1
     - id: <will be auto generated>
       key: p_dmg
-      value: 3.5
+      value: 2.24
       type: 1
     - id: <will be auto generated>
       key: atk_spd

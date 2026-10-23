@@ -39,7 +39,10 @@ namespace AutoChess.Core.Combat {
 
     public sealed class UnitDamagedEvent : UnitBattleEvent {
         public int SourceId;
+        /// <summary>Damage after mitigation (what the number above the unit shows).</summary>
         public double Amount;
+        /// <summary>Health actually removed (Amount without the overkill): what damage meters count.</summary>
+        public double HpLost;
         public DamageType Type;
         public bool Crit;
         /// <summary>Position inside a multi-part hit (0, 1...) so the numbers can be stacked.</summary>

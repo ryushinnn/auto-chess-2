@@ -39,6 +39,11 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   `Lockstep.Version`. Server: sibling repo `auto-chess-2-server` (compiles Core + Net from this repo).
 - Changing units / items / stages: re-export `GameData/game_data.json` - the server refuses clients whose data
   hash differs from the file it loaded.
+- 2+ players = TFT rules (docs/ARCHITECTURE.md "TFT layer"), 1 player = the old PvE campaign (many tests and
+  the AutoTest `restart` op default to it: `bots=0 untimed=true`; the 8-player lobby is `bots=7 untimed=false`).
+  Gameplay numbers: `GameRules` (code) + ScriptableObjects; fights are long (attack speed 0.2 - 0.6), hence the
+  60 s battle clock.
+- New HUD widgets: build them in code like `MatchHud` (no scene / prefab YAML edits needed).
 
 ## Checks after a change
 

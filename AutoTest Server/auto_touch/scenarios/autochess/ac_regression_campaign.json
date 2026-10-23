@@ -1,5 +1,5 @@
 {
-  "note": "Auto-chess regression gate: boot, starter pack, shop, drag and drop, items, xp, lock / refresh, info panel, a full round, a won battle and a whole stage.",
+  "note": "Auto-chess regression gate: boot, starter pack, shop, drag and drop, items, xp, lock / refresh, info panel, a full round, a won battle, a whole stage and the 8-player TFT lobby.",
   "scenarios": [
     "ac_boot_smoke.json",
     "ac_starter_pack_ui.json",
@@ -11,7 +11,8 @@
     "ac_hero_info.json",
     "ac_round_flow.json",
     "ac_battle_win.json",
-    "ac_full_stage.json"
+    "ac_full_stage.json",
+    "ac_tft_lobby.json"
   ],
   "stopOnFail": false,
   "freshPlay": false
