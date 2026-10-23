@@ -223,4 +223,91 @@ namespace AutoChess.Core.Combat.Heroes {
             }));
         }
     }
+
+    /// <summary>Every few attacks on the same target detonate plasma: bonus magic damage from its missing health.</summary>
+    public sealed class KaisaAttack : AttackBehaviour {
+        readonly int plasmaHits;
+        readonly double plasmaBase;
+        readonly double plasmaMissingHp;
+        readonly string plasmaKey;
+
+        public KaisaAttack(UnitDefinition def) {
+            AnimationLength = 1.167;
+            HitTimes = new[] { 0.35 };
+            plasmaHits = Math.Max(1, (int)def.Param(0));
+            plasmaBase = def.Param(1);
+            plasmaMissingHp = def.Param(2);
+            plasmaKey = def.SpecialKey(0);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var target = self.Target;
+            if (target == null) return;
+            var stacks = target.MarkStacks(plasmaKey, self) + 1;
+            double dealt;
+            if (stacks >= plasmaHits) {
+                var mark = target.GetMark(plasmaKey, self);
+                if (mark != null) target.RemoveMark(mark);
+                var plasma = new Damage(plasmaBase + (target.MaxHp - target.Hp) * plasmaMissingHp, DamageType.Magical, self.MagicalPenetration);
+                dealt = target.TakeDamage(self.BasicDamage(DamageType.Physical), plasma, self);
+            }
+            else {
+                dealt = target.TakeDamage(self.BasicDamage(DamageType.Physical), self);
+                if (target.Alive) target.AddMark(new Mark { Owner = self, Key = plasmaKey, Stacks = stacks, Duration = double.PositiveInfinity });
+            }
+            self.StealLife(dealt);
+            self.RegenEnergy(self.Def.EnergyRegenPerAttack);
+        }
+    }
+
+    /// <summary>Missiles split among the enemies nearest the target; their number grows with attack speed.</summary>
+    public sealed class KaisaSkill : SkillBehaviour {
+        public const string MissileVisual = "kaisa_missile";
+        const double FirstMissile = 0.5;
+        const double LastMissile = 1.5;
+        readonly double baseMissiles;
+        readonly double missilesPerAttackSpeed;
+        readonly int maxTargets;
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly List<CombatUnit> targets = new();
+
+        public KaisaSkill(UnitDefinition def) {
+            AnimationLength = 1.967;
+            baseMissiles = def.Param(3);
+            missilesPerAttackSpeed = def.Param(4);
+            maxTargets = Math.Max(1, (int)def.Param(5));
+            baseDmg = def.Param(6);
+            dmgMul = def.Param(7);
+        }
+
+        public override void Begin(CombatUnit self, out double duration) {
+            var missiles = Math.Clamp((int)Math.Floor(baseMissiles + missilesPerAttackSpeed * self.AttackSpeed + 1e-9), 1, 40);
+            var times = new double[missiles];
+            for (var i = 0; i < missiles; i++) times[i] = FirstMissile + (missiles == 1 ? 0 : i * (LastMissile - FirstMissile) / (missiles - 1));
+            HitTimes = times;
+            targets.Clear();
+            var center = self.Target;
+            if (center != null) {
+                foreach (var o in self.Battle.AliveUnits(self.Side.Opponent())) {
+                    var d = Vec2.SqrDistance(o.Position, center.Position);
+                    var at = 0;
+                    while (at < targets.Count && Vec2.SqrDistance(targets[at].Position, center.Position) <= d) at++;
+                    targets.Insert(at, o);
+                }
+                if (targets.Count > maxTargets) targets.RemoveRange(maxTargets, targets.Count - maxTargets);
+            }
+            base.Begin(self, out duration);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            for (var tries = 0; tries < targets.Count; tries++) {
+                var target = targets[(index + tries) % targets.Count];
+                if (!target.Alive) continue;
+                self.Battle.PlayVisual(MissileVisual, VisualMode.Travel, self.Position, target.Position, 0.25);
+                target.TakeDamage(self.MakeDamage(DamageType.Physical, self.RollCrit(), baseDmg, dmgMul), self, false);
+                return;
+            }
+        }
+    }
 }

@@ -267,4 +267,195 @@ namespace AutoChess.Core.Combat.Heroes {
             if (!complete) aimed = null;
         }
     }
+
+    /// <summary>Cries: magic damage (grows with max health) and a short stun around himself.</summary>
+    public sealed class AmumuSkill : SkillBehaviour {
+        public const string CurseVisual = "amumu_curse";
+        readonly double baseDmg;
+        readonly double dmgByMaxHp;
+        readonly int radius;
+        readonly double stun;
+        readonly List<CombatUnit> hits = new();
+
+        public AmumuSkill(UnitDefinition def) {
+            AnimationLength = 1.667;
+            HitTimes = new[] { 0.75 };
+            baseDmg = def.Param(0);
+            dmgByMaxHp = def.Param(1);
+            radius = (int)def.Param(2);
+            stun = def.Param(3);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            if (!self.Alive) return;
+            self.Battle.UnitsInRadius(self.Side.Opponent(), self.Position, radius, hits);
+            self.Battle.PlayVisual(CurseVisual, VisualMode.Burst, self.Position, self.Position, 1.2, radius);
+            var damage = new Damage(baseDmg + self.MaxHp * dmgByMaxHp, DamageType.Magical, self.MagicalPenetration);
+            foreach (var u in hits) {
+                u.TakeDamage(damage, self);
+                u.Stun(stun);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Grabs the furthest enemy and pulls it next to him (magic damage from max health, stun). Passive: the
+    /// first time his health drops below a threshold he gains a shield.
+    /// </summary>
+    public sealed class BlitzcrankSkill : SkillBehaviour {
+        public const string GrabVisual = "blitzcrank_grab";
+        public const string ShieldVisual = "blitzcrank_shield";
+        readonly double baseDmg;
+        readonly double dmgByMaxHp;
+        readonly double stun;
+        readonly double pullDuration;
+        readonly double shieldThreshold;
+        readonly double shieldByMaxHp;
+        readonly double shieldDuration;
+        readonly string shieldKey;
+        CombatUnit grabbed;
+
+        public BlitzcrankSkill(UnitDefinition def) {
+            AnimationLength = 1.8;
+            baseDmg = def.Param(0);
+            dmgByMaxHp = def.Param(1);
+            stun = def.Param(2);
+            pullDuration = def.Param(3);
+            shieldThreshold = def.Param(4);
+            shieldByMaxHp = def.Param(5);
+            shieldDuration = def.Param(6);
+            shieldKey = def.SpecialKey(0);
+            HitTimes = new[] { 0.5, 0.5 + pullDuration };
+        }
+
+        public override void Setup(CombatUnit self) {
+            var used = false;
+            self.Battle.AddHitHook(new HitHook(after: (target, source, damage, dealt, kind) => {
+                if (used || target != self || !self.Alive || self.HpPercentage >= shieldThreshold) return;
+                used = true;
+                self.AddShield(self, shieldKey, self.MaxHp * shieldByMaxHp, shieldDuration);
+                self.Battle.PlayVisual(ShieldVisual, VisualMode.Attach, self.Position, self.Position, shieldDuration, 1, self);
+            }));
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            if (index == 0) {
+                grabbed = self.Battle.FurthestOpponent(self);
+                if (grabbed == null) return;
+                self.Battle.PlayVisual(GrabVisual, VisualMode.Beam, self.Position, grabbed.Position, pullDuration);
+                self.Battle.Displace(grabbed, self.Position, pullDuration);
+                return;
+            }
+            if (grabbed == null || !grabbed.Alive) return;
+            grabbed.TakeDamage(new Damage(baseDmg + self.MaxHp * dmgByMaxHp, DamageType.Magical, self.MagicalPenetration), self);
+            grabbed.Stun(stun);
+            grabbed = null;
+        }
+    }
+
+    /// <summary>Snips the target and the enemies next to it several times, healing from each; the last snip is true damage on the target.</summary>
+    public sealed class GwenSkill : SkillBehaviour {
+        public const string SnipVisual = "gwen_snip";
+        readonly int snips;
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly double vamp;
+        readonly List<CombatUnit> hits = new();
+
+        public GwenSkill(UnitDefinition def) {
+            AnimationLength = 2.667;
+            snips = Math.Max(1, (int)def.Param(0));
+            baseDmg = def.Param(1);
+            dmgMul = def.Param(2);
+            vamp = def.Param(3);
+            var times = new double[snips];
+            for (var i = 0; i < snips; i++) times[i] = 0.45 + i * 1.6 / Math.Max(1, snips - 1);
+            HitTimes = times;
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var target = self.Target;
+            if (target == null) return;
+            var value = baseDmg + self.MagicalDamage * dmgMul;
+            self.Battle.UnitsInRadius(self.Side.Opponent(), target.Position, 1, hits);
+            self.Battle.PlayVisual(SnipVisual, VisualMode.Burst, target.Position, target.Position, 0.6, 1);
+            var dealt = 0d;
+            foreach (var u in hits) {
+                var last = index == snips - 1 && u == target;
+                var damage = last ? new Damage(value, DamageType.True, 0) : new Damage(value, DamageType.Magical, self.MagicalPenetration);
+                dealt += u.TakeDamage(damage, self, index == 0);
+            }
+            if (self.Alive) self.Heal(dealt * vamp);
+        }
+    }
+
+    /// <summary>
+    /// Kicks the target far away (physical damage, knock-up); enemies around where it lands take part of the damage
+    /// and are knocked up too. A target kicked onto the edge of the board is stunned as well.
+    /// </summary>
+    public sealed class LeeSinSkill : SkillBehaviour {
+        public const string KickVisual = "leesin_kick";
+        public const string LandVisual = "leesin_land";
+        const double FlightTime = 0.5;
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly double distance;
+        readonly double airborne;
+        readonly double splashMul;
+        readonly double edgeStun;
+        readonly List<CombatUnit> hits = new();
+        CombatUnit kicked;
+        int landing = -1;
+        double value;
+
+        public LeeSinSkill(UnitDefinition def) {
+            AnimationLength = 2.567;
+            HitTimes = new[] { 0.6, 0.6 + FlightTime };
+            baseDmg = def.Param(0);
+            dmgMul = def.Param(1);
+            distance = def.Param(2);
+            airborne = def.Param(3);
+            splashMul = def.Param(4);
+            edgeStun = def.Param(5);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var battle = self.Battle;
+            if (index == 0) {
+                kicked = self.Target;
+                if (kicked == null) return;
+                var damage = self.MakeDamage(DamageType.Physical, self.RollCrit(), baseDmg, dmgMul);
+                value = damage.Value;
+                battle.PlayVisual(KickVisual, VisualMode.Burst, kicked.Position, kicked.Position, 0.8, 1);
+                kicked.TakeDamage(damage, self);
+                if (!kicked.Alive) {
+                    kicked = null;
+                    return;
+                }
+                var dx = kicked.Position.X - self.Position.X;
+                var dy = kicked.Position.Y - self.Position.Y;
+                var norm = Math.Sqrt(dx * dx + dy * dy);
+                var away = norm < 1e-9 ? kicked.Position
+                    : kicked.Position + new Vec2(dx / norm, dy / norm) * (distance * battle.Grid.AverageCellDistance);
+                landing = battle.Displace(kicked, away, FlightTime);
+                if (landing < 0) kicked.Airborne(airborne);
+                return;
+            }
+            if (kicked == null || landing < 0) return;
+            if (kicked.Alive) {
+                kicked.Airborne(airborne);
+                if (battle.IsEdgeCell(landing)) kicked.Stun(edgeStun);
+            }
+            battle.UnitsInRadius(self.Side.Opponent(), battle.Grid.Center(landing), 1, hits);
+            battle.PlayVisual(LandVisual, VisualMode.Burst, battle.Grid.Center(landing), battle.Grid.Center(landing), 1, 1);
+            var splash = new Damage(value * splashMul, DamageType.Physical, self.PhysicalPenetration);
+            foreach (var u in hits) {
+                if (u == kicked) continue;
+                u.TakeDamage(splash, self);
+                u.Airborne(airborne);
+            }
+            kicked = null;
+            landing = -1;
+        }
+    }
 }

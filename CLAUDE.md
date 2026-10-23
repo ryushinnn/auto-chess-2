@@ -27,9 +27,11 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   `GameCommand` through `GameManager.Submit` / `IGameSession`; views react to `GameManager.EventRaised`
   and read `Session.State`. New player action = command class + `MatchSimulation.Submit` case +
   `CommandCodec` entry + test.
-- New hero: attack / skill behaviours in `Core/Combat/Heroes`, register in `AbilityRegistry`, data in a
-  `HeroTrait` asset (added to `HeroTraitDB`), animation in a `Mecanim_*` class. Re-export
-  `GameData/game_data.json` (menu *AutoChess/Export Game Data*) so the real-data tests cover it.
+- New hero: attack / skill behaviours in `Core/Combat/Heroes`, register in `AbilityRegistry` (+ `HeroIds`), a
+  `Mecanim_*` class, then an entry in `Tools/heroes/new_heroes.json` and menu *AutoChess/Hero Models/Set Up New
+  Heroes* (prefab, animator, `HeroTrait` in `HeroTraitDB`; docs/ARCHITECTURE.md "Unity client"). Stats: knob in
+  `Tools/balance` (`balance.py calibrate` / `apply`). Re-export `GameData/game_data.json` (menu *AutoChess/Export
+  Game Data*) so the real-data tests cover it. Skill VFX: `PlayVisual` in Core + a recipe in `VfxBuilder`.
 - ScriptableObject / MonoBehaviour fields are serialized: rename with `[FormerlySerializedAs]`, move a
   script together with its `.meta` (`git mv`), never retype a field.
 - Online = lockstep (docs/ARCHITECTURE.md "Online play"): every client and the server run the same Core on the

@@ -13,6 +13,7 @@ namespace AutoChess.Game {
 
         [SerializeField, ReadOnly] float amount;
         Sequence sequence;
+        Image overlay;
 
         public float Amount => amount;
 
@@ -47,6 +48,22 @@ namespace AutoChess.Game {
 
         public void SetMainColor(Color color) {
             main.color = color;
+        }
+
+        /// <summary>
+        /// A second fill drawn behind the main one, ending at <paramref name="end"/> (0..1): the segment past the main
+        /// fill shows in <paramref name="color"/> (shields on the health bar). 0 hides it.
+        /// </summary>
+        public void SetOverlay(float end, Color color) {
+            if (overlay == null) {
+                if (end <= 0) return;
+                overlay = Instantiate(main, main.transform.parent);
+                overlay.name = "Overlay";
+                overlay.transform.SetSiblingIndex(main.transform.GetSiblingIndex());
+            }
+            overlay.color = color;
+            overlay.fillAmount = Mathf.Clamp01(end);
+            overlay.enabled = end > 0;
         }
 
         void OnDisable() {

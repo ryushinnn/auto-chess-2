@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Blitzcrank
+  m_EditorClassIdentifier: 
+  id: Blitzcrank
+  name: "B\xEDch Khang"
+  subName: 
+  summoned: 0
+  realm: 4
+  role: 16
+  reputation: 2
+  moveable: 1
+  mecanim: {fileID: 2632722227144001831, guid: b5e957ee627bc96408396ee11369ce0f, type: 3}
+  thumbnail: {fileID: 21300000, guid: 3602271c036eace448ea2d89dec90b18, type: 3}
+  skillIcon: {fileID: 21300000, guid: 6f1535f575bc2bc4eb718f35909773c7, type: 3}
+  maxHp: 2258
+  physicalDamage: 74
+  magicalDamage: 0
+  armor: 55
+  resistance: 55
+  attackSpeed: 0.838
+  movementSpeed: 1.9
+  energyRegenPerAttack: 10
+  energyRegenPerHit: 14
+  startingEnergy: 0
+  attackRange: 1
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "M\xF3c T\xEAn L\u1EEDa"
+  unstoppable: 0
+  skillParams:
+  - key: base_dmg
+    value: 100
+    isPercentage: 0
+  - key: dmg_by_max_hp
+    value: 0.05
+    isPercentage: 1
+  - key: stun_duration
+    value: 1.5
+    isPercentage: 0
+  - key: pull_duration
+    value: 0.4
+    isPercentage: 0
+  - key: shield_threshold
+    value: 0.4
+    isPercentage: 1
+  - key: shield_by_max_hp
+    value: 0.3
+    isPercentage: 1
+  - key: shield_duration
+    value: 4
+    isPercentage: 0
+  passiveDescription: "L\u1EA7n \u0111\u1EA7u ti\xEAn m\xE1u xu\u1ED1ng d\u01B0\u1EDBi
+    #[4], nh\u1EADn [<color=white>Khi\xEAn</color>] b\u1EB1ng #[5]<sprite name=hp>
+    t\u1ED1i \u0111a trong #[6]s."
+  activeDescription: "Ph\xF3ng c\xE1nh tay m\xF3c k\u1EBB \u0111\u1ECBch xa nh\u1EA5t,
+    k\xE9o v\u1EC1 s\xE1t b\xEAn c\u1EA1nh, g\xE2y <color=grey>(#[0] + #[1]<sprite
+    name=hp>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0 l\xE0m cho\xE1ng #[2]s."
+  specialKeys:
+  - blitzcrank_mana_barrier
+  dps: 45
+  physicalReduction: 23.076923
+  magicalReduction: 23.076923

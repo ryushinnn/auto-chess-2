@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 
 namespace AutoChess.Core.Combat.Heroes {
@@ -189,6 +190,180 @@ namespace AutoChess.Core.Combat.Heroes {
             var heavy = index == 3;
             target.TakeDamage(self.MakeDamage(DamageType.Magical, self.RollCrit(),
                 heavy ? devilBaseDmg1 : devilBaseDmg0, heavy ? devilDmgMul1 : devilDmgMul0), self);
+        }
+    }
+
+    /// <summary>Orb along a line through the target: magic damage out, the same as true damage back; heals.</summary>
+    public sealed class AhriSkill : SkillBehaviour {
+        public const string OrbVisual = "ahri_orb";
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly double length;
+        readonly double healMul;
+        readonly List<CombatUnit> hits = new();
+        Vec2 orbEnd;
+        double value;
+        double dealt;
+
+        public AhriSkill(UnitDefinition def) {
+            AnimationLength = 2.567;
+            HitTimes = new[] { 0.7, 1.5 };
+            baseDmg = def.Param(0);
+            dmgMul = def.Param(1);
+            length = def.Param(2);
+            healMul = def.Param(3);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            if (index == 0) {
+                var target = self.Target;
+                if (target == null) return;
+                dealt = 0;
+                value = baseDmg + self.MagicalDamage * dmgMul;
+                orbEnd = self.Battle.UnitsOnLine(self.Side.Opponent(), self.Position, target.Position, length, hits);
+                self.Battle.PlayVisual(OrbVisual, VisualMode.Travel, self.Position, orbEnd, 0.5);
+                foreach (var u in hits) dealt += u.TakeDamage(new Damage(value, DamageType.Magical, self.MagicalPenetration), self);
+            }
+            else {
+                if (value <= 0) return;
+                self.Battle.UnitsOnLine(self.Side.Opponent(), orbEnd, self.Position, length, hits);
+                self.Battle.PlayVisual(OrbVisual, VisualMode.Travel, orbEnd, self.Position, 0.5);
+                foreach (var u in hits) dealt += u.TakeDamage(new Damage(value, DamageType.True, 0), self, false);
+                value = 0;
+                if (self.Alive) self.Heal(dealt * healMul);
+            }
+        }
+    }
+
+    /// <summary>Tibbers slams the target: magic damage and a stun around it.</summary>
+    public sealed class AnnieSkill : SkillBehaviour {
+        public const string SlamVisual = "annie_tibbers";
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly int radius;
+        readonly double stun;
+        readonly List<CombatUnit> hits = new();
+
+        public AnnieSkill(UnitDefinition def) {
+            AnimationLength = 1.8;
+            HitTimes = new[] { 0.9 };
+            baseDmg = def.Param(0);
+            dmgMul = def.Param(1);
+            radius = (int)def.Param(2);
+            stun = def.Param(3);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var target = self.Target;
+            if (target == null) return;
+            self.Battle.UnitsInRadius(self.Side.Opponent(), target.Position, radius, hits);
+            self.Battle.PlayVisual(SlamVisual, VisualMode.Burst, target.Position, target.Position, 1.2, radius);
+            var damage = self.MakeDamage(DamageType.Magical, false, baseDmg, magicalRatio: dmgMul);
+            foreach (var u in hits) {
+                u.TakeDamage(damage, self);
+                u.Stun(stun);
+            }
+        }
+    }
+
+    /// <summary>Channels a monsoon: heals nearby allies every interval until it ends or hard crowd control stops it.</summary>
+    public sealed class JannaSkill : SkillBehaviour {
+        public const string MonsoonVisual = "janna_monsoon";
+        readonly double baseHeal;
+        readonly double healMul;
+        readonly int radius;
+        readonly List<CombatUnit> allies = new();
+        int visual = -1;
+
+        public JannaSkill(UnitDefinition def) {
+            var duration = Math.Min(def.Param(0), 4);
+            var interval = Math.Max(def.Param(1), 0.1);
+            AnimationLength = duration;
+            var ticks = (int)Math.Floor(duration / interval + 1e-9);
+            var times = new double[ticks];
+            for (var i = 0; i < ticks; i++) times[i] = (i + 1) * interval;
+            HitTimes = times;
+            baseHeal = def.Param(2);
+            healMul = def.Param(3);
+            radius = (int)def.Param(4);
+        }
+
+        public override void Begin(CombatUnit self, out double duration) {
+            base.Begin(self, out duration);
+            visual = self.Battle.PlayVisual(MonsoonVisual, VisualMode.Attach, self.Position, self.Position, duration, radius, self);
+        }
+
+        public override void End(CombatUnit self, bool complete) {
+            base.End(self, complete);
+            if (!complete && visual >= 0) self.Battle.StopVisual(visual);
+            visual = -1;
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            if (!self.Alive) return;
+            self.Battle.UnitsInRadius(self.Side, self.Position, radius, allies);
+            var heal = baseHeal + self.MagicalDamage * healMul;
+            foreach (var u in allies) u.Heal(heal);
+        }
+    }
+
+    /// <summary>Grows the weakest ally: bonus health (healed in) for a while, knocks up enemies next to it.</summary>
+    public sealed class LuluSkill : SkillBehaviour {
+        public const string GrowthVisual = "lulu_growth";
+        readonly double baseHp;
+        readonly double hpMul;
+        readonly double duration;
+        readonly double airborne;
+        readonly string effectKey;
+        readonly List<CombatUnit> hits = new();
+
+        public LuluSkill(UnitDefinition def) {
+            AnimationLength = 1.667;
+            HitTimes = new[] { 0.7 };
+            baseHp = def.Param(0);
+            hpMul = def.Param(1);
+            duration = def.Param(2);
+            airborne = def.Param(3);
+            effectKey = def.SpecialKey(0);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var ally = self.Battle.WeakestAlly(self);
+            if (ally == null) return;
+            var bonus = baseHp + self.MagicalDamage * hpMul;
+            ally.AddModifierSet(ModifierSet.Timed(self, effectKey, duration, new[] {
+                new StatModifier(StatKind.MaxHp, bonus, ModifierType.Flat),
+            }));
+            ally.Heal(bonus);
+            self.Battle.PlayVisual(GrowthVisual, VisualMode.Attach, ally.Position, ally.Position, duration, 1, ally);
+            self.Battle.UnitsInRadius(self.Side.Opponent(), ally.Position, 1, hits);
+            foreach (var u in hits) u.Airborne(airborne);
+        }
+    }
+
+    /// <summary>A beam along a line through the target, across the board.</summary>
+    public sealed class LuxSkill : SkillBehaviour {
+        public const string SparkVisual = "lux_spark";
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly double length;
+        readonly List<CombatUnit> hits = new();
+
+        public LuxSkill(UnitDefinition def) {
+            AnimationLength = 2.5;
+            HitTimes = new[] { 1.0 };
+            baseDmg = def.Param(0);
+            dmgMul = def.Param(1);
+            length = def.Param(2);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var target = self.Target;
+            if (target == null) return;
+            var end = self.Battle.UnitsOnLine(self.Side.Opponent(), self.Position, target.Position, length, hits);
+            self.Battle.PlayVisual(SparkVisual, VisualMode.Beam, self.Position, end, 0.8);
+            var damage = self.MakeDamage(DamageType.Magical, false, baseDmg, magicalRatio: dmgMul);
+            foreach (var u in hits) u.TakeDamage(damage, self);
         }
     }
 }

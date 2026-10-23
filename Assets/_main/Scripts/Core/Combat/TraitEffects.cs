@@ -175,7 +175,7 @@ namespace AutoChess.Core.Combat {
                 new(StatKind.LifeSteal, def.Param(6 + tier), ModifierType.Flat),
             };
             mods.AddRange(Boon(host.Def.Roles));
-            host.AddModifierSet(ModifierSet.Permanent(host, Key, mods.ToArray(), stacks: tier + 1, visual: Key));
+            host.AddModifierSet(ModifierSet.Permanent(host, Key, mods.ToArray(), stacks: tier + 1));
             if (host.Def.Roles.HasRole(Role.Sorcerer)) host.FillEnergy();
         }
 

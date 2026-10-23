@@ -36,12 +36,17 @@ namespace AutoChess.Core.Combat {
         public readonly AttackState Attack;
         public readonly SkillState Skill;
         public readonly MovementState Movement = new();
+        public readonly DisplacementState Displacement = new();
 
         readonly List<ModifierSet> modifierSets = new();
         readonly List<Mark> marks = new();
         readonly List<DamageOverTime> damageOverTimes = new();
         readonly List<HealOverTime> healOverTimes = new();
+        readonly List<Shield> shields = new();
         double drainRemaining;
+
+        /// <summary>Total of the active shields.</summary>
+        public double ShieldAmount { get; private set; }
 
         public IReadOnlyList<ModifierSet> ModifierSets => modifierSets;
         public IReadOnlyList<Mark> Marks => marks;
@@ -79,6 +84,7 @@ namespace AutoChess.Core.Combat {
                 AddModifierSet(ModifierSet.Permanent(this, $"[ITEM_#{i}]", item.Modifiers, mark: false));
             }
             Hp = MaxHp;
+            Skill.Behaviour.Setup(this);
         }
 
         // ------------------------------------------------------------------ stats
@@ -288,11 +294,13 @@ namespace AutoChess.Core.Combat {
                 return 0;
             }
             var dealt = Mitigate(damage);
-            var lost = Math.Min(dealt, Math.Max(0, Hp));
-            Hp -= dealt;
+            var absorbed = Absorb(dealt);
+            var toHealth = dealt - absorbed;
+            var lost = absorbed + Math.Min(toHealth, Math.Max(0, Hp));
+            Hp -= toHealth;
             Battle.Emit(new UnitDamagedEvent {
-                UnitId = Id, SourceId = source?.Id ?? -1, Amount = dealt, HpLost = lost, Type = damage.Type, Crit = damage.Crit,
-                StackIndex = stackIndex
+                UnitId = Id, SourceId = source?.Id ?? -1, Amount = dealt, HpLost = lost, Absorbed = absorbed, Type = damage.Type,
+                Crit = damage.Crit, StackIndex = stackIndex
             });
             if (Hp <= 0) Die(source);
             Battle.AfterHit(this, source, damage, dealt, kind);
@@ -311,6 +319,39 @@ namespace AutoChess.Core.Combat {
             var dealt = Apply(first, source, 0) + Apply(second, source, 1);
             if (Alive && regenEnergy) RegenEnergy(Def.EnergyRegenPerHit);
             return dealt;
+        }
+
+        /// <summary>Adds (or refreshes) a shield of <paramref name="amount"/> for <paramref name="duration"/> seconds.</summary>
+        public void AddShield(CombatUnit owner, string key, double amount, double duration) {
+            if (!Alive || amount <= 0 || duration <= 0) return;
+            for (var i = shields.Count - 1; i >= 0; i--) {
+                if (shields[i].Key == key && shields[i].Owner == owner) shields.RemoveAt(i);
+            }
+            shields.Add(new Shield { Owner = owner, Key = key, Amount = amount, Remaining = duration });
+            UpdateShieldTotal();
+        }
+
+        /// <summary>Takes <paramref name="damage"/> from the shields, oldest first; returns the absorbed part.</summary>
+        double Absorb(double damage) {
+            if (shields.Count == 0 || damage <= 0) return 0;
+            var absorbed = 0d;
+            while (shields.Count > 0 && absorbed < damage) {
+                var shield = shields[0];
+                var take = Math.Min(shield.Amount, damage - absorbed);
+                shield.Amount -= take;
+                absorbed += take;
+                if (shield.Amount <= 1e-9) shields.RemoveAt(0);
+            }
+            UpdateShieldTotal();
+            return absorbed;
+        }
+
+        void UpdateShieldTotal() {
+            var total = 0d;
+            foreach (var s in shields) total += s.Amount;
+            if (Math.Abs(total - ShieldAmount) < 1e-9) return;
+            ShieldAmount = total;
+            Battle.Emit(new UnitShieldChangedEvent { UnitId = Id, Amount = total });
         }
 
         public void Heal(double amount) {
@@ -414,6 +455,17 @@ namespace AutoChess.Core.Combat {
                 RecalculateAll(set.Modifiers);
                 if (set.Mark != null) RemoveMark(set.Mark);
                 if (set.Visual != null) Battle.Emit(new EffectRemovedEvent { UnitId = Id, EffectId = set.Id, Visual = set.Visual });
+            }
+
+            if (shields.Count > 0) {
+                var expired = false;
+                for (var i = shields.Count - 1; i >= 0; i--) {
+                    shields[i].Remaining -= dt;
+                    if (shields[i].Remaining > 0) continue;
+                    shields.RemoveAt(i);
+                    expired = true;
+                }
+                if (expired) UpdateShieldTotal();
             }
 
             for (var i = damageOverTimes.Count - 1; i >= 0 && Alive; i--) {

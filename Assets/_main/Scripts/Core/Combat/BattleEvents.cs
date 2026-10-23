@@ -41,8 +41,10 @@ namespace AutoChess.Core.Combat {
         public int SourceId;
         /// <summary>Damage after mitigation (what the number above the unit shows).</summary>
         public double Amount;
-        /// <summary>Health actually removed (Amount without the overkill): what damage meters count.</summary>
+        /// <summary>Damage that landed on health or shields (Amount without the overkill): what damage meters count.</summary>
         public double HpLost;
+        /// <summary>Part of Amount taken by shields.</summary>
+        public double Absorbed;
         public DamageType Type;
         public bool Crit;
         /// <summary>Position inside a multi-part hit (0, 1...) so the numbers can be stacked.</summary>
@@ -56,6 +58,39 @@ namespace AutoChess.Core.Combat {
     public sealed class UnitEnergyDrainEvent : UnitBattleEvent {
         public double Delay;
         public double Duration;
+    }
+
+    public enum VisualMode {
+        /// <summary>Plays at <see cref="VisualEvent.From"/>, scaled by <see cref="VisualEvent.Radius"/> (cells).</summary>
+        Burst,
+        /// <summary>Moves from <see cref="VisualEvent.From"/> to <see cref="VisualEvent.To"/> over the duration.</summary>
+        Travel,
+        /// <summary>Stretched from <see cref="VisualEvent.From"/> to <see cref="VisualEvent.To"/>.</summary>
+        Beam,
+        /// <summary>Follows <see cref="VisualEvent.UnitId"/>, scaled by <see cref="VisualEvent.Radius"/> (cells).</summary>
+        Attach,
+    }
+
+    /// <summary>A skill's VFX (presentation only, no effect on the simulation).</summary>
+    public sealed class VisualEvent : BattleEvent {
+        public int VisualId;
+        public string Visual;
+        public VisualMode Mode;
+        public Vec2 From;
+        public Vec2 To;
+        public int UnitId = -1;
+        public double Radius;
+        public double Duration;
+    }
+
+    /// <summary>A visual ends before its duration (a channel was interrupted).</summary>
+    public sealed class VisualStoppedEvent : BattleEvent {
+        public int VisualId;
+    }
+
+    /// <summary>The unit's total shield changed (gained, absorbed damage or expired).</summary>
+    public sealed class UnitShieldChangedEvent : UnitBattleEvent {
+        public double Amount;
     }
 
     public sealed class UnitAirborneEvent : UnitBattleEvent {

@@ -43,6 +43,16 @@ namespace AutoChess.Core.Combat {
             r.Register(HeroIds.Yasuo, _ => new YasuoAttack(), (d, _) => new YasuoSkill(d));
             r.Register(HeroIds.Yone, d => new YoneAttack(d), (d, a) => new YoneSkill(d, a as YoneAttack));
             r.Register(HeroIds.Zed, _ => new BasicAttack(1.267, 0.25, DamageType.Physical), (d, _) => new ZedSkill(d));
+            r.Register(HeroIds.Ahri, _ => new BasicAttack(1.067, 0.35, DamageType.Magical), (d, _) => new AhriSkill(d));
+            r.Register(HeroIds.Amumu, _ => new BasicAttack(1.1, 0.35, DamageType.Physical), (d, _) => new AmumuSkill(d));
+            r.Register(HeroIds.Annie, _ => new BasicAttack(1.333, 0.45, DamageType.Magical), (d, _) => new AnnieSkill(d));
+            r.Register(HeroIds.Blitzcrank, _ => new BasicAttack(1.167, 0.4, DamageType.Physical), (d, _) => new BlitzcrankSkill(d));
+            r.Register(HeroIds.Gwen, _ => new BasicAttack(1.3, 0.4, DamageType.Magical), (d, _) => new GwenSkill(d));
+            r.Register(HeroIds.Janna, _ => new BasicAttack(1.833, 0.6, DamageType.Magical), (d, _) => new JannaSkill(d));
+            r.Register(HeroIds.Kaisa, d => new KaisaAttack(d), (d, _) => new KaisaSkill(d));
+            r.Register(HeroIds.LeeSin, _ => new BasicAttack(0.867, 0.3, DamageType.Physical), (d, _) => new LeeSinSkill(d));
+            r.Register(HeroIds.Lulu, _ => new BasicAttack(1.133, 0.4, DamageType.Magical), (d, _) => new LuluSkill(d));
+            r.Register(HeroIds.Lux, _ => new BasicAttack(1.4, 0.45, DamageType.Magical), (d, _) => new LuxSkill(d));
             return r;
         }
     }
@@ -67,5 +77,15 @@ namespace AutoChess.Core.Combat {
         public const string Yasuo = "Yasuo";
         public const string Yone = "Yone";
         public const string Zed = "Zed";
+        public const string Ahri = "Ahri";
+        public const string Amumu = "Amumu";
+        public const string Annie = "Annie";
+        public const string Blitzcrank = "Blitzcrank";
+        public const string Gwen = "Gwen";
+        public const string Janna = "Janna";
+        public const string Kaisa = "Kaisa";
+        public const string LeeSin = "LeeSin";
+        public const string Lulu = "Lulu";
+        public const string Lux = "Lux";
     }
 }

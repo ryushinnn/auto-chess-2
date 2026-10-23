@@ -13,12 +13,12 @@
       "roles": 9,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2622,
-      "physicalDamage": 159,
+      "maxHp": 2612,
+      "physicalDamage": 161,
       "magicalDamage": 0,
       "armor": 40,
       "resistance": 38,
-      "attackSpeed": 0.95200002193450928,
+      "attackSpeed": 1.0570000410079956,
       "movementSpeed": 2,
       "energyPerAttack": 9.5,
       "energyPerHit": 6,
@@ -121,12 +121,12 @@
       "roles": 3,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2212,
+      "maxHp": 2374,
       "physicalDamage": 0,
-      "magicalDamage": 118,
+      "magicalDamage": 129,
       "armor": 39,
       "resistance": 42,
-      "attackSpeed": 0.88200002908706665,
+      "attackSpeed": 0.98000001907348633,
       "movementSpeed": 2,
       "energyPerAttack": 18.5,
       "energyPerHit": 8,
@@ -223,12 +223,12 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1737,
-      "physicalDamage": 78,
+      "maxHp": 1876,
+      "physicalDamage": 85,
       "magicalDamage": 0,
       "armor": 36,
       "resistance": 32,
-      "attackSpeed": 0.859000027179718,
+      "attackSpeed": 0.95399999618530273,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 12,
       "energyPerHit": 8,
@@ -306,12 +306,12 @@
       "roles": 8,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2979,
+      "maxHp": 2922,
       "physicalDamage": 221,
       "magicalDamage": 0,
       "armor": 34,
       "resistance": 34,
-      "attackSpeed": 0.97500002384185791,
+      "attackSpeed": 1.0829999446868896,
       "movementSpeed": 2.2000000476837158,
       "energyPerAttack": 7,
       "energyPerHit": 4,
@@ -399,12 +399,12 @@
       "roles": 33,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 3594,
-      "physicalDamage": 178,
+      "maxHp": 3643,
+      "physicalDamage": 184,
       "magicalDamage": 0,
       "armor": 46,
       "resistance": 42,
-      "attackSpeed": 0.92900002002716064,
+      "attackSpeed": 1.031000018119812,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 12,
       "energyPerHit": 8,
@@ -490,12 +490,12 @@
       "roles": 8,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1486,
+      "maxHp": 1563,
       "physicalDamage": 0,
-      "magicalDamage": 101,
+      "magicalDamage": 106,
       "armor": 24,
       "resistance": 24,
-      "attackSpeed": 0.906000018119812,
+      "attackSpeed": 1.0049999952316284,
       "movementSpeed": 2.0999999046325684,
       "energyPerAttack": 7,
       "energyPerHit": 4,
@@ -559,12 +559,12 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1725,
-      "physicalDamage": 87,
+      "maxHp": 1869,
+      "physicalDamage": 95,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
-      "attackSpeed": 1.0219999551773071,
+      "attackSpeed": 1.1339999437332153,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 10,
       "energyPerHit": 5,
@@ -636,12 +636,12 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1773,
-      "physicalDamage": 90,
+      "maxHp": 1878,
+      "physicalDamage": 95,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
-      "attackSpeed": 1.0219999551773071,
+      "attackSpeed": 1.1339999437332153,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 10,
       "energyPerHit": 5,
@@ -714,12 +714,12 @@
       "roles": 4,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2277,
-      "physicalDamage": 120,
+      "maxHp": 2332,
+      "physicalDamage": 123,
       "magicalDamage": 0,
       "armor": 25,
       "resistance": 25,
-      "attackSpeed": 1.0570000410079956,
+      "attackSpeed": 1.1729999780654907,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 10,
       "energyPerHit": 5,
@@ -785,12 +785,12 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1884,
-      "physicalDamage": 85,
+      "maxHp": 2032,
+      "physicalDamage": 92,
       "magicalDamage": 0,
       "armor": 36,
       "resistance": 32,
-      "attackSpeed": 0.859000027179718,
+      "attackSpeed": 0.95399999618530273,
       "movementSpeed": 2,
       "energyPerAttack": 12,
       "energyPerHit": 8,
@@ -854,12 +854,12 @@
       "roles": 8,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1817,
-      "physicalDamage": 128,
+      "maxHp": 1795,
+      "physicalDamage": 127,
       "magicalDamage": 0,
       "armor": 29,
       "resistance": 29,
-      "attackSpeed": 0.93999999761581421,
+      "attackSpeed": 1.0440000295639038,
       "movementSpeed": 2.2000000476837158,
       "energyPerAttack": 7,
       "energyPerHit": 4,
@@ -927,12 +927,12 @@
       "roles": 16,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 3030,
-      "physicalDamage": 99,
+      "maxHp": 3171,
+      "physicalDamage": 103,
       "magicalDamage": 0,
       "armor": 55,
       "resistance": 55,
-      "attackSpeed": 0.75499999523162842,
+      "attackSpeed": 0.83799999952316284,
       "movementSpeed": 1.2000000476837158,
       "energyPerAttack": 10,
       "energyPerHit": 14,
@@ -1004,12 +1004,12 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1116,
-      "physicalDamage": 57,
-      "magicalDamage": 57,
+      "maxHp": 1169,
+      "physicalDamage": 59,
+      "magicalDamage": 59,
       "armor": 20,
       "resistance": 20,
-      "attackSpeed": 1.0219999551773071,
+      "attackSpeed": 1.1339999437332153,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 10,
       "energyPerHit": 5,
@@ -1109,12 +1109,12 @@
       "roles": 2,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1371,
+      "maxHp": 1263,
       "physicalDamage": 0,
-      "magicalDamage": 76,
+      "magicalDamage": 70,
       "armor": 27,
       "resistance": 37,
-      "attackSpeed": 0.80099999904632568,
+      "attackSpeed": 0.88899999856948853,
       "movementSpeed": 2,
       "energyPerAttack": 25,
       "energyPerHit": 8,
@@ -1178,12 +1178,12 @@
       "roles": 34,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1568,
+      "maxHp": 1672,
       "physicalDamage": 0,
-      "magicalDamage": 86,
+      "magicalDamage": 92,
       "armor": 27,
       "resistance": 37,
-      "attackSpeed": 0.80099999904632568,
+      "attackSpeed": 0.88899999856948853,
       "movementSpeed": 2,
       "energyPerAttack": 25,
       "energyPerHit": 8,
@@ -1261,12 +1261,12 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1288,
-      "physicalDamage": 65,
+      "maxHp": 1336,
+      "physicalDamage": 68,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
-      "attackSpeed": 1.0219999551773071,
+      "attackSpeed": 1.1339999437332153,
       "movementSpeed": 1.7999999523162842,
       "energyPerAttack": 10,
       "energyPerHit": 5,
@@ -1412,6 +1412,740 @@
       ],
       "skillParams": [],
       "skillParamKeys": [],
+      "specialKeys": []
+    },
+    {
+      "id": "Ahri",
+      "name": "A Ly",
+      "summoned": false,
+      "realm": "Nether",
+      "roles": 10,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 1867,
+      "physicalDamage": 0,
+      "magicalDamage": 117,
+      "armor": 28,
+      "resistance": 33,
+      "attackSpeed": 0.96700000762939453,
+      "movementSpeed": 2.0999999046325684,
+      "energyPerAttack": 16,
+      "energyPerHit": 6,
+      "startingEnergy": 85,
+      "attackRange": 3,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        90,
+        0.800000011920929,
+        5,
+        0.20000000298023224
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_mul",
+        "length",
+        "heal_mul"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Amumu",
+      "name": "A Mộ",
+      "summoned": false,
+      "realm": "Nether",
+      "roles": 48,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 2220,
+      "physicalDamage": 69,
+      "magicalDamage": 0,
+      "armor": 50,
+      "resistance": 50,
+      "attackSpeed": 0.79900002479553223,
+      "movementSpeed": 2,
+      "energyPerAttack": 10,
+      "energyPerHit": 14,
+      "startingEnergy": 0,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        40,
+        0.019999999552965164,
+        2,
+        0.75
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_by_max_hp",
+        "radius",
+        "stun_duration"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Annie",
+      "name": "An Nhi",
+      "summoned": false,
+      "realm": "Nether",
+      "roles": 2,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 1748,
+      "physicalDamage": 0,
+      "magicalDamage": 92,
+      "armor": 22,
+      "resistance": 32,
+      "attackSpeed": 0.85100001096725464,
+      "movementSpeed": 2,
+      "energyPerAttack": 25,
+      "energyPerHit": 8,
+      "startingEnergy": 40,
+      "attackRange": 3,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        80,
+        0.89999997615814209,
+        1,
+        1
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_mul",
+        "radius",
+        "stun_duration"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Blitzcrank",
+      "name": "Bích Khang",
+      "summoned": false,
+      "realm": "Mecha",
+      "roles": 16,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 2258,
+      "physicalDamage": 74,
+      "magicalDamage": 0,
+      "armor": 55,
+      "resistance": 55,
+      "attackSpeed": 0.83799999952316284,
+      "movementSpeed": 1.8999999761581421,
+      "energyPerAttack": 10,
+      "energyPerHit": 14,
+      "startingEnergy": 0,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        100,
+        0.05000000074505806,
+        1.5,
+        0.40000000596046448,
+        0.40000000596046448,
+        0.30000001192092896,
+        4
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_by_max_hp",
+        "stun_duration",
+        "pull_duration",
+        "shield_threshold",
+        "shield_by_max_hp",
+        "shield_duration"
+      ],
+      "specialKeys": [
+        "blitzcrank_mana_barrier"
+      ]
+    },
+    {
+      "id": "Gwen",
+      "name": "Quyên",
+      "summoned": false,
+      "realm": "Mecha",
+      "roles": 1,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 2373,
+      "physicalDamage": 0,
+      "magicalDamage": 112,
+      "armor": 41,
+      "resistance": 37,
+      "attackSpeed": 0.99299997091293335,
+      "movementSpeed": 2.0999999046325684,
+      "energyPerAttack": 12,
+      "energyPerHit": 8,
+      "startingEnergy": 10,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        4,
+        30,
+        0.34999999403953552,
+        0.30000001192092896
+      ],
+      "skillParamKeys": [
+        "snips",
+        "base_dmg",
+        "dmg_mul",
+        "vamp"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Janna",
+      "name": "Gia Na",
+      "summoned": false,
+      "realm": "Divine",
+      "roles": 2,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 2150,
+      "physicalDamage": 0,
+      "magicalDamage": 118,
+      "armor": 27,
+      "resistance": 37,
+      "attackSpeed": 0.88899999856948853,
+      "movementSpeed": 2.0999999046325684,
+      "energyPerAttack": 25,
+      "energyPerHit": 8,
+      "startingEnergy": 40,
+      "attackRange": 3,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        4,
+        0.5,
+        25,
+        0.25,
+        2
+      ],
+      "skillParamKeys": [
+        "duration",
+        "interval",
+        "base_heal",
+        "heal_mul",
+        "radius"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Kaisa",
+      "name": "Khải Sa",
+      "summoned": false,
+      "realm": "Mecha",
+      "roles": 36,
+      "reputation": "Legendary",
+      "moveable": true,
+      "maxHp": 2601,
+      "physicalDamage": 147,
+      "magicalDamage": 0,
+      "armor": 30,
+      "resistance": 30,
+      "attackSpeed": 1.2120000123977661,
+      "movementSpeed": 2.0999999046325684,
+      "energyPerAttack": 10,
+      "energyPerHit": 5,
+      "startingEnergy": 0,
+      "attackRange": 4,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        3,
+        30,
+        0.11999999731779099,
+        4,
+        6,
+        4,
+        25,
+        0.34999999403953552
+      ],
+      "skillParamKeys": [
+        "plasma_hits",
+        "plasma_base_dmg",
+        "plasma_missing_hp",
+        "base_missiles",
+        "missiles_per_atk_spd",
+        "targets",
+        "base_dmg",
+        "dmg_mul"
+      ],
+      "specialKeys": [
+        "kaisa_plasma"
+      ]
+    },
+    {
+      "id": "LeeSin",
+      "name": "Lý Thanh",
+      "summoned": false,
+      "realm": "Divine",
+      "roles": 17,
+      "reputation": "Legendary",
+      "moveable": true,
+      "maxHp": 3566,
+      "physicalDamage": 150,
+      "magicalDamage": 0,
+      "armor": 53,
+      "resistance": 51,
+      "attackSpeed": 0.95399999618530273,
+      "movementSpeed": 2.2000000476837158,
+      "energyPerAttack": 11,
+      "energyPerHit": 11,
+      "startingEnergy": 10,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        200,
+        1.7999999523162842,
+        4,
+        1,
+        0.5,
+        1.5
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_mul",
+        "knockback_cells",
+        "airborne_duration",
+        "splash_mul",
+        "edge_stun_duration"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Lulu",
+      "name": "Lưu Ly",
+      "summoned": false,
+      "realm": "Divine",
+      "roles": 2,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 932,
+      "physicalDamage": 0,
+      "magicalDamage": 49,
+      "armor": 22,
+      "resistance": 32,
+      "attackSpeed": 0.85100001096725464,
+      "movementSpeed": 2,
+      "energyPerAttack": 25,
+      "energyPerHit": 8,
+      "startingEnergy": 40,
+      "attackRange": 3,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        150,
+        1.5,
+        4,
+        1
+      ],
+      "skillParamKeys": [
+        "base_hp",
+        "hp_mul",
+        "duration",
+        "airborne_duration"
+      ],
+      "specialKeys": [
+        "lulu_wild_growth"
+      ]
+    },
+    {
+      "id": "Lux",
+      "name": "Lục Thư",
+      "summoned": false,
+      "realm": "Divine",
+      "roles": 2,
+      "reputation": "Legendary",
+      "moveable": true,
+      "maxHp": 3565,
+      "physicalDamage": 0,
+      "magicalDamage": 211,
+      "armor": 32,
+      "resistance": 42,
+      "attackSpeed": 0.92799997329711914,
+      "movementSpeed": 2,
+      "energyPerAttack": 25,
+      "energyPerHit": 8,
+      "startingEnergy": 40,
+      "attackRange": 4,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        250,
+        1.6000000238418579,
+        8
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_mul",
+        "length"
+      ],
       "specialKeys": []
     }
   ],

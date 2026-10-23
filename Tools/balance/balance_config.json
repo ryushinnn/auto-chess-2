@@ -66,8 +66,8 @@
       "def": 5
     },
     "Legendary": {
-      "hp": 1.55,
-      "dmg": 1.7,
+      "hp": 1.7,
+      "dmg": 1.9,
       "as": 0.06,
       "def": 10
     }
@@ -90,24 +90,34 @@
       0.5
     ]
   },
-  "speed": 1.161,
+  "speed": 1.289,
   "knobs": {
-    "Aatrox_Light": 0.755,
-    "Aatrox_Dark": 0.895,
-    "Yone": 1.189,
-    "Zed": 1.24,
-    "Morgana": 0.737,
-    "Teemo": 0.843,
-    "Katarina": 1.062,
-    "MissFortune": 0.809,
-    "Yasuo": 0.891,
-    "Malphite": 1.098,
-    "Jinx": 1.375,
-    "Irelia": 0.966,
-    "Tristana": 0.933,
-    "Akali": 1.042,
-    "Ashe": 1.15,
-    "Caitlyn": 1.285
+    "Aatrox_Light": 0.739,
+    "Aatrox_Dark": 0.813,
+    "Yone": 1.099,
+    "Zed": 1.109,
+    "Morgana": 0.679,
+    "Teemo": 0.899,
+    "Katarina": 1.049,
+    "MissFortune": 0.847,
+    "Yasuo": 0.962,
+    "Malphite": 1.149,
+    "Jinx": 1.408,
+    "Irelia": 1.042,
+    "Tristana": 0.968,
+    "Akali": 1.096,
+    "Ashe": 1.246,
+    "Caitlyn": 1.361,
+    "LeeSin": 0.987,
+    "Kaisa": 1.02,
+    "Lux": 1.353,
+    "Blitzcrank": 0.818,
+    "Lulu": 0.601,
+    "Gwen": 1.014,
+    "Ahri": 1.004,
+    "Janna": 1.156,
+    "Amumu": 0.965,
+    "Annie": 1.128
   },
   "traits": {
     "Assassin": [

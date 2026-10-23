@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Kaisa
+  m_EditorClassIdentifier: 
+  id: Kaisa
+  name: "Kh\u1EA3i Sa"
+  subName: 
+  summoned: 0
+  realm: 4
+  role: 36
+  reputation: 3
+  moveable: 1
+  mecanim: {fileID: 8168241547112620779, guid: af3701c563fe4f349b7a35f523b74e19, type: 3}
+  thumbnail: {fileID: 21300000, guid: 0b4b8685cb17ff040af138fe49469934, type: 3}
+  skillIcon: {fileID: 21300000, guid: bb97165fe7e97ac4b82367c972041f13, type: 3}
+  maxHp: 2601
+  physicalDamage: 147
+  magicalDamage: 0
+  armor: 30
+  resistance: 30
+  attackSpeed: 1.212
+  movementSpeed: 2.1
+  energyRegenPerAttack: 10
+  energyRegenPerHit: 5
+  startingEnergy: 0
+  attackRange: 4
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "M\u01B0a T\xEAn L\u1EEDa Icathia"
+  unstoppable: 0
+  skillParams:
+  - key: plasma_hits
+    value: 3
+    isPercentage: 0
+  - key: plasma_base_dmg
+    value: 30
+    isPercentage: 0
+  - key: plasma_missing_hp
+    value: 0.12
+    isPercentage: 1
+  - key: base_missiles
+    value: 4
+    isPercentage: 0
+  - key: missiles_per_atk_spd
+    value: 6
+    isPercentage: 0
+  - key: targets
+    value: 4
+    isPercentage: 0
+  - key: base_dmg
+    value: 25
+    isPercentage: 0
+  - key: dmg_mul
+    value: 0.35
+    isPercentage: 1
+  passiveDescription: "M\u1ED7i \u0111\xF2n \u0111\xE1nh th\u1EE9 #[0] l\xEAn c\xF9ng
+    m\u1ED9t m\u1EE5c ti\xEAu k\xEDch n\u1ED5 [<color=purple>Plasma</color>], g\xE2y
+    th\xEAm <color=grey>(#[1] + #[2] m\xE1u \u0111\xE3 m\u1EA5t c\u1EE7a m\u1EE5c
+    ti\xEAu)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p."
+  activeDescription: "Ph\xF3ng <color=grey>(#[3] + #[4] \xD7 <sprite name=aspd>)</color>
+    t\xEAn l\u1EEDa chia \u0111\u1EC1u cho t\u1ED1i \u0111a #[5] k\u1EBB \u0111\u1ECBch
+    g\u1EA7n m\u1EE5c ti\xEAu nh\u1EA5t, m\u1ED7i t\xEAn l\u1EEDa g\xE2y <color=grey>(#[6]
+    + #[7]<sprite name=pdmg>)</color> s\xE1t th\u01B0\u01A1ng v\u1EADt l\xFD."
+  specialKeys:
+  - kaisa_plasma
+  dps: 45
+  physicalReduction: 23.076923
+  magicalReduction: 23.076923

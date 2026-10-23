@@ -27,7 +27,7 @@ Tham số: `hp_bonus` = 0, `interval` = 7, `heal_by_hp_loss` = 8%, `duration` = 
 
 ### Thánh thần (Divine)
 
-Mốc kích hoạt: 2 / 3 / 4 / 5 tướng. Thành viên: Ái Liên (Irelia, Vô danh), Dạ Xuân (Yasuo, Vô danh), Mạc Ngân (Morgana, Siêu việt).
+Mốc kích hoạt: 2 / 3 / 4 / 5 tướng. Thành viên: Ái Liên (Irelia, Vô danh), Lưu Ly (Lulu, Vô danh), Dạ Xuân (Yasuo, Vô danh), Gia Na (Janna, Siêu việt), Mạc Ngân (Morgana, Siêu việt), Lý Thanh (LeeSin, Truyền thuyết), Lục Thư (Lux, Truyền thuyết).
 
 Đòn đánh của **Thánh thần** có tỉ lệ gây [Choáng] trong 0.8 s. Đòn đánh chí mạng hoặc sát thương chuẩn có tỉ lệ gây [Choáng] gấp 2 lần và thời gian duy trì tăng 50%.
 - Mốc 2 tướng: Tỉ lệ 12%
@@ -43,7 +43,7 @@ Tham số: `stun_chance_0` = 12%, `stun_chance_1` = 16%, `stun_chance_2` = 20%, 
 
 ### Cơ giới (Mecha)
 
-Mốc kích hoạt: 2 / 3 / 4 / 5 tướng. Thành viên: Mạnh Phi (Malphite, Siêu việt), Rét (Zed, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 / 5 tướng. Thành viên: Bích Khang (Blitzcrank, Siêu việt), Quyên (Gwen, Siêu việt), Mạnh Phi (Malphite, Siêu việt), Khải Sa (Kaisa, Truyền thuyết), Rét (Zed, Truyền thuyết).
 
 Với mỗi 400 sát thương gây ra hoặc 650 sát thương nhận vào, các **Cơ giới** gửi yêu cầu hỗ trợ tới PHI ĐỘI. Khi nhận được yêu cầu, PHI ĐỘI triệu gọi tên lửa tấn công kẻ địch thấp máu nhất.
 - Mốc 2 tướng: Tên lửa gây 100 sát thương vật lý / sát thương phép (dựa vào Giáp / Kháng phép của mục tiêu)
@@ -83,7 +83,7 @@ Tham số: `mdmg` = 15, `pdmg` = 15, `ere` = 15%, `crc` = 8%, `crd` = 20%, `pen`
 
 ### Âm ti (Nether)
 
-Mốc kích hoạt: 2 / 3 / 4 / 5 tướng. Thành viên: Ánh (Ashe, Vô danh), Tiên Mệnh (Teemo, Siêu việt), Du Thiên (Yone, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 / 5 tướng. Thành viên: A Mộ (Amumu, Vô danh), An Nhi (Annie, Vô danh), Ánh (Ashe, Vô danh), A Ly (Ahri, Siêu việt), Tiên Mệnh (Teemo, Siêu việt), Du Thiên (Yone, Truyền thuyết).
 
 **Âm ti** chuyển hoá một phần sát thương gây ra thành các cộng dồn [Nợ máu] giảm dần theo thời gian lên kẻ địch. Kẻ địch có máu thấp hơn số cộng dồn [Nợ máu] lập tức bị hành quyết và 35% số cộng dồn [Nợ máu] chuyển hoá thành máu hồi phục chia đều cho tất cả **Âm ti** còn sống.
 - Mốc 2 tướng: Chuyển hoá 15%
@@ -101,7 +101,7 @@ Tham số: `dmg_to_debt_0` = 15%, `dmg_to_debt_1` = 22%, `dmg_to_debt_2` = 30%, 
 
 ### Thích khách (Assassin)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Khánh Linh (Akali, Vô danh), Cẩm Thanh (Katarina, Siêu việt), A Chốc (Aatrox_Dark, Truyền thuyết), Rét (Zed, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Khánh Linh (Akali, Vô danh), A Ly (Ahri, Siêu việt), Cẩm Thanh (Katarina, Siêu việt), A Chốc (Aatrox_Dark, Truyền thuyết), Rét (Zed, Truyền thuyết).
 
 **Thích khách** nhận thêm Tỉ lệ chí mạng. Đòn đánh chí mạng của **Thích khách** có tỉ lệ chuyển hoá thành sát thương chuẩn.
 - Mốc 2 tướng: 15% Tỉ lệ chí mạng, tỉ lệ 15%
@@ -116,7 +116,7 @@ Tham số: `crc_0` = 15%, `crc_1` = 30%, `crc_2` = 50%, `chance_0` = 15%, `chanc
 
 ### Quyền Vương (Bruiser)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Mạnh Phi (Malphite, Siêu việt).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: A Mộ (Amumu, Vô danh), Bích Khang (Blitzcrank, Siêu việt), Mạnh Phi (Malphite, Siêu việt), Lý Thanh (LeeSin, Truyền thuyết).
 
 **Quyền vương** nhận thêm Máu. Khi **Quyền vương** có nhiều hơn 70% Máu, nhận lượng lớn Giáp / Kháng phép.
 - Mốc 2 tướng: 250 Máu, 25 Giáp / Kháng phép
@@ -131,7 +131,7 @@ Tham số: `hp_threshold` = 70%, `hp_0` = 250, `hp_1` = 500, `hp_2` = 900, `def_
 
 ### Tín đồ (Cultist)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Tiên Mệnh (Teemo, Siêu việt), Du Thiên (Yone, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: A Mộ (Amumu, Vô danh), Tiên Mệnh (Teemo, Siêu việt), Khải Sa (Kaisa, Truyền thuyết), Du Thiên (Yone, Truyền thuyết).
 
 **Tín đồ** mạnh nhất trở thành vật chủ cho CHÚA QUỶ, nhận lượng lớn chỉ số. Mỗi khi vật chủ tử vong, **Tín đồ** mạnh nhất còn sống được lựa chọn trở thành vật chủ mới, CHÚA QUỶ sẽ tái sinh ở bậc thấp hơn. (bậc thấp nhất không thể tiếp tục tái sinh)
 - Mốc 2 tướng: 150 Máu, 20 Sát thương vật lý / Sát thương phép, 6% Hút máu
@@ -147,7 +147,7 @@ Tham số: `hp_0` = 150, `hp_1` = 350, `hp_2` = 700, `dmg_0` = 20, `dmg_1` = 45,
 
 ### Kiếm sĩ (Duelist)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Ái Liên (Irelia, Vô danh), Dạ Xuân (Yasuo, Vô danh), A Chốc (Aatrox_Dark, Truyền thuyết), A Chốc (Aatrox_Light, Truyền thuyết), Du Thiên (Yone, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Ái Liên (Irelia, Vô danh), Dạ Xuân (Yasuo, Vô danh), Quyên (Gwen, Siêu việt), A Chốc (Aatrox_Dark, Truyền thuyết), A Chốc (Aatrox_Light, Truyền thuyết), Lý Thanh (LeeSin, Truyền thuyết), Du Thiên (Yone, Truyền thuyết).
 
 **Kiếm sĩ** nhận thêm Sát thương vật lý. Khi **Kiếm sĩ** bị tấn công bởi đòn đánh, có tỉ lệ Né tránh, miễn sát thương từ đòn đánh đó (vô hiệu với đòn đánh chí mạng hoặc sát thương chuẩn)
 - Mốc 2 tướng: 10 Sát thương vật lý, tỉ lệ 8%
@@ -162,7 +162,7 @@ Tham số: `min_hp_threshold` = 30%, `pdmg_0` = 10, `pdmg_1` = 25, `pdmg_2` = 55
 
 ### Xạ thủ (Marksman)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Ánh (Ashe, Vô danh), Cát Linh (Caitlyn, Vô danh), Mỹ Phương (MissFortune, Vô danh), Trí Tâm (Tristana, Vô danh), Trinh (Jinx, Siêu việt).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Ánh (Ashe, Vô danh), Cát Linh (Caitlyn, Vô danh), Mỹ Phương (MissFortune, Vô danh), Trí Tâm (Tristana, Vô danh), Trinh (Jinx, Siêu việt), Khải Sa (Kaisa, Truyền thuyết).
 
 **Xạ thủ** nhận thêm Tốc độ đánh. Mỗi khi một **Xạ thủ** tử trận, tất cả **Xạ thủ** còn sống tiếp tục nhận lượng Tốc độ đánh đó trong một khoảng thời gian (có thể cộng dồn).
 - Mốc 2 tướng: 8% Tốc độ đánh, duy trì 5 s
@@ -177,7 +177,7 @@ Tham số: `bonus_atk_spd_0` = 8%, `bonus_atk_spd_1` = 20%, `bonus_atk_spd_2` = 
 
 ### Pháp sư (Sorcerer)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Mạc Ngân (Morgana, Siêu việt), Tiên Mệnh (Teemo, Siêu việt), A Chốc (Aatrox_Light, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: An Nhi (Annie, Vô danh), Lưu Ly (Lulu, Vô danh), A Ly (Ahri, Siêu việt), Gia Na (Janna, Siêu việt), Mạc Ngân (Morgana, Siêu việt), Tiên Mệnh (Teemo, Siêu việt), A Chốc (Aatrox_Light, Truyền thuyết), Lục Thư (Lux, Truyền thuyết).
 
 **Pháp sư** nhận thêm Sát thương phép. Sau khi **Pháp sư** thi triển kĩ năng lần đầu, có tỉ lệ thi triển kĩ năng thêm một lần nữa.
 - Mốc 2 tướng: 20 Sát thương phép, 25%

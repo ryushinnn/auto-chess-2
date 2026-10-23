@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using AutoChess.Core;
 using AutoChess.Core.Combat;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace AutoChess.Game {
         readonly Dictionary<int, Projectile> projectiles = new();
         readonly Dictionary<int, (AreaView area, Vfx vfx)> areas = new();
         readonly Dictionary<int, Vfx> effects = new();
+        readonly Dictionary<int, SkillVfx> visuals = new();
 
         GameManager game;
         BattleSimulation pending;
@@ -147,6 +149,10 @@ namespace AutoChess.Game {
                 if (vfx != null) VfxPool.Instance.DestroyVfx(vfx);
             }
             effects.Clear();
+            foreach (var vfx in visuals.Values.ToList()) {
+                if (vfx != null) vfx.Release();
+            }
+            visuals.Clear();
             visible = null;
             pending = null;
             BoardSpace.BattleFlipped = false;
@@ -154,6 +160,12 @@ namespace AutoChess.Game {
 
         void OnBattleEvent(BattleEvent e) {
             switch (e) {
+                case VisualEvent visual:
+                    PlayVisual(visual);
+                    break;
+                case VisualStoppedEvent stopped:
+                    if (visuals.TryGetValue(stopped.VisualId, out var stopping) && stopping != null) stopping.Stop();
+                    break;
                 case UnitSpawnedEvent spawned:
                     // A synergy's summon joining mid-battle (Chaos' Apocalypse Warrior).
                     var unit = visible.FindUnit(spawned.UnitId);
@@ -212,6 +224,18 @@ namespace AutoChess.Game {
             var vfx = VfxPool.Instance.GetVfx(e.Visual);
             if (vfx != null) vfx.transform.position = position;
             areas[e.AreaId] = (area, vfx);
+        }
+
+        void PlayVisual(VisualEvent e) {
+            var vfx = VfxPool.Instance.GetVfx<SkillVfx>(e.Visual);
+            if (vfx == null) return;
+            var follow = e.UnitId >= 0 && views.TryGetValue(e.UnitId, out var view) ? view.transform : null;
+            var id = e.VisualId;
+            visuals[id] = vfx;
+            vfx.Released += _ => visuals.Remove(id);
+            // authored for a radius of one cell (3 cells across)
+            var scale = (float)(2 * e.Radius + 1) / 3f;
+            vfx.Play(e.Mode, BoardSpace.BattleToWorld(e.From), BoardSpace.BattleToWorld(e.To), (float)e.Duration, scale, follow);
         }
 
         void AddEffect(BattleUnitView view, EffectAddedEvent e) {

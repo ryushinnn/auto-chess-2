@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Ahri
+  m_EditorClassIdentifier: 
+  id: Ahri
+  name: A Ly
+  subName: 
+  summoned: 0
+  realm: 3
+  role: 10
+  reputation: 2
+  moveable: 1
+  mecanim: {fileID: 4284149810463174772, guid: 2d50f55ad2b4b674cb4090a698707b70, type: 3}
+  thumbnail: {fileID: 21300000, guid: 354e8701c0ad4b84b9840913ccec8b72, type: 3}
+  skillIcon: {fileID: 21300000, guid: 5b76b852e9e475445849e14a32aeddef, type: 3}
+  maxHp: 1867
+  physicalDamage: 0
+  magicalDamage: 117
+  armor: 28
+  resistance: 33
+  attackSpeed: 0.967
+  movementSpeed: 2.1
+  energyRegenPerAttack: 16
+  energyRegenPerHit: 6
+  startingEnergy: 85
+  attackRange: 3
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: m_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: m_dmg
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "Qu\u1EA3 C\u1EA7u M\xEA Ho\u1EB7c"
+  unstoppable: 0
+  skillParams:
+  - key: base_dmg
+    value: 90
+    isPercentage: 0
+  - key: dmg_mul
+    value: 0.8
+    isPercentage: 1
+  - key: length
+    value: 5
+    isPercentage: 0
+  - key: heal_mul
+    value: 0.2
+    isPercentage: 1
+  passiveDescription: 
+  activeDescription: "Ph\xF3ng qu\u1EA3 c\u1EA7u theo \u0111\u01B0\u1EDDng th\u1EB3ng
+    xuy\xEAn qua m\u1EE5c ti\xEAu (d\xE0i #[2] \xF4) r\u1ED3i thu v\u1EC1. L\u01B0\u1EE3t
+    \u0111i g\xE2y <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng
+    ph\xE9p, l\u01B0\u1EE3t v\u1EC1 g\xE2y l\u01B0\u1EE3ng s\xE1t th\u01B0\u01A1ng
+    \u0111\xF3 d\u01B0\u1EDBi d\u1EA1ng s\xE1t th\u01B0\u01A1ng chu\u1EA9n l\xEAn
+    m\u1ECDi k\u1EBB \u0111\u1ECBch tr\xEAn \u0111\u01B0\u1EDDng bay. H\u1ED3i m\xE1u
+    b\u1EB1ng #[3] t\u1ED5ng s\xE1t th\u01B0\u01A1ng g\xE2y ra."
+  specialKeys: []
+  dps: 45
+  physicalReduction: 23.076923
+  magicalReduction: 23.076923

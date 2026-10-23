@@ -55,6 +55,9 @@ namespace AutoChess.Core.Combat {
             duration = AnimationLength;
         }
 
+        /// <summary>Called once when the unit enters the battle (passives that hook into it).</summary>
+        public virtual void Setup(CombatUnit self) { }
+
         public virtual void OnHit(CombatUnit self, int index) { }
 
         public virtual void End(CombatUnit self, bool complete) {

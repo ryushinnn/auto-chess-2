@@ -194,6 +194,7 @@ namespace AutoChess.Core.Combat {
             for (var i = 0; i < units.Count && !Finished; i++) {
                 var u = units[i];
                 if (!u.Alive) continue;
+                if (u.Displacement.Active) u.Position = u.Displacement.Tick(dt);
                 u.TickEffects(dt);
                 if (u.Alive) u.Attack.Tick(u, dt);
                 if (u.Alive) u.Skill.Tick(u, dt);
@@ -273,6 +274,93 @@ namespace AutoChess.Core.Combat {
                 }
             }
             return best;
+        }
+
+        /// <summary>Asks the view for a VFX (no effect on the simulation); returns its id for <see cref="StopVisual"/>.</summary>
+        public int PlayVisual(string visual, VisualMode mode, Vec2 from, Vec2 to, double duration, double radius = 1,
+            CombatUnit unit = null) {
+            var id = NextEffectId();
+            Emit(new VisualEvent {
+                VisualId = id, Visual = visual, Mode = mode, From = from, To = to, Duration = duration, Radius = radius,
+                UnitId = unit?.Id ?? -1,
+            });
+            return id;
+        }
+
+        public void StopVisual(int visualId) => Emit(new VisualStoppedEvent { VisualId = visualId });
+
+        /// <summary>Living ally (self included) with the lowest health share; ties go to the earlier unit.</summary>
+        public CombatUnit WeakestAlly(CombatUnit u) {
+            CombatUnit best = null;
+            foreach (var o in alive[(int)u.Side]) {
+                if (best == null || o.HpPercentage < best.HpPercentage) best = o;
+            }
+            return best;
+        }
+
+        /// <summary>Living units of <paramref name="side"/> within <paramref name="radius"/> cells of the cell at
+        /// <paramref name="center"/>, in unit order.</summary>
+        public void UnitsInRadius(TeamSide side, Vec2 center, int radius, List<CombatUnit> into) {
+            into.Clear();
+            var cell = Grid.NearestIndex(center);
+            foreach (var o in alive[(int)side]) {
+                if (Grid.Distance(Grid.NearestIndex(o.Position), cell) <= radius) into.Add(o);
+            }
+        }
+
+        /// <summary>
+        /// Living units of <paramref name="side"/> on the segment that starts at <paramref name="from"/>, heads to
+        /// <paramref name="through"/> and is <paramref name="lengthCells"/> cells long (about one cell wide), nearest first.
+        /// Returns the end point of the segment.
+        /// </summary>
+        public Vec2 UnitsOnLine(TeamSide side, Vec2 from, Vec2 through, double lengthCells, List<CombatUnit> into) {
+            into.Clear();
+            var dx = through.X - from.X;
+            var dy = through.Y - from.Y;
+            var norm = Math.Sqrt(dx * dx + dy * dy);
+            if (norm < 1e-9) return from;
+            dx /= norm;
+            dy /= norm;
+            var length = lengthCells * Grid.AverageCellDistance;
+            var halfWidth = Grid.AverageCellDistance * 0.55;
+            var along = new List<double>();
+            foreach (var o in alive[(int)side]) {
+                var px = o.Position.X - from.X;
+                var py = o.Position.Y - from.Y;
+                var t = px * dx + py * dy;
+                if (t < 0 || t > length) continue;
+                var side2 = px * dy - py * dx;
+                if (Math.Abs(side2) > halfWidth) continue;
+                var at = 0;
+                while (at < along.Count && along[at] <= t) at++;
+                along.Insert(at, t);
+                into.Insert(at, o);
+            }
+            return new Vec2(from.X + dx * length, from.Y + dy * length);
+        }
+
+        /// <summary>The cell lies on the border of the board.</summary>
+        public bool IsEdgeCell(int cell) {
+            var c = Grid.CoordOf(cell);
+            return c.Row == 0 || c.Col == 0 || c.Row == Grid.Rows - 1 || c.Col == Grid.Cols - 1;
+        }
+
+        /// <summary>
+        /// Slides a unit (knock-back / pull) onto the free cell nearest to <paramref name="toward"/> over
+        /// <paramref name="duration"/> seconds; it is airborne meanwhile. Returns the landing cell, or -1 when the
+        /// unit resists (unstoppable / invulnerable) or no cell is free.
+        /// </summary>
+        public int Displace(CombatUnit u, Vec2 toward, double duration) {
+            if (!u.Alive || u.Status.Unstoppable || u.Status.IsInvulnerable) return -1;
+            var own = u.OccupiedCell;
+            var cell = Grid.NearestIndex(toward, c => c == own || cellState[c] == CellState.Empty);
+            if (cell < 0) return -1;
+            StopMove(u, true);
+            Occupy(u, cell);
+            u.Movement.Reached = false;
+            u.Displacement.Start(u.Position, Grid.Center(cell), duration);
+            u.Airborne(duration);
+            return cell;
         }
 
         public CombatUnit RandomOpponent(CombatUnit u) {

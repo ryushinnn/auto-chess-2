@@ -47,7 +47,7 @@ namespace AutoChess.Game {
             }
 
             if (!combatUnit.Alive) return;
-            Bars.SetHealth((float)combatUnit.HpPercentage);
+            Bars.SetHealth(combatUnit);
             Bars.SetEnergy((float)(combatUnit.Energy / session.Db.Rules.MaxEnergy));
         }
 
@@ -82,7 +82,10 @@ namespace AutoChess.Game {
                     break;
                 case UnitDamagedEvent d:
                     Bars.ShowDamage((float)d.Amount, d.Type, d.Crit, d.StackIndex);
-                    if (combatUnit != null) Bars.SetHealth((float)combatUnit.HpPercentage);
+                    if (combatUnit != null) Bars.SetHealth(combatUnit);
+                    break;
+                case UnitShieldChangedEvent _:
+                    if (combatUnit != null) Bars.SetHealth(combatUnit);
                     break;
                 case UnitHealedEvent h:
                     Bars.ShowHeal((float)h.Amount);

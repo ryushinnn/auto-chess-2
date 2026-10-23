@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: LeeSin
+  m_EditorClassIdentifier: 
+  id: LeeSin
+  name: "L\xFD Thanh"
+  subName: 
+  summoned: 0
+  realm: 2
+  role: 17
+  reputation: 3
+  moveable: 1
+  mecanim: {fileID: 8214545721495669610, guid: 9bc7a879551c33440bf35eb3d0d9ddd6, type: 3}
+  thumbnail: {fileID: 21300000, guid: d26448e6cec1d634c81d1f94fbcac613, type: 3}
+  skillIcon: {fileID: 21300000, guid: 38147192a8cbfef41b1ed3c36ab855cd, type: 3}
+  maxHp: 3566
+  physicalDamage: 150
+  magicalDamage: 0
+  armor: 53
+  resistance: 51
+  attackSpeed: 0.954
+  movementSpeed: 2.2
+  energyRegenPerAttack: 11
+  energyRegenPerHit: 11
+  startingEnergy: 10
+  attackRange: 1
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: p_dmg
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "N\u1ED9 Long C\u01B0\u1EDBc"
+  unstoppable: 0
+  skillParams:
+  - key: base_dmg
+    value: 200
+    isPercentage: 0
+  - key: dmg_mul
+    value: 1.8
+    isPercentage: 1
+  - key: knockback_cells
+    value: 4
+    isPercentage: 0
+  - key: airborne_duration
+    value: 1
+    isPercentage: 0
+  - key: splash_mul
+    value: 0.5
+    isPercentage: 1
+  - key: edge_stun_duration
+    value: 1.5
+    isPercentage: 0
+  passiveDescription: 
+  activeDescription: "Tung c\u01B0\u1EDBc v\xE0o m\u1EE5c ti\xEAu, g\xE2y <color=grey>(#[0]
+    + #[1]<sprite name=pdmg>)</color> s\xE1t th\u01B0\u01A1ng v\u1EADt l\xFD v\xE0
+    \u0111\xE1 v\u0103ng n\xF3 #[2] \xF4, h\u1EA5t tung #[3]s. K\u1EBB \u0111\u1ECBch
+    quanh ch\u1ED7 n\xF3 r\u01A1i xu\u1ED1ng ch\u1ECBu #[4] s\xE1t th\u01B0\u01A1ng
+    \u0111\xF3 v\xE0 c\u0169ng b\u1ECB h\u1EA5t tung. N\u1EBFu b\u1ECB v\u0103ng
+    t\u1EDBi m\xE9p b\u1EA3n \u0111\u1ED3, m\u1EE5c ti\xEAu c\xF2n b\u1ECB cho\xE1ng
+    #[5]s."
+  specialKeys: []
+  dps: 45
+  physicalReduction: 23.076923
+  magicalReduction: 23.076923

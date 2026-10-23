@@ -14,6 +14,42 @@ namespace AutoChess.Core.Combat {
         public bool Permanent => double.IsPositiveInfinity(Duration);
     }
 
+    /// <summary>Absorbs damage before health until it is used up or expires. One per key and owner.</summary>
+    public sealed class Shield {
+        public CombatUnit Owner;
+        public string Key;
+        public double Amount;
+        public double Remaining;
+    }
+
+    /// <summary>A forced slide (knock-back / pull) from one point to a cell center.</summary>
+    public sealed class DisplacementState {
+        Vec2 from;
+        Vec2 to;
+        double elapsed;
+        double duration;
+
+        public bool Active { get; private set; }
+
+        internal void Start(Vec2 from, Vec2 to, double duration) {
+            this.from = from;
+            this.to = to;
+            this.duration = duration;
+            elapsed = 0;
+            Active = true;
+        }
+
+        /// <summary>Position after <paramref name="dt"/> more seconds of the slide.</summary>
+        internal Vec2 Tick(double dt) {
+            elapsed += dt;
+            if (duration <= 0 || elapsed >= duration) {
+                Active = false;
+                return to;
+            }
+            return Vec2.Lerp(from, to, elapsed / duration);
+        }
+    }
+
     /// <summary>A group of stat modifiers applied together (an item, an evolution, a buff, a debuff).</summary>
     public sealed class ModifierSet {
         public int Id;

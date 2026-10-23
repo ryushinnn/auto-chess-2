@@ -49,6 +49,11 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
   attack / skill / movement state machines), A* pathing on the hex grid with cell reservation,
   projectiles, damage areas, synergies (`TraitEffects`), one attack + skill behaviour per hero
   (`Combat/Heroes/*`, registered in `AbilityRegistry`).
+* **Combat tools for abilities** - shields (`CombatUnit.AddShield`, absorbed before health, `UnitShieldChangedEvent`
+  -> white segment on the health bar), forced slides (`BattleSimulation.Displace`: knock-back / pull onto the free
+  cell nearest a point, airborne meanwhile), area / line queries (`UnitsInRadius`, `UnitsOnLine`, `WeakestAlly`,
+  `IsEdgeCell`), `SkillBehaviour.Setup` (passives hooking into the battle) and presentation-only VFX requests
+  (`PlayVisual` / `StopVisual` -> `VisualEvent`: burst, travel, beam or attached to a unit).
 * **Synergies** - `TraitEffects` holds one `TraitEffect` per role / realm, applied when the battle starts.
   Params come from `Data/Destinies/*` in asset order (the description's `#[i]`; each class documents its
   layout). Hooks for them: `IHitHook` (before / after every hit, with its `HitKind` = attack / ability /
@@ -112,6 +117,17 @@ player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand
   shop / HUD buttons.
 * Authoring data stays in ScriptableObjects (`HeroTrait`, `Item`, `Stage`, `RoleConfig`, `RealmConfig`,
   DBs in `Resources`) with unchanged serialized fields.
+* Skill VFX: `VisualEvent` -> `BattleView` -> `VfxPool` (prefab named like the Core key, listed in the Arena's
+  `VfxPool.vfxPrefabs`) -> `SkillVfx` (plays / moves / stretches / follows, then returns to the pool). Prefabs are
+  built by *AutoChess/VFX/Build Skill VFX* (`Scripts/Editor/VfxBuilder.cs`: particle recipes on the
+  `AutoChess/VFX Particle` shader, textures from `Tools/vfx/make_textures.py`); `Tools/vfx/register_vfx.py` adds
+  new prefabs to the pool. Mark icons: `AssetDB.markIcons` (`Textures/2D/Marks/<key>.png`).
+* Hero models: *AutoChess/Hero Models/Set Up New Heroes* (`Scripts/Editor/HeroSetupTool.cs`) reads
+  `Tools/heroes/new_heroes.json` (shown meshes by material name, body parts, clips, identity, skill text) and builds
+  the glb's prefab variant (import scale matched to the other heroes' height, animator override of
+  `_Base.controller`, `BodyParts`, `Mecanim_<Id>`) and the `HeroTrait` (added to `HeroTraitDB`). *Render Check
+  Sheets* / *Render Clip Sheets* draw the models and every clip to `Temp/hero_sheets` for picking meshes and clips;
+  `AutoTest Server/.../ac_hero_showcase.json` screenshots heroes in a battle.
 
 ## Online play (lockstep)
 

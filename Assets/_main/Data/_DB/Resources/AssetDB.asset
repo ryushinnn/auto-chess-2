@@ -31,6 +31,20 @@ MonoBehaviour:
     value: {fileID: 21300000, guid: a362ba6bf7adb9247bc84db0531db29a, type: 3}
   - key: tristana_furious
     value: {fileID: 21300000, guid: c32ad0ad524f8844fa25ee8f112be3bf, type: 3}
+  - key: blood_debt
+    value: {fileID: 21300000, guid: 01ef74286339c064b8e07c53520a7475, type: 3}
+  - key: bruiser_guard
+    value: {fileID: 21300000, guid: d37379705a1310b4db9af35257ba7856, type: 3}
+  - key: demon_lord
+    value: {fileID: 21300000, guid: e6ab37e7f8e17d74cad06b14ed8e19a2, type: 3}
+  - key: kaisa_plasma
+    value: {fileID: 21300000, guid: b97dab197ec9ce640acde241d036b210, type: 3}
+  - key: lulu_wild_growth
+    value: {fileID: 21300000, guid: b751d5ad0d2881c4e8bd2497cb66384a, type: 3}
+  - key: marksman
+    value: {fileID: 21300000, guid: 50d0bfb2c4583af429ba195035b6508c, type: 3}
+  - key: marksman_burst
+    value: {fileID: 21300000, guid: f54b0cbd108696e44a60f7003df144e0, type: 3}
   roleIcons:
   - role: 1
     value: {fileID: 21300000, guid: ee0d85a512d0e1c43ad73d74ee05c09b, type: 3}

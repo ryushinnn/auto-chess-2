@@ -1,0 +1,31 @@
+{
+  "note": "Look check (not in the regression campaign): five heroes (rank param, B by default) fight round 1-1's boss wave while screenshots are taken, to see models, facing, animations and skills. Pass other heroes with --param a=... b=... c=... d=... e=...",
+  "tags": ["look"],
+  "timescale": 1,
+  "params": {"a": "Ahri", "b": "Amumu", "c": "Annie", "d": "Blitzcrank", "e": "Gwen", "shot": "showcase", "rank": "B"},
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 81}}],
+  "actions": [
+    {"action": "op", "op": "xp", "params": {"amount": 254}, "label": "level 8"},
+    {"action": "op", "op": "sell", "params": {"unit": "1"}, "label": "drop the starter"},
+    {"action": "op", "op": "unit", "params": {"unit": "${a}", "rank": "${rank}"}},
+    {"action": "op", "op": "unit", "params": {"unit": "${b}", "rank": "${rank}"}},
+    {"action": "op", "op": "unit", "params": {"unit": "${c}", "rank": "${rank}"}},
+    {"action": "op", "op": "unit", "params": {"unit": "${d}", "rank": "${rank}"}},
+    {"action": "op", "op": "unit", "params": {"unit": "${e}", "rank": "${rank}"}},
+    {"action": "wait", "ms": 800},
+    {"action": "screenshot", "name": "${shot}_board"},
+    {"action": "op", "op": "ready"},
+    {"action": "wait_state", "path": "phase", "equals": "Battle", "timeoutMs": 15000},
+    {"action": "wait", "ms": 2500},
+    {"action": "screenshot", "name": "${shot}_1"},
+    {"action": "wait", "ms": 1500},
+    {"action": "screenshot", "name": "${shot}_2"},
+    {"action": "wait", "ms": 1500},
+    {"action": "screenshot", "name": "${shot}_3"},
+    {"action": "wait", "ms": 2000},
+    {"action": "screenshot", "name": "${shot}_4"},
+    {"action": "wait", "ms": 3000},
+    {"action": "screenshot", "name": "${shot}_5"},
+    {"action": "logs", "level": "error", "failOnRed": true}
+  ]
+}

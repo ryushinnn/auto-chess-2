@@ -1,4 +1,5 @@
 using AutoChess.Core;
+using AutoChess.Core.Combat;
 using DG.Tweening;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace AutoChess.Game {
         [SerializeField] Transform hpTextParent;
         [SerializeField] Color allyHpColor, enemyHpColor;
         [SerializeField] Color normalEnergyColor, drainingEnergyColor;
+        [SerializeField] Color shieldColor = Color.white;
 
         Sequence drainSequence;
         float shownHealth = -1;
@@ -22,6 +24,7 @@ namespace AutoChess.Game {
             drainSequence = null;
             unit.SwitchCanvas(true);
             healthBar.UpdateAmount(1, true);
+            healthBar.SetOverlay(0, shieldColor);
             energyBar.UpdateAmount(0, true);
             shownHealth = 1;
             shownEnergy = 0;
@@ -33,6 +36,18 @@ namespace AutoChess.Game {
             if (Mathf.Approximately(fraction, shownHealth)) return;
             shownHealth = fraction;
             healthBar.UpdateAmount(fraction);
+        }
+
+        /// <summary>
+        /// Health plus a white shield segment after it; when health + shield exceed the maximum the whole bar is
+        /// scaled down to fit.
+        /// </summary>
+        public void SetHealth(CombatUnit unit) {
+            var shield = unit.ShieldAmount;
+            var total = System.Math.Max(unit.MaxHp, unit.Hp + shield);
+            if (total <= 0) return;
+            SetHealth((float)(System.Math.Max(0, unit.Hp) / total));
+            healthBar.SetOverlay(shield > 0 ? (float)((System.Math.Max(0, unit.Hp) + shield) / total) : 0, shieldColor);
         }
 
         public void SetEnergy(float fraction) {

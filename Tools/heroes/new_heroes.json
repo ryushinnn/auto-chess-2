@@ -1,0 +1,873 @@
+{
+  "note": "Input of the editor menu AutoChess/Hero Models/Set Up New Heroes (Scripts/Editor/HeroModelTool.cs): model prefab (shown meshes by material name, body parts, clips), HeroTrait identity and skill. Stats come from Tools/balance (balance.py apply). Clip names are the glb's animation names.",
+  "heroes": [
+    {
+      "id": "Ahri",
+      "folder": "Ahri",
+      "thumbnail": "ahri",
+      "skillIcon": "_ahri",
+      "show": [
+        "Tail1",
+        "Tail2",
+        "bell",
+        "Hair",
+        "Body",
+        "Brow_Base",
+        "Mouth_Base",
+        "Eye_Base"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Taunt"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "A Ly",
+      "subName": "",
+      "realm": "Nether",
+      "role": "Sorcerer, Assassin",
+      "reputation": "Elite",
+      "attackRange": 3,
+      "movementSpeed": 2.1,
+      "skillName": "Quả Cầu Mê Hoặc",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "base_dmg",
+          "value": 90,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_mul",
+          "value": 0.8,
+          "isPercentage": true
+        },
+        {
+          "key": "length",
+          "value": 5,
+          "isPercentage": false
+        },
+        {
+          "key": "heal_mul",
+          "value": 0.2,
+          "isPercentage": true
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Phóng quả cầu theo đường thẳng xuyên qua mục tiêu (dài #[2] ô) rồi thu về. Lượt đi gây <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> sát thương phép, lượt về gây lượng sát thương đó dưới dạng sát thương chuẩn lên mọi kẻ địch trên đường bay. Hồi máu bằng #[3] tổng sát thương gây ra.",
+      "specialKeys": []
+    },
+    {
+      "id": "Amumu",
+      "folder": "Amumu",
+      "thumbnail": "amumu",
+      "skillIcon": "_amumu",
+      "show": [
+        "Mouth_Base",
+        "Body",
+        "Bandage",
+        "Bandage01",
+        "Eye_Base",
+        "Face",
+        "Clothes",
+        "Bear"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Finisher01"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "A Mộ",
+      "subName": "",
+      "realm": "Nether",
+      "role": "Bruiser, Cultist",
+      "reputation": "Unknown",
+      "attackRange": 1,
+      "movementSpeed": 2,
+      "skillName": "Lời Nguyền Xác Ướp",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "base_dmg",
+          "value": 40,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_by_max_hp",
+          "value": 0.02,
+          "isPercentage": true
+        },
+        {
+          "key": "radius",
+          "value": 2,
+          "isPercentage": false
+        },
+        {
+          "key": "stun_duration",
+          "value": 0.75,
+          "isPercentage": false
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Bật khóc, gây <color=grey>(#[0] + #[1]<sprite name=hp>)</color> sát thương phép và làm choáng #[3]s mọi kẻ địch trong phạm vi #[2] ô.",
+      "specialKeys": []
+    },
+    {
+      "id": "Annie",
+      "folder": "Annie",
+      "thumbnail": "annie",
+      "skillIcon": "_annie",
+      "show": [
+        "Eye_Base",
+        "Brow_Base",
+        "Mouth_Base",
+        "Eyeshadow_Base",
+        "Hair",
+        "Arm",
+        "Skin",
+        "Body",
+        "Bag",
+        "Bear"
+      ],
+      "parts": [
+        {
+          "name": "tibbers",
+          "materials": [
+            "Tibbers"
+          ],
+          "enableAtStart": false
+        },
+        {
+          "name": "tibbers_hand",
+          "materials": [
+            "TibbersHand"
+          ],
+          "enableAtStart": false
+        }
+      ],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Finisher01"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "An Nhi",
+      "subName": "",
+      "realm": "Nether",
+      "role": "Sorcerer",
+      "reputation": "Unknown",
+      "attackRange": 3,
+      "movementSpeed": 2,
+      "skillName": "Gấu Tibbers",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "base_dmg",
+          "value": 80,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_mul",
+          "value": 0.9,
+          "isPercentage": true
+        },
+        {
+          "key": "radius",
+          "value": 1,
+          "isPercentage": false
+        },
+        {
+          "key": "stun_duration",
+          "value": 1,
+          "isPercentage": false
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Gọi gấu Tibbers đập xuống mục tiêu, gây <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> sát thương phép và làm choáng #[3]s mục tiêu cùng kẻ địch trong phạm vi #[2] ô.",
+      "specialKeys": []
+    },
+    {
+      "id": "Blitzcrank",
+      "folder": "Blizcrank",
+      "thumbnail": "blitzcrank",
+      "skillIcon": "_blitzcrank",
+      "show": [
+        "Body",
+        "Head",
+        "Eye"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Taunt"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "Bích Khang",
+      "subName": "",
+      "realm": "Mecha",
+      "role": "Bruiser",
+      "reputation": "Elite",
+      "attackRange": 1,
+      "movementSpeed": 1.9,
+      "skillName": "Móc Tên Lửa",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "base_dmg",
+          "value": 100,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_by_max_hp",
+          "value": 0.05,
+          "isPercentage": true
+        },
+        {
+          "key": "stun_duration",
+          "value": 1.5,
+          "isPercentage": false
+        },
+        {
+          "key": "pull_duration",
+          "value": 0.4,
+          "isPercentage": false
+        },
+        {
+          "key": "shield_threshold",
+          "value": 0.4,
+          "isPercentage": true
+        },
+        {
+          "key": "shield_by_max_hp",
+          "value": 0.3,
+          "isPercentage": true
+        },
+        {
+          "key": "shield_duration",
+          "value": 4,
+          "isPercentage": false
+        }
+      ],
+      "passiveDescription": "Lần đầu tiên máu xuống dưới #[4], nhận [<color=white>Khiên</color>] bằng #[5]<sprite name=hp> tối đa trong #[6]s.",
+      "activeDescription": "Phóng cánh tay móc kẻ địch xa nhất, kéo về sát bên cạnh, gây <color=grey>(#[0] + #[1]<sprite name=hp>)</color> sát thương phép và làm choáng #[2]s.",
+      "specialKeys": [
+        "blitzcrank_mana_barrier"
+      ]
+    },
+    {
+      "id": "Gwen",
+      "folder": "Gwen",
+      "thumbnail": "gwen",
+      "skillIcon": "_gwen",
+      "show": [
+        "Eye_Base",
+        "Mouth_Base",
+        "Sleeves",
+        "Body",
+        "Clothing",
+        "Hair",
+        "Face",
+        "Scissors",
+        "ScissorsBlade"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "PetChibiGwen_CafeCuties_Finishe_C002.CHIBI_Gwen_CafeCuties.anm"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "Quyên",
+      "subName": "",
+      "realm": "Mecha",
+      "role": "Duelist",
+      "reputation": "Elite",
+      "attackRange": 1,
+      "movementSpeed": 2.1,
+      "skillName": "Cắt! Cắt!",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "snips",
+          "value": 4,
+          "isPercentage": false
+        },
+        {
+          "key": "base_dmg",
+          "value": 30,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_mul",
+          "value": 0.35,
+          "isPercentage": true
+        },
+        {
+          "key": "vamp",
+          "value": 0.3,
+          "isPercentage": true
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Cắt #[0] nhát vào mục tiêu và các kẻ địch sát bên, mỗi nhát gây <color=grey>(#[1] + #[2]<sprite name=mdmg>)</color> sát thương phép và hồi máu bằng #[3] sát thương gây ra; nhát cuối gây sát thương chuẩn lên mục tiêu chính.",
+      "specialKeys": []
+    },
+    {
+      "id": "Janna",
+      "folder": "Janna",
+      "thumbnail": "janna",
+      "skillIcon": "_janna",
+      "show": [
+        "Face_Eyebrow_Base",
+        "Face_Eyes_Base",
+        "Face_Mouth_Base",
+        "Face_Hair_Base",
+        "Body"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Recall"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "Gia Na",
+      "subName": "",
+      "realm": "Divine",
+      "role": "Sorcerer",
+      "reputation": "Elite",
+      "attackRange": 3,
+      "movementSpeed": 2.1,
+      "skillName": "Gió Mùa",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "duration",
+          "value": 4,
+          "isPercentage": false
+        },
+        {
+          "key": "interval",
+          "value": 0.5,
+          "isPercentage": false
+        },
+        {
+          "key": "base_heal",
+          "value": 25,
+          "isPercentage": false
+        },
+        {
+          "key": "heal_mul",
+          "value": 0.25,
+          "isPercentage": true
+        },
+        {
+          "key": "radius",
+          "value": 2,
+          "isPercentage": false
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Đứng yên vận gió trong #[0]s: mỗi #[1]s hồi <color=grey>(#[2] + #[3]<sprite name=mdmg>)</color> máu cho bản thân và đồng minh trong phạm vi #[4] ô. Bị ngắt khi dính choáng hoặc hất tung.",
+      "specialKeys": []
+    },
+    {
+      "id": "Kaisa",
+      "folder": "Kaisa",
+      "thumbnail": "kaisa",
+      "skillIcon": "_kaisa",
+      "show": [
+        "Eyebrows_Default",
+        "Mouth_Default",
+        "Eye_Default",
+        "Body"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "PetChibi_Kaisa_Finisher_C002.anm"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "Khải Sa",
+      "subName": "",
+      "realm": "Mecha",
+      "role": "Marksman, Cultist",
+      "reputation": "Legendary",
+      "attackRange": 4,
+      "movementSpeed": 2.1,
+      "skillName": "Mưa Tên Lửa Icathia",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "plasma_hits",
+          "value": 3,
+          "isPercentage": false
+        },
+        {
+          "key": "plasma_base_dmg",
+          "value": 30,
+          "isPercentage": false
+        },
+        {
+          "key": "plasma_missing_hp",
+          "value": 0.12,
+          "isPercentage": true
+        },
+        {
+          "key": "base_missiles",
+          "value": 4,
+          "isPercentage": false
+        },
+        {
+          "key": "missiles_per_atk_spd",
+          "value": 6,
+          "isPercentage": false
+        },
+        {
+          "key": "targets",
+          "value": 4,
+          "isPercentage": false
+        },
+        {
+          "key": "base_dmg",
+          "value": 25,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_mul",
+          "value": 0.35,
+          "isPercentage": true
+        }
+      ],
+      "passiveDescription": "Mỗi đòn đánh thứ #[0] lên cùng một mục tiêu kích nổ [<color=purple>Plasma</color>], gây thêm <color=grey>(#[1] + #[2] máu đã mất của mục tiêu)</color> sát thương phép.",
+      "activeDescription": "Phóng <color=grey>(#[3] + #[4] × <sprite name=aspd>)</color> tên lửa chia đều cho tối đa #[5] kẻ địch gần mục tiêu nhất, mỗi tên lửa gây <color=grey>(#[6] + #[7]<sprite name=pdmg>)</color> sát thương vật lý.",
+      "specialKeys": [
+        "kaisa_plasma"
+      ]
+    },
+    {
+      "id": "LeeSin",
+      "folder": "Leesin",
+      "thumbnail": "leesin",
+      "skillIcon": "_leesin",
+      "show": [
+        "Eyes",
+        "Mouth",
+        "Hair",
+        "Body",
+        "Pants",
+        "Brow",
+        "Flesh",
+        "Gard",
+        "Decor"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Laugh"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "Lý Thanh",
+      "subName": "",
+      "realm": "Divine",
+      "role": "Duelist, Bruiser",
+      "reputation": "Legendary",
+      "attackRange": 1,
+      "movementSpeed": 2.2,
+      "skillName": "Nộ Long Cước",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "base_dmg",
+          "value": 200,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_mul",
+          "value": 1.8,
+          "isPercentage": true
+        },
+        {
+          "key": "knockback_cells",
+          "value": 4,
+          "isPercentage": false
+        },
+        {
+          "key": "airborne_duration",
+          "value": 1,
+          "isPercentage": false
+        },
+        {
+          "key": "splash_mul",
+          "value": 0.5,
+          "isPercentage": true
+        },
+        {
+          "key": "edge_stun_duration",
+          "value": 1.5,
+          "isPercentage": false
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Tung cước vào mục tiêu, gây <color=grey>(#[0] + #[1]<sprite name=pdmg>)</color> sát thương vật lý và đá văng nó #[2] ô, hất tung #[3]s. Kẻ địch quanh chỗ nó rơi xuống chịu #[4] sát thương đó và cũng bị hất tung. Nếu bị văng tới mép bản đồ, mục tiêu còn bị choáng #[5]s.",
+      "specialKeys": []
+    },
+    {
+      "id": "Lulu",
+      "folder": "Lulu",
+      "thumbnail": "lulu",
+      "skillIcon": "_lulu",
+      "show": [
+        "Mouth_Base",
+        "Eye_Base",
+        "Brow_Base",
+        "Blush_Base",
+        "Head",
+        "Body",
+        "Hat",
+        "Hair",
+        "Staff",
+        "Elf",
+        "Elf_Base"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Finisher02"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "Lưu Ly",
+      "subName": "",
+      "realm": "Divine",
+      "role": "Sorcerer",
+      "reputation": "Unknown",
+      "attackRange": 3,
+      "movementSpeed": 2,
+      "skillName": "Phóng To!",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "base_hp",
+          "value": 150,
+          "isPercentage": false
+        },
+        {
+          "key": "hp_mul",
+          "value": 1.5,
+          "isPercentage": true
+        },
+        {
+          "key": "duration",
+          "value": 4,
+          "isPercentage": false
+        },
+        {
+          "key": "airborne_duration",
+          "value": 1,
+          "isPercentage": false
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Phóng to đồng minh có tỉ lệ máu thấp nhất (kể cả bản thân): tăng và hồi <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color><sprite name=hp> trong #[2]s, hất tung #[3]s các kẻ địch đứng sát bên.",
+      "specialKeys": [
+        "lulu_wild_growth"
+      ]
+    },
+    {
+      "id": "Lux",
+      "folder": "Lux",
+      "thumbnail": "lux",
+      "skillIcon": "_lux",
+      "show": [
+        "Body",
+        "Face_Basic_Eyes",
+        "Face_Basic",
+        "Weapons",
+        "Pet"
+      ],
+      "parts": [],
+      "clips": [
+        {
+          "slot": "Idle",
+          "clip": "Idle_Base"
+        },
+        {
+          "slot": "Run",
+          "clip": "Run_Base"
+        },
+        {
+          "slot": "Attack_0",
+          "clip": "Cast_Animation"
+        },
+        {
+          "slot": "Skill_0",
+          "clip": "Greeting"
+        },
+        {
+          "slot": "Death",
+          "clip": "Death"
+        },
+        {
+          "slot": "Dive_In",
+          "clip": "Dive_In"
+        },
+        {
+          "slot": "Dive_Out",
+          "clip": "Dive_Out"
+        }
+      ],
+      "name": "Lục Thư",
+      "subName": "",
+      "realm": "Divine",
+      "role": "Sorcerer",
+      "reputation": "Legendary",
+      "attackRange": 4,
+      "movementSpeed": 2,
+      "skillName": "Cầu Vồng Tối Thượng",
+      "unstoppable": false,
+      "skillParams": [
+        {
+          "key": "base_dmg",
+          "value": 250,
+          "isPercentage": false
+        },
+        {
+          "key": "dmg_mul",
+          "value": 1.6,
+          "isPercentage": true
+        },
+        {
+          "key": "length",
+          "value": 8,
+          "isPercentage": false
+        }
+      ],
+      "passiveDescription": "",
+      "activeDescription": "Bắn tia sáng theo đường thẳng xuyên qua mục tiêu (dài #[2] ô), gây <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> sát thương phép lên mọi kẻ địch trúng đòn.",
+      "specialKeys": []
+    }
+  ]
+}

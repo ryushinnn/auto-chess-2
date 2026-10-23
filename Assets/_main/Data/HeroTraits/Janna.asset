@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb18913605bba734bace81405fd78978, type: 3}
+  m_Name: Janna
+  m_EditorClassIdentifier: 
+  id: Janna
+  name: Gia Na
+  subName: 
+  summoned: 0
+  realm: 2
+  role: 2
+  reputation: 2
+  moveable: 1
+  mecanim: {fileID: 3616112956038365210, guid: 78985db4c2850854b9e4dc7d389b893a, type: 3}
+  thumbnail: {fileID: 21300000, guid: 0b383a1e34ab185479ad83a1beb1e642, type: 3}
+  skillIcon: {fileID: 21300000, guid: ec9e46d04994abe42bbbeeac64f12b3f, type: 3}
+  maxHp: 2150
+  physicalDamage: 0
+  magicalDamage: 118
+  armor: 27
+  resistance: 37
+  attackSpeed: 0.889
+  movementSpeed: 2.1
+  energyRegenPerAttack: 25
+  energyRegenPerHit: 8
+  startingEnergy: 40
+  attackRange: 3
+  evolutions:
+  - rank: 1
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: m_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
+      type: 1
+  - rank: 2
+    modifiers:
+    - id: <will be auto generated>
+      key: max_hp
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: m_dmg
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
+      type: 1
+  skillName: "Gi\xF3 M\xF9a"
+  unstoppable: 0
+  skillParams:
+  - key: duration
+    value: 4
+    isPercentage: 0
+  - key: interval
+    value: 0.5
+    isPercentage: 0
+  - key: base_heal
+    value: 25
+    isPercentage: 0
+  - key: heal_mul
+    value: 0.25
+    isPercentage: 1
+  - key: radius
+    value: 2
+    isPercentage: 0
+  passiveDescription: 
+  activeDescription: "\u0110\u1EE9ng y\xEAn v\u1EADn gi\xF3 trong #[0]s: m\u1ED7i
+    #[1]s h\u1ED3i <color=grey>(#[2] + #[3]<sprite name=mdmg>)</color> m\xE1u cho
+    b\u1EA3n th\xE2n v\xE0 \u0111\u1ED3ng minh trong ph\u1EA1m vi #[4] \xF4. B\u1ECB
+    ng\u1EAFt khi d\xEDnh cho\xE1ng ho\u1EB7c h\u1EA5t tung."
+  specialKeys: []
+  dps: 45
+  physicalReduction: 23.076923
+  magicalReduction: 23.076923

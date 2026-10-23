@@ -9,7 +9,7 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 804e1ce4c496647cfa3f1a1134187c71, type: 3}
   _removeEmptyRootObjects: 1
-  _scaleFactor: 1
+  _scaleFactor: 0.01
   _deduplicateResources: 0
   _maximumLod: 300
   _readWriteEnabled: 1
@@ -29,7 +29,7 @@ ScriptedImporter:
   _animationLoopTime: 1
   _animationLoopPose: 0
   _importMaterials: 1
-  _enableGpuInstancing: 0
+  _enableGpuInstancing: 1
   _texturesReadWriteEnabled: 1
   _generateMipMaps: 1
   _useSceneNameIdentifier: 1
@@ -41,57 +41,57 @@ ScriptedImporter:
 '
   optimizeGameObjects: 0
   materials:
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
+  - {fileID: -4342659481392437810, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -4055300276611991158, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -9103484930961366303, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3170531198488047425, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -999670574434127292, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 6800207999762024222, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3302778046307503840, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 525653748684298680, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 6210273894574642735, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -8048273588098311674, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -744274870198464397, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -2430490560795870028, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3511325375820423461, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 4080727767840626939, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -7478201037650247695, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 4781823719486439900, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -7951656783963712486, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -5644752800822972233, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -8383545866391967243, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -7750479524840854612, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 2149392976014561914, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3251287377417876198, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 5970527977041137313, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3967136969532577592, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 2939295618935333633, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
   textures:
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
-  - {instanceID: 0}
+  - {fileID: 6983701643236107813, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 8022499087761476943, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 5230624929818990856, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -2834534249764746836, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -409340629399409755, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -6477806308458343453, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 6960455510609624210, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 150502026991701941, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 2933329333178083999, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -22660439024615302, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -809988167731686972, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 5743815331122784290, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 7193558952320421103, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -2275718726046256121, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3560622977116409970, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -1462800502094218808, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -8506249199374065407, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 5857770040681355603, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -410426166806237867, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -158951856904712258, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -1533294962236245339, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -4693632161821296697, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3429371807970130428, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: 3231816008251730665, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
+  - {fileID: -1398809005821576931, guid: bbc55db966c6f994e977f4b9a7e3175e, type: 3}
   hasSceneData: 1
   hasAnimationData: 1
   hasMaterialData: 1
@@ -131,79 +131,104 @@ ScriptedImporter:
     used: 1
     required: 0
   _textures:
-  - texture: {instanceID: 0}
+  - texture: {fileID: 6983701643236107813, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 8022499087761476943, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 5230624929818990856, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -2834534249764746836, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -409340629399409755, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -6477806308458343453, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 6960455510609624210, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 150502026991701941, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 2933329333178083999, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -22660439024615302, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -809988167731686972, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 5743815331122784290, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 7193558952320421103, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -2275718726046256121, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 3560622977116409970, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -1462800502094218808, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -8506249199374065407, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 5857770040681355603, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -410426166806237867, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -158951856904712258, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -1533294962236245339, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -4693632161821296697, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 3429371807970130428, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: 3231816008251730665, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
-  - texture: {instanceID: 0}
+  - texture: {fileID: -1398809005821576931, guid: bbc55db966c6f994e977f4b9a7e3175e,
+      type: 3}
     shouldBeLinear: 0
     shouldBeNormalMap: 0
   _mainAssetIdentifier: scenes/AuxScene
