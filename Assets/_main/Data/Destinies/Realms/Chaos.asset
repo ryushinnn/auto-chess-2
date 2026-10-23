@@ -15,16 +15,16 @@ MonoBehaviour:
   checkpoints: 02000000
   destinyParams:
   - key: hp_bonus
-    value: 300
+    value: 0
     isPercentage: 0
   - key: interval
-    value: 5
+    value: 7
     isPercentage: 0
   - key: heal_by_hp_loss
-    value: 0.1
+    value: 0.08
     isPercentage: 1
   - key: duration
-    value: 1
+    value: 0.8
     isPercentage: 0
   description: "Tri\u1EC7u h\u1ED3i <color=red>Chi\u1EBFn Binh T\u1EADn Th\u1EBF</color>
     tham chi\u1EBFn\n\nCh\u1EC9 s\u1ED1 c\u1EE7a <color=red>Chi\u1EBFn Binh T\u1EADn

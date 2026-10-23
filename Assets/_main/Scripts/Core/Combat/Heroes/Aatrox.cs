@@ -2,6 +2,26 @@ using System;
 
 namespace AutoChess.Core.Combat.Heroes {
     /// <summary>Two slashes scaling with the target's missing health; the second always crits.</summary>
+    /// <summary>
+    /// The Apocalypse Warrior (Chaos synergy): every swing hits with both its physical and its magic damage
+    /// (it sums both Aatrox halves), with lifesteal and one crit roll.
+    /// </summary>
+    public sealed class AatroxTrueFormAttack : AttackBehaviour {
+        public AatroxTrueFormAttack() {
+            AnimationLength = 1.367;
+            HitTimes = new[] { 0.18 };
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var target = self.Target;
+            if (target == null) return;
+            var crit = self.RollCrit();
+            var dealt = target.TakeDamage(self.MakeDamage(DamageType.Physical, crit, physicalRatio: 1),
+                self.MakeDamage(DamageType.Magical, crit, magicalRatio: 1), self);
+            self.StealLife(dealt);
+        }
+    }
+
     public sealed class AatroxDarkAttack : AttackBehaviour {
         readonly double dmgMulMin;
         readonly double dmgMulMax;
@@ -83,8 +103,7 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Three magic slashes knocking up and healing for a share of the damage (more when low).</summary>
     public sealed class AatroxLightSkill : SkillBehaviour {
-        // The original processor never assigned its base damage, so it is always 0.
-        const double BaseDmg = 0;
+        readonly double baseDmg;
         readonly double[] dmgMul;
         readonly double[] airborne;
         readonly double[] vamp;
@@ -94,17 +113,20 @@ namespace AutoChess.Core.Combat.Heroes {
         public AatroxLightSkill(UnitDefinition def) {
             AnimationLength = 5;
             HitTimes = new[] { 0.6, 2.3, 4.1 };
-            dmgMul = new[] { def.Param(0), def.Param(1), def.Param(2) };
-            airborne = new[] { def.Param(3), def.Param(4), def.Param(5) };
-            vamp = new[] { def.Param(6), def.Param(7), def.Param(8) };
-            vampMulOnLowHp = def.Param(9);
-            hpThreshold = def.Param(10);
+            // Param order of the asset: base_dmg, dmg_mul_0..2, airborne_0..2, vamp_0..2, vamp_mul_on_low_hp,
+            // hp_threshold (the old code read them one slot off: an 80x first slash).
+            baseDmg = def.Param(0);
+            dmgMul = new[] { def.Param(1), def.Param(2), def.Param(3) };
+            airborne = new[] { def.Param(4), def.Param(5), def.Param(6) };
+            vamp = new[] { def.Param(7), def.Param(8), def.Param(9) };
+            vampMulOnLowHp = def.Param(10);
+            hpThreshold = def.Param(11);
         }
 
         public override void OnHit(CombatUnit self, int index) {
             var target = self.Target;
             if (target == null) return;
-            var dealt = target.TakeDamage(self.MakeDamage(DamageType.Magical, false, BaseDmg, magicalRatio: dmgMul[index]), self);
+            var dealt = target.TakeDamage(self.MakeDamage(DamageType.Magical, false, baseDmg, magicalRatio: dmgMul[index]), self);
             var ratio = self.HpPercentage < hpThreshold ? vamp[index] * vampMulOnLowHp : vamp[index];
             self.Heal(dealt * ratio);
             target.Airborne(airborne[index]);

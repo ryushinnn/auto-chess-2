@@ -15,40 +15,40 @@ MonoBehaviour:
   checkpoints: 01000000020000000400000006000000
   destinyParams:
   - key: mdmg
-    value: 20
+    value: 15
     isPercentage: 0
   - key: pdmg
-    value: 20
+    value: 15
     isPercentage: 0
   - key: ere
-    value: 0.2
+    value: 0.15
     isPercentage: 1
   - key: crc
-    value: 0.1
+    value: 0.08
     isPercentage: 1
   - key: crd
-    value: 0.3
+    value: 0.2
     isPercentage: 1
   - key: pen
-    value: 0.1
+    value: 0.08
     isPercentage: 1
   - key: attr_0
     value: 1
     isPercentage: 1
   - key: attr_1
-    value: 1.2
+    value: 1.25
     isPercentage: 1
   - key: attr_2
-    value: 1.5
+    value: 1.6
     isPercentage: 1
   - key: attr_3
     value: 2
     isPercentage: 1
   - key: tenacity_mul
-    value: 0.25
+    value: 0.2
     isPercentage: 1
   - key: def
-    value: 30
+    value: 25
     isPercentage: 0
   description: "M\u1ED7i <b>Ph\xE0m nh\xE2n</b> t\u0103ng m\u1ED9t lo\u1EA1i ch\u1EC9
     s\u1ED1 ri\xEAng bi\u1EC7t cho b\u1EA3n th\xE2n v\xE0 c\xE1c <b>Ph\xE0m nh\xE2n</b>

@@ -27,6 +27,7 @@ namespace AutoChess.Core.Combat {
         static AbilityRegistry CreateDefault() {
             var r = new AbilityRegistry();
             r.Register(HeroIds.AatroxDark, d => new AatroxDarkAttack(d), (d, _) => new AatroxDarkSkill(d));
+            r.Register(HeroIds.AatroxTrueForm, _ => new AatroxTrueFormAttack(), null);
             r.Register(HeroIds.AatroxLight, _ => new BasicAttack(1.367, 0.18, DamageType.Magical), (d, _) => new AatroxLightSkill(d));
             r.Register(HeroIds.Akali, _ => new BasicAttack(1.2, 0.18, DamageType.Magical), (d, _) => new AkaliSkill(d));
             r.Register(HeroIds.Ashe, _ => new AsheAttack(), (d, _) => new AsheSkill(d));

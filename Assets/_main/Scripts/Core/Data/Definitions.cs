@@ -22,6 +22,8 @@ namespace AutoChess.Core {
         public double MovementSpeed;
         public double EnergyRegenPerAttack;
         public double EnergyRegenPerHit;
+        /// <summary>Energy when a battle starts (0..MaxEnergy).</summary>
+        public double StartingEnergy;
         public int AttackRange = 1;
 
         public bool Unstoppable;

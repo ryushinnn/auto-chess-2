@@ -23,15 +23,16 @@ MonoBehaviour:
   mecanim: {fileID: 5429741766995380546, guid: f5f4ee1a0bc2be64c9e3036fa2d897ef, type: 3}
   thumbnail: {fileID: 21300000, guid: 141df307ca98aad4f9b8267a08141bf8, type: 3}
   skillIcon: {fileID: 21300000, guid: b0ae369dd797d3d4f9e1b624a1cf74a9, type: 3}
-  maxHp: 2540
+  maxHp: 2212
   physicalDamage: 0
-  magicalDamage: 200
-  armor: 45
-  resistance: 45
-  attackSpeed: 0.45
+  magicalDamage: 118
+  armor: 39
+  resistance: 42
+  attackSpeed: 0.882
   movementSpeed: 2
-  energyRegenPerAttack: 0
-  energyRegenPerHit: 0
+  energyRegenPerAttack: 18.5
+  energyRegenPerHit: 8
+  startingEnergy: 40
   attackRange: 1
   evolutions:
   - rank: 1
@@ -41,8 +42,12 @@ MonoBehaviour:
       value: 0.8
       type: 1
     - id: <will be auto generated>
-      key: p_dmg
+      key: m_dmg
       value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.2
       type: 1
     - id: <will be auto generated>
       key: life_steal
@@ -55,8 +60,12 @@ MonoBehaviour:
       value: 2.24
       type: 1
     - id: <will be auto generated>
-      key: p_dmg
+      key: m_dmg
       value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: atk_spd
+      value: 0.5
       type: 1
     - id: <will be auto generated>
       key: life_steal

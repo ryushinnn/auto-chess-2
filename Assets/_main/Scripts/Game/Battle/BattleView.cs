@@ -154,6 +154,16 @@ namespace AutoChess.Game {
 
         void OnBattleEvent(BattleEvent e) {
             switch (e) {
+                case UnitSpawnedEvent spawned:
+                    // A synergy's summon joining mid-battle (Chaos' Apocalypse Warrior).
+                    var unit = visible.FindUnit(spawned.UnitId);
+                    if (unit == null || views.ContainsKey(unit.Id)) break;
+                    if (!pool.TryDequeue(out var summoned)) summoned = Instantiate(heroPrefab, transform);
+                    summoned.Activate();
+                    summoned.Bind(game.Session, unit, AllySide);
+                    summoned.SwitchCanvas(true);
+                    views[unit.Id] = summoned;
+                    break;
                 case UnitBattleEvent unitEvent:
                     if (views.TryGetValue(unitEvent.UnitId, out var view)) {
                         view.Handle(unitEvent, this);

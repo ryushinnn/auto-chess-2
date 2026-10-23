@@ -75,7 +75,8 @@ namespace AutoChess.Core {
                 ["maxHp"] = u.MaxHp, ["physicalDamage"] = u.PhysicalDamage, ["magicalDamage"] = u.MagicalDamage,
                 ["armor"] = u.Armor, ["resistance"] = u.Resistance, ["attackSpeed"] = u.AttackSpeed,
                 ["movementSpeed"] = u.MovementSpeed, ["energyPerAttack"] = u.EnergyRegenPerAttack,
-                ["energyPerHit"] = u.EnergyRegenPerHit, ["attackRange"] = u.AttackRange, ["unstoppable"] = u.Unstoppable,
+                ["energyPerHit"] = u.EnergyRegenPerHit, ["startingEnergy"] = u.StartingEnergy, ["attackRange"] = u.AttackRange,
+                ["unstoppable"] = u.Unstoppable,
                 ["evolutions"] = evolutions, ["skillParams"] = u.SkillParams, ["skillParamKeys"] = u.SkillParamKeys,
                 ["specialKeys"] = u.SpecialKeys,
             };
@@ -143,7 +144,8 @@ namespace AutoChess.Core {
                 MaxHp = F(d, "maxHp", 0), PhysicalDamage = F(d, "physicalDamage", 0), MagicalDamage = F(d, "magicalDamage", 0),
                 Armor = F(d, "armor", 0), Resistance = F(d, "resistance", 0), AttackSpeed = F(d, "attackSpeed", 1),
                 MovementSpeed = F(d, "movementSpeed", 1), EnergyRegenPerAttack = F(d, "energyPerAttack", 0),
-                EnergyRegenPerHit = F(d, "energyPerHit", 0), AttackRange = (int)F(d, "attackRange", 1),
+                EnergyRegenPerHit = F(d, "energyPerHit", 0), StartingEnergy = F(d, "startingEnergy", 0),
+                AttackRange = (int)F(d, "attackRange", 1),
                 Unstoppable = B(d, "unstoppable"), Evolutions = evolutions.ToArray(), SkillParams = Floats(d, "skillParams"),
                 SkillParamKeys = Strings(d, "skillParamKeys"), SpecialKeys = Strings(d, "specialKeys"),
             };

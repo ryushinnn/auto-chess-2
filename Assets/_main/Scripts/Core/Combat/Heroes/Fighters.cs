@@ -213,31 +213,53 @@ namespace AutoChess.Core.Combat.Heroes {
         }
     }
 
-    /// <summary>Shuriken on the target, then an explosion that crits and stuns it.</summary>
+    /// <summary>
+    /// Shuriken on the target, then an explosion that crits: the target is stunned, enemies around it (within
+    /// the range param, in cells) take the explosion too and are stunned more briefly.
+    /// </summary>
     public sealed class ZedSkill : SkillBehaviour {
+        readonly double baseDmg;
         readonly double dmgMul;
+        readonly int range;
         readonly double stunMain;
+        readonly double stunOthers;
         CombatUnit aimed;
 
         public ZedSkill(UnitDefinition def) {
             AnimationLength = 3;
             HitTimes = new[] { 0.83, 1.66 };
-            // Params 0 (base damage), 2 (explosion range) and 4 (stun of the others) are not used yet:
-            // the area part of this skill was never implemented.
+            baseDmg = def.Param(0);
             dmgMul = def.Param(1);
+            range = (int)def.Param(2);
             stunMain = def.Param(3);
+            stunOthers = def.Param(4);
         }
 
         public override void OnHit(CombatUnit self, int index) {
             if (index == 0) {
                 aimed = self.Target;
-                aimed?.TakeDamage(self.MakeDamage(DamageType.Physical, false, physicalRatio: dmgMul), self);
+                aimed?.TakeDamage(self.MakeDamage(DamageType.Physical, false, baseDmg, dmgMul), self);
                 return;
             }
-            if (aimed == null) return;
-            aimed.TakeDamage(self.MakeDamage(DamageType.Physical, true, physicalRatio: 1d), self);
-            aimed.Stun(stunMain);
+            // Local copy: the hit can kill Zed (a synergy's counter-attack), which cancels the skill and clears the field.
+            var target = aimed;
             aimed = null;
+            if (target == null || !target.Alive) return;
+            var battle = self.Battle;
+            var center = target.OccupiedCell >= 0 ? target.OccupiedCell : battle.Grid.NearestIndex(target.Position);
+            var victims = new List<CombatUnit>();
+            foreach (var e in battle.AliveUnits(self.Side.Opponent())) {
+                if (e == target) continue;
+                var cell = e.OccupiedCell >= 0 ? e.OccupiedCell : battle.Grid.NearestIndex(e.Position);
+                if (battle.Grid.Distance(center, cell) <= range) victims.Add(e);
+            }
+            target.TakeDamage(self.MakeDamage(DamageType.Physical, true, physicalRatio: 1d), self);
+            target.Stun(stunMain);
+            foreach (var e in victims) {
+                if (!e.Alive || !self.Alive) continue;
+                e.TakeDamage(self.MakeDamage(DamageType.Physical, true, physicalRatio: 1d), self);
+                e.Stun(stunOthers);
+            }
         }
 
         public override void End(CombatUnit self, bool complete) {

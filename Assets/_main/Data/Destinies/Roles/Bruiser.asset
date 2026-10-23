@@ -18,22 +18,22 @@ MonoBehaviour:
     value: 0.7
     isPercentage: 1
   - key: hp_0
-    value: 300
+    value: 250
     isPercentage: 0
   - key: hp_1
-    value: 600
+    value: 500
     isPercentage: 0
   - key: hp_2
-    value: 1200
+    value: 900
     isPercentage: 0
   - key: def_0
-    value: 20
+    value: 25
     isPercentage: 0
   - key: def_1
-    value: 70
+    value: 50
     isPercentage: 0
   - key: def_2
-    value: 150
+    value: 90
     isPercentage: 0
   description: "<b>Quy\u1EC1n v\u01B0\u01A1ng</b> nh\u1EADn th\xEAm <sprite name=hp>.
     Khi <b>Quy\u1EC1n v\u01B0\u01A1ng</b> c\xF3 nhi\u1EC1u h\u01A1n #[0]<sprite name=hp>,

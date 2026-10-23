@@ -65,6 +65,7 @@ namespace AutoChess.Core.Combat {
 
             for (var s = 0; s < StatBlock.Count; s++) stats[(StatKind)s] = UnitStats.BaseValue(rules, def, (StatKind)s, HpScale, DamageScale);
             Hp = stats[StatKind.MaxHp];
+            Energy = Math.Clamp(def.StartingEnergy, 0, rules.MaxEnergy);
         }
 
         /// <summary>Evolution and item bonuses; called once when the battle is built.</summary>
@@ -158,6 +159,18 @@ namespace AutoChess.Core.Combat {
                     UnitId = Id, EffectId = set.Id, Key = set.Key, Visual = set.Visual, OwnerId = set.Owner?.Id ?? -1,
                     Duration = set.Remaining
                 });
+            }
+        }
+
+        /// <summary>Removes the set with this key and owner (no-op when absent).</summary>
+        public void RemoveModifierSet(string key, CombatUnit owner) {
+            for (var i = modifierSets.Count - 1; i >= 0; i--) {
+                var set = modifierSets[i];
+                if (set.Key != key || set.Owner != owner) continue;
+                modifierSets.RemoveAt(i);
+                RecalculateAll(set.Modifiers);
+                if (set.Mark != null) RemoveMark(set.Mark);
+                if (set.Visual != null) Battle.Emit(new EffectRemovedEvent { UnitId = Id, EffectId = set.Id, Visual = set.Visual });
             }
         }
 
@@ -265,6 +278,15 @@ namespace AutoChess.Core.Combat {
 
         double Apply(Damage damage, CombatUnit source, int stackIndex) {
             if (!Alive) return 0;
+            if (Status.IsInvulnerable) {
+                Battle.Emit(new UnitDodgedEvent { UnitId = Id, SourceId = source?.Id ?? -1, Invulnerable = true });
+                return 0;
+            }
+            var kind = Battle.CurrentHit;
+            if (!Battle.BeforeHit(this, source, ref damage, kind)) {
+                Battle.Emit(new UnitDodgedEvent { UnitId = Id, SourceId = source?.Id ?? -1 });
+                return 0;
+            }
             var dealt = Mitigate(damage);
             var lost = Math.Min(dealt, Math.Max(0, Hp));
             Hp -= dealt;
@@ -273,6 +295,7 @@ namespace AutoChess.Core.Combat {
                 StackIndex = stackIndex
             });
             if (Hp <= 0) Die(source);
+            Battle.AfterHit(this, source, damage, dealt, kind);
             return dealt;
         }
 
@@ -311,6 +334,17 @@ namespace AutoChess.Core.Combat {
 
         public void UseAllEnergy() => Energy = 0;
 
+        /// <summary>Fills the energy bar (the next decision casts the skill).</summary>
+        public void FillEnergy() {
+            if (Alive) Energy = rules.MaxEnergy;
+        }
+
+        /// <summary>Immune to damage and crowd control for <paramref name="duration"/> seconds.</summary>
+        public void MakeInvulnerable(double duration) {
+            if (!Alive) return;
+            Status.Invulnerable = Math.Max(Status.Invulnerable, duration);
+        }
+
         /// <summary>Empties the energy bar and blocks regeneration for delay + duration seconds.</summary>
         public void DrainEnergy(double delay, double duration) {
             Energy = 0;
@@ -321,20 +355,20 @@ namespace AutoChess.Core.Combat {
         // ------------------------------------------------------------------ crowd control
 
         public void Airborne(double duration) {
-            if (!Alive || Status.Unstoppable) return;
+            if (!Alive || Status.Unstoppable || Status.IsInvulnerable) return;
             Status.Airborne = duration;
             Battle.Emit(new UnitAirborneEvent { UnitId = Id, Duration = duration });
             InterruptActions();
         }
 
         public void Stun(double duration) {
-            if (!Alive || Status.Unstoppable) return;
+            if (!Alive || Status.Unstoppable || Status.IsInvulnerable) return;
             Status.Stun = Math.Max(Status.Stun, duration * (1 - Tenacity));
             InterruptActions();
         }
 
         public void Silence(double duration) {
-            if (!Alive || Status.Unstoppable) return;
+            if (!Alive || Status.Unstoppable || Status.IsInvulnerable) return;
             Status.Silence = Math.Max(Status.Silence, duration * (1 - Tenacity));
             Skill.Interrupt(this);
         }
@@ -386,7 +420,7 @@ namespace AutoChess.Core.Combat {
                 if (i >= damageOverTimes.Count) continue;
                 var dot = damageOverTimes[i];
                 if (dot.Timer <= 0) {
-                    TakeDamage(dot.Damage, dot.Owner, false);
+                    using (Battle.Hit(HitKind.Effect)) TakeDamage(dot.Damage, dot.Owner, false);
                     if (--dot.Times <= 0) {
                         damageOverTimes.Remove(dot);
                         if (dot.Mark != null) RemoveMark(dot.Mark);
@@ -456,7 +490,7 @@ namespace AutoChess.Core.Combat {
             var animTime = Timer * Behaviour.AnimationSpeed;
             var hits = Behaviour.HitTimes;
             while (Active && HitsDone < hits.Length && animTime >= hits[HitsDone]) {
-                Behaviour.OnHit(self, HitsDone++);
+                using (self.Battle.Hit(HitKind.Attack)) Behaviour.OnHit(self, HitsDone++);
             }
             if (Active && Timer > Duration) {
                 Active = false;
@@ -519,6 +553,7 @@ namespace AutoChess.Core.Combat {
             if (Active && Timer > Duration) {
                 Active = false;
                 Behaviour.End(self, true);
+                self.Battle.OnSkillCompleted(self);
             }
         }
 

@@ -51,6 +51,54 @@ namespace AutoChess.Core.Combat {
 
         /// <summary>Raised inside the tick when a unit dies (dead unit, killer or null). For synergies.</summary>
         public event Action<CombatUnit, CombatUnit> UnitDied;
+        /// <summary>A unit finished casting its skill (not interrupted). For synergies.</summary>
+        public event Action<CombatUnit> SkillCompleted;
+
+        readonly List<IHitHook> hitHooks = new();
+        readonly List<Action<double>> tickers = new();
+        readonly AbilityRegistry abilityRegistry;
+        int lastUnitId;
+
+        /// <summary>What the damage being dealt right now comes from (auto-attack, ability, effect).</summary>
+        public HitKind CurrentHit { get; private set; } = HitKind.Ability;
+
+        /// <summary>Marks the damage dealt inside the using block as <paramref name="kind"/>.</summary>
+        internal HitScope Hit(HitKind kind) {
+            var previous = CurrentHit;
+            CurrentHit = kind;
+            return new HitScope(this, previous);
+        }
+
+        internal readonly struct HitScope : IDisposable {
+            readonly BattleSimulation battle;
+            readonly HitKind previous;
+
+            public HitScope(BattleSimulation battle, HitKind previous) {
+                this.battle = battle;
+                this.previous = previous;
+            }
+
+            public void Dispose() => battle.CurrentHit = previous;
+        }
+
+        /// <summary>Synergies that react to every hit (dodge, conversions, procs...), in registration order.</summary>
+        public void AddHitHook(IHitHook hook) => hitHooks.Add(hook);
+
+        /// <summary>Synergies that run once per tick, after the units acted.</summary>
+        public void AddTicker(Action<double> ticker) => tickers.Add(ticker);
+
+        internal bool BeforeHit(CombatUnit target, CombatUnit source, ref Damage damage, HitKind kind) {
+            foreach (var hook in hitHooks) {
+                if (!hook.BeforeHit(target, source, ref damage, kind)) return false;
+            }
+            return true;
+        }
+
+        internal void AfterHit(CombatUnit target, CombatUnit source, Damage damage, double dealt, HitKind kind) {
+            foreach (var hook in hitHooks) hook.AfterHit(target, source, damage, dealt, kind);
+        }
+
+        internal void OnSkillCompleted(CombatUnit unit) => SkillCompleted?.Invoke(unit);
 
         public BattleSimulation(int id, GameDatabase db, BattleSetup setup, EventBuffer events, AbilityRegistry abilities = null) {
             Id = id;
@@ -66,6 +114,7 @@ namespace AutoChess.Core.Combat {
             pathFinder = new PathFinder(Grid);
             isOccupied = cell => cellState[cell] == CellState.Occupied;
             abilities ??= AbilityRegistry.Default;
+            abilityRegistry = abilities;
 
             var nextUnitId = 0;
             foreach (var side in new[] { TeamSide.Home, TeamSide.Away }) {
@@ -84,6 +133,27 @@ namespace AutoChess.Core.Combat {
                 }
             }
             foreach (var u in units) u.ApplyLoadout();
+            lastUnitId = nextUnitId;
+        }
+
+        /// <summary>
+        /// Adds a unit mid-battle (a synergy's summon) on the free cell nearest to <paramref name="near"/>.
+        /// Returns null when the board is full.
+        /// </summary>
+        public CombatUnit Summon(string unitId, TeamSide side, Vec2 near, HeroRank rank = HeroRank.B) {
+            var cell = Grid.NearestIndex(near, IsCellEmpty);
+            if (cell < 0) return null;
+            var def = Db.Unit(unitId);
+            var attack = abilityRegistry.CreateAttack(def);
+            var setup = new CombatantSetup { UnitId = unitId, Rank = rank, Cell = Grid.CoordOf(cell) };
+            var unit = new CombatUnit(this, ++lastUnitId, side, def, setup, attack, abilityRegistry.CreateSkill(def, attack));
+            unit.Position = unit.PreviousPosition = Grid.Center(cell);
+            units.Add(unit);
+            alive[(int)side].Add(unit);
+            Occupy(unit, cell);
+            unit.ApplyLoadout();
+            Emit(new UnitSpawnedEvent { UnitId = unit.Id });
+            return unit;
         }
 
         public CombatUnit FindUnit(int unitId) {
@@ -133,6 +203,7 @@ namespace AutoChess.Core.Combat {
 
             if (!Finished) TickProjectiles(dt);
             if (!Finished) TickAreas(dt);
+            for (var i = 0; i < tickers.Count && !Finished; i++) tickers[i](dt);
         }
 
         /// <summary>Ends the battle from outside (time out).</summary>
@@ -379,7 +450,7 @@ namespace AutoChess.Core.Combat {
             var p = new Projectile {
                 Id = ++nextProjectileId, Source = source, Target = target, Position = source.Position,
                 PreviousPosition = source.Position,
-                Speed = speed > 0 ? speed : Rules.ProjectileSpeed, OnArrive = onArrive, Visual = visual
+                Speed = speed > 0 ? speed : Rules.ProjectileSpeed, OnArrive = onArrive, Visual = visual, Kind = CurrentHit
             };
             projectiles.Add(p);
             Emit(new ProjectileLaunchedEvent {
@@ -396,7 +467,9 @@ namespace AutoChess.Core.Combat {
                 p.Position = Vec2.MoveTowards(p.Position, p.Target.Position, step, out var arrived);
                 if (!arrived) continue;
                 var hit = p.Source.Alive && p.Target.Alive;
-                if (hit) p.OnArrive?.Invoke(p);
+                if (hit) {
+                    using (Hit(p.Kind)) p.OnArrive?.Invoke(p);
+                }
                 projectiles.RemoveAt(i--);
                 Emit(new ProjectileEndedEvent { ProjectileId = p.Id, Hit = hit });
                 if (Finished) return;
@@ -450,7 +523,7 @@ namespace AutoChess.Core.Combat {
                     d.Crit = true;
                 }
                 var before = targets.Count;
-                t.TakeDamage(d, a.Dealer, isNew);
+                using (Hit(HitKind.Effect)) t.TakeDamage(d, a.Dealer, isNew);
                 if (targets.Count < before) i--; // t died and left the list
                 if (Finished) return;
             }
@@ -466,7 +539,27 @@ namespace AutoChess.Core.Combat {
         public Vec2 PreviousPosition;
         public double Speed;
         public string Visual;
+        /// <summary>Kind of the hit that launched it (an auto-attack's arrow is still an attack).</summary>
+        public HitKind Kind;
         internal Action<Projectile> OnArrive;
+    }
+
+    /// <summary>What a hit comes from: synergies like dodge or on-attack procs only react to auto-attacks.</summary>
+    public enum HitKind {
+        Attack,
+        /// <summary>A skill, or anything not marked otherwise.</summary>
+        Ability,
+        /// <summary>Damage over time, areas, synergy procs.</summary>
+        Effect,
+    }
+
+    /// <summary>A synergy reacting to hits (registered with <see cref="BattleSimulation.AddHitHook"/>).</summary>
+    public interface IHitHook {
+        /// <summary>Before mitigation; may change the damage. Return false to cancel the hit (dodge).</summary>
+        bool BeforeHit(CombatUnit target, CombatUnit source, ref Damage damage, HitKind kind);
+
+        /// <summary>After the damage was applied (the target may have died).</summary>
+        void AfterHit(CombatUnit target, CombatUnit source, Damage damage, double dealt, HitKind kind);
     }
 
     /// <summary>Repeated area damage (Ashe's arrow rain; was DamageOverTimeArea).</summary>

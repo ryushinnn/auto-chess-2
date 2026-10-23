@@ -104,18 +104,22 @@ namespace AutoChess.Core.Combat {
         public double Stun;
         public double Silence;
         public double AntiHeal;
+        /// <summary>Immune to damage and crowd control.</summary>
+        public double Invulnerable;
         public bool Unstoppable;
 
         public bool IsAirborne => Airborne > 0;
         public bool IsStunned => Stun > 0;
         public bool IsSilenced => Silence > 0;
         public bool IsAntiHeal => AntiHeal > 0;
+        public bool IsInvulnerable => Invulnerable > 0;
 
         public void Tick(double dt) {
             if (Airborne > 0) Airborne = Math.Max(0, Airborne - dt);
             if (Stun > 0) Stun = Math.Max(0, Stun - dt);
             if (Silence > 0) Silence = Math.Max(0, Silence - dt);
             if (AntiHeal > 0) AntiHeal = Math.Max(0, AntiHeal - dt);
+            if (Invulnerable > 0) Invulnerable = Math.Max(0, Invulnerable - dt);
         }
     }
 }

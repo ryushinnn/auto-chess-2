@@ -13,15 +13,16 @@
       "roles": 9,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2540,
-      "physicalDamage": 200,
+      "maxHp": 2622,
+      "physicalDamage": 159,
       "magicalDamage": 0,
-      "armor": 45,
-      "resistance": 45,
-      "attackSpeed": 0.44999998807907104,
+      "armor": 40,
+      "resistance": 38,
+      "attackSpeed": 0.95200002193450928,
       "movementSpeed": 2,
-      "energyPerAttack": 0,
-      "energyPerHit": 0,
+      "energyPerAttack": 9.5,
+      "energyPerHit": 6,
+      "startingEnergy": 85,
       "attackRange": 1,
       "unstoppable": true,
       "evolutions": [
@@ -35,6 +36,11 @@
           {
             "stat": "PhysicalDamage",
             "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
             "type": "Percent"
           },
           {
@@ -52,6 +58,11 @@
           {
             "stat": "PhysicalDamage",
             "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
             "type": "Percent"
           },
           {
@@ -110,15 +121,16 @@
       "roles": 3,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2540,
+      "maxHp": 2212,
       "physicalDamage": 0,
-      "magicalDamage": 200,
-      "armor": 45,
-      "resistance": 45,
-      "attackSpeed": 0.44999998807907104,
+      "magicalDamage": 118,
+      "armor": 39,
+      "resistance": 42,
+      "attackSpeed": 0.88200002908706665,
       "movementSpeed": 2,
-      "energyPerAttack": 0,
-      "energyPerHit": 0,
+      "energyPerAttack": 18.5,
+      "energyPerHit": 8,
+      "startingEnergy": 40,
       "attackRange": 1,
       "unstoppable": true,
       "evolutions": [
@@ -130,8 +142,13 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
             "type": "Percent"
           },
           {
@@ -147,8 +164,13 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
             "type": "Percent"
           },
           {
@@ -201,15 +223,16 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 2000,
-      "physicalDamage": 90,
+      "maxHp": 1737,
+      "physicalDamage": 78,
       "magicalDamage": 0,
-      "armor": 30,
-      "resistance": 25,
-      "attackSpeed": 0.60000002384185791,
+      "armor": 36,
+      "resistance": 32,
+      "attackSpeed": 0.859000027179718,
       "movementSpeed": 1.7999999523162842,
-      "energyPerAttack": 20,
-      "energyPerHit": 1,
+      "energyPerAttack": 12,
+      "energyPerHit": 8,
+      "startingEnergy": 10,
       "attackRange": 1,
       "unstoppable": false,
       "evolutions": [
@@ -283,15 +306,16 @@
       "roles": 8,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 1700,
-      "physicalDamage": 175,
+      "maxHp": 2979,
+      "physicalDamage": 221,
       "magicalDamage": 0,
-      "armor": 18,
-      "resistance": 21,
-      "attackSpeed": 0.33000001311302185,
+      "armor": 34,
+      "resistance": 34,
+      "attackSpeed": 0.97500002384185791,
       "movementSpeed": 2.2000000476837158,
-      "energyPerAttack": 10,
-      "energyPerHit": 9,
+      "energyPerAttack": 7,
+      "energyPerHit": 4,
+      "startingEnergy": 85,
       "attackRange": 1,
       "unstoppable": false,
       "evolutions": [
@@ -305,6 +329,11 @@
           {
             "stat": "PhysicalDamage",
             "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
             "type": "Percent"
           },
           {
@@ -327,6 +356,11 @@
           {
             "stat": "PhysicalDamage",
             "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
             "type": "Percent"
           },
           {
@@ -365,15 +399,16 @@
       "roles": 33,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2120,
-      "physicalDamage": 168,
+      "maxHp": 3594,
+      "physicalDamage": 178,
       "magicalDamage": 0,
-      "armor": 28,
-      "resistance": 25,
-      "attackSpeed": 0.550000011920929,
+      "armor": 46,
+      "resistance": 42,
+      "attackSpeed": 0.92900002002716064,
       "movementSpeed": 1.7999999523162842,
-      "energyPerAttack": 23,
-      "energyPerHit": 0,
+      "energyPerAttack": 12,
+      "energyPerHit": 8,
+      "startingEnergy": 10,
       "attackRange": 1,
       "unstoppable": false,
       "evolutions": [
@@ -455,15 +490,16 @@
       "roles": 8,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1650,
+      "maxHp": 1486,
       "physicalDamage": 0,
-      "magicalDamage": 169,
-      "armor": 19,
-      "resistance": 19,
-      "attackSpeed": 0.30000001192092896,
+      "magicalDamage": 101,
+      "armor": 24,
+      "resistance": 24,
+      "attackSpeed": 0.906000018119812,
       "movementSpeed": 2.0999999046325684,
-      "energyPerAttack": 20,
-      "energyPerHit": 7,
+      "energyPerAttack": 7,
+      "energyPerHit": 4,
+      "startingEnergy": 85,
       "attackRange": 2,
       "unstoppable": false,
       "evolutions": [
@@ -475,7 +511,7 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 0.800000011920929,
             "type": "Percent"
           },
@@ -492,7 +528,7 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 2.2400000095367432,
             "type": "Percent"
           },
@@ -523,15 +559,16 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1980,
-      "physicalDamage": 144,
+      "maxHp": 1725,
+      "physicalDamage": 87,
       "magicalDamage": 0,
-      "armor": 16,
-      "resistance": 15,
-      "attackSpeed": 0.47999998927116394,
+      "armor": 20,
+      "resistance": 20,
+      "attackSpeed": 1.0219999551773071,
       "movementSpeed": 1.7999999523162842,
-      "energyPerAttack": 30,
-      "energyPerHit": 4,
+      "energyPerAttack": 10,
+      "energyPerHit": 5,
+      "startingEnergy": 0,
       "attackRange": 2,
       "unstoppable": false,
       "evolutions": [
@@ -599,15 +636,16 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1980,
-      "physicalDamage": 150,
+      "maxHp": 1773,
+      "physicalDamage": 90,
       "magicalDamage": 0,
       "armor": 20,
-      "resistance": 22,
-      "attackSpeed": 0.30000001192092896,
+      "resistance": 20,
+      "attackSpeed": 1.0219999551773071,
       "movementSpeed": 1.7999999523162842,
-      "energyPerAttack": 15,
-      "energyPerHit": 4,
+      "energyPerAttack": 10,
+      "energyPerHit": 5,
+      "startingEnergy": 0,
       "attackRange": 4,
       "unstoppable": true,
       "evolutions": [
@@ -676,15 +714,16 @@
       "roles": 4,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1980,
-      "physicalDamage": 125,
+      "maxHp": 2277,
+      "physicalDamage": 120,
       "magicalDamage": 0,
-      "armor": 20,
-      "resistance": 22,
-      "attackSpeed": 0.40000000596046448,
+      "armor": 25,
+      "resistance": 25,
+      "attackSpeed": 1.0570000410079956,
       "movementSpeed": 1.7999999523162842,
-      "energyPerAttack": 15,
-      "energyPerHit": 4,
+      "energyPerAttack": 10,
+      "energyPerHit": 5,
+      "startingEnergy": 0,
       "attackRange": 4,
       "unstoppable": true,
       "evolutions": [
@@ -746,15 +785,16 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 2540,
-      "physicalDamage": 120,
+      "maxHp": 1884,
+      "physicalDamage": 85,
       "magicalDamage": 0,
-      "armor": 32,
-      "resistance": 24,
-      "attackSpeed": 0.44999998807907104,
+      "armor": 36,
+      "resistance": 32,
+      "attackSpeed": 0.859000027179718,
       "movementSpeed": 2,
-      "energyPerAttack": 8,
-      "energyPerHit": 12,
+      "energyPerAttack": 12,
+      "energyPerHit": 8,
+      "startingEnergy": 10,
       "attackRange": 2,
       "unstoppable": true,
       "evolutions": [
@@ -814,15 +854,16 @@
       "roles": 8,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1700,
-      "physicalDamage": 175,
+      "maxHp": 1817,
+      "physicalDamage": 128,
       "magicalDamage": 0,
-      "armor": 18,
-      "resistance": 21,
-      "attackSpeed": 0.33000001311302185,
+      "armor": 29,
+      "resistance": 29,
+      "attackSpeed": 0.93999999761581421,
       "movementSpeed": 2.2000000476837158,
-      "energyPerAttack": 10,
-      "energyPerHit": 9,
+      "energyPerAttack": 7,
+      "energyPerHit": 4,
+      "startingEnergy": 85,
       "attackRange": 1,
       "unstoppable": true,
       "evolutions": [
@@ -886,15 +927,16 @@
       "roles": 16,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2540,
-      "physicalDamage": 140,
+      "maxHp": 3030,
+      "physicalDamage": 99,
       "magicalDamage": 0,
       "armor": 55,
-      "resistance": 45,
-      "attackSpeed": 0.25,
+      "resistance": 55,
+      "attackSpeed": 0.75499999523162842,
       "movementSpeed": 1.2000000476837158,
-      "energyPerAttack": 8,
-      "energyPerHit": 12,
+      "energyPerAttack": 10,
+      "energyPerHit": 14,
+      "startingEnergy": 0,
       "attackRange": 2,
       "unstoppable": false,
       "evolutions": [
@@ -962,15 +1004,16 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1980,
-      "physicalDamage": 50,
-      "magicalDamage": 50,
+      "maxHp": 1116,
+      "physicalDamage": 57,
+      "magicalDamage": 57,
       "armor": 20,
       "resistance": 20,
-      "attackSpeed": 0.40000000596046448,
+      "attackSpeed": 1.0219999551773071,
       "movementSpeed": 1.7999999523162842,
-      "energyPerAttack": 15,
-      "energyPerHit": 4,
+      "energyPerAttack": 10,
+      "energyPerHit": 5,
+      "startingEnergy": 0,
       "attackRange": 4,
       "unstoppable": false,
       "evolutions": [
@@ -983,6 +1026,11 @@
           },
           {
             "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
             "value": 0.800000011920929,
             "type": "Percent"
           },
@@ -1000,6 +1048,11 @@
           },
           {
             "stat": "PhysicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "MagicalDamage",
             "value": 2.2400000095367432,
             "type": "Percent"
           },
@@ -1056,15 +1109,16 @@
       "roles": 2,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2000,
+      "maxHp": 1371,
       "physicalDamage": 0,
-      "magicalDamage": 180,
-      "armor": 32,
-      "resistance": 24,
-      "attackSpeed": 0.20000000298023224,
+      "magicalDamage": 76,
+      "armor": 27,
+      "resistance": 37,
+      "attackSpeed": 0.80099999904632568,
       "movementSpeed": 2,
-      "energyPerAttack": 6,
+      "energyPerAttack": 25,
       "energyPerHit": 8,
+      "startingEnergy": 40,
       "attackRange": 3,
       "unstoppable": false,
       "evolutions": [
@@ -1076,7 +1130,7 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 0.800000011920929,
             "type": "Percent"
           },
@@ -1093,7 +1147,7 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 2.2400000095367432,
             "type": "Percent"
           },
@@ -1124,15 +1178,16 @@
       "roles": 34,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2540,
+      "maxHp": 1568,
       "physicalDamage": 0,
-      "magicalDamage": 130,
-      "armor": 32,
-      "resistance": 24,
-      "attackSpeed": 0.5,
+      "magicalDamage": 86,
+      "armor": 27,
+      "resistance": 37,
+      "attackSpeed": 0.80099999904632568,
       "movementSpeed": 2,
-      "energyPerAttack": 15,
-      "energyPerHit": 7,
+      "energyPerAttack": 25,
+      "energyPerHit": 8,
+      "startingEnergy": 40,
       "attackRange": 2,
       "unstoppable": false,
       "evolutions": [
@@ -1144,7 +1199,7 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 0.800000011920929,
             "type": "Percent"
           },
@@ -1161,7 +1216,7 @@
             "type": "Percent"
           },
           {
-            "stat": "PhysicalDamage",
+            "stat": "MagicalDamage",
             "value": 2.2400000095367432,
             "type": "Percent"
           },
@@ -1206,15 +1261,16 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1980,
-      "physicalDamage": 125,
+      "maxHp": 1288,
+      "physicalDamage": 65,
       "magicalDamage": 0,
       "armor": 20,
-      "resistance": 22,
-      "attackSpeed": 0.40000000596046448,
+      "resistance": 20,
+      "attackSpeed": 1.0219999551773071,
       "movementSpeed": 1.7999999523162842,
-      "energyPerAttack": 33,
-      "energyPerHit": 4,
+      "energyPerAttack": 10,
+      "energyPerHit": 5,
+      "startingEnergy": 0,
       "attackRange": 4,
       "unstoppable": true,
       "evolutions": [
@@ -1285,12 +1341,74 @@
       "movementSpeed": 0.0099999997764825821,
       "energyPerAttack": 0,
       "energyPerHit": 0,
+      "startingEnergy": 0,
       "attackRange": 1,
       "unstoppable": false,
       "evolutions": [
         [],
         [],
         []
+      ],
+      "skillParams": [],
+      "skillParamKeys": [],
+      "specialKeys": []
+    },
+    {
+      "id": "Aatrox_TrueForm",
+      "name": "A Chốc",
+      "summoned": true,
+      "realm": "None",
+      "roles": 0,
+      "reputation": "None",
+      "moveable": true,
+      "maxHp": 2540,
+      "physicalDamage": 299,
+      "magicalDamage": 299,
+      "armor": 100,
+      "resistance": 100,
+      "attackSpeed": 0.44999998807907104,
+      "movementSpeed": 2,
+      "energyPerAttack": 1,
+      "energyPerHit": 1,
+      "startingEnergy": 0,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 2.2400000095367432,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
       ],
       "skillParams": [],
       "skillParamKeys": [],
@@ -2141,12 +2259,12 @@
         4
       ],
       "params": [
-        0.20000000298023224,
-        0.40000000596046448,
-        0.699999988079071,
         0.15000000596046448,
-        0.20000000298023224,
-        0.25
+        0.30000001192092896,
+        0.5,
+        0.15000000596046448,
+        0.25,
+        0.34999999403953552
       ]
     },
     {
@@ -2160,12 +2278,12 @@
       ],
       "params": [
         0.699999988079071,
-        300,
-        600,
-        1200,
-        20,
-        70,
-        150
+        250,
+        500,
+        900,
+        25,
+        50,
+        90
       ]
     },
     {
@@ -2178,13 +2296,13 @@
         4
       ],
       "params": [
-        250,
-        500,
-        1000,
-        40,
+        150,
+        350,
+        700,
+        20,
+        45,
         90,
-        180,
-        0.075000002980232239,
+        0.059999998658895493,
         0.10000000149011612,
         0.15000000596046448
       ]
@@ -2200,12 +2318,12 @@
       ],
       "params": [
         0.30000001192092896,
-        30,
-        70,
-        150,
-        0.15000000596046448,
-        0.20000000298023224,
-        0.25
+        10,
+        25,
+        55,
+        0.079999998211860657,
+        0.14000000059604645,
+        0.20000000298023224
       ]
     },
     {
@@ -2218,9 +2336,9 @@
         4
       ],
       "params": [
+        0.079999998211860657,
         0.20000000298023224,
         0.40000000596046448,
-        0.699999988079071,
         5,
         7,
         12
@@ -2236,12 +2354,12 @@
         4
       ],
       "params": [
-        30,
-        70,
-        150,
-        0.20000000298023224,
-        0.30000001192092896,
-        0.40000000596046448
+        20,
+        45,
+        90,
+        0.25,
+        0.34999999403953552,
+        0.44999998807907104
       ]
     },
     {
@@ -2252,10 +2370,10 @@
         2
       ],
       "params": [
-        300,
-        5,
-        0.10000000149011612,
-        1
+        0,
+        7,
+        0.079999998211860657,
+        0.800000011920929
       ]
     },
     {
@@ -2269,15 +2387,15 @@
         5
       ],
       "params": [
-        0.10000000149011612,
-        0.15000000596046448,
+        0.11999999731779099,
+        0.15999999642372131,
         0.20000000298023224,
         0.25,
-        1,
+        0.800000011920929,
         2,
         0.5,
-        0.20000000298023224,
-        0.40000000596046448
+        0.15000000596046448,
+        0.30000001192092896
       ]
     },
     {
@@ -2291,8 +2409,8 @@
         5
       ],
       "params": [
-        150,
-        300,
+        400,
+        650,
         100,
         0.30000001192092896,
         0.30000001192092896,
@@ -2311,18 +2429,18 @@
         6
       ],
       "params": [
-        20,
-        20,
+        15,
+        15,
+        0.15000000596046448,
+        0.079999998211860657,
         0.20000000298023224,
-        0.10000000149011612,
-        0.30000001192092896,
-        0.10000000149011612,
+        0.079999998211860657,
         1,
-        1.2000000476837158,
-        1.5,
+        1.25,
+        1.6000000238418579,
         2,
-        0.25,
-        30
+        0.20000000298023224,
+        25
       ]
     },
     {
@@ -2337,10 +2455,10 @@
       ],
       "params": [
         0.15000000596046448,
-        0.25,
-        0.34999999403953552,
-        0.5,
-        0.40000000596046448
+        0.2199999988079071,
+        0.30000001192092896,
+        0.40000000596046448,
+        0.34999999403953552
       ]
     }
   ],

@@ -15,25 +15,25 @@ MonoBehaviour:
   checkpoints: 020000000300000004000000
   destinyParams:
   - key: hp_0
-    value: 250
+    value: 150
     isPercentage: 0
   - key: hp_1
-    value: 500
+    value: 350
     isPercentage: 0
   - key: hp_2
-    value: 1000
+    value: 700
     isPercentage: 0
   - key: dmg_0
-    value: 40
+    value: 20
     isPercentage: 0
   - key: dmg_1
-    value: 90
+    value: 45
     isPercentage: 0
   - key: dmg_2
-    value: 180
+    value: 90
     isPercentage: 0
   - key: ls_0
-    value: 0.075
+    value: 0.06
     isPercentage: 1
   - key: ls_1
     value: 0.1

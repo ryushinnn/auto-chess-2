@@ -16,6 +16,8 @@ namespace AutoChess.Core.Combat {
         public int PlayerId = -1;
         /// <summary>Activate role / realm synergies for this team (players: yes, PvE waves: no).</summary>
         public bool ApplyTraits;
+        /// <summary>Synergies left off even when reached (balance measurements).</summary>
+        public readonly List<TraitId> DisabledTraits = new();
         /// <summary>A copy of <see cref="PlayerId"/>'s board fighting a player left without opponent: that player takes no damage.</summary>
         public bool Ghost;
         public readonly List<CombatantSetup> Units = new();

@@ -62,6 +62,7 @@ namespace AutoChess.Game {
                 MaxHp = t.maxHp, PhysicalDamage = t.physicalDamage, MagicalDamage = t.magicalDamage, Armor = t.armor,
                 Resistance = t.resistance, AttackSpeed = t.attackSpeed, MovementSpeed = t.movementSpeed,
                 EnergyRegenPerAttack = t.energyRegenPerAttack, EnergyRegenPerHit = t.energyRegenPerHit,
+                StartingEnergy = t.startingEnergy,
                 AttackRange = t.attackRange, Unstoppable = t.unstoppable, Evolutions = evolutions,
                 SkillParams = values, SkillParamKeys = keys, SpecialKeys = t.specialKeys ?? Array.Empty<string>(),
             };

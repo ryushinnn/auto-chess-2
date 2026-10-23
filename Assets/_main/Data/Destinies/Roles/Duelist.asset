@@ -18,22 +18,22 @@ MonoBehaviour:
     value: 0.3
     isPercentage: 1
   - key: pdmg_0
-    value: 30
+    value: 10
     isPercentage: 0
   - key: pdmg_1
-    value: 70
+    value: 25
     isPercentage: 0
   - key: pdmg_2
-    value: 150
+    value: 55
     isPercentage: 0
   - key: dodge_0
-    value: 0.15
+    value: 0.08
     isPercentage: 1
   - key: dodge_1
-    value: 0.2
+    value: 0.14
     isPercentage: 1
   - key: dodge_2
-    value: 0.25
+    value: 0.2
     isPercentage: 1
   description: "<b>Ki\u1EBFm s\u0129</b> nh\u1EADn th\xEAm <sprite name=pdmg>. Khi
     <b>Ki\u1EBFm s\u0129</b> b\u1ECB t\u1EA5n c\xF4ng b\u1EDFi \u0111\xF2n \u0111\xE1nh,

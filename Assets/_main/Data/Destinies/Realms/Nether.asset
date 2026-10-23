@@ -18,16 +18,16 @@ MonoBehaviour:
     value: 0.15
     isPercentage: 1
   - key: dmg_to_debt_1
-    value: 0.25
+    value: 0.22
     isPercentage: 1
   - key: dmg_to_debt_2
-    value: 0.35
+    value: 0.3
     isPercentage: 1
   - key: dmg_to_debt_3
-    value: 0.5
+    value: 0.4
     isPercentage: 1
   - key: heal_by_debt
-    value: 0.4
+    value: 0.35
     isPercentage: 1
   description: "<b>\xC2m ti</b> chuy\u1EC3n ho\xE1 m\u1ED9t ph\u1EA7n s\xE1t th\u01B0\u01A1ng
     g\xE2y ra th\xE0nh c\xE1c c\u1ED9ng d\u1ED3n [<color=purple>N\u1EE3 m\xE1u</color>]

@@ -15,10 +15,10 @@ MonoBehaviour:
   checkpoints: 02000000030000000400000005000000
   destinyParams:
   - key: stun_chance_0
-    value: 0.1
+    value: 0.12
     isPercentage: 1
   - key: stun_chance_1
-    value: 0.15
+    value: 0.16
     isPercentage: 1
   - key: stun_chance_2
     value: 0.2
@@ -27,7 +27,7 @@ MonoBehaviour:
     value: 0.25
     isPercentage: 1
   - key: stun_duration
-    value: 1
+    value: 0.8
     isPercentage: 0
   - key: crit_stun_chance_mul
     value: 2
@@ -36,10 +36,10 @@ MonoBehaviour:
     value: 0.5
     isPercentage: 1
   - key: dmg_bonus_0
-    value: 0.2
+    value: 0.15
     isPercentage: 1
   - key: dmg_bonus_1
-    value: 0.4
+    value: 0.3
     isPercentage: 1
   description: "\u0110\xF2n \u0111\xE1nh c\u1EE7a <b>Th\xE1nh th\u1EA7n</b> c\xF3
     t\u1EC9 l\u1EC7 g\xE2y [<color=yellow>Cho\xE1ng</color>] trong #[4]s. \u0110\xF2n

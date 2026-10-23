@@ -49,6 +49,11 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
   attack / skill / movement state machines), A* pathing on the hex grid with cell reservation,
   projectiles, damage areas, synergies (`TraitEffects`), one attack + skill behaviour per hero
   (`Combat/Heroes/*`, registered in `AbilityRegistry`).
+* **Synergies** - `TraitEffects` holds one `TraitEffect` per role / realm, applied when the battle starts.
+  Params come from `Data/Destinies/*` in asset order (the description's `#[i]`; each class documents its
+  layout). Hooks for them: `IHitHook` (before / after every hit, with its `HitKind` = attack / ability /
+  effect), tickers, `SkillCompleted`, `UnitDied`, `Summon` (Chaos summons `Aatrox_TrueForm`, which must stay
+  in `HeroTraitDB`), `MakeInvulnerable`. `TeamSetup.DisabledTraits` turns single synergies off (balance tests).
 * **Determinism** - `DeterministicRandom` (xoshiro128**) everywhere, fixed tick, no engine time. The
   same seed + the same commands at the same ticks reproduce a match bit for bit (`StateHasher`,
   `MatchRecorder.Replay`).
@@ -139,3 +144,14 @@ player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand
   NUnit-compatible shim). Same files run in Unity's Test Runner (`AutoTest Server/unity_tests.bat`).
 * `py Tools/compile_check/compile_check.py --editor` - compiles every assembly with Unity's Roslyn.
 * `AutoTest Server/` - scenario runner driving the real editor through the bridge (see its README).
+
+## Balance
+
+* `BalanceReportTests` (opt-in: `AUTOCHESS_BALANCE=1`, data file in `AUTOCHESS_GAME_DATA`) simulates 1v1
+  duels, mirrored 3v3, a training dummy, random team fights and each synergy on vs off; it writes
+  `Temp/balance_report.md` + `.json`.
+* `Tools/balance/balance.py` - `report [--candidate]`, `calibrate` (per-unit knobs until each tier is even, attack
+  speed until level-7 fights last ~20 s), `apply` (writes `HeroTrait` stats / evolutions and Destinies params,
+  YAML text, GUIDs kept). Design numbers live in `Tools/balance/balance_config.json`: unit stats = role
+  template x reputation tier x realm (Chaos +8%, Mortal -8%) x knob; synergy params per trait. After `apply`,
+  re-export the game data.

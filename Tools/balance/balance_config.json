@@ -1,0 +1,214 @@
+{
+  "note": "Unit stats = role template (average of the roles; Cultist has none: its other role decides) x tier x realm x per-unit knob. Knobs are set by 'balance.py calibrate' so units of a tier are even; tiers / realms / templates are the design. Trait params are the destinyParams of Data/Destinies, in asset order.",
+  "roles": {
+    "Bruiser": {
+      "hp": 2300,
+      "dmg": 72,
+      "armor": 50,
+      "res": 50,
+      "as": 0.62,
+      "ePerAtk": 10,
+      "ePerHit": 14,
+      "startEnergy": 0
+    },
+    "Duelist": {
+      "hp": 1950,
+      "dmg": 88,
+      "armor": 36,
+      "res": 32,
+      "as": 0.74,
+      "ePerAtk": 12,
+      "ePerHit": 8,
+      "startEnergy": 10
+    },
+    "Assassin": {
+      "hp": 1550,
+      "dmg": 105,
+      "armor": 24,
+      "res": 24,
+      "as": 0.78,
+      "ePerAtk": 7,
+      "ePerHit": 4,
+      "startEnergy": 85
+    },
+    "Marksman": {
+      "hp": 1500,
+      "dmg": 76,
+      "armor": 20,
+      "res": 20,
+      "as": 0.88,
+      "ePerAtk": 10,
+      "ePerHit": 5,
+      "startEnergy": 0
+    },
+    "Sorcerer": {
+      "hp": 1550,
+      "dmg": 82,
+      "armor": 22,
+      "res": 32,
+      "as": 0.66,
+      "ePerAtk": 25,
+      "ePerHit": 8,
+      "startEnergy": 40
+    }
+  },
+  "tiers": {
+    "Unknown": {
+      "hp": 1.0,
+      "dmg": 1.0,
+      "as": 0.0,
+      "def": 0
+    },
+    "Elite": {
+      "hp": 1.2,
+      "dmg": 1.25,
+      "as": 0.03,
+      "def": 5
+    },
+    "Legendary": {
+      "hp": 1.55,
+      "dmg": 1.7,
+      "as": 0.06,
+      "def": 10
+    }
+  },
+  "realms": {
+    "Chaos": 1.08,
+    "Mortal": 0.92
+  },
+  "evolutions": {
+    "hp": [
+      0.8,
+      2.24
+    ],
+    "dmg": [
+      0.8,
+      2.24
+    ],
+    "as": [
+      0.2,
+      0.5
+    ]
+  },
+  "speed": 1.161,
+  "knobs": {
+    "Aatrox_Light": 0.755,
+    "Aatrox_Dark": 0.895,
+    "Yone": 1.189,
+    "Zed": 1.24,
+    "Morgana": 0.737,
+    "Teemo": 0.843,
+    "Katarina": 1.062,
+    "MissFortune": 0.809,
+    "Yasuo": 0.891,
+    "Malphite": 1.098,
+    "Jinx": 1.375,
+    "Irelia": 0.966,
+    "Tristana": 0.933,
+    "Akali": 1.042,
+    "Ashe": 1.15,
+    "Caitlyn": 1.285
+  },
+  "traits": {
+    "Assassin": [
+      0.15,
+      0.3,
+      0.5,
+      0.15,
+      0.25,
+      0.35
+    ],
+    "Bruiser": [
+      0.7,
+      250,
+      500,
+      900,
+      25,
+      50,
+      90
+    ],
+    "Cultist": [
+      150,
+      350,
+      700,
+      20,
+      45,
+      90,
+      0.06,
+      0.1,
+      0.15
+    ],
+    "Duelist": [
+      0.3,
+      10,
+      25,
+      55,
+      0.08,
+      0.14,
+      0.2
+    ],
+    "Marksman": [
+      0.08,
+      0.2,
+      0.4,
+      5,
+      7,
+      12
+    ],
+    "Sorcerer": [
+      20,
+      45,
+      90,
+      0.25,
+      0.35,
+      0.45
+    ],
+    "Chaos": [
+      0,
+      7,
+      0.08,
+      0.8
+    ],
+    "Divine": [
+      0.12,
+      0.16,
+      0.2,
+      0.25,
+      0.8,
+      2,
+      0.5,
+      0.15,
+      0.3
+    ],
+    "Mecha": [
+      400,
+      650,
+      100,
+      0.3,
+      0.3,
+      0.33,
+      1.5
+    ],
+    "Mortal": [
+      15,
+      15,
+      0.15,
+      0.08,
+      0.2,
+      0.08,
+      1,
+      1.25,
+      1.6,
+      2.0,
+      0.2,
+      25
+    ],
+    "Nether": [
+      0.15,
+      0.22,
+      0.3,
+      0.4,
+      0.35
+    ]
+  }
+}

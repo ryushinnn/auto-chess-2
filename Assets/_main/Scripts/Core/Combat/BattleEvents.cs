@@ -66,6 +66,15 @@ namespace AutoChess.Core.Combat {
         public int KillerId;
     }
 
+    /// <summary>A hit was avoided (dodge) or ignored (invulnerable).</summary>
+    public sealed class UnitDodgedEvent : UnitBattleEvent {
+        public int SourceId;
+        public bool Invulnerable;
+    }
+
+    /// <summary>A unit joined the battle after it was built (a summon).</summary>
+    public sealed class UnitSpawnedEvent : UnitBattleEvent { }
+
     public sealed class MarkAddedEvent : UnitBattleEvent {
         public int MarkId;
         public string Key;

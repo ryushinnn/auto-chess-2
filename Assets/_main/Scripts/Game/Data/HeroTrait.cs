@@ -36,6 +36,8 @@ namespace AutoChess.Game {
 
         [FoldoutGroup("Stats"), BoxGroup("Stats/Unmodifiable")] public float energyRegenPerAttack;
         [FoldoutGroup("Stats"), BoxGroup("Stats/Unmodifiable")] public float energyRegenPerHit;
+        [Tooltip("Energy at the start of a battle (assassins / sorcerers open with their skill sooner).")]
+        [FoldoutGroup("Stats"), BoxGroup("Stats/Unmodifiable")] public float startingEnergy;
         [FoldoutGroup("Stats"), BoxGroup("Stats/Unmodifiable")] public int attackRange;
 
         [FoldoutGroup("Evolution")] public Evolution[] evolutions;

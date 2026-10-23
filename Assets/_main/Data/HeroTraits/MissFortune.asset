@@ -23,15 +23,16 @@ MonoBehaviour:
   mecanim: {fileID: 6243125059235353389, guid: 9031a1ae6b88eb146aabda9d9a26083f, type: 3}
   thumbnail: {fileID: 21300000, guid: 92e727dc78c2c7b46a4de01dc62acb8c, type: 3}
   skillIcon: {fileID: 21300000, guid: 89371ec5556c8af4095f4dbe0f720c9b, type: 3}
-  maxHp: 1980
-  physicalDamage: 50
-  magicalDamage: 50
+  maxHp: 1116
+  physicalDamage: 57
+  magicalDamage: 57
   armor: 20
   resistance: 20
-  attackSpeed: 0.4
+  attackSpeed: 1.022
   movementSpeed: 1.8
-  energyRegenPerAttack: 15
-  energyRegenPerHit: 4
+  energyRegenPerAttack: 10
+  energyRegenPerHit: 5
+  startingEnergy: 0
   attackRange: 4
   evolutions:
   - rank: 1
@@ -42,6 +43,10 @@ MonoBehaviour:
       type: 1
     - id: <will be auto generated>
       key: p_dmg
+      value: 0.8
+      type: 1
+    - id: <will be auto generated>
+      key: m_dmg
       value: 0.8
       type: 1
     - id: <will be auto generated>
@@ -56,6 +61,10 @@ MonoBehaviour:
       type: 1
     - id: <will be auto generated>
       key: p_dmg
+      value: 2.24
+      type: 1
+    - id: <will be auto generated>
+      key: m_dmg
       value: 2.24
       type: 1
     - id: <will be auto generated>

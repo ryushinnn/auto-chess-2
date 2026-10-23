@@ -41,8 +41,8 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   hash differs from the file it loaded.
 - 2+ players = TFT rules (docs/ARCHITECTURE.md "TFT layer"), 1 player = the old PvE campaign (many tests and
   the AutoTest `restart` op default to it: `bots=0 untimed=true`; the 8-player lobby is `bots=7 untimed=false`).
-  Gameplay numbers: `GameRules` (code) + ScriptableObjects; fights are long (attack speed 0.2 - 0.6), hence the
-  60 s battle clock.
+  Gameplay numbers: `GameRules` (code) + ScriptableObjects. Unit stats and synergy params come from
+  `Tools/balance` (edit `balance_config.json`, then `balance.py apply` + re-export; docs/ARCHITECTURE.md "Balance").
 - New HUD / screens: build them in code with `UiBuilder` like `MatchHud` / `LobbyUI` (no prefab YAML needed).
 - Scenes: Lobby (menus, matchmaking) -> Arena (the match only). Stages / cell size / UI font: `ClientConfig`
   (Resources), not the scene. AutoTest scenarios run in the Arena; `ac_lobby_flow` starts from the Lobby.

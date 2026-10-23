@@ -15,10 +15,10 @@ MonoBehaviour:
   checkpoints: 02000000030000000400000005000000
   destinyParams:
   - key: dmg_deal_threshold
-    value: 150
+    value: 400
     isPercentage: 0
   - key: dmg_deal_threshold
-    value: 300
+    value: 650
     isPercentage: 0
   - key: rocket_dmg
     value: 100

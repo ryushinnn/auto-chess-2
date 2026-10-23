@@ -15,22 +15,22 @@ MonoBehaviour:
   checkpoints: 020000000300000004000000
   destinyParams:
   - key: crc_0
-    value: 0.2
+    value: 0.15
     isPercentage: 1
   - key: crc_1
-    value: 0.4
+    value: 0.3
     isPercentage: 1
   - key: crc_2
-    value: 0.7
+    value: 0.5
     isPercentage: 1
   - key: chance_0
     value: 0.15
     isPercentage: 1
   - key: chance_1
-    value: 0.2
+    value: 0.25
     isPercentage: 1
   - key: chance_2
-    value: 0.25
+    value: 0.35
     isPercentage: 1
   description: "<b>Th\xEDch kh\xE1ch</b> nh\u1EADn th\xEAm <sprite name=crc>. \u0110\xF2n
     \u0111\xE1nh ch\xED m\u1EA1ng c\u1EE7a <b>Th\xEDch kh\xE1ch</b> c\xF3 t\u1EC9
