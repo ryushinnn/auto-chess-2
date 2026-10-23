@@ -247,6 +247,7 @@ def apply_assets(cfg):
             path.write_text(new, encoding="utf-8", newline="\n")
             changed.append(path.name)
     print("updated:", ", ".join(changed) or "nothing")
+    subprocess.run([sys.executable, str(HERE / "synergy_doc.py")], check=True)
     print("next: export the game data (Unity menu AutoChess/Export Game Data, or AutoTest 'menu AutoChess/Export Game Data')")
 
 

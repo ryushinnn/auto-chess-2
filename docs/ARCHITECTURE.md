@@ -154,4 +154,4 @@ player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand
   speed until level-7 fights last ~20 s), `apply` (writes `HeroTrait` stats / evolutions and Destinies params,
   YAML text, GUIDs kept). Design numbers live in `Tools/balance/balance_config.json`: unit stats = role
   template x reputation tier x realm (Chaos +8%, Mortal -8%) x knob; synergy params per trait. After `apply`,
-  re-export the game data.
+  re-export the game data. `apply` also regenerates `docs/SYNERGIES.md` (every synergy with its numbers, `synergy_doc.py`).
