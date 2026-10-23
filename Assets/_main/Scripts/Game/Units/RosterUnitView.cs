@@ -1,4 +1,5 @@
 using AutoChess.Core;
+using AutoChess.Core.Combat;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -28,7 +29,14 @@ namespace AutoChess.Game {
                 name = $"[LineUp]({unit.Rank}){unit.DefinitionId}#{unit.Id}";
             }
             ItemsView.SetItems(unit.Items);
+            var db = GameManager.Instance != null ? GameManager.Instance.Db : null;
+            if (db != null && db.TryGetUnit(unit.DefinitionId, out var def)) {
+                UnitStats.Compute(db, def, unit.Rank, unit.Items, Stats);
+                Bars.SetHealthScale(Stats[StatKind.MaxHp]);
+            }
         }
+
+        static readonly StatBlock Stats = new();
 
         /// <summary>Places the view on its slot or cell, sliding when <paramref name="animate"/>.</summary>
         public void PlaceAt(UnitLocation location, bool animate) {

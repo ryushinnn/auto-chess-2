@@ -45,20 +45,21 @@ namespace AutoChess.Game {
             game.ViewChanged -= OnViewChanged;
         }
 
-        /// <summary>Scouting another player mid-round: show their battle right away.</summary>
+        /// <summary>
+        /// Scouting another player (or back home) mid-round: their battle as it stands right now - the units where the
+        /// simulation has them, the dead left out, no portal entrance. Only while the portal is still opening does
+        /// the battle wait to come out with the units.
+        /// </summary>
         void OnViewChanged(int playerId) {
             var phase = game.Session.State.Phase;
-            if (phase != MatchPhase.Transition && phase != MatchPhase.Battle) return;
+            if (phase != MatchPhase.Transition && phase != MatchPhase.Battle && phase != MatchPhase.Summary) return;
             var battle = game.Session.State.BattleOf(playerId);
-            if (battle == null || battle == visible) return;
-            Clear();
-            if (phase == MatchPhase.Transition) pending = battle;
-            else {
-                Spawn(battle);
-                foreach (var view in views.Values) {
-                    if (view.CombatUnit != null && view.CombatUnit.Alive) view.SwitchCanvas(true);
-                }
-            }
+            if (battle == visible) return;
+            var waiting = phase == MatchPhase.Transition && spawnRoutine != null;
+            Clear(keepSpawnRoutine: waiting);
+            if (battle == null) return;
+            if (waiting) pending = battle;
+            else Spawn(battle, midway: true);
         }
 
         public void OnSessionReset() => Clear();
@@ -110,23 +111,30 @@ namespace AutoChess.Game {
             MapVisual.Instance.SwitchPortal(false);
         }
 
-        void Spawn(BattleSimulation battle) {
-            Clear();
+        /// <param name="midway">The battle is already going (scouting): no portal entrance, the dead stay out and
+        /// every unit picks up its current state.</param>
+        void Spawn(BattleSimulation battle, bool midway = false) {
+            Clear(keepSpawnRoutine: true);
             visible = battle;
             var away = battle.Setup.Away;
             AllySide = away.PlayerId == game.ViewedPlayerId && !away.Ghost ? TeamSide.Away : TeamSide.Home;
             BoardSpace.BattleFlipped = AllySide == TeamSide.Away;
             foreach (var unit in battle.Units) {
+                if (midway && !unit.Alive) continue;
                 if (!pool.TryDequeue(out var view)) view = Instantiate(heroPrefab, transform);
                 view.Activate();
                 view.Bind(game.Session, unit, AllySide);
                 views[unit.Id] = view;
-                if (unit.Side == AllySide) view.Mecanim.DiveOut();
+                if (!midway && unit.Side == AllySide) view.Mecanim.DiveOut();
             }
+            if (!midway) return;
+            MapVisual.Instance.SetHalfMapVisibility(true);
+            var fighting = battle.Started && !battle.Finished;
+            foreach (var view in views.Values) view.CatchUp(this, fighting);
         }
 
-        void Clear() {
-            if (spawnRoutine != null) {
+        void Clear(bool keepSpawnRoutine = false) {
+            if (spawnRoutine != null && !keepSpawnRoutine) {
                 StopCoroutine(spawnRoutine);
                 spawnRoutine = null;
             }

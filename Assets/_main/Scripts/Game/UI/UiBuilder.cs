@@ -13,6 +13,12 @@ namespace AutoChess.Game {
         public static readonly Color PanelColor = new(0.05f, 0.07f, 0.11f, 0.84f);
         public static readonly Color ButtonColor = new(0.22f, 0.4f, 0.65f, 1f);
         public static readonly Color FieldColor = new(0.12f, 0.15f, 0.21f, 1f);
+        public static readonly Color RowColor = new(0.12f, 0.15f, 0.21f, 0.92f);
+        public static readonly Color AccentColor = new(0.35f, 0.75f, 1f, 1f);
+        public static readonly Color GoldColor = new(0.95f, 0.78f, 0.3f, 1f);
+        public static readonly Color GoodColor = new(0.35f, 0.85f, 0.4f, 1f);
+        public static readonly Color BadColor = new(0.95f, 0.3f, 0.3f, 1f);
+        public static readonly Color MutedColor = new(0.6f, 0.65f, 0.75f, 1f);
 
         public readonly TMP_FontAsset Font;
 
@@ -51,6 +57,40 @@ namespace AutoChess.Game {
                 events.transform.SetParent(parent, false);
             }
             return (RectTransform)go.transform;
+        }
+
+        /// <summary>An empty RectTransform child.</summary>
+        public static RectTransform Rect(Transform parent, string name) {
+            var rect = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+            return rect;
+        }
+
+        /// <summary>A sprite image that ignores the pointer.</summary>
+        public static Image Icon(Transform parent, string name, Sprite sprite) {
+            var image = Image(parent, name, Color.white);
+            image.sprite = sprite;
+            image.raycastTarget = false;
+            return image;
+        }
+
+        /// <summary>
+        /// <paramref name="image"/> fills <paramref name="box"/> (its parent, which should clip with a RectMask2D)
+        /// keeping the sprite's aspect, centered: splash arts cropped into a card.
+        /// </summary>
+        public static void AspectFill(Image image, RectTransform box, Vector2 focus = default) {
+            var sprite = image.sprite;
+            var size = box.rect.size;
+            if (sprite == null || size.x <= 0 || size.y <= 0) {
+                Stretch(image.rectTransform);
+                return;
+            }
+            var aspect = sprite.rect.width / sprite.rect.height;
+            var fill = aspect > size.x / size.y ? new Vector2(size.y * aspect, size.y) : new Vector2(size.x, size.x / aspect);
+            var rect = image.rectTransform;
+            rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.sizeDelta = fill;
+            rect.anchoredPosition = new Vector2(-focus.x * (fill.x - size.x) / 2, -focus.y * (fill.y - size.y) / 2);
         }
 
         public static Image Image(Transform parent, string name, Color color) {

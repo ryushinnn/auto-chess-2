@@ -451,6 +451,26 @@
       "passive": "Mỗi khi gây hoặc chịu tổng cộng #[3] sát thương, triệu hồi 1 [<color=purple>Phân Thân</color>] cạnh kẻ địch yếu máu nhất (tối đa #[5] phân thân cùng lúc). Phân thân có #[4] chỉ số gốc của Rét (không tính trang bị) và chiến đấu như một tướng.",
       "active": "Thu hồi toàn bộ phân thân và hồi máu bằng tổng máu còn lại của chúng, sau đó ném phi tiêu theo đường thẳng dài #[2] ô, gây <color=grey>(#[0] + #[1]<sprite name=pdmg>)</color> sát thương vật lý (có thể chí mạng) lên mọi kẻ địch trúng đòn.",
       "specialKeys": []
+    },
+    {
+      "id": "Tristana",
+      "params": [
+        [
+          "atk_spd_mul",
+          1.0,
+          true
+        ],
+        [
+          "crit_chance_mul",
+          0.2,
+          true
+        ],
+        [
+          "duration",
+          4,
+          false
+        ]
+      ]
     }
   ]
 }

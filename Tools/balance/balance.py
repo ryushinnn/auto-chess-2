@@ -39,7 +39,7 @@ DESTINIES = ROOT / "Assets" / "_main" / "Data" / "Destinies"
 
 ROLE_BITS = {"Duelist": 1, "Sorcerer": 2, "Marksman": 4, "Assassin": 8, "Bruiser": 16, "Cultist": 32}
 TIER_NAMES = {1: "Unknown", 2: "Elite", 3: "Legendary"}
-FIGHT_TARGET = (17.0, 23.0)  # median team fight at level 7, seconds
+FIGHT_TARGET = (23.0, 28.0)  # median team fight at level 7, seconds
 
 
 def load_config():

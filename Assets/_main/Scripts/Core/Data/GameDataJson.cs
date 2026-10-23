@@ -43,7 +43,7 @@ namespace AutoChess.Core {
                     ["name"] = t.Name, ["checkpoints"] = t.Checkpoints, ["params"] = t.Params,
                 }),
                 ["stages"] = Map(c.Stages, s => new Dictionary<string, object> {
-                    ["name"] = s.Name,
+                    ["name"] = s.Name, ["creeps"] = s.Creeps,
                     ["rounds"] = Map(s.Rounds, r => new Dictionary<string, object> {
                         ["enemies"] = Map(r.Enemies, e => new Dictionary<string, object> {
                             ["unit"] = e.UnitId, ["rank"] = e.Rank.ToString(), ["row"] = e.Cell.Row, ["col"] = e.Cell.Col,
@@ -132,7 +132,7 @@ namespace AutoChess.Core {
                         Enemies = enemies.ToArray(), Rewards = Rewards(List(rd, "rewards")), WinRewards = Rewards(List(rd, "winRewards")),
                     });
                 }
-                c.Stages.Add(new StageDefinition { Name = S(d, "name"), Rounds = rounds.ToArray() });
+                c.Stages.Add(new StageDefinition { Name = S(d, "name"), Creeps = d.TryGetValue("creeps", out var creeps) && creeps is bool b && b, Rounds = rounds.ToArray() });
             }
             return c;
         }

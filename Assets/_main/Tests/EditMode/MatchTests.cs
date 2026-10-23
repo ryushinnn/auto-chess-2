@@ -240,6 +240,11 @@ namespace AutoChess.Core.Tests {
             var s = new LocalGameSession(db, new MatchConfig { Seed = 5, AllowCheats = true });
             s.Start();
             s.Execute(new ChooseStarterCommand { OfferIndex = 0 });
+            // a team that survives the whole campaign (the creep stages hit hard)
+            s.Execute(new CheatXpCommand { Amount = 500 });
+            foreach (var id in new[] { HeroIds.Malphite, HeroIds.Blitzcrank, HeroIds.Zed, HeroIds.Yone, HeroIds.Lux, HeroIds.Jinx, HeroIds.Janna, HeroIds.LeeSin }) {
+                s.Execute(new CheatUnitCommand { UnitId = id, Rank = HeroRank.S });
+            }
             var rounds = db.Stages.Sum(st => st.Rounds.Length);
             for (var r = 0; r < rounds; r++) {
                 Assert.AreEqual(MatchPhase.Preparation, s.State.Phase, $"round {r}");

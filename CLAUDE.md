@@ -50,9 +50,11 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   the AutoTest `restart` op default to it: `bots=0 untimed=true`; the 8-player lobby is `bots=7 untimed=false`).
   Gameplay numbers: `GameRules` (code) + ScriptableObjects. Unit stats and synergy params come from
   `Tools/balance` (edit `balance_config.json`, then `balance.py apply` + re-export; docs/ARCHITECTURE.md "Balance").
-- New HUD / screens: build them in code with `UiBuilder` like `MatchHud` / `LobbyUI` (no prefab YAML needed).
+- New HUD / screens: build them in code with `UiBuilder` like `MatchHud` / `ArenaScreen` / `LobbyUI` (no prefab
+  YAML needed); hover cards through `Tooltip` + `Hover`. AutoTest paths: `GameManager/ArenaHud/...`.
 - Scenes: Lobby (menus, matchmaking) -> Arena (the match only). Stages / cell size / UI font: `ClientConfig`
-  (Resources), not the scene. AutoTest scenarios run in the Arena; `ac_lobby_flow` starts from the Lobby.
+  (Resources), not the scene. Creep stages: `Tools/stages/creep_stages.json` -> `py Tools/stages/make_stages.py` ->
+  re-export. AutoTest scenarios run in the Arena; `ac_lobby_flow` starts from the Lobby.
 
 ## Checks after a change
 

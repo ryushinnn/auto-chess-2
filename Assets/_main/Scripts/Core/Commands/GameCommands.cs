@@ -10,6 +10,8 @@ namespace AutoChess.Core {
         EquipItem = 8,
         Ready = 9,
         SellUnit = 10,
+        UnequipItem = 11,
+        CombineItems = 12,
 
         // Development / test only (rejected unless MatchConfig.AllowCheats).
         CheatGold = 100,
@@ -76,6 +78,21 @@ namespace AutoChess.Core {
         public string ItemId;
         public int UnitId;
         public override CommandType Type => CommandType.EquipItem;
+    }
+
+    /// <summary>Takes item <see cref="Index"/> off a unit back to the item bench (a combined item stays combined).
+    /// Bench units any time, board units during preparation (like equipping).</summary>
+    public sealed class UnequipItemCommand : GameCommand {
+        public int UnitId;
+        public int Index;
+        public override CommandType Type => CommandType.UnequipItem;
+    }
+
+    /// <summary>Forges two components of the item bench into their combined item (the same id twice needs two copies).</summary>
+    public sealed class CombineItemsCommand : GameCommand {
+        public string First;
+        public string Second;
+        public override CommandType Type => CommandType.CombineItems;
     }
 
     /// <summary>The player is done preparing. When every player is ready the phase ends shortly after.</summary>

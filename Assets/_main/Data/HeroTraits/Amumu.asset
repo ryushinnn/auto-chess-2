@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 3384890859083404076, guid: 7ba4b3346f5d6464db67eb759faa0413, type: 3}
   thumbnail: {fileID: 21300000, guid: e98516986821d7a4db9dde24c85d7ab2, type: 3}
   skillIcon: {fileID: 21300000, guid: eabcd5984ce8a4d479c1d370e90ec04a, type: 3}
-  maxHp: 2157
-  physicalDamage: 68
+  maxHp: 2388
+  physicalDamage: 59
   magicalDamage: 0
   armor: 50
   resistance: 50
@@ -84,6 +84,6 @@ MonoBehaviour:
     l\xE0m cho\xE1ng #[3]s m\u1ECDi k\u1EBB \u0111\u1ECBch trong ph\u1EA1m vi #[2]
     \xF4."
   specialKeys: []
-  dps: 55.131
+  dps: 54.332
   physicalReduction: 33.333332
   magicalReduction: 33.333332

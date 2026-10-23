@@ -65,6 +65,39 @@ namespace AutoChess.Core {
             }
         }
 
+        /// <summary>Takes item <paramref name="index"/> off the unit back to the item bench, whole.</summary>
+        public static CommandResult Unequip(MatchContext ctx, PlayerState p, UnitInstance unit, int index, bool boardLocked) {
+            if (unit == null || !p.Units.Contains(unit)) return CommandError.InvalidUnit;
+            if (index < 0 || index >= unit.Items.Count) return CommandError.InvalidItem;
+            if (boardLocked && unit.Location.IsBoard) return CommandError.WrongPhase;
+            var itemId = unit.Items[index];
+            unit.Items.RemoveAt(index);
+            ctx.Events.Add(new UnitItemsChangedEvent { PlayerId = p.Id, UnitId = unit.Id });
+            AddToBench(ctx, p, itemId);
+            return CommandResult.Success;
+        }
+
+        /// <summary>Forges two bench components into their combined item, on the bench.</summary>
+        public static CommandResult CombineOnBench(MatchContext ctx, PlayerState p, string first, string second) {
+            var db = ctx.Db;
+            if (first == null || second == null || !db.TryGetItem(first, out var a) || !db.TryGetItem(second, out var b)) return CommandError.InvalidItem;
+            if (a.IsCombined || b.IsCombined) return CommandError.InvalidItem;
+            var result = db.Combine(first, second);
+            if (result == null) return CommandError.InvalidItem;
+            var stackA = Find(p, first);
+            var stackB = Find(p, second);
+            if (stackA == null || stackB == null || (stackA == stackB ? stackA.Count < 2 : stackA.Count < 1 || stackB.Count < 1)) return CommandError.InvalidItem;
+            Take(p, stackA);
+            Take(p, stackB);
+            AddToBench(ctx, p, result.Id);
+            return CommandResult.Success;
+        }
+
+        static void Take(PlayerState p, ItemStack stack) {
+            stack.Count--;
+            if (stack.Count == 0) p.Items.Remove(stack);
+        }
+
         /// <summary>Equips an item from the player's item bench. Board units only accept items in preparation.</summary>
         public static CommandResult EquipFromBench(MatchContext ctx, PlayerState p, string itemId, UnitInstance unit,
             bool boardLocked) {

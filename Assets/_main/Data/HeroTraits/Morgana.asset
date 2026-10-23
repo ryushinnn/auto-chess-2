@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 562130423724660962, guid: dfc74dea04c00af4da5014d462a88daf, type: 3}
   thumbnail: {fileID: 21300000, guid: 28a1f32dece43774c99513cac375f2e3, type: 3}
   skillIcon: {fileID: 21300000, guid: 5c9a59897c9a55c4ab3bfb50b32d5003, type: 3}
-  maxHp: 1538
+  maxHp: 1807
   physicalDamage: 0
-  magicalDamage: 85
+  magicalDamage: 78
   armor: 27
   resistance: 37
   attackSpeed: 0.889
@@ -83,6 +83,6 @@ MonoBehaviour:
     khi khi\xEAn c\xF2n."
   specialKeys:
   - morgana_black_shield
-  dps: 62.23
+  dps: 75.565
   physicalReduction: 21.259842
   magicalReduction: 27.0073

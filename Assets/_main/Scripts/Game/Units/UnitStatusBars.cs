@@ -32,6 +32,10 @@ namespace AutoChess.Game {
             energyBar.SetMainColor(normalEnergyColor);
         }
 
+        /// <summary>Tick marks on the health bar: a small one every 100 health, a big one every 1000 (of
+        /// <paramref name="total"/>, the health the full bar stands for).</summary>
+        public void SetHealthScale(double total) => healthBar.SetTicks((float)total, 100, 1000);
+
         public void SetHealth(float fraction) {
             if (Mathf.Approximately(fraction, shownHealth)) return;
             shownHealth = fraction;
@@ -46,6 +50,7 @@ namespace AutoChess.Game {
             var shield = unit.ShieldAmount;
             var total = System.Math.Max(unit.MaxHp, unit.Hp + shield);
             if (total <= 0) return;
+            SetHealthScale(total);
             SetHealth((float)(System.Math.Max(0, unit.Hp) / total));
             healthBar.SetOverlay(shield > 0 ? (float)((System.Math.Max(0, unit.Hp) + shield) / total) : 0, shieldColor);
         }

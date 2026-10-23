@@ -310,6 +310,7 @@ namespace AutoChess.Core.Combat {
                 Battle.Emit(new UnitDodgedEvent { UnitId = Id, SourceId = source?.Id ?? -1 });
                 return 0;
             }
+            damage.Value *= Battle.OvertimeDamageMultiplier;
             var dealt = Mitigate(damage);
             var absorbed = Absorb(dealt, damage.Type);
             var toHealth = dealt - absorbed;

@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 4925934763973811433, guid: 309e373baef5d4845891964e4d8fc731, type: 3}
   thumbnail: {fileID: 21300000, guid: 1971d903ff4418f48bf2ce69d7f8d35d, type: 3}
   skillIcon: {fileID: 21300000, guid: 1a2622aa72c511f4399c862ed513dd7b, type: 3}
-  maxHp: 2352
+  maxHp: 2720
   physicalDamage: 0
-  magicalDamage: 111
+  magicalDamage: 100
   armor: 41
   resistance: 37
   attackSpeed: 0.993
@@ -86,6 +86,6 @@ MonoBehaviour:
     nh\xE1t cu\u1ED1i g\xE2y s\xE1t th\u01B0\u01A1ng chu\u1EA9n l\xEAn m\u1EE5c ti\xEAu
     ch\xEDnh."
   specialKeys: []
-  dps: 111.215996
+  dps: 110.223
   physicalReduction: 29.078014
   magicalReduction: 27.0073

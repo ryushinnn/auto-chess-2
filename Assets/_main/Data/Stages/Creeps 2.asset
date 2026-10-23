@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ef0f974f644ec384cf929bd0bafac9, type: 3}
+  m_Name: Creeps 2
+  m_EditorClassIdentifier: 
+  creeps: 1
+  matches:
+  - enemies:
+    - heroId: Yasuo
+      rank: 0
+      gridPosition: {x: 6, y: 2}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Ashe
+      rank: 0
+      gridPosition: {x: 7, y: 5}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Malphite
+      rank: 0
+      gridPosition: {x: 5, y: 4}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    rewards:
+    - type: coin
+      coins: 3
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: Irelia
+      rank: 0
+      gridPosition: {x: 5, y: 2}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Amumu
+      rank: 0
+      gridPosition: {x: 5, y: 5}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Caitlyn
+      rank: 0
+      gridPosition: {x: 7, y: 1}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Teemo
+      rank: 0
+      gridPosition: {x: 7, y: 6}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    rewards:
+    - type: coin
+      coins: 3
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: random_coin
+      coins: 0
+      minCoins: 2
+      maxCoins: 4
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: Malphite
+      rank: 1
+      gridPosition: {x: 5, y: 3}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Yasuo
+      rank: 0
+      gridPosition: {x: 5, y: 5}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Akali
+      rank: 0
+      gridPosition: {x: 6, y: 1}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Ashe
+      rank: 0
+      gridPosition: {x: 7, y: 4}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    - heroId: Lux
+      rank: 0
+      gridPosition: {x: 7, y: 6}
+      items: []
+      hpScale: 0.7
+      damageScale: 0.63
+    rewards:
+    - type: coin
+      coins: 3
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: coin
+      coins: 2
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []

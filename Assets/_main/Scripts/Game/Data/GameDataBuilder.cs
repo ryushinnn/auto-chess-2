@@ -114,7 +114,7 @@ namespace AutoChess.Game {
                 }
                 rounds[r] = new RoundDefinition { Enemies = enemies, Rewards = Convert(m.rewards), WinRewards = Convert(m.winRewards) };
             }
-            return new StageDefinition { Name = stage.name, Rounds = rounds };
+            return new StageDefinition { Name = stage.name, Creeps = stage.creeps, Rounds = rounds };
         }
 
         static StatModifier[] Convert(AttributeModifier[] modifiers) {

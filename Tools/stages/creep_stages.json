@@ -1,0 +1,92 @@
+{
+  "note": "Creep stages after Stage 1 (py Tools/stages/make_stages.py writes Assets/_main/Data/Stages/<name>.asset and lists them in ClientConfig). Solo: the campaign plays every round. 2+ players: the last round of creep stage N is the PvE round of PvP stage N+1 (x-7). Units: id, rank (B/A/S), cell [row 4..7, col 0..7], items (ids), hp / dmg scales (default 1). hp / dmg per stage were tuned against the bots (Core probe of 8-bot matches: x-7 won ~55-95%). Rewards: coin N, random_coin [min, max], hero <Unknown|Elite|Legendary>, raw_item, forged_item.",
+  "stages": [
+    {
+      "name": "Creeps 2",
+      "hp": 0.7, "dmg": 0.63,
+      "rounds": [
+        {"units": [["Yasuo", "B", [6, 2]], ["Ashe", "B", [7, 5]], ["Malphite", "B", [5, 4]]],
+         "rewards": ["coin 3"], "win": ["raw_item"]},
+        {"units": [["Irelia", "B", [5, 2]], ["Amumu", "B", [5, 5]], ["Caitlyn", "B", [7, 1]], ["Teemo", "B", [7, 6]]],
+         "rewards": ["coin 3"], "win": ["random_coin 2 4"]},
+        {"units": [["Malphite", "A", [5, 3]], ["Yasuo", "B", [5, 5]], ["Akali", "B", [6, 1]], ["Ashe", "B", [7, 4]], ["Lux", "B", [7, 6]]],
+         "rewards": ["coin 3", "raw_item"], "win": ["raw_item", "coin 2"]}
+      ]
+    },
+    {
+      "name": "Creeps 3",
+      "hp": 0.27, "dmg": 0.243,
+      "rounds": [
+        {"units": [["Zed", "B", [5, 2]], ["Katarina", "B", [5, 5]], ["Morgana", "B", [7, 3]], ["Ahri", "B", [7, 5]]],
+         "rewards": ["coin 4"], "win": ["raw_item"]},
+        {"units": [["Aatrox_Dark", "B", [5, 3]], ["Gwen", "B", [5, 5]], ["Annie", "B", [6, 1]], ["Jinx", "B", [7, 4]], ["Janna", "B", [7, 6]]],
+         "rewards": ["coin 4"], "win": ["hero Elite"]},
+        {"units": [["Aatrox_Dark", "A", [5, 3], ["pdmg+maxhp"]], ["Zed", "A", [6, 0]], ["Katarina", "B", [6, 7]], ["Amumu", "B", [5, 5]],
+                   ["Ahri", "B", [7, 2]], ["Annie", "B", [7, 5]]],
+         "rewards": ["coin 4", "raw_item"], "win": ["raw_item", "raw_item"]}
+      ]
+    },
+    {
+      "name": "Creeps 4",
+      "hp": 0.27, "dmg": 0.243,
+      "rounds": [
+        {"units": [["Blitzcrank", "B", [5, 3]], ["Lulu", "B", [7, 2]], ["Lux", "B", [7, 4]], ["Janna", "B", [7, 6]], ["Kaisa", "B", [6, 5]]],
+         "rewards": ["coin 5"], "win": ["raw_item"]},
+        {"units": [["Blitzcrank", "B", [5, 2]], ["Malphite", "B", [5, 5]], ["Lux", "A", [7, 3]], ["Kaisa", "A", [7, 5]], ["Lulu", "B", [6, 4]],
+                   ["MissFortune", "B", [7, 0]]],
+         "rewards": ["coin 5"], "win": ["random_coin 3 6"]},
+        {"units": [["Blitzcrank", "A", [5, 2], ["maxhp+resistance"]], ["Malphite", "A", [5, 4], ["armor+maxhp"]], ["Lux", "A", [7, 3], ["mdmg+energy"]],
+                   ["Kaisa", "A", [7, 5], ["atkspd+mdmg"]], ["Lulu", "B", [6, 1]], ["Janna", "B", [6, 6]], ["Jinx", "B", [7, 7]]],
+         "rewards": ["coin 5", "raw_item"], "win": ["forged_item"]}
+      ]
+    },
+    {
+      "name": "Creeps 5",
+      "hp": 0.3, "dmg": 0.27,
+      "rounds": [
+        {"units": [["Yasuo", "A", [5, 2]], ["Yone", "A", [5, 5]], ["Irelia", "B", [6, 3]], ["Akali", "B", [6, 6]], ["Ashe", "B", [7, 1]]],
+         "rewards": ["coin 5"], "win": ["raw_item"]},
+        {"units": [["Yasuo", "A", [5, 1]], ["Yone", "A", [5, 4]], ["Irelia", "A", [5, 6]], ["Gwen", "B", [6, 3]], ["Caitlyn", "A", [7, 2]],
+                   ["Lulu", "B", [7, 5]]],
+         "rewards": ["coin 5"], "win": ["hero Legendary"]},
+        {"units": [["Yone", "A", [5, 3], ["pdmg+crit"]], ["Yasuo", "A", [5, 5], ["crit+atkspd"]], ["Irelia", "A", [5, 1], ["armor+pdmg"]],
+                   ["Gwen", "A", [6, 6], ["mdmg+maxhp"]], ["LeeSin", "A", [6, 2]], ["Caitlyn", "A", [7, 3], ["pdmg+pdmg"]],
+                   ["Janna", "B", [7, 6]], ["MissFortune", "A", [7, 0]]],
+         "rewards": ["coin 6", "raw_item"], "win": ["forged_item", "raw_item"]}
+      ]
+    },
+    {
+      "name": "Creeps 6",
+      "hp": 0.33, "dmg": 0.297,
+      "rounds": [
+        {"units": [["Aatrox_Dark", "A", [5, 3]], ["Morgana", "A", [7, 3]], ["Zed", "A", [6, 6]], ["Amumu", "A", [5, 5]], ["Ahri", "B", [7, 6]],
+                   ["Annie", "B", [7, 1]]],
+         "rewards": ["coin 6"], "win": ["raw_item"]},
+        {"units": [["Aatrox_Dark", "A", [5, 2]], ["Amumu", "A", [5, 4]], ["Morgana", "A", [7, 3]], ["Zed", "A", [6, 7]], ["Ahri", "A", [7, 5]],
+                   ["Annie", "A", [6, 1]], ["Teemo", "B", [7, 0]]],
+         "rewards": ["coin 6"], "win": ["random_coin 4 8"]},
+        {"units": [["Aatrox_Dark", "A", [5, 3], ["pdmg+maxhp", "armor+resistance"]], ["Amumu", "A", [5, 5], ["armor+maxhp"]],
+                   ["Morgana", "A", [7, 3], ["mdmg+mdmg"]], ["Zed", "A", [6, 0], ["pdmg+crit"]], ["Ahri", "A", [7, 5], ["mdmg+energy"]],
+                   ["Annie", "A", [6, 6], ["mdmg+maxhp"]], ["Kaisa", "A", [7, 1], ["atkspd+mdmg"]], ["Teemo", "A", [7, 7]]],
+         "rewards": ["coin 6", "raw_item"], "win": ["forged_item", "forged_item"]}
+      ]
+    },
+    {
+      "name": "Creeps 7",
+      "hp": 0.36, "dmg": 0.324,
+      "rounds": [
+        {"units": [["Malphite", "A", [5, 3]], ["Blitzcrank", "A", [5, 5]], ["Jinx", "A", [7, 3]], ["Tristana", "A", [7, 5]], ["Janna", "A", [7, 1]],
+                   ["LeeSin", "A", [6, 6]]],
+         "rewards": ["coin 6"], "win": ["raw_item"]},
+        {"units": [["Malphite", "A", [5, 2]], ["Blitzcrank", "A", [5, 5]], ["Zed", "A", [6, 0]], ["Yone", "A", [6, 7]], ["Lux", "A", [7, 3]],
+                   ["Jinx", "A", [7, 5]], ["Janna", "A", [7, 1]]],
+         "rewards": ["coin 6"], "win": ["forged_item"]},
+        {"units": [["Malphite", "S", [5, 3], ["armor+maxhp", "maxhp+resistance"]], ["Blitzcrank", "A", [5, 5], ["maxhp+resistance"]],
+                   ["Zed", "A", [6, 0], ["pdmg+crit", "crit+atkspd"]], ["Yone", "A", [6, 7], ["pdmg+pdmg"]], ["LeeSin", "A", [5, 1]],
+                   ["Lux", "A", [7, 3], ["mdmg+mdmg", "mdmg+energy"]], ["Jinx", "A", [7, 5], ["atkspd+atkspd"]], ["Janna", "A", [7, 1]],
+                   ["Tristana", "A", [7, 7], ["crit+atkspd"]]],
+         "rewards": ["coin 8", "raw_item"], "win": ["forged_item", "forged_item"]}
+      ]
+    }
+  ]
+}

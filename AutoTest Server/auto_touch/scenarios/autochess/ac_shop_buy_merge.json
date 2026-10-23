@@ -5,8 +5,7 @@
   "actions": [
     {"action": "op", "op": "gold", "params": {"amount": 20}, "expect": {"ok": true}},
     {"action": "op", "op": "set-shop", "params": {"units": "Malphite,Malphite,Malphite,Zed,-"}, "expect": {"ok": true}},
-    {"action": "click", "path": "ArenaUIManager/Arena/shop", "label": "open the shop"},
-    {"action": "wait_ui", "path": "ArenaUIManager/Shop", "state": "active"},
+    {"action": "wait_ui", "path": "GameManager/ArenaHud/Hud/Shop", "state": "active"},
     {"action": "click", "target": "shop:0", "label": "buy Malphite #1"},
     {"action": "click", "target": "shop:1", "label": "buy Malphite #2"},
     {"action": "assert", "path": "player.unitCount", "equals": 3},

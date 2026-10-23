@@ -41,6 +41,14 @@ namespace AutoChess.Core.Net {
                 case SellUnitCommand c:
                     w.WriteVarInt(c.UnitId);
                     break;
+                case UnequipItemCommand c:
+                    w.WriteVarInt(c.UnitId);
+                    w.WriteVarInt(c.Index);
+                    break;
+                case CombineItemsCommand c:
+                    w.WriteString(c.First);
+                    w.WriteString(c.Second);
+                    break;
                 case CheatGoldCommand c:
                     w.WriteVarInt(c.Amount);
                     break;
@@ -84,6 +92,8 @@ namespace AutoChess.Core.Net {
                 CommandType.EquipItem => new EquipItemCommand { ItemId = r.ReadString(), UnitId = r.ReadVarInt() },
                 CommandType.Ready => new ReadyCommand(),
                 CommandType.SellUnit => new SellUnitCommand { UnitId = r.ReadVarInt() },
+                CommandType.UnequipItem => new UnequipItemCommand { UnitId = r.ReadVarInt(), Index = r.ReadVarInt() },
+                CommandType.CombineItems => new CombineItemsCommand { First = r.ReadString(), Second = r.ReadString() },
                 CommandType.CheatGold => new CheatGoldCommand { Amount = r.ReadVarInt() },
                 CommandType.CheatXp => new CheatXpCommand { Amount = r.ReadVarInt() },
                 CommandType.CheatItem => new CheatItemCommand { ItemId = r.ReadString(), Count = r.ReadVarInt() },

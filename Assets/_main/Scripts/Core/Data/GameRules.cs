@@ -22,6 +22,11 @@ namespace AutoChess.Core {
         /// (attack speed 0.2 - 0.6), so its fights take 20 - 50 s and keep the original minute.
         /// </summary>
         public double BattleSeconds = 60;
+        /// <summary>Overtime: a fight still going after this many seconds deals more damage every second
+        /// (<see cref="OvertimeDamagePerSecond"/>), so the slowest board of a round does not hold everybody up.</summary>
+        public double OvertimeStartSeconds = 30;
+        /// <summary>Extra damage per second of overtime (0.15: +150% ten seconds in).</summary>
+        public double OvertimeDamagePerSecond = 0.15;
         public double SummarySeconds = 3;
         /// <summary>A ready vote (or the old Space shortcut) shortens the current phase to this.</summary>
         public double ReadyRemainingSeconds = 1;

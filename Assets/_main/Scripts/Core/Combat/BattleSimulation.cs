@@ -40,6 +40,8 @@ namespace AutoChess.Core.Combat {
 
         public int Tick { get; private set; }
         public double Time => Tick * TickDelta;
+        /// <summary>Damage multiplier of overtime (1 before <see cref="GameRules.OvertimeStartSeconds"/>).</summary>
+        public double OvertimeDamageMultiplier => Time <= Rules.OvertimeStartSeconds ? 1 : 1 + (Time - Rules.OvertimeStartSeconds) * Rules.OvertimeDamagePerSecond;
         public bool Started { get; private set; }
         public bool Finished { get; private set; }
         public BattleOutcome Outcome { get; private set; }

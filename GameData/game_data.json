@@ -13,8 +13,8 @@
       "roles": 9,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2911,
-      "physicalDamage": 179,
+      "maxHp": 3424,
+      "physicalDamage": 165,
       "magicalDamage": 0,
       "armor": 40,
       "resistance": 38,
@@ -121,9 +121,9 @@
       "roles": 3,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2532,
+      "maxHp": 2859,
       "physicalDamage": 0,
-      "magicalDamage": 137,
+      "magicalDamage": 122,
       "armor": 39,
       "resistance": 42,
       "attackSpeed": 0.98000001907348633,
@@ -227,8 +227,8 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1899,
-      "physicalDamage": 86,
+      "maxHp": 2164,
+      "physicalDamage": 76,
       "magicalDamage": 0,
       "armor": 36,
       "resistance": 32,
@@ -310,8 +310,8 @@
       "roles": 8,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 1868,
-      "physicalDamage": 141,
+      "maxHp": 2081,
+      "physicalDamage": 123,
       "magicalDamage": 0,
       "armor": 34,
       "resistance": 34,
@@ -405,8 +405,8 @@
       "roles": 33,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 4064,
-      "physicalDamage": 205,
+      "maxHp": 4612,
+      "physicalDamage": 182,
       "magicalDamage": 0,
       "armor": 46,
       "resistance": 42,
@@ -496,9 +496,9 @@
       "roles": 8,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1427,
+      "maxHp": 1635,
       "physicalDamage": 0,
-      "magicalDamage": 97,
+      "magicalDamage": 87,
       "armor": 24,
       "resistance": 24,
       "attackSpeed": 1.0049999952316284,
@@ -569,8 +569,8 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1924,
-      "physicalDamage": 98,
+      "maxHp": 2189,
+      "physicalDamage": 87,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
@@ -646,8 +646,8 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1928,
-      "physicalDamage": 98,
+      "maxHp": 2155,
+      "physicalDamage": 85,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
@@ -724,8 +724,8 @@
       "roles": 4,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2148,
-      "physicalDamage": 113,
+      "maxHp": 2480,
+      "physicalDamage": 102,
       "magicalDamage": 0,
       "armor": 25,
       "resistance": 25,
@@ -795,8 +795,8 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 2139,
-      "physicalDamage": 97,
+      "maxHp": 2419,
+      "physicalDamage": 85,
       "magicalDamage": 0,
       "armor": 36,
       "resistance": 32,
@@ -864,8 +864,8 @@
       "roles": 8,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1752,
-      "physicalDamage": 124,
+      "maxHp": 2042,
+      "physicalDamage": 113,
       "magicalDamage": 0,
       "armor": 29,
       "resistance": 29,
@@ -937,8 +937,8 @@
       "roles": 16,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2928,
-      "physicalDamage": 95,
+      "maxHp": 3314,
+      "physicalDamage": 85,
       "magicalDamage": 0,
       "armor": 55,
       "resistance": 55,
@@ -1014,9 +1014,9 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1188,
-      "physicalDamage": 60,
-      "magicalDamage": 60,
+      "maxHp": 1370,
+      "physicalDamage": 54,
+      "magicalDamage": 54,
       "armor": 20,
       "resistance": 20,
       "attackSpeed": 1.1339999437332153,
@@ -1119,9 +1119,9 @@
       "roles": 2,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1538,
+      "maxHp": 1807,
       "physicalDamage": 0,
-      "magicalDamage": 85,
+      "magicalDamage": 78,
       "armor": 27,
       "resistance": 37,
       "attackSpeed": 0.88899999856948853,
@@ -1190,9 +1190,9 @@
       "roles": 34,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1761,
+      "maxHp": 2008,
       "physicalDamage": 0,
-      "magicalDamage": 97,
+      "magicalDamage": 87,
       "armor": 27,
       "resistance": 37,
       "attackSpeed": 0.88899999856948853,
@@ -1273,8 +1273,8 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1377,
-      "physicalDamage": 70,
+      "maxHp": 2017,
+      "physicalDamage": 80,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
@@ -1323,7 +1323,7 @@
         ]
       ],
       "skillParams": [
-        5,
+        1,
         0.20000000298023224,
         4
       ],
@@ -1434,9 +1434,9 @@
       "roles": 10,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1787,
+      "maxHp": 2083,
       "physicalDamage": 0,
-      "magicalDamage": 112,
+      "magicalDamage": 102,
       "armor": 28,
       "resistance": 33,
       "attackSpeed": 0.96700000762939453,
@@ -1505,8 +1505,8 @@
       "roles": 48,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 2157,
-      "physicalDamage": 68,
+      "maxHp": 2388,
+      "physicalDamage": 59,
       "magicalDamage": 0,
       "armor": 50,
       "resistance": 50,
@@ -1576,9 +1576,9 @@
       "roles": 2,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1786,
+      "maxHp": 2040,
       "physicalDamage": 0,
-      "magicalDamage": 94,
+      "magicalDamage": 85,
       "armor": 22,
       "resistance": 32,
       "attackSpeed": 0.85100001096725464,
@@ -1649,8 +1649,8 @@
       "roles": 16,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2296,
-      "physicalDamage": 75,
+      "maxHp": 2552,
+      "physicalDamage": 65,
       "magicalDamage": 0,
       "armor": 55,
       "resistance": 55,
@@ -1731,9 +1731,9 @@
       "roles": 1,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2352,
+      "maxHp": 2720,
       "physicalDamage": 0,
-      "magicalDamage": 111,
+      "magicalDamage": 100,
       "armor": 41,
       "resistance": 37,
       "attackSpeed": 0.99299997091293335,
@@ -1802,9 +1802,9 @@
       "roles": 2,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2094,
+      "maxHp": 2408,
       "physicalDamage": 0,
-      "magicalDamage": 115,
+      "magicalDamage": 104,
       "armor": 27,
       "resistance": 37,
       "attackSpeed": 0.88899999856948853,
@@ -1875,8 +1875,8 @@
       "roles": 36,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 3052,
-      "physicalDamage": 173,
+      "maxHp": 3510,
+      "physicalDamage": 156,
       "magicalDamage": 0,
       "armor": 30,
       "resistance": 30,
@@ -1956,8 +1956,8 @@
       "roles": 24,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 3227,
-      "physicalDamage": 166,
+      "maxHp": 3861,
+      "physicalDamage": 155,
       "magicalDamage": 0,
       "armor": 47,
       "resistance": 47,
@@ -2033,9 +2033,9 @@
       "roles": 2,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 871,
+      "maxHp": 880,
       "physicalDamage": 0,
-      "magicalDamage": 46,
+      "magicalDamage": 36,
       "armor": 22,
       "resistance": 32,
       "attackSpeed": 0.85100001096725464,
@@ -2106,9 +2106,9 @@
       "roles": 2,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 3586,
+      "maxHp": 4129,
       "physicalDamage": 0,
-      "magicalDamage": 212,
+      "magicalDamage": 191,
       "armor": 32,
       "resistance": 42,
       "attackSpeed": 0.92799997329711914,
@@ -3380,6 +3380,7 @@
   "stages": [
     {
       "name": "Stage 1",
+      "creeps": false,
       "rounds": [
         {
           "enemies": [
@@ -3389,7 +3390,7 @@
               "row": 6,
               "col": 3,
               "items": [],
-              "hpScale": 0.5,
+              "hpScale": 0.40000000596046448,
               "damageScale": 0.40000000596046448
             },
             {
@@ -3398,7 +3399,7 @@
               "row": 7,
               "col": 4,
               "items": [],
-              "hpScale": 0.5,
+              "hpScale": 0.40000000596046448,
               "damageScale": 0.40000000596046448
             }
           ],
@@ -3431,7 +3432,7 @@
               "row": 7,
               "col": 3,
               "items": [],
-              "hpScale": 0.60000002384185791,
+              "hpScale": 0.5,
               "damageScale": 0.5
             },
             {
@@ -3440,7 +3441,7 @@
               "row": 7,
               "col": 4,
               "items": [],
-              "hpScale": 0.60000002384185791,
+              "hpScale": 0.5,
               "damageScale": 0.5
             }
           ],
@@ -3475,7 +3476,7 @@
               "items": [
                 "_atkspd"
               ],
-              "hpScale": 0.800000011920929,
+              "hpScale": 0.60000002384185791,
               "damageScale": 1
             },
             {
@@ -3486,7 +3487,7 @@
               "items": [
                 "_atkspd"
               ],
-              "hpScale": 0.800000011920929,
+              "hpScale": 0.60000002384185791,
               "damageScale": 1
             },
             {
@@ -3497,7 +3498,7 @@
               "items": [
                 "_atkspd"
               ],
-              "hpScale": 0.800000011920929,
+              "hpScale": 0.60000002384185791,
               "damageScale": 1
             }
           ],
@@ -3549,7 +3550,7 @@
                 "armor+maxhp",
                 "maxhp+maxhp"
               ],
-              "hpScale": 1,
+              "hpScale": 0.60000002384185791,
               "damageScale": 1
             }
           ],
@@ -3594,6 +3595,1577 @@
               "minCoins": 0,
               "maxCoins": 0,
               "reputation": "Elite",
+              "options": []
+            },
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Creeps 2",
+      "creeps": true,
+      "rounds": [
+        {
+          "enemies": [
+            {
+              "unit": "Yasuo",
+              "rank": "B",
+              "row": 6,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Ashe",
+              "rank": "B",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Malphite",
+              "rank": "B",
+              "row": 5,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 3,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Irelia",
+              "rank": "B",
+              "row": 5,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Amumu",
+              "rank": "B",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Caitlyn",
+              "rank": "B",
+              "row": 7,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Teemo",
+              "rank": "B",
+              "row": 7,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 3,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RandomCoin",
+              "coins": 0,
+              "minCoins": 2,
+              "maxCoins": 4,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Malphite",
+              "rank": "A",
+              "row": 5,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Yasuo",
+              "rank": "B",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Akali",
+              "rank": "B",
+              "row": 6,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Ashe",
+              "rank": "B",
+              "row": 7,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            },
+            {
+              "unit": "Lux",
+              "rank": "B",
+              "row": 7,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.699999988079071,
+              "damageScale": 0.62999999523162842
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 3,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "Coin",
+              "coins": 2,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Creeps 3",
+      "creeps": true,
+      "rounds": [
+        {
+          "enemies": [
+            {
+              "unit": "Zed",
+              "rank": "B",
+              "row": 5,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Katarina",
+              "rank": "B",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Morgana",
+              "rank": "B",
+              "row": 7,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Ahri",
+              "rank": "B",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 4,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Aatrox_Dark",
+              "rank": "B",
+              "row": 5,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Gwen",
+              "rank": "B",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Annie",
+              "rank": "B",
+              "row": 6,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Jinx",
+              "rank": "B",
+              "row": 7,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Janna",
+              "rank": "B",
+              "row": 7,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 4,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "Unit",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "Elite",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Aatrox_Dark",
+              "rank": "A",
+              "row": 5,
+              "col": 3,
+              "items": [
+                "maxhp+pdmg"
+              ],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Zed",
+              "rank": "A",
+              "row": 6,
+              "col": 0,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Katarina",
+              "rank": "B",
+              "row": 6,
+              "col": 7,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Amumu",
+              "rank": "B",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Ahri",
+              "rank": "B",
+              "row": 7,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Annie",
+              "rank": "B",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 4,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Creeps 4",
+      "creeps": true,
+      "rounds": [
+        {
+          "enemies": [
+            {
+              "unit": "Blitzcrank",
+              "rank": "B",
+              "row": 5,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Lulu",
+              "rank": "B",
+              "row": 7,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Lux",
+              "rank": "B",
+              "row": 7,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Janna",
+              "rank": "B",
+              "row": 7,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Kaisa",
+              "rank": "B",
+              "row": 6,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 5,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Blitzcrank",
+              "rank": "B",
+              "row": 5,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Malphite",
+              "rank": "B",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Lux",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Kaisa",
+              "rank": "A",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Lulu",
+              "rank": "B",
+              "row": 6,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "MissFortune",
+              "rank": "B",
+              "row": 7,
+              "col": 0,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 5,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RandomCoin",
+              "coins": 0,
+              "minCoins": 3,
+              "maxCoins": 6,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Blitzcrank",
+              "rank": "A",
+              "row": 5,
+              "col": 2,
+              "items": [
+                "maxhp+resistance"
+              ],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Malphite",
+              "rank": "A",
+              "row": 5,
+              "col": 4,
+              "items": [
+                "armor+maxhp"
+              ],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Lux",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [
+                "energy+mdmg"
+              ],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Kaisa",
+              "rank": "A",
+              "row": 7,
+              "col": 5,
+              "items": [
+                "atkspd+mdmg"
+              ],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Lulu",
+              "rank": "B",
+              "row": 6,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Janna",
+              "rank": "B",
+              "row": 6,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            },
+            {
+              "unit": "Jinx",
+              "rank": "B",
+              "row": 7,
+              "col": 7,
+              "items": [],
+              "hpScale": 0.27000001072883606,
+              "damageScale": 0.24300000071525574
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 5,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Creeps 5",
+      "creeps": true,
+      "rounds": [
+        {
+          "enemies": [
+            {
+              "unit": "Yasuo",
+              "rank": "A",
+              "row": 5,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Yone",
+              "rank": "A",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Irelia",
+              "rank": "B",
+              "row": 6,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Akali",
+              "rank": "B",
+              "row": 6,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Ashe",
+              "rank": "B",
+              "row": 7,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 5,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Yasuo",
+              "rank": "A",
+              "row": 5,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Yone",
+              "rank": "A",
+              "row": 5,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Irelia",
+              "rank": "A",
+              "row": 5,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Gwen",
+              "rank": "B",
+              "row": 6,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Caitlyn",
+              "rank": "A",
+              "row": 7,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Lulu",
+              "rank": "B",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 5,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "Unit",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "Legendary",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Yone",
+              "rank": "A",
+              "row": 5,
+              "col": 3,
+              "items": [
+                "crit+pdmg"
+              ],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Yasuo",
+              "rank": "A",
+              "row": 5,
+              "col": 5,
+              "items": [
+                "atkspd+crit"
+              ],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Irelia",
+              "rank": "A",
+              "row": 5,
+              "col": 1,
+              "items": [
+                "armor+pdmg"
+              ],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Gwen",
+              "rank": "A",
+              "row": 6,
+              "col": 6,
+              "items": [
+                "maxhp+mdmg"
+              ],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "LeeSin",
+              "rank": "A",
+              "row": 6,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Caitlyn",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [
+                "pdmg+pdmg"
+              ],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "Janna",
+              "rank": "B",
+              "row": 7,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            },
+            {
+              "unit": "MissFortune",
+              "rank": "A",
+              "row": 7,
+              "col": 0,
+              "items": [],
+              "hpScale": 0.30000001192092896,
+              "damageScale": 0.27000001072883606
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Creeps 6",
+      "creeps": true,
+      "rounds": [
+        {
+          "enemies": [
+            {
+              "unit": "Aatrox_Dark",
+              "rank": "A",
+              "row": 5,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Morgana",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Zed",
+              "rank": "A",
+              "row": 6,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Amumu",
+              "rank": "A",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Ahri",
+              "rank": "B",
+              "row": 7,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Annie",
+              "rank": "B",
+              "row": 7,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Aatrox_Dark",
+              "rank": "A",
+              "row": 5,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Amumu",
+              "rank": "A",
+              "row": 5,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Morgana",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Zed",
+              "rank": "A",
+              "row": 6,
+              "col": 7,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Ahri",
+              "rank": "A",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Annie",
+              "rank": "A",
+              "row": 6,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Teemo",
+              "rank": "B",
+              "row": 7,
+              "col": 0,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RandomCoin",
+              "coins": 0,
+              "minCoins": 4,
+              "maxCoins": 8,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Aatrox_Dark",
+              "rank": "A",
+              "row": 5,
+              "col": 3,
+              "items": [
+                "maxhp+pdmg",
+                "armor+resistance"
+              ],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Amumu",
+              "rank": "A",
+              "row": 5,
+              "col": 5,
+              "items": [
+                "armor+maxhp"
+              ],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Morgana",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [
+                "mdmg+mdmg"
+              ],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Zed",
+              "rank": "A",
+              "row": 6,
+              "col": 0,
+              "items": [
+                "crit+pdmg"
+              ],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Ahri",
+              "rank": "A",
+              "row": 7,
+              "col": 5,
+              "items": [
+                "energy+mdmg"
+              ],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Annie",
+              "rank": "A",
+              "row": 6,
+              "col": 6,
+              "items": [
+                "maxhp+mdmg"
+              ],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Kaisa",
+              "rank": "A",
+              "row": 7,
+              "col": 1,
+              "items": [
+                "atkspd+mdmg"
+              ],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            },
+            {
+              "unit": "Teemo",
+              "rank": "A",
+              "row": 7,
+              "col": 7,
+              "items": [],
+              "hpScale": 0.33000001311302185,
+              "damageScale": 0.296999990940094
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Creeps 7",
+      "creeps": true,
+      "rounds": [
+        {
+          "enemies": [
+            {
+              "unit": "Malphite",
+              "rank": "A",
+              "row": 5,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Blitzcrank",
+              "rank": "A",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Jinx",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Tristana",
+              "rank": "A",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Janna",
+              "rank": "A",
+              "row": 7,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "LeeSin",
+              "rank": "A",
+              "row": 6,
+              "col": 6,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Malphite",
+              "rank": "A",
+              "row": 5,
+              "col": 2,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Blitzcrank",
+              "rank": "A",
+              "row": 5,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Zed",
+              "rank": "A",
+              "row": 6,
+              "col": 0,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Yone",
+              "rank": "A",
+              "row": 6,
+              "col": 7,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Lux",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Jinx",
+              "rank": "A",
+              "row": 7,
+              "col": 5,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Janna",
+              "rank": "A",
+              "row": 7,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Malphite",
+              "rank": "S",
+              "row": 5,
+              "col": 3,
+              "items": [
+                "armor+maxhp",
+                "maxhp+resistance"
+              ],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Blitzcrank",
+              "rank": "A",
+              "row": 5,
+              "col": 5,
+              "items": [
+                "maxhp+resistance"
+              ],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Zed",
+              "rank": "A",
+              "row": 6,
+              "col": 0,
+              "items": [
+                "crit+pdmg",
+                "atkspd+crit"
+              ],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Yone",
+              "rank": "A",
+              "row": 6,
+              "col": 7,
+              "items": [
+                "pdmg+pdmg"
+              ],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "LeeSin",
+              "rank": "A",
+              "row": 5,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Lux",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [
+                "mdmg+mdmg",
+                "energy+mdmg"
+              ],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Jinx",
+              "rank": "A",
+              "row": 7,
+              "col": 5,
+              "items": [
+                "atkspd+atkspd"
+              ],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Janna",
+              "rank": "A",
+              "row": 7,
+              "col": 1,
+              "items": [],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            },
+            {
+              "unit": "Tristana",
+              "rank": "A",
+              "row": 7,
+              "col": 7,
+              "items": [
+                "atkspd+crit"
+              ],
+              "hpScale": 0.36000001430511475,
+              "damageScale": 0.32400000095367432
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 8,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
               "options": []
             },
             {

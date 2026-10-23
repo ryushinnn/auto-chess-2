@@ -10,6 +10,10 @@ namespace AutoChess.Core {
         public readonly GameRules Rules;
         public readonly HexGrid Grid;
         public readonly IReadOnlyList<StageDefinition> Stages;
+        /// <summary>The leading stages that are not creep stages (all PvE, every mode).</summary>
+        public readonly IReadOnlyList<StageDefinition> OpeningStages;
+        /// <summary>Creep stages (<see cref="StageDefinition.Creeps"/>), in order.</summary>
+        public readonly IReadOnlyList<StageDefinition> CreepStages;
 
         readonly Dictionary<string, UnitDefinition> units = new(StringComparer.Ordinal);
         readonly Dictionary<string, ItemDefinition> items = new(StringComparer.Ordinal);
@@ -77,6 +81,15 @@ namespace AutoChess.Core {
                 }
             }
             Stages = stageList;
+            var opening = new List<StageDefinition>();
+            var creeps = new List<StageDefinition>();
+            foreach (var s in stageList) {
+                if (s.Creeps) creeps.Add(s);
+                else if (creeps.Count == 0) opening.Add(s);
+                else throw new ArgumentException($"stage '{s.Name}': opening stages come before the creep stages");
+            }
+            OpeningStages = opening;
+            CreepStages = creeps;
         }
 
         static (string, string) Key(string a, string b) => string.CompareOrdinal(a, b) <= 0 ? (a, b) : (b, a);

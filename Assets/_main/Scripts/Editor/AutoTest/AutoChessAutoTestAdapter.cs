@@ -34,7 +34,7 @@ namespace AutoChess.Game.Editor {
             var state = session.State;
             var p = session.LocalPlayer;
             var rules = session.Db.Rules;
-            var ui = UIManager_Arena.Instance;
+            var ui = ArenaScreen.Instance;
             var battle = state.BattleOf(p.Id);
 
             return new Dictionary<string, object> {
@@ -71,11 +71,9 @@ namespace AutoChess.Game.Editor {
                     ["battleVisible"] = Game.Battle.VisibleBattle != null,
                     ["boardVisible"] = Game.Roster.BoardVisible,
                     ["ui"] = new Dictionary<string, object> {
-                        ["starterPack"] = ui.StarterPack.IsOpen,
-                        ["arena"] = ui.Arena.IsOpen,
-                        ["shop"] = ui.Shop.IsOpen,
-                        ["inventory"] = ui.Inventory.IsOpen,
-                        ["destinies"] = ui.Destinies.IsOpen,
+                        ["starterPack"] = ui.Starter.IsOpen,
+                        ["hud"] = ui.HudOpen,
+                        ["tooltip"] = Tooltip.Visible,
                         ["heroInfo"] = ui.HeroInfo.IsOpen ? ui.HeroInfo.UnitId : -1,
                     },
                 },
@@ -188,9 +186,12 @@ namespace AutoChess.Game.Editor {
             "gold", "xp", "item", "unit", "skip-phase", "set-shop", "fast-forward", "speed", "set-seed",
             "export-data", "migrate", "missing-scripts", "unit-screen", "cell-screen", "can-move", "save-recording",
             "online-connect", "online-find", "online-cancel", "online-leave", "online-disconnect", "view", "sell", "tooltip",
+            "unequip", "combine", "hover", "record-skills", "record-status",
         };
 
         public IReadOnlyList<string> Ops => OpNames;
+
+        static GameObject hovered;
 
         public object GameOp(string op, IReadOnlyDictionary<string, string> args) {
             switch (op) {
@@ -235,15 +236,38 @@ namespace AutoChess.Game.Editor {
                     });
                 case "skip-phase": return Submit(new CheatSkipPhaseCommand());
                 case "sell": return Submit(new SellUnitCommand { UnitId = UnitArg(args, p) });
+                case "hover": {
+                    // Pointer enters the UI object at path=<hierarchy path> (tooltips); no path = leave it.
+                    if (!args.ContainsKey("path")) {
+                        if (hovered != null) UnityEngine.EventSystems.ExecuteEvents.Execute(hovered, new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current),
+                            UnityEngine.EventSystems.ExecuteEvents.pointerExitHandler);
+                        hovered = null;
+                        return new { hovered = false, tooltip = Tooltip.Visible };
+                    }
+                    var target = GameObject.Find(Str(args, "path")) ?? throw new InvalidOperationException($"no object at '{Str(args, "path")}'");
+                    hovered = target;
+                    UnityEngine.EventSystems.ExecuteEvents.Execute(target, new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current),
+                        UnityEngine.EventSystems.ExecuteEvents.pointerEnterHandler);
+                    return new { hovered = true, tooltip = Tooltip.Visible };
+                }
+                case "record-skills": {
+                    // One MP4 per hero using its skill -> Recordings/skills (heroes=Id,Id; none = every shop hero).
+                    var heroes = args.ContainsKey("heroes") ? Str(args, "heroes").Split(',') : null;
+                    var list = AutoChess.Game.SkillVideoRecorder.Start(Game, heroes);
+                    return new { started = true, heroes = list, folder = AutoChess.Game.SkillVideoRecorder.OutputDir };
+                }
+                case "record-status": return AutoChess.Game.SkillVideoRecorder.Status;
+                case "unequip": return Submit(new UnequipItemCommand { UnitId = UnitArg(args, p), Index = Int(args, "index", 0) });
+                case "combine": return Submit(new CombineItemsCommand { First = Str(args, "a"), Second = Str(args, "b", Str(args, "a")) });
                 case "tooltip": {
                     // Item details as on hover: over the item bench slot holding item=<id>; no item = hide.
                     if (!args.ContainsKey("item")) {
-                        AutoChess.Game.ItemTooltip.Hide();
+                        Tooltip.Hide();
                         return new { shown = false };
                     }
-                    var slot = UnityEngine.Object.FindObjectsOfType<AutoChess.Game.Inventory_Item>().FirstOrDefault(i => i.ItemId == Str(args, "item"));
-                    if (slot == null) throw new InvalidOperationException($"no item bench slot holds '{Str(args, "item")}' (open the item bench)");
-                    AutoChess.Game.ItemTooltip.Show(slot.ItemId, (RectTransform)slot.transform);
+                    var slot = ArenaScreen.Instance.Items.Slots.FirstOrDefault(i => i.ItemId == Str(args, "item"));
+                    if (slot == null) throw new InvalidOperationException($"no item bench slot holds '{Str(args, "item")}'");
+                    Tooltip.ShowItem(slot.ItemId, (RectTransform)slot.transform);
                     return new { shown = true };
                 }
                 case "view":
@@ -520,26 +544,25 @@ namespace AutoChess.Game.Editor {
         public List<TargetInfo> GetTargets() {
             var targets = new List<TargetInfo>();
             if (!IsAvailable()) return targets;
-            var ui = UIManager_Arena.Instance;
+            var ui = ArenaScreen.Instance;
             var p = Session.LocalPlayer;
 
-            var cards = ui.Shop.GetComponentsInChildren<Shop_Hero>(true);
-            foreach (var card in cards) {
+            foreach (var card in ui.Shop.Cards) {
                 var slot = card.Slot;
                 var id = slot < p.Shop.Slots.Length ? p.Shop.Slots[slot] : null;
-                targets.Add(AutoTestUtil.Target($"shop:{slot}", "shop", card.gameObject, id ?? "(sold)",
-                    new Dictionary<string, object> { ["unit"] = id, ["sold"] = card.Sold }));
+                targets.Add(AutoTestUtil.Target($"shop:{slot}", "shop", card.Rect.gameObject, id ?? "(sold)",
+                    new Dictionary<string, object> { ["unit"] = id, ["sold"] = id == null }));
             }
 
-            var offers = ui.StarterPack.GetComponentsInChildren<StarterPack_Offer>(true);
-            for (var i = 0; i < offers.Length; i++) {
-                targets.Add(AutoTestUtil.Target($"starter:{i}", "starter", offers[i].gameObject, p.StarterOffers[i].UnitId,
-                    new Dictionary<string, object> { ["unit"] = p.StarterOffers[i].UnitId, ["item"] = p.StarterOffers[i].ItemId }));
+            foreach (var offer in ui.Starter.Offers) {
+                var data = p.StarterOffers[offer.Index];
+                targets.Add(AutoTestUtil.Target($"starter:{offer.Index}", "starter", offer.Rect.Find("Card").gameObject, data.UnitId,
+                    new Dictionary<string, object> { ["unit"] = data.UnitId, ["item"] = data.ItemId }));
             }
 
-            foreach (var item in ui.Inventory.GetComponentsInChildren<Inventory_Item>(true)) {
-                if (item.Empty) continue;
-                targets.Add(AutoTestUtil.Target($"item:{item.ItemId}", "item", item.gameObject, item.ItemId));
+            foreach (var item in ui.Items.Slots) {
+                targets.Add(AutoTestUtil.Target($"item:{item.ItemId}", "item", item.gameObject, item.ItemId,
+                    new Dictionary<string, object> { ["count"] = item.Count }));
             }
 
             var cam = Camera.main;

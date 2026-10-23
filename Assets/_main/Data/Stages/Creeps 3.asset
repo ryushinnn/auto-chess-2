@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ef0f974f644ec384cf929bd0bafac9, type: 3}
+  m_Name: Creeps 3
+  m_EditorClassIdentifier: 
+  creeps: 1
+  matches:
+  - enemies:
+    - heroId: Zed
+      rank: 0
+      gridPosition: {x: 5, y: 2}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Katarina
+      rank: 0
+      gridPosition: {x: 5, y: 5}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Morgana
+      rank: 0
+      gridPosition: {x: 7, y: 3}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Ahri
+      rank: 0
+      gridPosition: {x: 7, y: 5}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    rewards:
+    - type: coin
+      coins: 4
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: Aatrox_Dark
+      rank: 0
+      gridPosition: {x: 5, y: 3}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Gwen
+      rank: 0
+      gridPosition: {x: 5, y: 5}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Annie
+      rank: 0
+      gridPosition: {x: 6, y: 1}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Jinx
+      rank: 0
+      gridPosition: {x: 7, y: 4}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Janna
+      rank: 0
+      gridPosition: {x: 7, y: 6}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    rewards:
+    - type: coin
+      coins: 4
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: hero
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 2
+      randomRewards: []
+  - enemies:
+    - heroId: Aatrox_Dark
+      rank: 1
+      gridPosition: {x: 5, y: 3}
+      items:
+      - {fileID: 11400000, guid: 773da814569686c46a6b67144092c499, type: 2}
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Zed
+      rank: 1
+      gridPosition: {x: 6, y: 0}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Katarina
+      rank: 0
+      gridPosition: {x: 6, y: 7}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Amumu
+      rank: 0
+      gridPosition: {x: 5, y: 5}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Ahri
+      rank: 0
+      gridPosition: {x: 7, y: 2}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    - heroId: Annie
+      rank: 0
+      gridPosition: {x: 7, y: 5}
+      items: []
+      hpScale: 0.27
+      damageScale: 0.243
+    rewards:
+    - type: coin
+      coins: 4
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []

@@ -4,18 +4,18 @@
   "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 41}}],
   "actions": [
     {"action": "op", "op": "gold", "params": {"amount": 10}},
-    {"action": "click", "path": "ArenaUIManager/Arena/level", "label": "buy xp"},
+    {"action": "click", "path": "GameManager/ArenaHud/Hud/Level/BuyXp", "label": "buy xp"},
     {"action": "assert", "path": "player.level", "equals": 3},
     {"action": "assert", "path": "player.xp", "equals": 0},
     {"action": "assert", "path": "player.boardMax", "equals": 3},
     {"action": "assert", "path": "player.gold", "equals": 6},
-    {"action": "click", "path": "ArenaUIManager/Arena/level", "label": "buy xp again"},
+    {"action": "click", "path": "GameManager/ArenaHud/Hud/Level/BuyXp", "label": "buy xp again"},
     {"action": "assert", "path": "player.level", "equals": 3},
     {"action": "assert", "path": "player.xp", "equals": 4},
     {"action": "assert", "path": "player.gold", "equals": 2},
-    {"action": "click", "path": "ArenaUIManager/Arena/level", "label": "no gold left"},
+    {"action": "click", "path": "GameManager/ArenaHud/Hud/Level/BuyXp", "label": "no gold left"},
     {"action": "assert", "path": "player.gold", "equals": 2},
     {"action": "assert", "path": "player.xp", "equals": 4},
-    {"action": "assert_ui", "path": "ArenaUIManager/Arena/lineup&inventory/lineup", "expect": {"caption": "0/3"}, "label": "HUD shows the new limit"}
+    {"action": "assert_ui", "path": "GameManager/ArenaHud/Hud/Level/Board", "expect": {"caption": "Đội hình 0/3"}, "label": "HUD shows the new limit"}
   ]
 }

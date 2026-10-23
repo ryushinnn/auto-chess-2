@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 8214545721495669610, guid: 9bc7a879551c33440bf35eb3d0d9ddd6, type: 3}
   thumbnail: {fileID: 21300000, guid: d26448e6cec1d634c81d1f94fbcac613, type: 3}
   skillIcon: {fileID: 21300000, guid: 38147192a8cbfef41b1ed3c36ab855cd, type: 3}
-  maxHp: 3227
-  physicalDamage: 166
+  maxHp: 3861
+  physicalDamage: 155
   magicalDamage: 0
   armor: 47
   resistance: 47
@@ -99,6 +99,6 @@ MonoBehaviour:
     #[5]s. Sau \u0111\xF3 l\u1EADp t\u1EE9c nh\u1EA3y theo \xE1p s\xE1t m\u1EE5c
     ti\xEAu."
   specialKeys: []
-  dps: 143.1
-  physicalReduction: 34.640522
-  magicalReduction: 33.774834
+  dps: 162.68001
+  physicalReduction: 31.97279
+  magicalReduction: 31.97279

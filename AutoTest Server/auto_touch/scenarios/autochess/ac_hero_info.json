@@ -5,7 +5,7 @@
   "actions": [
     {"action": "click", "target": "unit:1", "label": "click the unit"},
     {"action": "wait_state", "path": "views.ui.heroInfo", "equals": 1, "timeoutMs": 2000},
-    {"action": "assert_ui", "path": "ArenaUIManager/HeroInfo", "expect": {"active": true}},
+    {"action": "assert_ui", "path": "GameManager/ArenaHud/Hud/HeroInfo", "expect": {"active": true}},
     {"action": "screenshot"},
     {"action": "click", "target": "unit:1", "label": "click again closes it"},
     {"action": "wait_state", "path": "views.ui.heroInfo", "equals": -1, "timeoutMs": 2000}

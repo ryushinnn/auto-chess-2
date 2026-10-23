@@ -127,6 +127,9 @@ namespace AutoChess.Core {
 
     public sealed class StageDefinition {
         public string Name;
+        /// <summary>A creep stage: after the opening stages. Solo it is played whole (campaign); with 2+ players
+        /// its last round is the PvE round of one generated stage (x-7), in order.</summary>
+        public bool Creeps;
         public RoundDefinition[] Rounds = Array.Empty<RoundDefinition>();
     }
 

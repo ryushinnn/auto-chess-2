@@ -77,12 +77,18 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
 
 ## TFT layer (matches of 2+ players)
 
-A match with one player is the original PvE campaign of the authored stages. With 2+ players
+A match with one player is the PvE campaign: every authored stage in order (`Stage 1` + the creep stages, 22
+rounds). With 2+ players
 (`MatchSimulation.IsMultiplayer`: offline = you + `GameManager.offlineBots` bots, online = the server's lobby)
 the Teamfight Tactics rules apply; their numbers live in `GameRules` (TFT values folded onto the three unit tiers):
 
-* Rounds: the authored stages (all PvE, stage 1 = TFT 1-2..1-4), then generated stages of 7 rounds, all PvP
-  except x-7, which replays an authored PvE round scaled by `PveScalingPerStage` per stage (`RoundAt`).
+* Rounds: the opening stages (authored, all PvE, stage 1 = TFT 1-2..1-4), then generated stages of 7 rounds, all
+  PvP except x-7: the last round of creep stage N (`StageDefinition.Creeps`, `Data/Stages/Creeps N`, designed in
+  `Tools/stages/creep_stages.json` -> `py Tools/stages/make_stages.py` -> re-export), then the last one again scaled by
+  `PveScalingPerStage` per stage (`RoundAt`). The creep strength was tuned against the bots (x-7 won ~55-95%).
+* Battles: a fight still going after `OvertimeStartSeconds` (30) deals +`OvertimeDamagePerSecond` (15%) more
+  damage per second (`BattleSimulation.OvertimeDamageMultiplier`, banner "Hiệp phụ"), so the slowest board of the
+  round does not hold everybody up to `BattleSeconds`; the phase ends as soon as every battle is over.
 * PvP: `Pairing` makes random pairs avoiding last round's opponent; an odd player out fights a ghost (copy of
   a random other board, `TeamSetup.Ghost`, its owner takes nothing). One `BattleSimulation` per pair, shared in
   `MatchState.Battles` by both players and listed once in `BattleList`; the visitor's board is mirrored.
@@ -121,8 +127,16 @@ player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand
   (interpolated between ticks, animations from battle events, projectiles / areas / effect VFX),
   `MapVisual` (tiles, occupancy pulled from the state every frame, portal), UI panels under `UI/`.
 * Input produces commands: `UnitDragHandler` (EventSystem pointer events on 3D units through the
-  camera's `PhysicsRaycaster`; previews with `session.CanMove`), `InventoryUI` (item drag → `EquipItemCommand`),
-  shop / HUD buttons.
+  camera's `PhysicsRaycaster`; previews with `session.CanMove`), the item bench (drag onto a unit ->
+  `EquipItemCommand`, hold over another component for `ItemBenchPanel.ForgeSeconds` -> `CombineItemsCommand`), the
+  hero info's X (`UnequipItemCommand`), shop / HUD buttons.
+* HUD: all screens are built in code with `UiBuilder` (no prefabs): `MatchHud` (banner + phase timer, players /
+  damage, toasts, sell zone, end screen) and `ArenaScreen` (starter pick, synergies, item bench, level / xp, shop,
+  gold, hero info); hover cards are `Tooltip` (items, synergies, skills) through `Hover`. Unit health bars show a
+  tick every 100 health and a big one every 1000 (`ProgressBar.SetTicks`). Scouting a running battle spawns it as it
+  stands (`BattleView.Spawn(midway)` + `BattleUnitView.CatchUp`: no portal entrance, dead units left out).
+* Skill videos: in Play mode, AutoTest op `record-skills [heroes=Id,Id]` (`SkillVideoRecorder`, editor only) films
+  each hero alone against sturdy creeps to `Recordings/skills/<id>.mp4` (+ `<id>_sheet.png`, a frame every 0.5 s).
 * Authoring data stays in ScriptableObjects (`HeroTrait`, `Item`, `Stage`, `RoleConfig`, `RealmConfig`,
   DBs in `Resources`) with unchanged serialized fields.
 * Skill VFX: `VisualEvent` -> `BattleView` -> `VfxPool` (prefab named like the Core key, listed in the Arena's

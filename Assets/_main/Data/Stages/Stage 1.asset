@@ -18,13 +18,13 @@ MonoBehaviour:
       rank: 0
       gridPosition: {x: 6, y: 3}
       items: []
-      hpScale: 0.5
+      hpScale: 0.4
       damageScale: 0.4
     - heroId: Ashe
       rank: 0
       gridPosition: {x: 7, y: 4}
       items: []
-      hpScale: 0.5
+      hpScale: 0.4
       damageScale: 0.4
     rewards:
     - type: hero
@@ -45,13 +45,13 @@ MonoBehaviour:
       rank: 0
       gridPosition: {x: 7, y: 3}
       items: []
-      hpScale: 0.6
+      hpScale: 0.5
       damageScale: 0.5
     - heroId: Morgana
       rank: 0
       gridPosition: {x: 7, y: 4}
       items: []
-      hpScale: 0.6
+      hpScale: 0.5
       damageScale: 0.5
     rewards:
     - type: coin
@@ -73,21 +73,21 @@ MonoBehaviour:
       gridPosition: {x: 7, y: 0}
       items:
       - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
-      hpScale: 0.8
+      hpScale: 0.6
       damageScale: 1
     - heroId: Yasuo
       rank: 0
       gridPosition: {x: 6, y: 4}
       items:
       - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
-      hpScale: 0.8
+      hpScale: 0.6
       damageScale: 1
     - heroId: Yasuo
       rank: 0
       gridPosition: {x: 7, y: 7}
       items:
       - {fileID: 11400000, guid: 8d105db34d57d72429a7dafadd916efe, type: 2}
-      hpScale: 0.8
+      hpScale: 0.6
       damageScale: 1
     rewards:
     - type: raw_item
@@ -122,7 +122,7 @@ MonoBehaviour:
       items:
       - {fileID: 11400000, guid: fead64c9a8f57784ba0f727f2ec5df2d, type: 2}
       - {fileID: 11400000, guid: 25359fe44ec24e64d9ae1a596400dcea, type: 2}
-      hpScale: 1
+      hpScale: 0.6
       damageScale: 1
     rewards:
     - type: raw_item

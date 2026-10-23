@@ -76,7 +76,7 @@ namespace AutoChess.Game {
             StopHold();
             if (!pickable) return;
             if (isPicking) EndPicking();
-            else UIManager_Arena.Instance.HeroInfo.Toggle(unit);
+            else ArenaScreen.Instance?.HeroInfo.Toggle(unit);
         }
 
         IEnumerator DoHold() {

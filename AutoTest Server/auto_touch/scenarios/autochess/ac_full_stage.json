@@ -1,5 +1,5 @@
 {
-  "note": "Plays every round of the stage with a strong board until the match is finished; the round flow must never get stuck and nothing may log an error.",
+  "note": "Plays every round of the solo campaign (Stage 1 + the creep stages, 22 rounds) with a strong board until the match is finished; the round flow must never get stuck and nothing may log an error.",
   "tags": ["battle", "long"],
   "timescale": 4,
   "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 91}}],
@@ -12,7 +12,7 @@
     {"action": "op", "op": "unit", "params": {"unit": "Caitlyn", "rank": "S"}},
     {"action": "op", "op": "unit", "params": {"unit": "Teemo", "rank": "S"}},
     {"action": "op", "op": "unit", "params": {"unit": "Morgana", "rank": "S"}},
-    {"action": "repeat", "times": 6, "as": "round", "until": {"path": "phase", "equals": "Finished"}, "untilRequired": true, "actions": [
+    {"action": "repeat", "times": 24, "as": "round", "until": {"path": "phase", "equals": "Finished"}, "untilRequired": true, "actions": [
       {"action": "op", "op": "ready"},
       {"action": "wait_state", "path": "phase", "in": ["Transition", "Battle", "Summary"], "timeoutMs": 10000},
       {"action": "wait_state", "path": "phase", "in": ["Preparation", "Finished"], "timeoutMs": 120000},

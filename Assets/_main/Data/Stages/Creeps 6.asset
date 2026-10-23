@@ -1,0 +1,207 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ef0f974f644ec384cf929bd0bafac9, type: 3}
+  m_Name: Creeps 6
+  m_EditorClassIdentifier: 
+  creeps: 1
+  matches:
+  - enemies:
+    - heroId: Aatrox_Dark
+      rank: 1
+      gridPosition: {x: 5, y: 3}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Morgana
+      rank: 1
+      gridPosition: {x: 7, y: 3}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Zed
+      rank: 1
+      gridPosition: {x: 6, y: 6}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Amumu
+      rank: 1
+      gridPosition: {x: 5, y: 5}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Ahri
+      rank: 0
+      gridPosition: {x: 7, y: 6}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Annie
+      rank: 0
+      gridPosition: {x: 7, y: 1}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    rewards:
+    - type: coin
+      coins: 6
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: Aatrox_Dark
+      rank: 1
+      gridPosition: {x: 5, y: 2}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Amumu
+      rank: 1
+      gridPosition: {x: 5, y: 4}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Morgana
+      rank: 1
+      gridPosition: {x: 7, y: 3}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Zed
+      rank: 1
+      gridPosition: {x: 6, y: 7}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Ahri
+      rank: 1
+      gridPosition: {x: 7, y: 5}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Annie
+      rank: 1
+      gridPosition: {x: 6, y: 1}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Teemo
+      rank: 0
+      gridPosition: {x: 7, y: 0}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    rewards:
+    - type: coin
+      coins: 6
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: random_coin
+      coins: 0
+      minCoins: 4
+      maxCoins: 8
+      reputation: 0
+      randomRewards: []
+  - enemies:
+    - heroId: Aatrox_Dark
+      rank: 1
+      gridPosition: {x: 5, y: 3}
+      items:
+      - {fileID: 11400000, guid: 773da814569686c46a6b67144092c499, type: 2}
+      - {fileID: 11400000, guid: e762711b530a0044cb84238113058e3a, type: 2}
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Amumu
+      rank: 1
+      gridPosition: {x: 5, y: 5}
+      items:
+      - {fileID: 11400000, guid: fead64c9a8f57784ba0f727f2ec5df2d, type: 2}
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Morgana
+      rank: 1
+      gridPosition: {x: 7, y: 3}
+      items:
+      - {fileID: 11400000, guid: 9dd2c5067045123418cc1a76ab4f1cb9, type: 2}
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Zed
+      rank: 1
+      gridPosition: {x: 6, y: 0}
+      items:
+      - {fileID: 11400000, guid: aaa6831ad3d8d524988eab96faeaffa4, type: 2}
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Ahri
+      rank: 1
+      gridPosition: {x: 7, y: 5}
+      items:
+      - {fileID: 11400000, guid: 9dfd6b3ee1380da45b352a342215edf1, type: 2}
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Annie
+      rank: 1
+      gridPosition: {x: 6, y: 6}
+      items:
+      - {fileID: 11400000, guid: b8cb999dfcea6ad46816e654cb9785be, type: 2}
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Kaisa
+      rank: 1
+      gridPosition: {x: 7, y: 1}
+      items:
+      - {fileID: 11400000, guid: 0c2d690a73bf14b47a839a4ec6644617, type: 2}
+      hpScale: 0.33
+      damageScale: 0.297
+    - heroId: Teemo
+      rank: 1
+      gridPosition: {x: 7, y: 7}
+      items: []
+      hpScale: 0.33
+      damageScale: 0.297
+    rewards:
+    - type: coin
+      coins: 6
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: raw_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    winRewards:
+    - type: forged_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []
+    - type: forged_item
+      coins: 0
+      minCoins: 0
+      maxCoins: 0
+      reputation: 0
+      randomRewards: []

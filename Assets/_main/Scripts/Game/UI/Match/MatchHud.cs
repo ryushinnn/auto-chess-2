@@ -59,6 +59,9 @@ namespace AutoChess.Game {
         RectTransform board;
 
         TMP_Text banner;
+        TMP_Text timerText;
+        Image timerFill;
+        int shownSeconds = -1;
         GameObject scoutBar;
         TMP_Text scoutText;
 
@@ -147,6 +150,7 @@ namespace AutoChess.Game {
                 RefreshPlayers();
                 RefreshBanner();
             }
+            RefreshTimer();
             if (meterDirty) RefreshMeter();
             for (var i = toasts.Count - 1; i >= 0; i--) {
                 var (text, until) = toasts[i];
@@ -278,7 +282,25 @@ namespace AutoChess.Game {
                 detail = $"Đấu với {NameOf(me.OpponentId)}{(me.OpponentIsGhost ? " (bản sao)" : "")}";
             else detail = "Đấu người";
             var hp = me != null && session.State.Players.Count > 1 ? $"   |   Máu {me.Health}" : "";
+            var watched = game.Battle != null ? game.Battle.VisibleBattle : null;
+            if (state.Phase == MatchPhase.Battle && watched != null && !watched.Finished && watched.OvertimeDamageMultiplier > 1) {
+                detail += $"   |   <color=#FF6A5C>Hiệp phụ +{(watched.OvertimeDamageMultiplier - 1) * 100:0}% ST</color>";
+            }
             banner.text = $"{label}   |   {detail}{hp}";
+        }
+
+        /// <summary>Time left in the phase: a bar along the bottom of the banner and the seconds on its right.</summary>
+        void RefreshTimer() {
+            var session = game.Session;
+            var total = session.PhaseDuration;
+            var left = session.PhaseTimeLeft;
+            var running = total > 0 && total < 9999 && session.State.Phase is not (MatchPhase.Finished or MatchPhase.None);
+            timerFill.rectTransform.anchorMax = new Vector2(running ? Mathf.Clamp01(left / total) : 0, 1);
+            var seconds = running ? Mathf.CeilToInt(left) : -1;
+            if (seconds == shownSeconds) return;
+            shownSeconds = seconds;
+            timerText.text = seconds >= 0 ? $"{seconds}s" : "";
+            timerFill.color = seconds is >= 0 and <= 5 ? BadColor : ViewedColor * 0.85f;
         }
 
         void RefreshMeter() {
@@ -394,7 +416,18 @@ namespace AutoChess.Game {
             // Round banner and the scouting bar (top center).
             var bannerPanel = ui.Panel(root, "Banner", new Vector2(0.5f, 1), new Vector2(0, -10), new Vector2(800, 44));
             banner = ui.Text(bannerPanel, "", 26, TextAlignmentOptions.Center, Color.white);
-            UiBuilder.Stretch(banner.rectTransform);
+            UiBuilder.Stretch(banner.rectTransform, 70, 70, 0, 4);
+            timerText = ui.Text(bannerPanel, "", 24, TextAlignmentOptions.Right, Color.white);
+            UiBuilder.Stretch(timerText.rectTransform, 0, 14, 0, 4);
+            var timerBack = UiBuilder.Image(bannerPanel, "Timer", new Color(0, 0, 0, 0.35f));
+            timerBack.rectTransform.anchorMin = Vector2.zero;
+            timerBack.rectTransform.anchorMax = new Vector2(1, 0);
+            timerBack.rectTransform.offsetMin = Vector2.zero;
+            timerBack.rectTransform.offsetMax = new Vector2(0, 5);
+            timerFill = UiBuilder.Image(timerBack.rectTransform, "Fill", ViewedColor);
+            timerFill.rectTransform.anchorMin = Vector2.zero;
+            timerFill.rectTransform.anchorMax = new Vector2(0, 1);
+            timerFill.rectTransform.offsetMin = timerFill.rectTransform.offsetMax = Vector2.zero;
             var scout = ui.Panel(root, "Scouting", new Vector2(0.5f, 1), new Vector2(0, -60), new Vector2(800, 44));
             scoutBar = scout.gameObject;
             scoutText = ui.Text(scout, "", 22, TextAlignmentOptions.Left, ViewedColor);

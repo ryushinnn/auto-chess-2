@@ -111,6 +111,7 @@ namespace AutoChess.Game {
                                "units would be drawn off their cells. Make them equal.");
             }
             if (GetComponent<MatchHud>() == null) gameObject.AddComponent<MatchHud>();
+            if (GetComponent<ArenaScreen>() == null) gameObject.AddComponent<ArenaScreen>();
             var online = AppSession.PendingMatch;
             if (online != null) {
                 Seed = online.Info.Seed;
@@ -180,6 +181,21 @@ namespace AutoChess.Game {
             if (session is LockstepSession) Online.LeaveMatch();
             Seed = seed ?? (ulong)DateTime.UtcNow.Ticks;
             Begin(CreateOffline(Seed, bots ?? AppSession.OfflineBots, untimed));
+        }
+
+        /// <summary>
+        /// Development: a solo match on another database (an untimed preparation, cheats on, no starter pick), e.g. the
+        /// skill video recorder's training stage. Same scene, same views.
+        /// </summary>
+        public void RestartOn(GameDatabase db, ulong matchSeed) {
+            if (!IsReady) return;
+            if (session is LockstepSession) Online.LeaveMatch();
+            Seed = matchSeed;
+            offlineBrains.Clear();
+            Begin(new LocalGameSession(db, new MatchConfig {
+                Seed = matchSeed, AllowCheats = true, PlayerCount = 1, PlayerNames = new[] { localName }, SkipStarterPack = true,
+                SetupSeconds = 99999, PreparationSeconds = 99999,
+            }));
         }
 
         ulong ResolveSeed() {

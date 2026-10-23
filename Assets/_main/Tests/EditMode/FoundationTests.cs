@@ -144,6 +144,8 @@ namespace AutoChess.Core.Tests {
             yield return new MoveUnitCommand { PlayerId = 0, UnitId = 77, Target = UnitLocation.Board(2, 5) };
             yield return new MoveUnitCommand { PlayerId = 0, UnitId = 78, Target = UnitLocation.Bench(8) };
             yield return new EquipItemCommand { PlayerId = 0, UnitId = 5, ItemId = "armor+crit" };
+            yield return new UnequipItemCommand { PlayerId = 2, UnitId = 5, Index = 1 };
+            yield return new CombineItemsCommand { PlayerId = 0, First = "_armor", Second = "_crit" };
             yield return new ReadyCommand { PlayerId = 7 };
             yield return new CheatGoldCommand { PlayerId = 0, Amount = -50 };
             yield return new CheatXpCommand { PlayerId = 0, Amount = 12 };

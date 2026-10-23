@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 5778484270824746890, guid: 212cc5669baec5647bbbba991b380344, type: 3}
   thumbnail: {fileID: 21300000, guid: 6802aed72ed13514abcaac7fa9620d11, type: 3}
   skillIcon: {fileID: 21300000, guid: 7ce18f133a67e37408825bf635e3e5af, type: 3}
-  maxHp: 1761
+  maxHp: 2008
   physicalDamage: 0
-  magicalDamage: 97
+  magicalDamage: 87
   armor: 27
   resistance: 37
   attackSpeed: 0.889
@@ -108,6 +108,6 @@ MonoBehaviour:
     NG\u1EE4C</color>."
   specialKeys:
   - teemo_hell_flame
-  dps: 81.788
+  dps: 86.233
   physicalReduction: 21.259842
   magicalReduction: 27.0073

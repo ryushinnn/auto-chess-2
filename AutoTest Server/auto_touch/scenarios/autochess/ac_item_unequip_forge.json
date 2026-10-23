@@ -1,0 +1,24 @@
+{
+  "note": "Item bench and hero info by real input: holding a component over another (here over its own stack of two) for 2 s forges them on the bench; a unit's item comes back to the bench with the X of the info panel, whole.",
+  "tags": ["input", "items", "hud"],
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 31}}],
+  "actions": [
+    {"action": "op", "op": "item", "params": {"item": "_armor", "count": 2}, "expect": {"ok": true}},
+    {"action": "op", "op": "item", "params": {"item": "_crit"}, "expect": {"ok": true}},
+    {"action": "wait_ui", "path": "GameManager/ArenaHud/Hud/Items", "state": "active"},
+    {"action": "drag", "fromTarget": "item:_armor", "toTarget": "item:_crit", "steps": 4, "label": "a short hover does not forge"},
+    {"action": "assert", "path": "player.itemCount", "gte": 3},
+    {"action": "drag", "fromTarget": "item:_armor", "toTarget": "item:_armor", "steps": 80, "frames": 10, "label": "hold 2 s over its own stack"},
+    {"action": "wait_state", "path": "player.items", "contains": {"id": "armor+armor", "count": 1}, "timeoutMs": 2000},
+    {"action": "drag", "fromTarget": "item:armor+armor", "toTarget": "unit:1", "steps": 12, "label": "equip the forged item"},
+    {"action": "wait_state", "path": "player.units.0.items", "equals": ["armor+armor"], "timeoutMs": 2000},
+    {"action": "click", "target": "unit:1", "label": "open the info panel"},
+    {"action": "wait_ui", "path": "GameManager/ArenaHud/Hud/HeroInfo/Item0/Remove", "state": "active"},
+    {"action": "screenshot", "name": "ac_item_unequip_info"},
+    {"action": "click", "path": "GameManager/ArenaHud/Hud/HeroInfo/Item0/Remove", "label": "take it off"},
+    {"action": "wait_state", "path": "player.units.0.items", "length": 0, "timeoutMs": 2000},
+    {"action": "assert", "path": "player.items", "contains": {"id": "armor+armor", "count": 1}, "label": "back on the bench, whole"},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "logs", "level": "error", "failOnRed": true}
+  ]
+}

@@ -77,23 +77,35 @@ namespace AutoChess.Core {
         /// <summary>Creeps of the current round (null in a PvP round or after the last round).</summary>
         public RoundDefinition CurrentRound => CurrentRoundInfo.Pve;
 
-        int AuthoredStages => Db.Stages.Count;
+        /// <summary>Stages played whole as PvE: every authored stage solo (the campaign), the opening ones otherwise.</summary>
+        IReadOnlyList<StageDefinition> PveStages => IsMultiplayer ? Db.OpeningStages : Db.Stages;
 
-        int RoundCount(int stage) => stage < AuthoredStages ? Db.Stages[stage].Rounds.Length : Rules.RoundsPerStage;
+        int RoundCount(int stage) => stage < PveStages.Count ? PveStages[stage].Rounds.Length : Rules.RoundsPerStage;
 
         public RoundInfo RoundAt(int stage, int round) {
-            if (stage < AuthoredStages) {
-                var rounds = Db.Stages[stage].Rounds;
+            var pve = PveStages;
+            if (stage < pve.Count) {
+                var rounds = pve[stage].Rounds;
                 return round < rounds.Length ? new RoundInfo(RoundKind.PvE, rounds[round], 1) : default;
             }
             if (!IsMultiplayer || stage >= Rules.MaxStages || round >= Rules.RoundsPerStage) return default;
             if (round == Rules.PveRoundOfStage - 1) {
+                var generated = stage - pve.Count;
+                var creeps = Db.CreepStages;
+                if (creeps.Count > 0) {
+                    // the creep stages in order (their last round), then the last one again, stronger each stage
+                    var index = Math.Min(generated, creeps.Count - 1);
+                    var rounds = creeps[index].Rounds;
+                    if (rounds.Length > 0) {
+                        var scale = generated < creeps.Count ? 1 : Math.Pow(Rules.PveScalingPerStage, generated - creeps.Count + 1);
+                        return new RoundInfo(RoundKind.PvE, rounds[rounds.Length - 1], scale);
+                    }
+                }
                 var authored = 0;
-                foreach (var s in Db.Stages) authored += s.Rounds.Length;
+                foreach (var s in pve) authored += s.Rounds.Length;
                 if (authored > 0) {
-                    var generated = stage - AuthoredStages;
                     var pick = generated % authored;
-                    foreach (var s in Db.Stages) {
+                    foreach (var s in pve) {
                         if (pick < s.Rounds.Length) return new RoundInfo(RoundKind.PvE, s.Rounds[pick], Math.Pow(Rules.PveScalingPerStage, generated + 1));
                         pick -= s.Rounds.Length;
                     }
@@ -427,6 +439,14 @@ namespace AutoChess.Core {
                 case SellUnitCommand c:
                     if (!inGame) return CommandError.WrongPhase;
                     return Roster.Sell(ctx, p, p.FindUnit(c.UnitId), BoardLocked);
+
+                case UnequipItemCommand c:
+                    if (!inGame) return CommandError.WrongPhase;
+                    return Items.Unequip(ctx, p, p.FindUnit(c.UnitId), c.Index, BoardLocked);
+
+                case CombineItemsCommand c:
+                    if (!inGame) return CommandError.WrongPhase;
+                    return Items.CombineOnBench(ctx, p, c.First, c.Second);
 
                 case ReadyCommand _:
                     if (phase != MatchPhase.Preparation) return CommandError.WrongPhase;

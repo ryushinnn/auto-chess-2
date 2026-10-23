@@ -7,6 +7,9 @@ using UnityEngine;
 namespace AutoChess.Game {
     [CreateAssetMenu(fileName = "Stage", menuName = "Stage")]
     public class Stage : ScriptableObject {
+        /// <summary>A creep stage (after the opening ones): the campaign plays it whole, a 2+ player match plays its last
+        /// round as the PvE round of one PvP stage (StageDefinition.Creeps).</summary>
+        public bool creeps;
         public Match[] matches;
     }
 

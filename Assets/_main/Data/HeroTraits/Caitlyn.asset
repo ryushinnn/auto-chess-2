@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 2403688389232674053, guid: 02537cffa1e84804c80a4e88f1cbe203, type: 3}
   thumbnail: {fileID: 21300000, guid: 32ad03a2a16d51d41bd41e14e349c810, type: 3}
   skillIcon: {fileID: 21300000, guid: de04f368226a0894ba2e760d83746e50, type: 3}
-  maxHp: 1928
-  physicalDamage: 98
+  maxHp: 2155
+  physicalDamage: 85
   magicalDamage: 0
   armor: 20
   resistance: 20

@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 2632722227144001831, guid: b5e957ee627bc96408396ee11369ce0f, type: 3}
   thumbnail: {fileID: 21300000, guid: 3602271c036eace448ea2d89dec90b18, type: 3}
   skillIcon: {fileID: 21300000, guid: 6f1535f575bc2bc4eb718f35909773c7, type: 3}
-  maxHp: 2296
-  physicalDamage: 75
+  maxHp: 2552
+  physicalDamage: 65
   magicalDamage: 0
   armor: 55
   resistance: 55
@@ -100,6 +100,6 @@ MonoBehaviour:
   specialKeys:
   - blitzcrank_mana_barrier
   - blitzcrank_shred
-  dps: 62.012
+  dps: 62.85
   physicalReduction: 35.48387
   magicalReduction: 35.48387

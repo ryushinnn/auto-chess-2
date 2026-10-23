@@ -5,7 +5,7 @@
   "actions": [
     {"action": "op", "op": "item", "params": {"item": "_armor"}, "expect": {"ok": true}},
     {"action": "op", "op": "item", "params": {"item": "_maxhp"}, "expect": {"ok": true}},
-    {"action": "wait_ui", "path": "ArenaUIManager/Inventory", "state": "active"},
+    {"action": "wait_ui", "path": "GameManager/ArenaHud/Hud/Items", "state": "active"},
     {"action": "drag", "fromTarget": "item:_armor", "toTarget": "unit:1", "steps": 12, "label": "equip armor"},
     {"action": "wait_state", "path": "player.units.0.items", "equals": ["_armor"], "timeoutMs": 2000},
     {"action": "drag", "fromTarget": "item:_maxhp", "toTarget": "unit:1", "steps": 12, "label": "second component combines"},

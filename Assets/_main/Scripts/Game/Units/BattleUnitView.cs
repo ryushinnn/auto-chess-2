@@ -162,6 +162,26 @@ namespace AutoChess.Game {
             }
         }
 
+        /// <summary>
+        /// Shown in the middle of a battle (scouting): bars, marks and the animation of what the unit is doing now,
+        /// facing its target, instead of the portal entrance.
+        /// </summary>
+        public void CatchUp(BattleView battle, bool fighting) {
+            if (combatUnit == null) return;
+            SwitchCanvas(true);
+            Bars.SetHealth(combatUnit);
+            foreach (var mark in combatUnit.Marks) Marks.AddMark(mark.Id, mark.Key, mark.Stacks, (float)mark.Duration);
+            lastNextCell = combatUnit.Movement.NextCell;
+            if (fighting && lastNextCell >= 0) {
+                mecanim.Run();
+                FaceTowards(BoardSpace.BattleToWorld(BoardSpace.Instance.Grid.Center(lastNextCell)));
+            }
+            else {
+                mecanim.Idle();
+                if (combatUnit.Target != null) FaceUnit(combatUnit.Target.Id, battle);
+            }
+        }
+
         /// <summary>The battle is over: everybody still standing stops.</summary>
         public void Freeze() {
             if (combatUnit != null && combatUnit.Alive) mecanim.Idle();

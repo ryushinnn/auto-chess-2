@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 6243125059235353389, guid: 9031a1ae6b88eb146aabda9d9a26083f, type: 3}
   thumbnail: {fileID: 21300000, guid: 92e727dc78c2c7b46a4de01dc62acb8c, type: 3}
   skillIcon: {fileID: 21300000, guid: 89371ec5556c8af4095f4dbe0f720c9b, type: 3}
-  maxHp: 1188
-  physicalDamage: 60
-  magicalDamage: 60
+  maxHp: 1370
+  physicalDamage: 54
+  magicalDamage: 54
   armor: 20
   resistance: 20
   attackSpeed: 1.134
@@ -136,6 +136,6 @@ MonoBehaviour:
     \xF4 v\xE0 g\xE2y s\xE1t th\u01B0\u01A1ng t\u01B0\u01A1ng t\u1EF1."
   specialKeys:
   - missfortune_shield_breaker
-  dps: 133.812
+  dps: 136.07999
   physicalReduction: 16.666666
   magicalReduction: 16.666666
