@@ -143,10 +143,7 @@ namespace AutoChess.Editor {
             shape.shapeType = ParticleSystemShapeType.Circle;
             shape.radius = Across * 0.45f;
             shape.rotation = new Vector3(90, 0, 0);
-            var velocity = motes.velocityOverLifetime;
-            velocity.enabled = true;
-            velocity.space = ParticleSystemSimulationSpace.Local;
-            velocity.y = new ParticleSystem.MinMaxCurve(1.2f, 2.2f);
+            var velocity = Rise(motes, 1.2f, 2.2f);
             velocity.orbitalY = new ParticleSystem.MinMaxCurve(2f);
             Fade(motes, Color.white, Color.white, 0.25f);
             Set(vfx, "height", 0f);
@@ -192,10 +189,7 @@ namespace AutoChess.Editor {
             shape.shapeType = ParticleSystemShapeType.Circle;
             shape.radius = 0.9f;
             shape.rotation = new Vector3(90, 0, 0);
-            var velocity = sparkles.velocityOverLifetime;
-            velocity.enabled = true;
-            velocity.space = ParticleSystemSimulationSpace.Local;
-            velocity.y = new ParticleSystem.MinMaxCurve(1f, 2f);
+            Rise(sparkles, 1f, 2f);
             Fade(sparkles, Color.white, Color.white, 0.2f);
             Set(vfx, "height", 0f);
         }
@@ -300,13 +294,22 @@ namespace AutoChess.Editor {
             shape.shapeType = ParticleSystemShapeType.Sphere;
             shape.radius = Mathf.Max(radius, 0.01f);
             if (up > 0) {
-                var velocity = ps.velocityOverLifetime;
-                velocity.enabled = true;
-                velocity.space = ParticleSystemSimulationSpace.Local;
-                velocity.y = new ParticleSystem.MinMaxCurve(up * 0.6f, up);
+                Rise(ps, up * 0.6f, up);
             }
             Fade(ps, Color.white, endColor ?? Color.white, 0.05f);
             return ps;
+        }
+
+        /// <summary>Upward drift between <paramref name="min"/> and <paramref name="max"/>. Unity wants the x / y / z velocity
+        /// curves in the same mode, so x and z get a (0, 0) range too.</summary>
+        static ParticleSystem.VelocityOverLifetimeModule Rise(ParticleSystem ps, float min, float max) {
+            var velocity = ps.velocityOverLifetime;
+            velocity.enabled = true;
+            velocity.space = ParticleSystemSimulationSpace.Local;
+            velocity.x = new ParticleSystem.MinMaxCurve(0, 0);
+            velocity.y = new ParticleSystem.MinMaxCurve(min, max);
+            velocity.z = new ParticleSystem.MinMaxCurve(0, 0);
+            return velocity;
         }
 
         /// <summary>A flat decal on the board, optionally growing to <paramref name="size"/>.</summary>
