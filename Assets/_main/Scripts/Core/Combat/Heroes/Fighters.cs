@@ -4,13 +4,13 @@ using System.Collections.Generic;
 namespace AutoChess.Core.Combat.Heroes {
     /// <summary>Bomb: silences a target holding enough energy, stuns it otherwise.</summary>
     public sealed class AkaliSkill : SkillBehaviour {
-        readonly float energyThreshold;
-        readonly float silenceDuration;
-        readonly float stunDuration;
+        readonly double energyThreshold;
+        readonly double silenceDuration;
+        readonly double stunDuration;
 
         public AkaliSkill(UnitDefinition def) {
             AnimationLength = 1;
-            HitTimes = new[] { 0.2f };
+            HitTimes = new[] { 0.2 };
             energyThreshold = def.Param(0);
             silenceDuration = def.Param(1);
             stunDuration = def.Param(2);
@@ -26,13 +26,13 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Dragon strike: magic damage scaling with physical damage, knocks up.</summary>
     public sealed class IreliaSkill : SkillBehaviour {
-        readonly float baseDmg;
-        readonly float dmgMul;
-        readonly float airborneDuration;
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly double airborneDuration;
 
         public IreliaSkill(UnitDefinition def) {
-            AnimationLength = 4.8f;
-            HitTimes = new[] { 4.23f };
+            AnimationLength = 4.8;
+            HitTimes = new[] { 4.23 };
             baseDmg = def.Param(0);
             dmgMul = def.Param(1);
             airborneDuration = def.Param(2);
@@ -48,16 +48,16 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Spinning cuts; the first cut on a target applies anti-heal and grants it energy.</summary>
     public sealed class KatarinaSkill : SkillBehaviour {
-        readonly float baseDmgPerHit;
-        readonly float dmgMulPerHit;
-        readonly float antiHealDuration;
+        readonly double baseDmgPerHit;
+        readonly double dmgMulPerHit;
+        readonly double antiHealDuration;
         readonly HashSet<int> affected = new();
 
         public KatarinaSkill(UnitDefinition def) {
-            AnimationLength = 3.1f;
+            AnimationLength = 3.1;
             var hits = Math.Max(1, (int)def.Param(0));
             var interval = def.Param(1);
-            var times = new float[hits];
+            var times = new double[hits];
             for (var i = 0; i < hits; i++) times[i] = i * interval;
             HitTimes = times;
             baseDmgPerHit = def.Param(2);
@@ -78,17 +78,17 @@ namespace AutoChess.Core.Combat.Heroes {
     /// <summary>Stone skin (defences, max tenacity, slower attacks) then a knock-up slam.</summary>
     public sealed class MalphiteSkill : SkillBehaviour {
         public const string SkinVisual = "malphite_skill";
-        readonly float defMul;
-        readonly float atkSpeedReduceMul;
-        readonly float effectDuration;
-        readonly float baseDmg;
-        readonly float dmgMul;
-        readonly float airborneDuration;
+        readonly double defMul;
+        readonly double atkSpeedReduceMul;
+        readonly double effectDuration;
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly double airborneDuration;
         readonly string effectKey;
 
         public MalphiteSkill(UnitDefinition def) {
-            AnimationLength = 4.7f;
-            HitTimes = new[] { 0.46f, 2.3f };
+            AnimationLength = 4.7;
+            HitTimes = new[] { 0.46, 2.3 };
             defMul = def.Param(0);
             atkSpeedReduceMul = def.Param(1);
             effectDuration = def.Param(2);
@@ -121,13 +121,13 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Opens her wings: heals for magic damage plus a share of max health growing with missing health.</summary>
     public sealed class MorganaSkill : SkillBehaviour {
-        readonly float healByHpMulMin;
-        readonly float healByHpMulMax;
-        readonly float healByDmgMul;
+        readonly double healByHpMulMin;
+        readonly double healByHpMulMax;
+        readonly double healByDmgMul;
 
         public MorganaSkill(UnitDefinition def) {
             AnimationLength = 1;
-            HitTimes = new[] { 0.41f };
+            HitTimes = new[] { 0.41 };
             healByHpMulMin = def.Param(0);
             healByHpMulMax = def.Param(1);
             healByDmgMul = def.Param(2);
@@ -142,20 +142,20 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Every third attack adds true damage.</summary>
     public sealed class YasuoAttack : AttackBehaviour {
-        const float DmgMul = 0.5f;
+        const double DmgMul = 0.5;
         const int CountLimit = 2;
         int count;
 
         public YasuoAttack() {
-            AnimationLength = 1.333f;
-            HitTimes = new[] { 0.33f };
+            AnimationLength = 1.333;
+            HitTimes = new[] { 0.33 };
         }
 
         public override void OnHit(CombatUnit self, int index) {
             var target = self.Target;
             if (target == null) return;
             var damage = self.BasicDamage(DamageType.Physical);
-            float dealt;
+            double dealt;
             if (count == CountLimit) {
                 dealt = target.TakeDamage(damage, new Damage(damage.Value * DmgMul, DamageType.True, 0, damage.Crit), self);
                 count = 0;
@@ -171,16 +171,16 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Knock-up, two cuts, the second one bleeds.</summary>
     public sealed class YasuoSkill : SkillBehaviour {
-        readonly float airborneDuration;
-        readonly float baseDmg0, dmgMul0, baseDmg1, dmgMul1;
-        readonly float dotBaseDmg, dotDmgMul;
-        readonly float duration;
-        readonly float interval;
+        readonly double airborneDuration;
+        readonly double baseDmg0, dmgMul0, baseDmg1, dmgMul1;
+        readonly double dotBaseDmg, dotDmgMul;
+        readonly double duration;
+        readonly double interval;
         readonly string dotKey;
 
         public YasuoSkill(UnitDefinition def) {
-            AnimationLength = 6.3f;
-            HitTimes = new[] { 0.7f, 1.7f, 3.5f };
+            AnimationLength = 6.3;
+            HitTimes = new[] { 0.7, 1.7, 3.5 };
             airborneDuration = def.Param(0);
             baseDmg0 = def.Param(1);
             dmgMul0 = def.Param(2);
@@ -215,13 +215,13 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Shuriken on the target, then an explosion that crits and stuns it.</summary>
     public sealed class ZedSkill : SkillBehaviour {
-        readonly float dmgMul;
-        readonly float stunMain;
+        readonly double dmgMul;
+        readonly double stunMain;
         CombatUnit aimed;
 
         public ZedSkill(UnitDefinition def) {
             AnimationLength = 3;
-            HitTimes = new[] { 0.83f, 1.66f };
+            HitTimes = new[] { 0.83, 1.66 };
             // Params 0 (base damage), 2 (explosion range) and 4 (stun of the others) are not used yet:
             // the area part of this skill was never implemented.
             dmgMul = def.Param(1);
@@ -235,7 +235,7 @@ namespace AutoChess.Core.Combat.Heroes {
                 return;
             }
             if (aimed == null) return;
-            aimed.TakeDamage(self.MakeDamage(DamageType.Physical, true, physicalRatio: 1f), self);
+            aimed.TakeDamage(self.MakeDamage(DamageType.Physical, true, physicalRatio: 1d), self);
             aimed.Stun(stunMain);
             aimed = null;
         }

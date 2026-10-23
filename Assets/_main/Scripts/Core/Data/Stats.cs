@@ -27,10 +27,10 @@ namespace AutoChess.Core {
     [Serializable]
     public readonly struct StatModifier {
         public readonly StatKind Stat;
-        public readonly float Value;
+        public readonly double Value;
         public readonly ModifierType Type;
 
-        public StatModifier(StatKind stat, float value, ModifierType type) {
+        public StatModifier(StatKind stat, double value, ModifierType type) {
             Stat = stat;
             Value = value;
             Type = type;
@@ -82,9 +82,9 @@ namespace AutoChess.Core {
     /// <summary>All stats of a unit, indexed by <see cref="StatKind"/>.</summary>
     public sealed class StatBlock {
         public const int Count = (int)StatKind.Tenacity + 1;
-        readonly float[] values = new float[Count];
+        readonly double[] values = new double[Count];
 
-        public float this[StatKind stat] {
+        public double this[StatKind stat] {
             get => values[(int)stat];
             set => values[(int)stat] = value;
         }

@@ -12,6 +12,8 @@ namespace AutoChess.Core {
         public int PlayerCount;
         public bool AllowCheats;
         public bool SkipStarterPack;
+        public double? SetupSeconds;
+        public double? PreparationSeconds;
         public readonly List<(int tick, byte[] command)> Commands = new();
         public int EndTick;
     }
@@ -24,7 +26,8 @@ namespace AutoChess.Core {
             Match = match;
             Recording = new MatchRecording {
                 Seed = match.Config.Seed, PlayerCount = match.State.Players.Count,
-                AllowCheats = match.Config.AllowCheats, SkipStarterPack = match.Config.SkipStarterPack
+                AllowCheats = match.Config.AllowCheats, SkipStarterPack = match.Config.SkipStarterPack,
+                SetupSeconds = match.Config.SetupSeconds, PreparationSeconds = match.Config.PreparationSeconds
             };
         }
 
@@ -44,7 +47,8 @@ namespace AutoChess.Core {
         public static MatchSimulation Replay(GameDatabase db, MatchRecording recording, Combat.AbilityRegistry abilities = null) {
             var match = new MatchSimulation(db, new MatchConfig {
                 Seed = recording.Seed, PlayerCount = recording.PlayerCount,
-                AllowCheats = recording.AllowCheats, SkipStarterPack = recording.SkipStarterPack, Abilities = abilities
+                AllowCheats = recording.AllowCheats, SkipStarterPack = recording.SkipStarterPack, Abilities = abilities,
+                SetupSeconds = recording.SetupSeconds, PreparationSeconds = recording.PreparationSeconds
             });
             match.Start();
             var next = 0;

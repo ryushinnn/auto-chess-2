@@ -22,8 +22,10 @@ namespace AutoTest
         public const int DefaultPort = 8766;
 
         internal const string EnabledKey = "AutoTest.Enabled";     // SessionState: server wanted in this editor session
-        internal const string AutoStartKey = "AutoTest.AutoStart"; // EditorPrefs, default true
-        internal const string PortKey = "AutoTest.Port";           // EditorPrefs int
+        // EditorPrefs are shared by every project on the machine (other rigs use "AutoTest.AutoStart" too), so
+        // these two are scoped to this project's folder: toggling autostart or the port elsewhere leaves it alone.
+        internal static readonly string AutoStartKey = "AutoTest.AutoStart:" + Application.dataPath; // default true
+        internal static readonly string PortKey = "AutoTest.Port:" + Application.dataPath;           // int
 
         private static HttpListener s_Listener;
         private static Thread s_AcceptThread;

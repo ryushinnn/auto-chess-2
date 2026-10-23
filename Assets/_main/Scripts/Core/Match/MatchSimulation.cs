@@ -25,8 +25,8 @@ namespace AutoChess.Core {
 
         public GameRules Rules => Db.Rules;
         public MatchPhase Phase => State.Phase;
-        public float PhaseTimeLeft => State.PhaseTicksLeft * Rules.TickDelta;
-        public float PhaseDuration => State.PhaseTicksTotal * Rules.TickDelta;
+        public double PhaseTimeLeft => State.PhaseTicksLeft * Rules.TickDelta;
+        public double PhaseDuration => State.PhaseTicksTotal * Rules.TickDelta;
         public bool BoardLocked => State.Phase != MatchPhase.Preparation && State.Phase != MatchPhase.Setup;
 
         public MatchSimulation(GameDatabase db, MatchConfig config) {
@@ -72,7 +72,7 @@ namespace AutoChess.Core {
                 EnterPreparation(true);
             }
             else {
-                SetPhase(MatchPhase.Setup, Rules.SetupSeconds);
+                SetPhase(MatchPhase.Setup, Config.SetupSeconds ?? Rules.SetupSeconds);
                 foreach (var p in State.Players) Rewards.RollStarterOffers(ctx, p);
             }
         }
@@ -122,7 +122,7 @@ namespace AutoChess.Core {
             }
         }
 
-        void SetPhase(MatchPhase phase, float seconds) {
+        void SetPhase(MatchPhase phase, double seconds) {
             var previous = State.Phase;
             State.Phase = phase;
             State.PhaseTicksTotal = State.PhaseTicksLeft = Math.Max(1, Rules.SecondsToTicks(seconds));
@@ -141,7 +141,7 @@ namespace AutoChess.Core {
                 foreach (var p in State.Players) Economy.GainXp(ctx, p, Rules.XpPerRound);
             }
             State.Battles.Clear();
-            SetPhase(MatchPhase.Preparation, Rules.PreparationSeconds);
+            SetPhase(MatchPhase.Preparation, Config.PreparationSeconds ?? Rules.PreparationSeconds);
             foreach (var p in State.Players) {
                 p.Ready = false;
                 Rewards.GrantPending(ctx, p);

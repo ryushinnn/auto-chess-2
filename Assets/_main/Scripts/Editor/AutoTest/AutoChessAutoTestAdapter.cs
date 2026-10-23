@@ -22,6 +22,8 @@ namespace AutoChess.Game.Editor {
 
         static GameManager Game => GameManager.Instance;
         static IGameSession Session => Game.Session;
+        static MatchRecorder Recorder => Game.LocalSession?.Recorder ?? Game.OnlineSession?.Recorder;
+        static LocalGameSession Local => Game.LocalSession ?? throw new InvalidOperationException("offline only: an online match is running");
 
         public bool IsAvailable() => EditorApplication.isPlaying && Game != null && Game.IsReady;
 
@@ -71,9 +73,17 @@ namespace AutoChess.Game.Editor {
                         ["heroInfo"] = ui.HeroInfo.IsOpen ? ui.HeroInfo.UnitId : -1,
                     },
                 },
-                ["recording"] = Game.LocalSession.Recorder == null ? null : new Dictionary<string, object> {
-                    ["commands"] = Game.LocalSession.Recorder.Recording.Commands.Count,
+                ["recording"] = Recorder == null ? null : new Dictionary<string, object> {
+                    ["commands"] = Recorder.Recording.Commands.Count,
                 },
+                ["online"] = Game.OnlineSession == null ? null : new Dictionary<string, object> {
+                    ["match"] = Game.OnlineSession.Info.MatchId,
+                    ["frame"] = Game.OnlineSession.Frame,
+                    ["buffered"] = Game.OnlineSession.BufferedFrames,
+                    ["desynced"] = Game.OnlineSession.IsDesynced,
+                    ["ended"] = Game.OnlineSession.IsEnded,
+                },
+                ["connection"] = Game.Online?.State.ToString(),
                 ["stateHash"] = StateHasher.Hash(state).ToString("x16"),
             };
         }
@@ -158,7 +168,7 @@ namespace AutoChess.Game.Editor {
             };
         }
 
-        static float Round(float v) => float.IsInfinity(v) ? -1 : (float)Math.Round(v, 3);
+        static double Round(double v) => double.IsInfinity(v) ? -1 : Math.Round(v, 3);
 
         // ------------------------------------------------------------------ ops
 
@@ -166,6 +176,7 @@ namespace AutoChess.Game.Editor {
             "restart", "buy", "refresh", "lock", "buy-xp", "move", "equip", "ready", "choose-starter", "reroll-starter",
             "gold", "xp", "item", "unit", "skip-phase", "set-shop", "fast-forward", "speed", "set-seed",
             "export-data", "migrate", "missing-scripts", "unit-screen", "cell-screen", "can-move", "save-recording",
+            "online-connect", "online-find", "online-cancel", "online-leave", "online-disconnect",
         };
 
         public IReadOnlyList<string> Ops => OpNames;
@@ -183,6 +194,7 @@ namespace AutoChess.Game.Editor {
             }
 
             if (!IsAvailable()) throw new InvalidOperationException("the game is not running (enter Play mode in the Arena scene)");
+            if (op.StartsWith("online-", StringComparison.Ordinal)) return OnlineOp(op, args);
             if (op == "restart") {
                 Game.Restart(args.ContainsKey("seed") ? (ulong)(uint)Int(args, "seed") : (ulong?)null);
                 return new { seed = Game.Seed.ToString(CultureInfo.InvariantCulture), phase = Session.State.Phase.ToString() };
@@ -213,12 +225,12 @@ namespace AutoChess.Game.Editor {
                 case "fast-forward": {
                     var seconds = Float(args, "seconds", 0);
                     var ticks = args.ContainsKey("ticks") ? Int(args, "ticks") : Session.Db.Rules.SecondsToTicks(seconds);
-                    Game.LocalSession.RunTicks(Math.Max(0, ticks));
+                    Local.RunTicks(Math.Max(0, ticks));
                     return new { ticks, tick = Session.State.Tick, phase = Session.State.Phase.ToString() };
                 }
                 case "speed":
-                    Game.LocalSession.Speed = Float(args, "value", 1);
-                    return new { speed = Game.LocalSession.Speed };
+                    Local.Speed = Float(args, "value", 1);
+                    return new { speed = Local.Speed };
                 case "can-move": {
                     var error = Session.CanMove(UnitArg(args, p), Location(args, "to"));
                     return new { ok = error == CommandError.None, error = error.ToString() };
@@ -280,8 +292,23 @@ namespace AutoChess.Game.Editor {
             return new { location = location.ToString(), screen = new[] { screen.x, screen.y }, world = new[] { world.x, world.y, world.z } };
         }
 
+        /// <summary>Online play (auto-chess-2-server): connect, queue, leave. The match then runs like a local one.</summary>
+        static object OnlineOp(string op, IReadOnlyDictionary<string, string> args) {
+            var online = Game.Online;
+            switch (op) {
+                case "online-connect":
+                    online.Connect(Str(args, "url", OnlineLobbyUI.DefaultUrl), Str(args, "name", "AutoTest"), Str(args, "device", "autotest-editor"));
+                    break;
+                case "online-find": online.FindMatch(); break;
+                case "online-cancel": online.CancelFind(); break;
+                case "online-leave": Game.Restart(); break;
+                case "online-disconnect": online.Disconnect(); break;
+            }
+            return new { state = online.State.ToString(), status = online.Status };
+        }
+
         static object SaveRecording(string path) {
-            var recorder = Game.LocalSession.Recorder;
+            var recorder = Recorder;
             if (recorder == null) throw new InvalidOperationException("this session does not record");
             var rec = recorder.Recording;
             var root = Directory.GetParent(Application.dataPath)!.FullName;
@@ -399,7 +426,7 @@ namespace AutoChess.Game.Editor {
             if (battle != null) {
                 if (On("battle_hp_bounds")) {
                     foreach (var u in battle.Units) {
-                        if (u.Hp > u.MaxHp + 0.01f || u.Hp < 0 || float.IsNaN(u.Hp)) Add("battle_hp_bounds", "high", $"{u}");
+                        if (u.Hp > u.MaxHp + 0.01 || u.Hp < 0 || double.IsNaN(u.Hp)) Add("battle_hp_bounds", "high", $"{u}");
                         if (!u.Alive && u.Hp > 0) Add("battle_hp_bounds", "high", $"dead unit with hp {u}");
                     }
                 }
@@ -419,7 +446,7 @@ namespace AutoChess.Game.Editor {
                             continue;
                         }
                         var drawn = new Vector2(view.transform.position.x, view.transform.position.z);
-                        var model = new Vector2(u.Position.X, u.Position.Y);
+                        var model = new Vector2((float)u.Position.X, (float)u.Position.Y);
                         var allowed = u.MovementSpeed * db.Grid.AverageCellDistance * rules.TickDelta * 2 + 0.05f;
                         if ((drawn - model).magnitude > allowed) {
                             Add("battle_views_match_model", "medium", $"unit {u.Id} drawn {(drawn - model).magnitude:0.00} away from its model");

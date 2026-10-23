@@ -1,0 +1,16 @@
+{
+    "name": "AutoChess.Net",
+    "rootNamespace": "AutoChess.Net",
+    "references": [
+        "AutoChess.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

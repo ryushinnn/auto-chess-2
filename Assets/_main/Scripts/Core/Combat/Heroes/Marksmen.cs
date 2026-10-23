@@ -7,8 +7,8 @@ namespace AutoChess.Core.Combat.Heroes {
         public const string ProjectileVisual = "ashe_attack";
 
         public AsheAttack() {
-            AnimationLength = 1f;
-            HitTimes = new[] { 0.2f };
+            AnimationLength = 1d;
+            HitTimes = new[] { 0.2 };
         }
 
         public override void OnHit(CombatUnit self, int index) {
@@ -27,15 +27,15 @@ namespace AutoChess.Core.Combat.Heroes {
         public const string AreaVisual = "ashe_skill";
         readonly int setMin;
         readonly int setMax;
-        readonly float baseDmg;
-        readonly float pDmgMul;
-        readonly float mDmgMul;
-        readonly float totalTime;
-        readonly float radius;
+        readonly double baseDmg;
+        readonly double pDmgMul;
+        readonly double mDmgMul;
+        readonly double totalTime;
+        readonly double radius;
 
         public AsheSkill(UnitDefinition def) {
             AnimationLength = 3;
-            HitTimes = new[] { 0.75f };
+            HitTimes = new[] { 0.75 };
             setMin = (int)def.Param(0);
             setMax = (int)def.Param(1);
             baseDmg = def.Param(2);
@@ -56,18 +56,18 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Tea (heal over time) then focus (attack speed).</summary>
     public sealed class CaitlynSkill : SkillBehaviour {
-        readonly float healByHpMul;
-        readonly float healByDmgMul;
-        readonly float duration;
-        readonly float interval;
-        readonly float atkSpdMul;
-        readonly float atkSpdDuration;
+        readonly double healByHpMul;
+        readonly double healByDmgMul;
+        readonly double duration;
+        readonly double interval;
+        readonly double atkSpdMul;
+        readonly double atkSpdDuration;
         readonly string hotKey;
         readonly string effectKey;
 
         public CaitlynSkill(UnitDefinition def) {
-            AnimationLength = 6.5f;
-            HitTimes = new[] { 2.2f, 5.6f };
+            AnimationLength = 6.5;
+            HitTimes = new[] { 2.2, 5.6 };
             healByHpMul = def.Param(0);
             healByDmgMul = def.Param(1);
             duration = def.Param(2);
@@ -94,17 +94,17 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>A volley of rockets, each of a random damage type; energy is gained once per target.</summary>
     public sealed class JinxSkill : SkillBehaviour {
-        readonly float baseDmgPerRocket;
-        readonly float dmgMulPerRocket;
+        readonly double baseDmgPerRocket;
+        readonly double dmgMulPerRocket;
         readonly HashSet<int> affected = new();
 
         public JinxSkill(UnitDefinition def) {
-            AnimationLength = 4.2f;
+            AnimationLength = 4.2;
             var rockets = Math.Max(1, (int)def.Param(0));
             // The old code truncated the interval to whole seconds (0.2 -> 0), firing every rocket at once.
             var interval = def.Param(1);
-            var times = new float[rockets];
-            for (var i = 0; i < rockets; i++) times[i] = 2f + i * interval;
+            var times = new double[rockets];
+            for (var i = 0; i < rockets; i++) times[i] = 2d + i * interval;
             HitTimes = times;
             baseDmgPerRocket = def.Param(2);
             dmgMulPerRocket = def.Param(3);
@@ -126,11 +126,11 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Attack: a physical and a magical part sharing one crit roll.</summary>
     public sealed class MissFortuneAttack : AttackBehaviour {
-        readonly float pDmgMul0, mDmgMul0, pDmgMul1, mDmgMul1;
+        readonly double pDmgMul0, mDmgMul0, pDmgMul1, mDmgMul1;
 
         public MissFortuneAttack(UnitDefinition def) {
-            AnimationLength = 1.167f;
-            HitTimes = new[] { 0.35f };
+            AnimationLength = 1.167;
+            HitTimes = new[] { 0.35 };
             pDmgMul0 = def.Param(0);
             mDmgMul0 = def.Param(1);
             pDmgMul1 = def.Param(2);
@@ -151,15 +151,15 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Two shots: the first heals, the second shreds armor and resistance.</summary>
     public sealed class MissFortuneSkill : SkillBehaviour {
-        readonly float lP0, lM0, lP1, lM1, rP0, rM0, rP1, rM1;
-        readonly float vampMul;
-        readonly float reduceDefMul;
-        readonly float reduceDefDuration;
+        readonly double lP0, lM0, lP1, lM1, rP0, rM0, rP1, rM1;
+        readonly double vampMul;
+        readonly double reduceDefMul;
+        readonly double reduceDefDuration;
         readonly string effectKey;
 
         public MissFortuneSkill(UnitDefinition def) {
-            AnimationLength = 2.8f;
-            HitTimes = new[] { 1f, 1.3f };
+            AnimationLength = 2.8;
+            HitTimes = new[] { 1d, 1.3 };
             lP0 = def.Param(0);
             lM0 = def.Param(1);
             lP1 = def.Param(2);
@@ -198,14 +198,14 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Attack speed and crit chance burst; the energy bar drains for the duration.</summary>
     public sealed class TristanaSkill : SkillBehaviour {
-        readonly float atkSpdMul;
-        readonly float critChanceMul;
-        readonly float duration;
+        readonly double atkSpdMul;
+        readonly double critChanceMul;
+        readonly double duration;
         readonly string effectKey;
 
         public TristanaSkill(UnitDefinition def) {
-            AnimationLength = 2.2f;
-            HitTimes = new[] { 0.625f };
+            AnimationLength = 2.2;
+            HitTimes = new[] { 0.625 };
             atkSpdMul = def.Param(0);
             critChanceMul = def.Param(1);
             duration = def.Param(2);

@@ -27,21 +27,21 @@ namespace AutoChess.Core.Combat {
         static AbilityRegistry CreateDefault() {
             var r = new AbilityRegistry();
             r.Register(HeroIds.AatroxDark, d => new AatroxDarkAttack(d), (d, _) => new AatroxDarkSkill(d));
-            r.Register(HeroIds.AatroxLight, _ => new BasicAttack(1.367f, 0.18f, DamageType.Magical), (d, _) => new AatroxLightSkill(d));
-            r.Register(HeroIds.Akali, _ => new BasicAttack(1.2f, 0.18f, DamageType.Magical), (d, _) => new AkaliSkill(d));
+            r.Register(HeroIds.AatroxLight, _ => new BasicAttack(1.367, 0.18, DamageType.Magical), (d, _) => new AatroxLightSkill(d));
+            r.Register(HeroIds.Akali, _ => new BasicAttack(1.2, 0.18, DamageType.Magical), (d, _) => new AkaliSkill(d));
             r.Register(HeroIds.Ashe, _ => new AsheAttack(), (d, _) => new AsheSkill(d));
-            r.Register(HeroIds.Caitlyn, _ => new BasicAttack(1.367f, 0.2f, DamageType.Physical), (d, _) => new CaitlynSkill(d));
-            r.Register(HeroIds.Irelia, _ => new BasicAttack(1.3f, 0.2f, DamageType.Physical), (d, _) => new IreliaSkill(d));
-            r.Register(HeroIds.Jinx, _ => new BasicAttack(1.067f, 0.37f, DamageType.Physical), (d, _) => new JinxSkill(d));
-            r.Register(HeroIds.Katarina, _ => new BasicAttack(1.067f, 0.14f, DamageType.Physical), (d, _) => new KatarinaSkill(d));
-            r.Register(HeroIds.Malphite, _ => new BasicAttack(1.1f, 0.17f, DamageType.Physical), (d, _) => new MalphiteSkill(d));
+            r.Register(HeroIds.Caitlyn, _ => new BasicAttack(1.367, 0.2, DamageType.Physical), (d, _) => new CaitlynSkill(d));
+            r.Register(HeroIds.Irelia, _ => new BasicAttack(1.3, 0.2, DamageType.Physical), (d, _) => new IreliaSkill(d));
+            r.Register(HeroIds.Jinx, _ => new BasicAttack(1.067, 0.37, DamageType.Physical), (d, _) => new JinxSkill(d));
+            r.Register(HeroIds.Katarina, _ => new BasicAttack(1.067, 0.14, DamageType.Physical), (d, _) => new KatarinaSkill(d));
+            r.Register(HeroIds.Malphite, _ => new BasicAttack(1.1, 0.17, DamageType.Physical), (d, _) => new MalphiteSkill(d));
             r.Register(HeroIds.MissFortune, d => new MissFortuneAttack(d), (d, _) => new MissFortuneSkill(d));
-            r.Register(HeroIds.Morgana, _ => new BasicAttack(2f, 0.14f, DamageType.Magical), (d, _) => new MorganaSkill(d));
+            r.Register(HeroIds.Morgana, _ => new BasicAttack(2d, 0.14, DamageType.Magical), (d, _) => new MorganaSkill(d));
             r.Register(HeroIds.Teemo, d => new TeemoAttack(d), (d, _) => new TeemoSkill(d));
-            r.Register(HeroIds.Tristana, _ => new BasicAttack(0.933f, 0.17f, DamageType.Physical), (d, _) => new TristanaSkill(d));
+            r.Register(HeroIds.Tristana, _ => new BasicAttack(0.933, 0.17, DamageType.Physical), (d, _) => new TristanaSkill(d));
             r.Register(HeroIds.Yasuo, _ => new YasuoAttack(), (d, _) => new YasuoSkill(d));
             r.Register(HeroIds.Yone, d => new YoneAttack(d), (d, a) => new YoneSkill(d, a as YoneAttack));
-            r.Register(HeroIds.Zed, _ => new BasicAttack(1.267f, 0.25f, DamageType.Physical), (d, _) => new ZedSkill(d));
+            r.Register(HeroIds.Zed, _ => new BasicAttack(1.267, 0.25, DamageType.Physical), (d, _) => new ZedSkill(d));
             return r;
         }
     }

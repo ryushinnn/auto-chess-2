@@ -5,8 +5,8 @@ namespace AutoChess.Core {
     /// <summary>
     /// What the client (views, input, UI) talks to. The views read <see cref="State"/>, react to
     /// <see cref="EventRaised"/> and change the game only through <see cref="Submit"/>. Today the match runs
-    /// in-process (<see cref="LocalGameSession"/>); a networked session would forward commands to a server
-    /// and apply the state / events it streams back, without touching the views.
+    /// in-process (<see cref="LocalGameSession"/>) or online (<see cref="LockstepSession"/>: commands go to the
+    /// server, the frames it relays drive a local replica), without touching the views.
     /// </summary>
     public interface IGameSession {
         GameDatabase Db { get; }
@@ -19,6 +19,10 @@ namespace AutoChess.Core {
         float TickProgress { get; }
         bool BoardLocked { get; }
 
+        /// <summary>Raises the first events (call once, after the views subscribed).</summary>
+        void Start();
+        /// <summary>Feeds real time (once per frame).</summary>
+        void Advance(float deltaTime);
         void Submit(GameCommand command, Action<CommandResult> onResult = null);
         CommandError CanMove(int unitId, UnitLocation target);
         bool CanEquip(int unitId, string itemId);
@@ -51,9 +55,9 @@ namespace AutoChess.Core {
         public MatchState State => Match.State;
         public int LocalPlayerId { get; }
         public PlayerState LocalPlayer => Match.Player(LocalPlayerId);
-        public float PhaseTimeLeft => Match.PhaseTimeLeft;
-        public float PhaseDuration => Match.PhaseDuration;
-        public float TickProgress => Math.Clamp(accumulator / Match.Rules.TickDelta, 0, 1);
+        public float PhaseTimeLeft => (float)Match.PhaseTimeLeft;
+        public float PhaseDuration => (float)Match.PhaseDuration;
+        public float TickProgress => (float)Math.Clamp(accumulator / Match.Rules.TickDelta, 0, 1);
         public bool BoardLocked => Match.BoardLocked;
 
         public void Start() {
@@ -63,7 +67,7 @@ namespace AutoChess.Core {
 
         /// <summary>Feeds real time; runs as many whole ticks as it covers, then dispatches the events.</summary>
         public void Advance(float deltaTime) {
-            var dt = Match.Rules.TickDelta;
+            var dt = (float)Match.Rules.TickDelta;
             accumulator += Math.Max(0, deltaTime) * Speed;
             var ticks = 0;
             while (accumulator >= dt && ticks < MaxTicksPerAdvance) {

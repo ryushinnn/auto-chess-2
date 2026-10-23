@@ -4,7 +4,7 @@ using AutoChess.Core.Combat;
 namespace AutoChess.Core.Net {
     /// <summary>
     /// 64-bit FNV-1a fingerprint of the gameplay-relevant state. Server and clients compare it to detect a
-    /// desync; tests use it to prove determinism. Floats are hashed by their bit pattern.
+    /// desync; tests use it to prove determinism. Numbers are hashed by their bit pattern.
     /// </summary>
     public static class StateHasher {
         const ulong Offset = 14695981039346656037UL;
@@ -88,7 +88,11 @@ namespace AutoChess.Core.Net {
             }
         }
 
-        static void Mix(ref ulong h, float value) => Mix(ref h, BitConverter.SingleToInt32Bits(value));
+        static void Mix(ref ulong h, double value) {
+            var bits = BitConverter.DoubleToInt64Bits(value);
+            Mix(ref h, (int)bits);
+            Mix(ref h, (int)(bits >> 32));
+        }
 
         static void Mix(ref ulong h, string value) {
             unchecked {

@@ -59,9 +59,10 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
 
 ## Unity client (`Assets/_main/Scripts/Game`)
 
-* `GameManager` - composition root: builds the database, owns the `LocalGameSession`, feeds it frame
-  time (`Advance(Time.deltaTime)`), binds every `ISessionView`, relays session events
-  (`GameManager.EventRaised`, survives `Restart`), offers dev cheats (Odin buttons).
+* `GameManager` - composition root: builds the database, owns the session (`LocalGameSession` offline,
+  `LockstepSession` online through `OnlineClient`), feeds it frame time (`Advance(Time.deltaTime)`), binds every
+  `ISessionView`, relays session events (`GameManager.EventRaised`, survives `Restart` and session swaps),
+  offers dev cheats (Odin buttons).
 * Views read state and react to events; they never modify the model:
   `RosterView` / `RosterUnitView` (owned units on bench and board), `BattleView` / `BattleUnitView`
   (interpolated between ticks, animations from battle events, projectiles / areas / effect VFX),
@@ -72,16 +73,30 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
 * Authoring data stays in ScriptableObjects (`HeroTrait`, `Item`, `Stage`, `RoleConfig`, `RealmConfig`,
   DBs in `Resources`) with unchanged serialized fields.
 
-## Going multiplayer (next steps)
+## Online play (lockstep)
 
-1. Pick the authority: a dedicated C# server (.NET or headless Unity) running `MatchSimulation` for
-   N players; Nakama (already in `Assets/Packages`) for accounts, matchmaking and relaying.
-2. Implement `IGameSession` as a network session: `Submit` sends `CommandCodec.Encode(cmd)`; the server
-   answers with results and streams events (or snapshots) back; the client keeps a read-only mirror of
-   `MatchState` for its views. Views need no change.
-3. PvP rounds: pair players and build battles with `BattleSetups.FromBoard(home)` +
-   `BattleSetups.FromBoardMirrored(visitor)`; add player health / elimination to `MatchSimulation`.
-4. Replace `UnlimitedUnitPool` with a shared pool; compare `StateHasher` hashes to catch desyncs.
+* Server: the separate repo `auto-chess-2-server` (.NET 8, ASP.NET Core WebSocket at `/ws`, `/health`). It
+  compiles `AutoChess.Core` and `AutoChess.Net` from this repo's sources (sibling checkout), loads
+  `GameData/game_data.json`, matches players and runs the authoritative `MatchSimulation` of every match.
+* Protocol: `Core/Net/Lockstep.cs` (one binary WebSocket message = [type byte][payload]). Hello (version + game
+  data hash) -> Welcome; FindMatch -> Queue updates -> Start (seed, names, phase clocks, local player id) ->
+  Frame per tick. A frame = the accepted commands in order, then one tick; every client applies it to its own
+  replica, so all replicas stay identical. Refused commands only go back to their sender (CommandRejected).
+* `LockstepHost` (Core/Net) is the server side of one match without sockets: applies commands, relays frames,
+  compares the StateHasher reports the clients send every `HashInterval` frames (Desync on mismatch).
+* `LockstepSession` (Core/Session) is the client side: an `IGameSession` whose `Submit` sends the command and
+  whose replica plays buffered frames (`TargetBuffer`, catch-up above `MaxBuffer`); result callbacks fire when
+  the frame carrying the command is played.
+* `OnlineClient` (`Scripts/Net`, asmdef `AutoChess.Net`, engine-free) is the WebSocket client: socket I/O on
+  background tasks, everything observable changes in `Update()` (main thread). Used by `GameManager` (Online
+  panel `OnlineLobbyUI`) and by the server repo's headless bots.
+* Matchmaking (server): 8 seats; a match starts with 8 queued players, or with >= 2 once the oldest waited
+  30 s, and server-side `BotBrain` bots (Core/AI) take the empty seats.
+* Determinism across runtimes: Unity Mono keeps float intermediates in double precision, CoreCLR / IL2CPP do
+  not, so the simulation uses `double` only (+ - * / and Sqrt are exact IEEE on every runtime). Never add
+  `float`, `MathF` or transcendental functions (Sin, Atan2, Pow...) to Core gameplay code.
+  `DeterminismProbeTests` writes a per-tick fingerprint to `Temp/determinism_<runtime>.txt` from Unity's Test
+  Runner (Mono) and from `Tools/core_tests` (CoreCLR): the two files must be identical.
 
 ## Tests
 

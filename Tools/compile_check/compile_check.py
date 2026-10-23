@@ -101,10 +101,20 @@ def unity_editor_root() -> Path:
             break
     if not version:
         raise SetupError("ProjectVersion.txt: m_EditorVersion not found")
-    root = Path("C:/Program Files/Unity/Hub/Editor") / version
-    if not root.exists():
-        raise SetupError(f"Unity {version} not found at {root}; set UNITY_EDITOR_PATH")
-    return root
+    folders = [Path("C:/Program Files/Unity/Hub/Editor")]
+    # Unity Hub's custom install folder ("Installs location" in its settings).
+    secondary = Path(os.environ.get("APPDATA", "")) / "UnityHub" / "secondaryInstallPath.json"
+    if secondary.exists():
+        try:
+            custom = json.loads(secondary.read_text(encoding="utf-8"))
+            if custom:
+                folders.insert(0, Path(custom))
+        except (ValueError, OSError):
+            pass
+    for folder in folders:
+        if (folder / version).exists():
+            return folder / version
+    raise SetupError(f"Unity {version} not found in {', '.join(str(f) for f in folders)}; set UNITY_EDITOR_PATH")
 
 
 def dag_dir() -> Path:

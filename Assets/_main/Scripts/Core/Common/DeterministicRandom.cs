@@ -42,8 +42,8 @@ namespace AutoChess.Core {
             return result;
         }
 
-        /// <summary>Uniform float in [0, 1).</summary>
-        public float NextFloat() => (NextUInt() >> 8) * (1f / 16777216f);
+        /// <summary>Uniform double in [0, 1).</summary>
+        public double NextFloat() => (NextUInt() >> 8) * (1d / 16777216d);
 
         /// <summary>Uniform int in [minInclusive, maxExclusive). Returns min when the range is empty.</summary>
         public int Range(int minInclusive, int maxExclusive) {
@@ -52,7 +52,7 @@ namespace AutoChess.Core {
             return minInclusive + (int)((ulong)NextUInt() * span >> 32);
         }
 
-        public bool Chance(float probability) => NextFloat() < probability;
+        public bool Chance(double probability) => NextFloat() < probability;
 
         /// <summary>A new independent stream derived from this one (advances this generator once).</summary>
         public DeterministicRandom Fork(uint salt) {

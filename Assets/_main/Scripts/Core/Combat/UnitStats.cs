@@ -8,7 +8,7 @@ namespace AutoChess.Core.Combat {
     /// after every step - exactly what HeroAttributes.RecalculateAttributes did.
     /// </summary>
     public static class UnitStats {
-        public static float BaseValue(GameRules rules, UnitDefinition def, StatKind stat, float hpScale, float damageScale) {
+        public static double BaseValue(GameRules rules, UnitDefinition def, StatKind stat, double hpScale, double damageScale) {
             switch (stat) {
                 case StatKind.MaxHp: return def.MaxHp * hpScale;
                 case StatKind.PhysicalDamage: return def.PhysicalDamage * damageScale;
@@ -28,7 +28,7 @@ namespace AutoChess.Core.Combat {
         }
 
         /// <summary>Sorts <paramref name="modifiers"/> (all for one stat) and applies them to the base value.</summary>
-        public static float Apply(GameRules rules, StatKind stat, float value, List<StatModifier> modifiers) {
+        public static double Apply(GameRules rules, StatKind stat, double value, List<StatModifier> modifiers) {
             modifiers.Sort(Compare);
             foreach (var m in modifiers) {
                 var delta = m.Type == ModifierType.Flat ? m.Value : value * m.Value;

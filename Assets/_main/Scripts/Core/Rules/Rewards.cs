@@ -45,10 +45,10 @@ namespace AutoChess.Core {
                     var options = reward.Options;
                     if (options.Length == 0) break;
                     var roll = rng.NextFloat();
-                    var total = 0f;
+                    var total = 0d;
                     RewardDefinition picked = null;
                     foreach (var o in options) {
-                        total += o.Rate / 100f;
+                        total += o.Rate / 100d;
                         if (roll <= total) {
                             picked = o.Reward;
                             break;

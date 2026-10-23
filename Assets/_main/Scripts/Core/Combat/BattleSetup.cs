@@ -27,8 +27,8 @@ namespace AutoChess.Core.Combat {
         /// <summary>Cell on the full battle grid.</summary>
         public HexCoord Cell;
         public string[] Items = Array.Empty<string>();
-        public float HpScale = 1;
-        public float DamageScale = 1;
+        public double HpScale = 1;
+        public double DamageScale = 1;
     }
 
     public static class BattleSetups {

@@ -46,8 +46,8 @@ namespace AutoChess.Game {
             }
 
             if (!combatUnit.Alive) return;
-            Bars.SetHealth(combatUnit.HpPercentage);
-            Bars.SetEnergy(combatUnit.Energy / session.Db.Rules.MaxEnergy);
+            Bars.SetHealth((float)combatUnit.HpPercentage);
+            Bars.SetEnergy((float)(combatUnit.Energy / session.Db.Rules.MaxEnergy));
         }
 
         void FaceUnit(int unitId, BattleView battle) {
@@ -66,7 +66,7 @@ namespace AutoChess.Game {
                     break;
                 case UnitAttackStartedEvent a:
                     FaceUnit(a.TargetId, battle);
-                    mecanim.SetAttackSpeed(a.AnimationSpeed);
+                    mecanim.SetAttackSpeed((float)a.AnimationSpeed);
                     mecanim.Attack();
                     break;
                 case UnitAttackInterruptedEvent _:
@@ -80,17 +80,17 @@ namespace AutoChess.Game {
                     mecanim.InterruptSkill();
                     break;
                 case UnitDamagedEvent d:
-                    Bars.ShowDamage(d.Amount, d.Type, d.Crit, d.StackIndex);
-                    if (combatUnit != null) Bars.SetHealth(combatUnit.HpPercentage);
+                    Bars.ShowDamage((float)d.Amount, d.Type, d.Crit, d.StackIndex);
+                    if (combatUnit != null) Bars.SetHealth((float)combatUnit.HpPercentage);
                     break;
                 case UnitHealedEvent h:
-                    Bars.ShowHeal(h.Amount);
+                    Bars.ShowHeal((float)h.Amount);
                     break;
                 case UnitEnergyDrainEvent drain:
-                    Bars.PlayEnergyDrain(drain.Delay, drain.Duration);
+                    Bars.PlayEnergyDrain((float)drain.Delay, (float)drain.Duration);
                     break;
                 case UnitAirborneEvent air:
-                    AirborneView.Airborne(air.Duration);
+                    AirborneView.Airborne((float)air.Duration);
                     break;
                 case UnitDiedEvent _:
                     Bars.SetHealth(0);
@@ -99,7 +99,7 @@ namespace AutoChess.Game {
                     name = "(DEAD) " + name;
                     break;
                 case MarkAddedEvent m:
-                    Marks.AddMark(m.MarkId, m.Key, m.Stacks, m.Duration);
+                    Marks.AddMark(m.MarkId, m.Key, m.Stacks, (float)m.Duration);
                     break;
                 case MarkRemovedEvent m:
                     Marks.RemoveMark(m.MarkId);

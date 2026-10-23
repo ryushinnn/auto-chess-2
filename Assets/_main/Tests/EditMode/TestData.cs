@@ -50,9 +50,9 @@ namespace AutoChess.Core.Tests {
                 new() { Id = Wall, Ingredients = new[] { Shield, Shield }, Modifiers = new[] { new StatModifier(StatKind.Armor, 50, ModifierType.Flat) } },
             };
             var traits = new List<TraitDefinition> {
-                new() { Kind = TraitKind.Role, Role = Role.Marksman, Checkpoints = new[] { 2, 4, 6 }, Params = new[] { 0.1f, 0.2f, 0.3f, 2f, 3f, 4f } },
-                new() { Kind = TraitKind.Role, Role = Role.Duelist, Checkpoints = new[] { 2, 4 }, Params = Array.Empty<float>() },
-                new() { Kind = TraitKind.Realm, Realm = Realm.Mortal, Checkpoints = new[] { 2, 4, 6, 8 }, Params = new float[10] },
+                new() { Kind = TraitKind.Role, Role = Role.Marksman, Checkpoints = new[] { 2, 4, 6 }, Params = new[] { 0.1, 0.2, 0.3, 2, 3, 4.0 } },
+                new() { Kind = TraitKind.Role, Role = Role.Duelist, Checkpoints = new[] { 2, 4 }, Params = Array.Empty<double>() },
+                new() { Kind = TraitKind.Realm, Realm = Realm.Mortal, Checkpoints = new[] { 2, 4, 6, 8 }, Params = new double[10] },
             };
             return new GameDatabase(rules ?? Rules(), units, items, traits, stages ?? new[] { Stage() });
         }

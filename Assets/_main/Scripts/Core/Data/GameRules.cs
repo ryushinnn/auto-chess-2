@@ -6,19 +6,19 @@ namespace AutoChess.Core {
     public sealed class GameRules {
         // ---- simulation clock
         public int TicksPerSecond = 30;
-        public float TickDelta => 1f / TicksPerSecond;
-        public int SecondsToTicks(float seconds) => seconds >= int.MaxValue / (float)TicksPerSecond
+        public double TickDelta => 1d / TicksPerSecond;
+        public int SecondsToTicks(double seconds) => seconds >= int.MaxValue / (double)TicksPerSecond
             ? int.MaxValue
             : (int)System.Math.Ceiling(seconds * TicksPerSecond - 1e-4);
 
         // ---- match flow
-        public float SetupSeconds = 99999;
-        public float PreparationSeconds = 99999;
-        public float TransitionSeconds = 5;
-        public float BattleSeconds = 60;
-        public float SummarySeconds = 2;
+        public double SetupSeconds = 99999;
+        public double PreparationSeconds = 99999;
+        public double TransitionSeconds = 5;
+        public double BattleSeconds = 60;
+        public double SummarySeconds = 2;
         /// <summary>A ready vote (or the old Space shortcut) shortens the current phase to this.</summary>
-        public float ReadyRemainingSeconds = 1;
+        public double ReadyRemainingSeconds = 1;
 
         // ---- roster
         public int BenchSize = 9;
@@ -57,29 +57,29 @@ namespace AutoChess.Core {
         public int PriceOf(Reputation reputation) => UnitPrices[(int)reputation];
 
         // ---- combat
-        public float BaseCriticalChance = 0.15f;
-        public float BaseCriticalDamage = 1.5f;
-        public float BaseEnergyRegenEfficiency = 1;
-        public float BasePenetration = 0;
-        public float BaseLifeSteal = 0;
-        public float BaseTenacity = 0;
-        public float MaxEnergy = 100;
-        public float DamageReductionConstant = 100;
-        public float MaxCriticalChance = 1;
-        public float MaxPenetration = 0.7f;
-        public float MaxLifeSteal = 1;
-        public float MaxTenacity = 0.5f;
-        public float AntiHealEfficiency = 0.5f;
-        public float MinArmorAndResistance = 1;
-        public float MinDamageDealt = 1;
-        public float MinDamage = 1;
-        public float MinAttackSpeed = 0.1f;
+        public double BaseCriticalChance = 0.15;
+        public double BaseCriticalDamage = 1.5;
+        public double BaseEnergyRegenEfficiency = 1;
+        public double BasePenetration = 0;
+        public double BaseLifeSteal = 0;
+        public double BaseTenacity = 0;
+        public double MaxEnergy = 100;
+        public double DamageReductionConstant = 100;
+        public double MaxCriticalChance = 1;
+        public double MaxPenetration = 0.7;
+        public double MaxLifeSteal = 1;
+        public double MaxTenacity = 0.5;
+        public double AntiHealEfficiency = 0.5;
+        public double MinArmorAndResistance = 1;
+        public double MinDamageDealt = 1;
+        public double MinDamage = 1;
+        public double MinAttackSpeed = 0.1;
         /// <summary>Radius of a unit's hit sphere (the Hero prefab's SphereCollider).</summary>
-        public float UnitRadius = 0.8f;
-        public float ProjectileSpeed = 20;
+        public double UnitRadius = 0.8;
+        public double ProjectileSpeed = 20;
 
         // ---- board geometry (overridden by the scene's Map component on the client)
-        public float CellWidth = 1.88f;
-        public float CellHeight = 1.89f;
+        public double CellWidth = 1.88;
+        public double CellHeight = 1.89;
     }
 }

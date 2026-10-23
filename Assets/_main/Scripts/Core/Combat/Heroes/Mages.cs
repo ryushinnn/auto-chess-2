@@ -3,11 +3,11 @@ using System;
 namespace AutoChess.Core.Combat.Heroes {
     /// <summary>Ignite stacks: true damage on hit (proportional to stacks) plus a burn over time.</summary>
     static class TeemoIgnite {
-        public static Damage Make(CombatUnit self, CombatUnit target, int stacks, float dmgMulLimit, float dmgByMaxHp) =>
+        public static Damage Make(CombatUnit self, CombatUnit target, int stacks, double dmgMulLimit, double dmgByMaxHp) =>
             new(stacks * Math.Min(self.MagicalDamage * dmgMulLimit, target.MaxHp * dmgByMaxHp), DamageType.True, 0);
 
-        public static void Burn(CombatUnit self, CombatUnit target, string key, Damage ignite, int stacks, float duration,
-            float interval) {
+        public static void Burn(CombatUnit self, CombatUnit target, string key, Damage ignite, int stacks, double duration,
+            double interval) {
             // One tick is already dealt with the hit, hence "- 1".
             target.AddDamageOverTime(DamageOverTime.Create(key, self, ignite,
                 (int)Math.Round(duration / interval) - 1, interval, stacks, false));
@@ -16,15 +16,15 @@ namespace AutoChess.Core.Combat.Heroes {
 
     public sealed class TeemoAttack : AttackBehaviour {
         readonly int maxStacks;
-        readonly float duration;
-        readonly float interval;
-        readonly float dmgByMaxHp;
-        readonly float dmgMulLimit;
+        readonly double duration;
+        readonly double interval;
+        readonly double dmgByMaxHp;
+        readonly double dmgMulLimit;
         readonly string dotKey;
 
         public TeemoAttack(UnitDefinition def) {
-            AnimationLength = 0.933f;
-            HitTimes = new[] { 0.17f };
+            AnimationLength = 0.933;
+            HitTimes = new[] { 0.17 };
             maxStacks = (int)def.Param(0);
             duration = def.Param(1);
             interval = def.Param(2);
@@ -49,19 +49,19 @@ namespace AutoChess.Core.Combat.Heroes {
     /// <summary>Three bombs, stronger per ignite stack; the last one crits.</summary>
     public sealed class TeemoSkill : SkillBehaviour {
         readonly int maxStacks;
-        readonly float duration;
-        readonly float interval;
-        readonly float dmgByMaxHp;
-        readonly float dmgMulLimit;
+        readonly double duration;
+        readonly double interval;
+        readonly double dmgByMaxHp;
+        readonly double dmgMulLimit;
         readonly string dotKey;
-        readonly float baseDmg;
-        readonly float dmgMul;
-        readonly float bonusBaseDmgPerStack;
-        readonly float bonusDmgMulPerStack;
+        readonly double baseDmg;
+        readonly double dmgMul;
+        readonly double bonusBaseDmgPerStack;
+        readonly double bonusDmgMulPerStack;
 
         public TeemoSkill(UnitDefinition def) {
             AnimationLength = 4;
-            HitTimes = new[] { 1.56f, 2.73f, 3.29f };
+            HitTimes = new[] { 1.56, 2.73, 3.29 };
             maxStacks = (int)def.Param(0);
             duration = def.Param(1);
             interval = def.Param(2);
@@ -95,18 +95,18 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>Alternates swords: divine (physical, stacks weakening) and devil (magic, lifesteal on missing health).</summary>
     public sealed class YoneAttack : AttackBehaviour {
-        readonly float dmgReduceMul;
+        readonly double dmgReduceMul;
         readonly int maxStacks;
-        readonly float duration;
-        readonly float vampMin;
-        readonly float vampMax;
+        readonly double duration;
+        readonly double vampMin;
+        readonly double vampMax;
         readonly string effectKey;
 
         public YoneSword CurrentSword { get; private set; } = YoneSword.Divine;
 
         public YoneAttack(UnitDefinition def) {
-            AnimationLength = 1.367f;
-            HitTimes = new[] { 0.5f };
+            AnimationLength = 1.367;
+            HitTimes = new[] { 0.5 };
             dmgReduceMul = def.Param(0);
             maxStacks = (int)def.Param(1);
             duration = def.Param(2);
@@ -121,7 +121,7 @@ namespace AutoChess.Core.Combat.Heroes {
                 var divine = CurrentSword == YoneSword.Divine;
                 var damage = divine
                     ? self.BasicDamage(DamageType.Physical)
-                    : self.MakeDamage(DamageType.Magical, self.RollCrit(), physicalRatio: 1f);
+                    : self.MakeDamage(DamageType.Magical, self.RollCrit(), physicalRatio: 1d);
                 var dealt = target.TakeDamage(damage, self);
                 var heal = dealt * self.LifeSteal;
                 if (!divine) heal += dealt * (vampMin + (vampMax - vampMin) * Math.Clamp(self.HpLostPercentage, 0, 1));
@@ -143,17 +143,17 @@ namespace AutoChess.Core.Combat.Heroes {
 
     /// <summary>The ready sword picks the skill: divine dash (knock-up) or devil combo (four magic hits).</summary>
     public sealed class YoneSkill : SkillBehaviour {
-        static readonly float[] DivineTimes = { 1.66f };
-        static readonly float[] DevilTimes = { 0.12f, 0.72f, 1.08f, 2.24f };
-        const float DivineAnimLength = 4;
-        const float DevilAnimLength = 4.25f;
+        static readonly double[] DivineTimes = { 1.66 };
+        static readonly double[] DevilTimes = { 0.12, 0.72, 1.08, 2.24 };
+        const double DivineAnimLength = 4;
+        const double DevilAnimLength = 4.25;
 
         readonly YoneAttack attack;
-        readonly float divineBaseDmg;
-        readonly float divineDmgMul;
-        readonly float airborneDuration;
-        readonly float energyRegen;
-        readonly float devilBaseDmg0, devilDmgMul0, devilBaseDmg1, devilDmgMul1;
+        readonly double divineBaseDmg;
+        readonly double divineDmgMul;
+        readonly double airborneDuration;
+        readonly double energyRegen;
+        readonly double devilBaseDmg0, devilDmgMul0, devilBaseDmg1, devilDmgMul1;
         YoneSword sword;
 
         public YoneSkill(UnitDefinition def, YoneAttack attack) {
@@ -168,7 +168,7 @@ namespace AutoChess.Core.Combat.Heroes {
             devilDmgMul1 = def.Param(12);
         }
 
-        public override void Begin(CombatUnit self, out float duration) {
+        public override void Begin(CombatUnit self, out double duration) {
             sword = attack?.CurrentSword ?? YoneSword.Divine;
             AnimationLength = sword == YoneSword.Divine ? DivineAnimLength : DevilAnimLength;
             HitTimes = sword == YoneSword.Divine ? DivineTimes : DevilTimes;

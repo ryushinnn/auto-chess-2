@@ -15,14 +15,14 @@ namespace AutoChess.Core.Combat {
         public readonly int SourceUnitId;
         public readonly IReadOnlyList<string> Items;
         public readonly BattleSimulation Battle;
-        public readonly float HpScale;
-        public readonly float DamageScale;
+        public readonly double HpScale;
+        public readonly double DamageScale;
 
         readonly GameRules rules;
         readonly StatBlock stats = new();
 
-        public float Hp { get; private set; }
-        public float Energy { get; private set; }
+        public double Hp { get; private set; }
+        public double Energy { get; private set; }
         public bool Alive { get; private set; } = true;
         public CombatUnit Target { get; internal set; }
 
@@ -41,7 +41,7 @@ namespace AutoChess.Core.Combat {
         readonly List<Mark> marks = new();
         readonly List<DamageOverTime> damageOverTimes = new();
         readonly List<HealOverTime> healOverTimes = new();
-        float drainRemaining;
+        double drainRemaining;
 
         public IReadOnlyList<ModifierSet> ModifierSets => modifierSets;
         public IReadOnlyList<Mark> Marks => marks;
@@ -82,24 +82,24 @@ namespace AutoChess.Core.Combat {
 
         // ------------------------------------------------------------------ stats
 
-        public float this[StatKind stat] => stats[stat];
-        public float MaxHp => stats[StatKind.MaxHp];
-        public float PhysicalDamage => stats[StatKind.PhysicalDamage];
-        public float MagicalDamage => stats[StatKind.MagicalDamage];
-        public float Armor => stats[StatKind.Armor];
-        public float Resistance => stats[StatKind.Resistance];
-        public float AttackSpeed => stats[StatKind.AttackSpeed];
-        public float CriticalChance => stats[StatKind.CriticalChance];
-        public float CriticalDamage => stats[StatKind.CriticalDamage];
-        public float EnergyRegenEfficiency => stats[StatKind.EnergyRegenEfficiency];
-        public float PhysicalPenetration => stats[StatKind.PhysicalPenetration];
-        public float MagicalPenetration => stats[StatKind.MagicalPenetration];
-        public float LifeSteal => stats[StatKind.LifeSteal];
-        public float Tenacity => stats[StatKind.Tenacity];
-        public float MovementSpeed => Def.MovementSpeed;
+        public double this[StatKind stat] => stats[stat];
+        public double MaxHp => stats[StatKind.MaxHp];
+        public double PhysicalDamage => stats[StatKind.PhysicalDamage];
+        public double MagicalDamage => stats[StatKind.MagicalDamage];
+        public double Armor => stats[StatKind.Armor];
+        public double Resistance => stats[StatKind.Resistance];
+        public double AttackSpeed => stats[StatKind.AttackSpeed];
+        public double CriticalChance => stats[StatKind.CriticalChance];
+        public double CriticalDamage => stats[StatKind.CriticalDamage];
+        public double EnergyRegenEfficiency => stats[StatKind.EnergyRegenEfficiency];
+        public double PhysicalPenetration => stats[StatKind.PhysicalPenetration];
+        public double MagicalPenetration => stats[StatKind.MagicalPenetration];
+        public double LifeSteal => stats[StatKind.LifeSteal];
+        public double Tenacity => stats[StatKind.Tenacity];
+        public double MovementSpeed => Def.MovementSpeed;
         public int AttackRange => Def.AttackRange;
-        public float HpPercentage => MaxHp <= 0 ? 0 : Math.Clamp(Hp / MaxHp, 0, 1);
-        public float HpLostPercentage => 1 - HpPercentage;
+        public double HpPercentage => MaxHp <= 0 ? 0 : Math.Clamp(Hp / MaxHp, 0, 1);
+        public double HpLostPercentage => 1 - HpPercentage;
         public bool IsDrainingEnergy => drainRemaining > 0;
 
         void Recalculate(StatKind stat) {
@@ -226,7 +226,7 @@ namespace AutoChess.Core.Combat {
         /// Damage dealt by this unit: <paramref name="flat"/> + ratios of its physical / magical damage,
         /// multiplied by the crit damage when <paramref name="crit"/>; penetration follows the output type.
         /// </summary>
-        public Damage MakeDamage(DamageType type, bool crit, float flat = 0, float physicalRatio = 0, float magicalRatio = 0) {
+        public Damage MakeDamage(DamageType type, bool crit, double flat = 0, double physicalRatio = 0, double magicalRatio = 0) {
             var value = flat + PhysicalDamage * physicalRatio + MagicalDamage * magicalRatio;
             if (crit) value *= CriticalDamage;
             return new Damage(value, type, PenetrationFor(type), crit);
@@ -241,14 +241,14 @@ namespace AutoChess.Core.Combat {
             return new Damage(value, type, PenetrationFor(type), crit);
         }
 
-        float PenetrationFor(DamageType type) => type switch {
+        double PenetrationFor(DamageType type) => type switch {
             DamageType.Physical => PhysicalPenetration,
             DamageType.Magical => MagicalPenetration,
             _ => 0
         };
 
-        float Mitigate(Damage damage) {
-            float value;
+        double Mitigate(Damage damage) {
+            double value;
             switch (damage.Type) {
                 case DamageType.Physical:
                     value = damage.Value / (1 + Math.Max(rules.MinArmorAndResistance, Armor - damage.Penetration) / rules.DamageReductionConstant);
@@ -263,7 +263,7 @@ namespace AutoChess.Core.Combat {
             return Math.Max(value, rules.MinDamageDealt);
         }
 
-        float Apply(Damage damage, CombatUnit source, int stackIndex) {
+        double Apply(Damage damage, CombatUnit source, int stackIndex) {
             if (!Alive) return 0;
             var dealt = Mitigate(damage);
             Hp -= dealt;
@@ -276,20 +276,20 @@ namespace AutoChess.Core.Combat {
         }
 
         /// <summary>Takes one hit. Returns the post-mitigation damage.</summary>
-        public float TakeDamage(Damage damage, CombatUnit source, bool regenEnergy = true) {
+        public double TakeDamage(Damage damage, CombatUnit source, bool regenEnergy = true) {
             var dealt = Apply(damage, source, 0);
             if (Alive && regenEnergy) RegenEnergy(Def.EnergyRegenPerHit);
             return dealt;
         }
 
         /// <summary>Takes a two-part hit (shown stacked); energy is regenerated once.</summary>
-        public float TakeDamage(Damage first, Damage second, CombatUnit source, bool regenEnergy = true) {
+        public double TakeDamage(Damage first, Damage second, CombatUnit source, bool regenEnergy = true) {
             var dealt = Apply(first, source, 0) + Apply(second, source, 1);
             if (Alive && regenEnergy) RegenEnergy(Def.EnergyRegenPerHit);
             return dealt;
         }
 
-        public void Heal(float amount) {
+        public void Heal(double amount) {
             if (!Alive || amount <= 0) return;
             if (amount < 1) amount = 1;
             if (Status.IsAntiHeal) amount *= 1 - rules.AntiHealEfficiency;
@@ -298,12 +298,12 @@ namespace AutoChess.Core.Combat {
         }
 
         /// <summary>Lifesteal on damage this unit just dealt.</summary>
-        public void StealLife(float dealt) {
+        public void StealLife(double dealt) {
             var heal = dealt * LifeSteal;
             if (heal > 0) Heal(heal);
         }
 
-        public void RegenEnergy(float amount) {
+        public void RegenEnergy(double amount) {
             if (!Alive || IsDrainingEnergy || Skill.Active) return;
             Energy = Math.Min(Energy + amount * EnergyRegenEfficiency, rules.MaxEnergy);
         }
@@ -311,7 +311,7 @@ namespace AutoChess.Core.Combat {
         public void UseAllEnergy() => Energy = 0;
 
         /// <summary>Empties the energy bar and blocks regeneration for delay + duration seconds.</summary>
-        public void DrainEnergy(float delay, float duration) {
+        public void DrainEnergy(double delay, double duration) {
             Energy = 0;
             drainRemaining = delay + duration;
             Battle.Emit(new UnitEnergyDrainEvent { UnitId = Id, Delay = delay, Duration = duration });
@@ -319,26 +319,26 @@ namespace AutoChess.Core.Combat {
 
         // ------------------------------------------------------------------ crowd control
 
-        public void Airborne(float duration) {
+        public void Airborne(double duration) {
             if (!Alive || Status.Unstoppable) return;
             Status.Airborne = duration;
             Battle.Emit(new UnitAirborneEvent { UnitId = Id, Duration = duration });
             InterruptActions();
         }
 
-        public void Stun(float duration) {
+        public void Stun(double duration) {
             if (!Alive || Status.Unstoppable) return;
             Status.Stun = Math.Max(Status.Stun, duration * (1 - Tenacity));
             InterruptActions();
         }
 
-        public void Silence(float duration) {
+        public void Silence(double duration) {
             if (!Alive || Status.Unstoppable) return;
             Status.Silence = Math.Max(Status.Silence, duration * (1 - Tenacity));
             Skill.Interrupt(this);
         }
 
-        public void AntiHeal(float duration) {
+        public void AntiHeal(double duration) {
             if (!Alive) return;
             Status.AntiHeal = Math.Max(Status.AntiHeal, duration);
         }
@@ -366,7 +366,7 @@ namespace AutoChess.Core.Combat {
         }
 
         /// <summary>Per-tick timers: crowd control, timed modifiers, DoT / HoT, energy drain.</summary>
-        internal void TickEffects(float dt) {
+        internal void TickEffects(double dt) {
             Status.Tick(dt);
             if (drainRemaining > 0) drainRemaining = Math.Max(0, drainRemaining - dt);
 
@@ -425,10 +425,10 @@ namespace AutoChess.Core.Combat {
 
     public sealed class AttackState {
         public readonly AttackBehaviour Behaviour;
-        public float Cooldown;
+        public double Cooldown;
         public bool Active;
-        public float Timer;
-        public float Duration;
+        public double Timer;
+        public double Duration;
         public int HitsDone;
 
         internal AttackState(AttackBehaviour behaviour) {
@@ -448,7 +448,7 @@ namespace AutoChess.Core.Combat {
             return true;
         }
 
-        internal void Tick(CombatUnit self, float dt) {
+        internal void Tick(CombatUnit self, double dt) {
             if (Cooldown > 0) Cooldown -= dt;
             if (!Active) return;
             Timer += dt;
@@ -485,8 +485,8 @@ namespace AutoChess.Core.Combat {
     public sealed class SkillState {
         public readonly SkillBehaviour Behaviour;
         public bool Active;
-        public float Timer;
-        public float Duration;
+        public double Timer;
+        public double Duration;
         public int HitsDone;
 
         internal SkillState(SkillBehaviour behaviour) {
@@ -508,7 +508,7 @@ namespace AutoChess.Core.Combat {
             return true;
         }
 
-        internal void Tick(CombatUnit self, float dt) {
+        internal void Tick(CombatUnit self, double dt) {
             if (!Active) return;
             Timer += dt;
             var hits = Behaviour.HitTimes;

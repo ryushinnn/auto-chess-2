@@ -10,7 +10,7 @@ namespace AutoChess.Game {
     /// (GameData/game_data.json) for a dedicated server and the offline tests.
     /// </summary>
     public static class GameDataBuilder {
-        public static GameDataJson.Content BuildContent(IEnumerable<Stage> stages, float cellWidth, float cellHeight) {
+        public static GameDataJson.Content BuildContent(IEnumerable<Stage> stages, double cellWidth, double cellHeight) {
             var content = new GameDataJson.Content();
             content.Rules.CellWidth = cellWidth;
             content.Rules.CellHeight = cellHeight;
@@ -36,7 +36,7 @@ namespace AutoChess.Game {
             return content;
         }
 
-        public static GameDatabase Build(IEnumerable<Stage> stages, float cellWidth, float cellHeight) =>
+        public static GameDatabase Build(IEnumerable<Stage> stages, double cellWidth, double cellHeight) =>
             BuildContent(stages, cellWidth, cellHeight).ToDatabase();
 
         public static UnitDefinition ToUnit(HeroTrait t) {
@@ -49,7 +49,7 @@ namespace AutoChess.Game {
             }
 
             var paramCount = t.skillParams?.Length ?? 0;
-            var values = new float[paramCount];
+            var values = new double[paramCount];
             var keys = new string[paramCount];
             for (var i = 0; i < paramCount; i++) {
                 values[i] = t.skillParams[i].value;
@@ -73,7 +73,7 @@ namespace AutoChess.Game {
         }
 
         public static TraitDefinition ToTrait(DestinyConfig config) {
-            var values = new float[config.destinyParams?.Length ?? 0];
+            var values = new double[config.destinyParams?.Length ?? 0];
             for (var i = 0; i < values.Length; i++) values[i] = config.destinyParams[i].value;
             var def = new TraitDefinition {
                 Name = config.GetName(), Checkpoints = config.checkpoints ?? Array.Empty<int>(), Params = values,

@@ -194,7 +194,7 @@ namespace AutoChess.Core.Tests {
                     foreach (var cast in events.Pending.OfType<UnitSkillStartedEvent>()) castBy.Add(battle.FindUnit(cast.UnitId).Def.Id);
                     foreach (var u in battle.Units) {
                         Assert.That(u.Hp, Is.LessThanOrEqualTo(u.MaxHp + 1e-3f), u.ToString());
-                        Assert.IsFalse(float.IsNaN(u.Hp) || float.IsNaN(u.Position.X), u.ToString());
+                        Assert.IsFalse(double.IsNaN(u.Hp) || double.IsNaN(u.Position.X), u.ToString());
                     }
                 }
             }

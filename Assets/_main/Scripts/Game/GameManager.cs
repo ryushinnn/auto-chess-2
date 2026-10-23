@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using AutoChess.Core;
+using AutoChess.Core.Net;
+using AutoChess.Net;
 using RExt.Patterns.Singleton;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -33,8 +35,8 @@ namespace AutoChess.Game {
     /// Composition root of the Arena scene (was the feature hub). Builds the game data from the
     /// ScriptableObjects, starts a <see cref="LocalGameSession"/> running the engine-free simulation, binds
     /// every <see cref="ISessionView"/> and feeds the session with frame time. All gameplay changes go through
-    /// <see cref="Submit"/>; views listen to <see cref="EventRaised"/>, which outlives sessions, so a restart (or
-    /// swapping the local session for a networked one) leaves them untouched.
+    /// <see cref="Submit"/>; views listen to <see cref="EventRaised"/>, which outlives sessions, so a restart or
+    /// an online match (<see cref="Online"/> swaps in a <see cref="LockstepSession"/>) leaves them untouched.
     /// </summary>
     [DefaultExecutionOrder(-100)]
     public class GameManager : Singleton<GameManager> {
@@ -51,7 +53,7 @@ namespace AutoChess.Game {
         [SerializeField] bool allowCheats;
         [SerializeField] Item[] hackItems;
 
-        LocalGameSession session;
+        IGameSession session;
         GameDatabase database;
         readonly List<ISessionView> views = new();
 
@@ -59,20 +61,38 @@ namespace AutoChess.Game {
         public event Action<GameEvent> EventRaised;
 
         public IGameSession Session => session;
-        public LocalGameSession LocalSession => session;
+        /// <summary>The offline session, or null during an online match.</summary>
+        public LocalGameSession LocalSession => session as LocalGameSession;
+        /// <summary>The online match being shown, or null offline.</summary>
+        public LockstepSession OnlineSession => session as LockstepSession;
+        /// <summary>Connection to the auto-chess-2-server (lobby, matchmaking); drives <see cref="OnlineSession"/>.</summary>
+        public OnlineClient Online { get; private set; }
+        /// <summary>Fingerprint of the game data; the server only matches clients with its own.</summary>
+        public ulong DataHash { get; private set; }
         public GameDatabase Db => session?.Db;
         public PresentationSettings Settings => settings;
         public RosterView Roster => lineUp;
         public BattleView Battle => battleField;
         public PlayerState LocalPlayer => session?.LocalPlayer;
         public bool IsReady { get; private set; }
-        public bool CheatsAllowed => allowCheats || Application.isEditor || Debug.isDebugBuild;
+        public bool CheatsAllowed => session is LockstepSession online
+            ? online.Info.AllowCheats
+            : allowCheats || Application.isEditor || Debug.isDebugBuild;
         public ulong Seed { get; private set; }
 
         void Start() {
             var board = BoardSpace.Instance;
-            database = GameDataBuilder.Build(stages, board.CellWidth, board.CellHeight);
-            CreateSession(ResolveSeed());
+            var content = GameDataBuilder.BuildContent(stages, board.CellWidth, board.CellHeight);
+            database = content.ToDatabase();
+            DataHash = Lockstep.DataHash(GameDataJson.Write(content));
+            Online = new OnlineClient(database, DataHash);
+            Online.MatchStarted += match => {
+                Seed = match.Info.Seed;
+                Begin(match);
+            };
+            Online.Log += message => Debug.Log($"[Online] {message}");
+            if (GetComponent<OnlineLobbyUI>() == null) gameObject.AddComponent<OnlineLobbyUI>();
+            UseSession(new LocalGameSession(database, new MatchConfig { Seed = Seed = ResolveSeed(), AllowCheats = CheatsAllowed }));
 
             board.Bind(database.Grid);
             BenchSpace.Instance.Bind(database.Rules.BenchSize);
@@ -88,23 +108,34 @@ namespace AutoChess.Game {
             session.Start();
         }
 
-        void CreateSession(ulong seed) {
+        void UseSession(IGameSession next) {
             if (session != null) session.EventRaised -= Relay;
-            Seed = seed;
-            session = new LocalGameSession(database, new MatchConfig { Seed = seed, AllowCheats = CheatsAllowed });
+            session = next;
             session.EventRaised += Relay;
         }
 
-        void Relay(GameEvent e) => EventRaised?.Invoke(e);
-
-        /// <summary>Throws the current match away and starts a new one in place (same scene, same views).</summary>
-        public void Restart(ulong? seed = null) {
+        /// <summary>Shows <paramref name="next"/> instead of the current session (same scene, same views).</summary>
+        void Begin(IGameSession next) {
             if (!IsReady) return;
-            CreateSession(seed ?? (ulong)DateTime.UtcNow.Ticks);
+            UseSession(next);
             foreach (var behaviour in FindObjectsOfType<MonoBehaviour>(true)) {
                 if (behaviour is ISessionResettable resettable) resettable.OnSessionReset();
             }
             session.Start();
+        }
+
+        void Relay(GameEvent e) => EventRaised?.Invoke(e);
+
+        /// <summary>
+        /// Throws the current match away and starts a new offline one in place (same scene, same views). During an
+        /// online match this leaves it (the server keeps playing our roster).
+        /// </summary>
+        public void Restart(ulong? seed = null) {
+            if (!IsReady) return;
+            if (session is LockstepSession) Online.LeaveMatch();
+            Seed = seed ?? (ulong)DateTime.UtcNow.Ticks;
+            var cheats = allowCheats || Application.isEditor || Debug.isDebugBuild;
+            Begin(new LocalGameSession(database, new MatchConfig { Seed = Seed, AllowCheats = cheats }));
         }
 
         ulong ResolveSeed() {
@@ -117,6 +148,7 @@ namespace AutoChess.Game {
         }
 
         void Update() {
+            Online?.Update();
             if (!IsReady) return;
             if (Input.GetKeyDown(KeyCode.Space)) OnSpace();
             session.Advance(Time.deltaTime);
@@ -136,6 +168,10 @@ namespace AutoChess.Game {
 
         public void Submit(GameCommand command, Action<CommandResult> onResult = null) {
             session.Submit(command, onResult);
+        }
+
+        void OnDestroy() {
+            Online?.Dispose();
         }
 
         // ---------------------------------------------------------------- development shortcuts

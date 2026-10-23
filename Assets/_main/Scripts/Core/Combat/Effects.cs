@@ -10,8 +10,8 @@ namespace AutoChess.Core.Combat {
         public CombatUnit Owner;
         public string Key;
         public int Stacks;
-        public float Duration;
-        public bool Permanent => float.IsPositiveInfinity(Duration);
+        public double Duration;
+        public bool Permanent => double.IsPositiveInfinity(Duration);
     }
 
     /// <summary>A group of stat modifiers applied together (an item, an evolution, a buff, a debuff).</summary>
@@ -23,14 +23,14 @@ namespace AutoChess.Core.Combat {
         public StatModifier[] Modifiers;
         public int Stacks = 1;
         public bool IsPermanent;
-        public float Remaining;
+        public double Remaining;
         public Mark Mark;
         /// <summary>Presentation hint (VFX name), or null.</summary>
         public string Visual;
 
         public bool SameAs(ModifierSet other) => Key == other.Key && Owner == other.Owner;
 
-        public static ModifierSet Timed(CombatUnit owner, string key, float duration, StatModifier[] modifiers,
+        public static ModifierSet Timed(CombatUnit owner, string key, double duration, StatModifier[] modifiers,
             int stacks = 1, bool mark = true, string visual = null) {
             var set = new ModifierSet {
                 Key = key, Owner = owner, Modifiers = modifiers, Stacks = stacks,
@@ -44,9 +44,9 @@ namespace AutoChess.Core.Combat {
             bool mark = true, string visual = null) {
             var set = new ModifierSet {
                 Key = key, Owner = owner, Modifiers = modifiers, Stacks = stacks,
-                IsPermanent = true, Remaining = float.PositiveInfinity, Visual = visual
+                IsPermanent = true, Remaining = double.PositiveInfinity, Visual = visual
             };
-            if (mark) set.Mark = new Mark { Owner = owner, Key = key, Stacks = stacks, Duration = float.PositiveInfinity };
+            if (mark) set.Mark = new Mark { Owner = owner, Key = key, Stacks = stacks, Duration = double.PositiveInfinity };
             return set;
         }
     }
@@ -57,15 +57,15 @@ namespace AutoChess.Core.Combat {
         public CombatUnit Owner;
         public Damage Damage;
         public int Times;
-        public float Interval;
+        public double Interval;
         public int Stacks;
-        public float Timer;
+        public double Timer;
         public Mark Mark;
 
         public bool SameAs(DamageOverTime other) => Key == other.Key && Owner == other.Owner;
 
         /// <param name="applyInstantly">First tick now (true) or after one interval.</param>
-        public static DamageOverTime Create(string key, CombatUnit owner, Damage damage, int times, float interval,
+        public static DamageOverTime Create(string key, CombatUnit owner, Damage damage, int times, double interval,
             int stacks = 1, bool applyInstantly = true, bool mark = true) {
             return new DamageOverTime {
                 Key = key, Owner = owner, Damage = damage, Times = times, Interval = interval, Stacks = stacks,
@@ -81,15 +81,15 @@ namespace AutoChess.Core.Combat {
         public int Id;
         public string Key;
         public CombatUnit Owner;
-        public float Amount;
+        public double Amount;
         public int Times;
-        public float Interval;
-        public float Timer;
+        public double Interval;
+        public double Timer;
         public Mark Mark;
 
         public bool SameAs(HealOverTime other) => Key == other.Key && Owner == other.Owner;
 
-        public static HealOverTime Create(string key, CombatUnit owner, float amount, int times, float interval,
+        public static HealOverTime Create(string key, CombatUnit owner, double amount, int times, double interval,
             bool mark = false) {
             return new HealOverTime {
                 Key = key, Owner = owner, Amount = amount, Times = times, Interval = interval, Timer = 0,
@@ -100,10 +100,10 @@ namespace AutoChess.Core.Combat {
 
     /// <summary>Crowd control timers (was HeroStatusEffects).</summary>
     public sealed class StatusState {
-        public float Airborne;
-        public float Stun;
-        public float Silence;
-        public float AntiHeal;
+        public double Airborne;
+        public double Stun;
+        public double Silence;
+        public double AntiHeal;
         public bool Unstoppable;
 
         public bool IsAirborne => Airborne > 0;
@@ -111,7 +111,7 @@ namespace AutoChess.Core.Combat {
         public bool IsSilenced => Silence > 0;
         public bool IsAntiHeal => AntiHeal > 0;
 
-        public void Tick(float dt) {
+        public void Tick(double dt) {
             if (Airborne > 0) Airborne = Math.Max(0, Airborne - dt);
             if (Stun > 0) Stun = Math.Max(0, Stun - dt);
             if (Silence > 0) Silence = Math.Max(0, Silence - dt);

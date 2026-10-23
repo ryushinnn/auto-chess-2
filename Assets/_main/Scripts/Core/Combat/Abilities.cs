@@ -7,18 +7,18 @@ namespace AutoChess.Core.Combat {
     /// offsets at which <see cref="OnHit"/> fires. One instance per combat unit, so it may keep state.
     /// </summary>
     public abstract class AttackBehaviour {
-        protected float AnimationLength;
-        float[] hitTimes = Array.Empty<float>();
+        protected double AnimationLength;
+        double[] hitTimes = Array.Empty<double>();
 
-        public float[] HitTimes {
+        public double[] HitTimes {
             get => hitTimes;
-            protected set => hitTimes = value ?? Array.Empty<float>();
+            protected set => hitTimes = value ?? Array.Empty<double>();
         }
 
         /// <summary>Animation play rate of the current swing (>= 1).</summary>
-        public float AnimationSpeed { get; private set; } = 1;
+        public double AnimationSpeed { get; private set; } = 1;
 
-        public virtual void Begin(CombatUnit self, out float duration) {
+        public virtual void Begin(CombatUnit self, out double duration) {
             var interval = 1 / self.AttackSpeed;
             AnimationSpeed = Math.Max(1, AnimationLength / interval);
             duration = AnimationLength / AnimationSpeed;
@@ -34,21 +34,21 @@ namespace AutoChess.Core.Combat {
     /// are seconds since the cast started. Heroes flagged unstoppable ignore crowd control while casting.
     /// </summary>
     public abstract class SkillBehaviour {
-        protected float AnimationLength;
-        float[] hitTimes = Array.Empty<float>();
+        protected double AnimationLength;
+        double[] hitTimes = Array.Empty<double>();
         protected bool DrainsEnergy;
-        protected float DrainDelay;
-        protected float DrainDuration;
+        protected double DrainDelay;
+        protected double DrainDuration;
 
-        public float[] HitTimes {
+        public double[] HitTimes {
             get => hitTimes;
-            protected set => hitTimes = value ?? Array.Empty<float>();
+            protected set => hitTimes = value ?? Array.Empty<double>();
         }
 
         /// <summary>Presentation variant of the current cast (forwarded in UnitSkillStartedEvent).</summary>
         public int Variant { get; protected set; }
 
-        public virtual void Begin(CombatUnit self, out float duration) {
+        public virtual void Begin(CombatUnit self, out double duration) {
             if (self.Def.Unstoppable) self.Status.Unstoppable = true;
             if (DrainsEnergy) self.DrainEnergy(DrainDelay, DrainDuration);
             else self.UseAllEnergy();
@@ -70,7 +70,7 @@ namespace AutoChess.Core.Combat {
     public class BasicAttack : AttackBehaviour {
         readonly DamageType type;
 
-        public BasicAttack(float animationLength, float hitTime, DamageType type) {
+        public BasicAttack(double animationLength, double hitTime, DamageType type) {
             AnimationLength = animationLength;
             HitTimes = new[] { hitTime };
             this.type = type;

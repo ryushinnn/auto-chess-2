@@ -20,7 +20,7 @@ namespace AutoChess.Core.Combat {
         public readonly HexGrid Grid;
         public readonly DeterministicRandom Rng;
         public readonly BattleSetup Setup;
-        public readonly float TickDelta;
+        public readonly double TickDelta;
 
         readonly EventBuffer events;
         readonly List<CombatUnit> units = new();
@@ -39,7 +39,7 @@ namespace AutoChess.Core.Combat {
         int nextAreaId;
 
         public int Tick { get; private set; }
-        public float Time => Tick * TickDelta;
+        public double Time => Tick * TickDelta;
         public bool Started { get; private set; }
         public bool Finished { get; private set; }
         public BattleOutcome Outcome { get; private set; }
@@ -180,7 +180,7 @@ namespace AutoChess.Core.Combat {
 
         public CombatUnit NearestOpponent(CombatUnit u) {
             CombatUnit best = null;
-            var bestSqr = float.MaxValue;
+            var bestSqr = double.MaxValue;
             foreach (var o in alive[(int)u.Side.Opponent()]) {
                 var d = Vec2.SqrDistance(u.Position, o.Position);
                 if (d < bestSqr) {
@@ -193,7 +193,7 @@ namespace AutoChess.Core.Combat {
 
         public CombatUnit FurthestOpponent(CombatUnit u) {
             CombatUnit best = null;
-            var bestSqr = float.MinValue;
+            var bestSqr = double.MinValue;
             foreach (var o in alive[(int)u.Side.Opponent()]) {
                 var d = Vec2.SqrDistance(u.Position, o.Position);
                 if (d > bestSqr) {
@@ -280,7 +280,7 @@ namespace AutoChess.Core.Combat {
             if (pathBuffer.Count > 1) {
                 for (var i = 1; i < pathBuffer.Count; i++) mv.Waypoints.Add(pathBuffer[i]);
             }
-            else if (pathBuffer.Count == 1 && Vec2.Distance(Grid.Center(pathBuffer[0]), u.Position) > 0.01f) {
+            else if (pathBuffer.Count == 1 && Vec2.Distance(Grid.Center(pathBuffer[0]), u.Position) > 0.01) {
                 mv.Waypoints.Add(pathBuffer[0]);
             }
 
@@ -299,7 +299,7 @@ namespace AutoChess.Core.Combat {
         int NearestFreeCellInRange(int targetCell, int range, int fromCell) {
             var from = Grid.Center(fromCell);
             var best = -1;
-            var bestSqr = float.MaxValue;
+            var bestSqr = double.MaxValue;
             for (var c = 0; c < Grid.CellCount; c++) {
                 if (c == targetCell || cellState[c] != CellState.Empty || !InRange(c, targetCell, range)) continue;
                 var d = Vec2.SqrDistance(Grid.Center(c), from);
@@ -311,11 +311,11 @@ namespace AutoChess.Core.Combat {
             return best;
         }
 
-        void TickMovement(CombatUnit u, float dt) {
+        void TickMovement(CombatUnit u, double dt) {
             var mv = u.Movement;
             if (!mv.Moving) return;
             var budget = u.MovementSpeed * Grid.AverageCellDistance * dt;
-            while (mv.Moving && budget > 1e-6f) {
+            while (mv.Moving && budget > 1e-6d) {
                 var before = u.Position;
                 u.Position = Vec2.MoveTowards(u.Position, Grid.Center(mv.NextCell), budget, out var arrived);
                 budget -= Vec2.Distance(before, u.Position);
@@ -375,7 +375,7 @@ namespace AutoChess.Core.Combat {
         // ------------------------------------------------------------------ projectiles & areas
 
         public Projectile LaunchProjectile(CombatUnit source, CombatUnit target, string visual, Action<Projectile> onArrive,
-            float speed = 0) {
+            double speed = 0) {
             var p = new Projectile {
                 Id = ++nextProjectileId, Source = source, Target = target, Position = source.Position,
                 PreviousPosition = source.Position,
@@ -388,7 +388,7 @@ namespace AutoChess.Core.Combat {
             return p;
         }
 
-        void TickProjectiles(float dt) {
+        void TickProjectiles(double dt) {
             for (var i = 0; i < projectiles.Count; i++) {
                 var p = projectiles[i];
                 p.PreviousPosition = p.Position;
@@ -403,8 +403,8 @@ namespace AutoChess.Core.Combat {
             }
         }
 
-        public AreaEffect CreateArea(CombatUnit dealer, Vec2 center, float radius, Damage damage, int strikes,
-            float interval, bool canCrit, string visual) {
+        public AreaEffect CreateArea(CombatUnit dealer, Vec2 center, double radius, Damage damage, int strikes,
+            double interval, bool canCrit, string visual) {
             var area = new AreaEffect {
                 Id = ++nextAreaId, Dealer = dealer, Center = center, Radius = radius, Damage = damage,
                 StrikesLeft = strikes, Interval = interval, Timer = interval, CanCrit = canCrit,
@@ -418,7 +418,7 @@ namespace AutoChess.Core.Combat {
             return area;
         }
 
-        void TickAreas(float dt) {
+        void TickAreas(double dt) {
             for (var i = 0; i < areas.Count; i++) {
                 var a = areas[i];
                 if (a.Timer > 0) {
@@ -464,7 +464,7 @@ namespace AutoChess.Core.Combat {
         public Vec2 Position;
         /// <summary>Position at the start of the current tick (for view interpolation).</summary>
         public Vec2 PreviousPosition;
-        public float Speed;
+        public double Speed;
         public string Visual;
         internal Action<Projectile> OnArrive;
     }
@@ -474,14 +474,14 @@ namespace AutoChess.Core.Combat {
         public int Id;
         public CombatUnit Dealer;
         public Vec2 Center;
-        public float Radius;
+        public double Radius;
         public Damage Damage;
         public int StrikesLeft;
-        public float Interval;
-        public float Timer;
+        public double Interval;
+        public double Timer;
         public bool CanCrit;
-        public float CritChance;
-        public float CritDamage;
+        public double CritChance;
+        public double CritDamage;
         public string Visual;
         public readonly HashSet<int> HitUnits = new();
     }

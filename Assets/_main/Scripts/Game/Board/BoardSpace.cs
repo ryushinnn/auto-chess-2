@@ -24,7 +24,7 @@ namespace AutoChess.Game {
             grid = hexGrid;
         }
 
-        public static Vector3 ToWorld(Vec2 p) => new(p.X, 0, p.Y);
+        public static Vector3 ToWorld(Vec2 p) => new((float)p.X, 0, (float)p.Y);
         public static Vec2 ToPlane(Vector3 p) => new(p.x, p.z);
 
         public Vector3 CellToWorld(HexCoord cell) => ToWorld(grid.Center(cell));

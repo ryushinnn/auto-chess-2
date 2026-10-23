@@ -6,57 +6,57 @@ namespace AutoChess.Core {
     /// </summary>
     [Serializable]
     public struct Vec2 : IEquatable<Vec2> {
-        public float X;
-        public float Y;
+        public double X;
+        public double Y;
 
-        public Vec2(float x, float y) {
+        public Vec2(double x, double y) {
             X = x;
             Y = y;
         }
 
         public static readonly Vec2 Zero = new(0, 0);
 
-        public float Length => MathF.Sqrt(X * X + Y * Y);
-        public float SqrLength => X * X + Y * Y;
+        public double Length => Math.Sqrt(X * X + Y * Y);
+        public double SqrLength => X * X + Y * Y;
 
         public Vec2 Normalized {
             get {
                 var len = Length;
-                return len > 1e-6f ? new Vec2(X / len, Y / len) : Zero;
+                return len > 1e-6d ? new Vec2(X / len, Y / len) : Zero;
             }
         }
 
-        public static float Distance(Vec2 a, Vec2 b) {
+        public static double Distance(Vec2 a, Vec2 b) {
             var dx = a.X - b.X;
             var dy = a.Y - b.Y;
-            return MathF.Sqrt(dx * dx + dy * dy);
+            return Math.Sqrt(dx * dx + dy * dy);
         }
 
-        public static float SqrDistance(Vec2 a, Vec2 b) {
+        public static double SqrDistance(Vec2 a, Vec2 b) {
             var dx = a.X - b.X;
             var dy = a.Y - b.Y;
             return dx * dx + dy * dy;
         }
 
-        public static Vec2 Lerp(Vec2 a, Vec2 b, float t) => new(a.X + (b.X - a.X) * t, a.Y + (b.Y - a.Y) * t);
+        public static Vec2 Lerp(Vec2 a, Vec2 b, double t) => new(a.X + (b.X - a.X) * t, a.Y + (b.Y - a.Y) * t);
 
         /// <summary>Moves <paramref name="current"/> towards <paramref name="target"/> by at most <paramref name="maxDelta"/>.</summary>
-        public static Vec2 MoveTowards(Vec2 current, Vec2 target, float maxDelta, out bool arrived) {
+        public static Vec2 MoveTowards(Vec2 current, Vec2 target, double maxDelta, out bool arrived) {
             var dx = target.X - current.X;
             var dy = target.Y - current.Y;
             var sqr = dx * dx + dy * dy;
-            if (sqr <= maxDelta * maxDelta || sqr < 1e-12f) {
+            if (sqr <= maxDelta * maxDelta || sqr < 1e-12d) {
                 arrived = true;
                 return target;
             }
             arrived = false;
-            var len = MathF.Sqrt(sqr);
+            var len = Math.Sqrt(sqr);
             return new Vec2(current.X + dx / len * maxDelta, current.Y + dy / len * maxDelta);
         }
 
         public static Vec2 operator +(Vec2 a, Vec2 b) => new(a.X + b.X, a.Y + b.Y);
         public static Vec2 operator -(Vec2 a, Vec2 b) => new(a.X - b.X, a.Y - b.Y);
-        public static Vec2 operator *(Vec2 a, float k) => new(a.X * k, a.Y * k);
+        public static Vec2 operator *(Vec2 a, double k) => new(a.X * k, a.Y * k);
         public static bool operator ==(Vec2 a, Vec2 b) => a.Equals(b);
         public static bool operator !=(Vec2 a, Vec2 b) => !a.Equals(b);
 

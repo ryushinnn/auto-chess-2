@@ -13,21 +13,21 @@ namespace AutoChess.Core {
         public Reputation Reputation;
         public bool Moveable = true;
 
-        public float MaxHp;
-        public float PhysicalDamage;
-        public float MagicalDamage;
-        public float Armor;
-        public float Resistance;
-        public float AttackSpeed;
-        public float MovementSpeed;
-        public float EnergyRegenPerAttack;
-        public float EnergyRegenPerHit;
+        public double MaxHp;
+        public double PhysicalDamage;
+        public double MagicalDamage;
+        public double Armor;
+        public double Resistance;
+        public double AttackSpeed;
+        public double MovementSpeed;
+        public double EnergyRegenPerAttack;
+        public double EnergyRegenPerHit;
         public int AttackRange = 1;
 
         public bool Unstoppable;
         /// <summary>Evolution bonuses indexed by (int)HeroRank. Missing ranks have an empty array.</summary>
         public StatModifier[][] Evolutions = Array.Empty<StatModifier[]>();
-        public float[] SkillParams = Array.Empty<float>();
+        public double[] SkillParams = Array.Empty<double>();
         public string[] SkillParamKeys = Array.Empty<string>();
         public string[] SpecialKeys = Array.Empty<string>();
 
@@ -36,7 +36,7 @@ namespace AutoChess.Core {
             return i < Evolutions.Length && Evolutions[i] != null ? Evolutions[i] : Array.Empty<StatModifier>();
         }
 
-        public float Param(int index) {
+        public double Param(int index) {
             if (index < 0 || index >= SkillParams.Length) {
                 throw new IndexOutOfRangeException($"{Id}: skill param #{index} missing ({SkillParams.Length} defined)");
             }
@@ -75,7 +75,7 @@ namespace AutoChess.Core {
         public Realm Realm;
         public string Name;
         public int[] Checkpoints = Array.Empty<int>();
-        public float[] Params = Array.Empty<float>();
+        public double[] Params = Array.Empty<double>();
 
         /// <summary>Highest checkpoint reached by <paramref name="count"/> units, or -1.</summary>
         public int TierFor(int count) {
@@ -85,7 +85,7 @@ namespace AutoChess.Core {
             return -1;
         }
 
-        public float Param(int index) {
+        public double Param(int index) {
             if (index < 0 || index >= Params.Length) {
                 throw new IndexOutOfRangeException($"{this}: trait param #{index} missing ({Params.Length} defined)");
             }
@@ -137,8 +137,8 @@ namespace AutoChess.Core {
         /// <summary>Cell on the full 8x8 battle grid (rows 4..7 are the away half).</summary>
         public HexCoord Cell;
         public string[] Items = Array.Empty<string>();
-        public float HpScale = 1;
-        public float DamageScale = 1;
+        public double HpScale = 1;
+        public double DamageScale = 1;
     }
 
     public enum RewardKind {

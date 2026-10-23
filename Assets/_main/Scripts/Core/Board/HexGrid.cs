@@ -9,17 +9,17 @@ namespace AutoChess.Core {
     public sealed class HexGrid {
         public readonly int Rows;
         public readonly int Cols;
-        public readonly float CellWidth;
-        public readonly float CellHeight;
+        public readonly double CellWidth;
+        public readonly double CellHeight;
         /// <summary>Distance used to convert movement speed (cells per second) into plane units.</summary>
-        public readonly float AverageCellDistance;
+        public readonly double AverageCellDistance;
 
         readonly Vec2[] centers;
         readonly int[][] neighbors;
 
         public int CellCount => Rows * Cols;
 
-        public HexGrid(int rows, int cols, float cellWidth, float cellHeight) {
+        public HexGrid(int rows, int cols, double cellWidth, double cellHeight) {
             if (rows <= 0 || cols <= 0) throw new ArgumentException("grid size must be positive");
             Rows = rows;
             Cols = cols;
@@ -64,7 +64,7 @@ namespace AutoChess.Core {
 
         public int NearestIndex(Vec2 position) {
             var best = 0;
-            var bestSqr = float.MaxValue;
+            var bestSqr = double.MaxValue;
             for (var i = 0; i < centers.Length; i++) {
                 var d = Vec2.SqrDistance(centers[i], position);
                 if (d < bestSqr) {
@@ -80,7 +80,7 @@ namespace AutoChess.Core {
         /// <summary>Nearest cell to <paramref name="position"/> accepted by <paramref name="filter"/>, or -1.</summary>
         public int NearestIndex(Vec2 position, Func<int, bool> filter, int exclude = -1) {
             var best = -1;
-            var bestSqr = float.MaxValue;
+            var bestSqr = double.MaxValue;
             for (var i = 0; i < centers.Length; i++) {
                 if (i == exclude || !filter(i)) continue;
                 var d = Vec2.SqrDistance(centers[i], position);

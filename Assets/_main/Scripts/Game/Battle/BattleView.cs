@@ -171,7 +171,7 @@ namespace AutoChess.Game {
         void CreateArea(AreaCreatedEvent e) {
             var position = BoardSpace.ToWorld(e.Position);
             var area = Instantiate(PrefabDB.Instance.DotArea, position, Quaternion.identity, transform);
-            area.Show(e.Radius);
+            area.Show((float)e.Radius);
             var vfx = VfxPool.Instance.GetVfx(e.Visual);
             if (vfx != null) vfx.transform.position = position;
             areas[e.AreaId] = (area, vfx);

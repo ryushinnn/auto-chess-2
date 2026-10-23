@@ -27,9 +27,9 @@ namespace AutoChess.Core {
 
         static Reputation RollReputation(DeterministicRandom rng, int[] odds) {
             var roll = rng.NextFloat();
-            var total = 0f;
+            var total = 0d;
             for (var i = 0; i < odds.Length; i++) {
-                total += odds[i] / 100f;
+                total += odds[i] / 100d;
                 if (roll <= total) return (Reputation)(i + 1);
             }
             return (Reputation)odds.Length;

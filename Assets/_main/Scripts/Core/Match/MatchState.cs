@@ -12,6 +12,10 @@ namespace AutoChess.Core {
         public bool SkipStarterPack;
         public IUnitPool Pool;
         public AbilityRegistry Abilities;
+        /// <summary>Overrides GameRules.SetupSeconds when set (online matches run on a clock).</summary>
+        public double? SetupSeconds;
+        /// <summary>Overrides GameRules.PreparationSeconds when set (online matches run on a clock).</summary>
+        public double? PreparationSeconds;
     }
 
     /// <summary>Authoritative state of one match. Everything a client needs to draw the game.</summary>

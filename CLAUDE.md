@@ -32,11 +32,20 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   `GameData/game_data.json` (menu *AutoChess/Export Game Data*) so the real-data tests cover it.
 - ScriptableObject / MonoBehaviour fields are serialized: rename with `[FormerlySerializedAs]`, move a
   script together with its `.meta` (`git mv`), never retype a field.
+- Online = lockstep (docs/ARCHITECTURE.md "Online play"): every client and the server run the same Core on the
+  same frames, so Core must give bit-identical results on Unity Mono, IL2CPP and .NET 8. Numbers in Core are
+  `double` (never `float` / `MathF` / Sin / Pow...); no Dictionary / HashSet iteration whose order matters
+  (string hashes are randomized per process on .NET). A Core change that touches the protocol bumps
+  `Lockstep.Version`. Server: sibling repo `auto-chess-2-server` (compiles Core + Net from this repo).
+- Changing units / items / stages: re-export `GameData/game_data.json` - the server refuses clients whose data
+  hash differs from the file it loaded.
 
 ## Checks after a change
 
 - `py Tools/compile_check/compile_check.py --editor` - must report 0 errors for every assembly.
 - `py Tools/core_tests/run_core_tests.py` - core tests without Unity (~5 s).
+- Online changes: the bots of `auto-chess-2-server` (`dotnet run --project tools/AutoChess.Bots -- --self-host`)
+  and, for cross-runtime determinism, `DeterminismProbeTests` in Unity + core_tests (files must match).
 - With Unity open: `AutoTest Server` toolkit (`/autotest` skill). `py -m auto_touch refresh --wait`
   recompiles the editor without focus; `unity_tests.bat`; scenarios in
   `AutoTest Server/auto_touch/scenarios/autochess/`, campaign `ac_regression_campaign.json`.

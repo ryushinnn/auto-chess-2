@@ -22,8 +22,8 @@ namespace AutoChess.Core.Combat {
     public sealed class UnitAttackStartedEvent : UnitBattleEvent {
         public int TargetId;
         /// <summary>Animation play rate (>= 1) so the swing fits the attack interval.</summary>
-        public float AnimationSpeed;
-        public float Duration;
+        public double AnimationSpeed;
+        public double Duration;
     }
 
     public sealed class UnitAttackInterruptedEvent : UnitBattleEvent { }
@@ -32,14 +32,14 @@ namespace AutoChess.Core.Combat {
         public int TargetId;
         /// <summary>Hero-specific variant (Yone: 0 = divine sword, 1 = devil sword).</summary>
         public int Variant;
-        public float Duration;
+        public double Duration;
     }
 
     public sealed class UnitSkillInterruptedEvent : UnitBattleEvent { }
 
     public sealed class UnitDamagedEvent : UnitBattleEvent {
         public int SourceId;
-        public float Amount;
+        public double Amount;
         public DamageType Type;
         public bool Crit;
         /// <summary>Position inside a multi-part hit (0, 1...) so the numbers can be stacked.</summary>
@@ -47,16 +47,16 @@ namespace AutoChess.Core.Combat {
     }
 
     public sealed class UnitHealedEvent : UnitBattleEvent {
-        public float Amount;
+        public double Amount;
     }
 
     public sealed class UnitEnergyDrainEvent : UnitBattleEvent {
-        public float Delay;
-        public float Duration;
+        public double Delay;
+        public double Duration;
     }
 
     public sealed class UnitAirborneEvent : UnitBattleEvent {
-        public float Duration;
+        public double Duration;
     }
 
     public sealed class UnitDiedEvent : UnitBattleEvent {
@@ -67,8 +67,8 @@ namespace AutoChess.Core.Combat {
         public int MarkId;
         public string Key;
         public int Stacks;
-        /// <summary>Seconds, or float.PositiveInfinity for a permanent mark.</summary>
-        public float Duration;
+        /// <summary>Seconds, or double.PositiveInfinity for a permanent mark.</summary>
+        public double Duration;
     }
 
     public sealed class MarkRemovedEvent : UnitBattleEvent {
@@ -81,7 +81,7 @@ namespace AutoChess.Core.Combat {
         public string Key;
         public string Visual;
         public int OwnerId;
-        public float Duration;
+        public double Duration;
     }
 
     public sealed class EffectRemovedEvent : UnitBattleEvent {
@@ -94,7 +94,7 @@ namespace AutoChess.Core.Combat {
         public int SourceId;
         public int TargetId;
         public string Visual;
-        public float Speed;
+        public double Speed;
     }
 
     public sealed class ProjectileEndedEvent : BattleEvent {
@@ -106,9 +106,9 @@ namespace AutoChess.Core.Combat {
         public int AreaId;
         public int OwnerId;
         public Vec2 Position;
-        public float Radius;
+        public double Radius;
         public string Visual;
-        public float Duration;
+        public double Duration;
     }
 
     public sealed class AreaExpiredEvent : BattleEvent {

@@ -1,11 +1,11 @@
 namespace AutoChess.Core.Combat {
     public struct Damage {
-        public float Value;
+        public double Value;
         public DamageType Type;
-        public float Penetration;
+        public double Penetration;
         public bool Crit;
 
-        public Damage(float value, DamageType type, float penetration, bool crit = false) {
+        public Damage(double value, DamageType type, double penetration, bool crit = false) {
             Value = value;
             Type = type;
             Penetration = penetration;

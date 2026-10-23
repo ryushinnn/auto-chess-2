@@ -184,8 +184,8 @@ namespace AutoChess.Core {
         static bool B(Dictionary<string, object> d, string key, bool fallback = false) =>
             d.TryGetValue(key, out var v) && v is bool b ? b : fallback;
 
-        static float F(Dictionary<string, object> d, string key, float fallback) =>
-            d.TryGetValue(key, out var v) && v is double x ? (float)x : fallback;
+        static double F(Dictionary<string, object> d, string key, double fallback) =>
+            d.TryGetValue(key, out var v) && v is double x ? x : fallback;
 
         static T E<T>(Dictionary<string, object> d, string key) where T : struct {
             var s = S(d, key);
@@ -201,10 +201,10 @@ namespace AutoChess.Core {
             return result;
         }
 
-        static float[] Floats(Dictionary<string, object> d, string key) {
+        static double[] Floats(Dictionary<string, object> d, string key) {
             var list = List(d, key);
-            var result = new float[list.Count];
-            for (var i = 0; i < list.Count; i++) result[i] = list[i] is double x ? (float)x : 0;
+            var result = new double[list.Count];
+            for (var i = 0; i < list.Count; i++) result[i] = list[i] is double x ? x : 0;
             return result;
         }
 
@@ -215,6 +215,6 @@ namespace AutoChess.Core {
             return result;
         }
 
-        internal static string Inv(float f) => f.ToString("R", CultureInfo.InvariantCulture);
+        internal static string Inv(double f) => f.ToString("R", CultureInfo.InvariantCulture);
     }
 }
