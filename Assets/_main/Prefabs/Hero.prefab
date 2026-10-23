@@ -84,7 +84,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2318258700106801878}
-  - component: {fileID: 9059373331201327241}
   m_Layer: 0
   m_Name: Skill
   m_TagString: Untagged
@@ -107,22 +106,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 801794401438645641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9059373331201327241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1383869363567918472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c24b93259f64433bd0e50140c7411a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  timer: 0
-  isUsingSkill: 0
-  duration: 0
 --- !u!1 &1677607567005159238
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,15 +204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8353f2839eb646f6b47eda80dbdd0083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
-  isAirborne: 0
-  isUnstoppable: 0
-  isStun: 0
-  isSilent: 0
-  isAntiHeal: 0
-  stunDuration: 0
-  silenceDuration: 0
-  antiHealDuration: 0
 --- !u!1 &2172079142310699325
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11361605a8863834d88569b81e729a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
 --- !u!1 &3263580650437312950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1197,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8071652924682467309}
-  - component: {fileID: 2631279563754875387}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -1247,19 +1219,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 801794401438645641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2631279563754875387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5834199309766471462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c876a97ccc4a2e84fac5cfb64eaf9b3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
 --- !u!1 &5887547711603565481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a56dbcf66b48e7f44b2ce7ffc93becbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
   healthBar: {fileID: 4616933226886558938}
   energyBar: {fileID: 6529644040993711803}
   hpTextParent: {fileID: 8753971672558067024}
@@ -1312,27 +1270,6 @@ MonoBehaviour:
   enemyHpColor: {r: 0.735849, g: 0.19090424, b: 0.19090424, a: 1}
   normalEnergyColor: {r: 0, g: 0.8509804, b: 1, a: 1}
   drainingEnergyColor: {r: 0.7924528, g: 0.42986828, b: 0.51318926, a: 1}
-  isAlive: 0
-  maxHp: 0
-  hp: 0
-  energy: 0
-  armor: 0
-  resistance: 0
-  attackSpeed: 0
-  physicalDamage: 0
-  magicalDamage: 0
-  movementSpeed: 0
-  criticalChance: 0
-  criticalDamage: 0
-  energyRegenEfficiency: 0
-  physicalPenetration: 0
-  magicalPenetration: 0
-  lifeSteal: 0
-  tenacity: 0
-  modifierSets: []
-  modifierGroups: []
-  damageOverTimes: []
-  healOverTimes: []
 --- !u!1 &6117265596786432917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,7 +1279,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 977806316667419108}
-  - component: {fileID: 7433804806029128086}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -1365,23 +1301,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 801794401438645641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7433804806029128086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6117265596786432917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b3fd0d42e24b2aa702a261faaa03f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActive: 1
-  currentAttackCooldown: 0
-  timer: 0
-  isAttacking: 0
-  duration: 0
 --- !u!1 &6400240761740710661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,11 +1497,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98c6cd94cfc4cf8af56e945ecb6047c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
   markHolderPrefab: {fileID: 2857427288501389185, guid: 457685bfdaca9e24c94eb6cc8f2a6746,
     type: 3}
   markHolderParent: {fileID: 1940745018827801110}
-  markGroups: []
 --- !u!1 &7033077526733261554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,13 +1619,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac256ee0367c438285487d29e90f370c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
   itemIcons:
   - {fileID: 9085069770968692119}
   - {fileID: 8720826951205176980}
   - {fileID: 2538722869812344376}
   ui: {fileID: 5923675976069476576}
-  itemSlots: []
 --- !u!1 &8231434856457190650
 GameObject:
   m_ObjectHideFlags: 0

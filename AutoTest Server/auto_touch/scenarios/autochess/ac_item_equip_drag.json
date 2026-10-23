@@ -1,0 +1,17 @@
+{
+  "note": "Items by real drag and drop from the item bench onto a unit: a component equips, a second component combines into the forged item, the item bench empties accordingly.",
+  "tags": ["input", "items"],
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 31}}],
+  "actions": [
+    {"action": "op", "op": "item", "params": {"item": "_armor"}, "expect": {"ok": true}},
+    {"action": "op", "op": "item", "params": {"item": "_maxhp"}, "expect": {"ok": true}},
+    {"action": "wait_ui", "path": "ArenaUIManager/Inventory", "state": "active"},
+    {"action": "drag", "fromTarget": "item:_armor", "toTarget": "unit:1", "steps": 12, "label": "equip armor"},
+    {"action": "wait_state", "path": "player.units.0.items", "equals": ["_armor"], "timeoutMs": 2000},
+    {"action": "drag", "fromTarget": "item:_maxhp", "toTarget": "unit:1", "steps": 12, "label": "second component combines"},
+    {"action": "wait_state", "path": "player.units.0.items", "equals": ["armor+maxhp"], "timeoutMs": 2000},
+    {"action": "assert", "path": "player.items", "length": 1, "label": "only the starter item is left"},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "screenshot"}
+  ]
+}

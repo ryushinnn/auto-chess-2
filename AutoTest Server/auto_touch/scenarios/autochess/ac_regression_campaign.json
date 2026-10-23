@@ -1,0 +1,18 @@
+{
+  "note": "Auto-chess regression gate: boot, starter pack, shop, drag and drop, items, xp, lock / refresh, info panel, a full round, a won battle and a whole stage.",
+  "scenarios": [
+    "ac_boot_smoke.json",
+    "ac_starter_pack_ui.json",
+    "ac_shop_buy_merge.json",
+    "ac_board_drag.json",
+    "ac_item_equip_drag.json",
+    "ac_buy_xp_level.json",
+    "ac_shop_lock_refresh.json",
+    "ac_hero_info.json",
+    "ac_round_flow.json",
+    "ac_battle_win.json",
+    "ac_full_stage.json"
+  ],
+  "stopOnFail": false,
+  "freshPlay": false
+}

@@ -1,0 +1,22 @@
+{
+  "note": "Bench and board by real drag and drop (EventSystem + PhysicsRaycaster): deploy, respect the board limit (a rejected drop snaps back), swap a bench unit with the board unit, move back to the bench.",
+  "tags": ["input", "roster"],
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 21}}],
+  "actions": [
+    {"action": "drag", "fromTarget": "unit:1", "toTarget": "board:1,3", "steps": 15, "label": "deploy the starter"},
+    {"action": "wait_state", "path": "player.units.0.location", "equals": "board:1,3", "timeoutMs": 2000},
+    {"action": "assert", "path": "player.boardCount", "equals": 1},
+    {"action": "op", "op": "unit", "params": {"unit": "Malphite"}, "expect": {"ok": true}},
+    {"action": "drag", "fromTarget": "unit:2", "toTarget": "board:2,4", "steps": 15, "label": "board is full at level 1"},
+    {"action": "wait", "ms": 300},
+    {"action": "assert", "path": "player.units.1.location", "equals": "bench:0", "label": "rejected, back on the bench"},
+    {"action": "assert", "path": "player.boardCount", "equals": 1},
+    {"action": "drag", "fromTarget": "unit:2", "toTarget": "board:1,3", "steps": 15, "label": "swap with the board unit"},
+    {"action": "wait_state", "path": "player.units.1.location", "equals": "board:1,3", "timeoutMs": 2000},
+    {"action": "assert", "path": "player.units.0.location", "equals": "bench:0"},
+    {"action": "drag", "fromTarget": "unit:1", "toTarget": "bench:5", "steps": 15, "label": "bench to bench"},
+    {"action": "wait_state", "path": "player.units.0.location", "equals": "bench:5", "timeoutMs": 2000},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "screenshot"}
+  ]
+}

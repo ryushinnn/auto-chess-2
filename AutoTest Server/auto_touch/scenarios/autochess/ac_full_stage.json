@@ -1,0 +1,25 @@
+{
+  "note": "Plays every round of the stage with a strong board until the match is finished; the round flow must never get stuck and nothing may log an error.",
+  "tags": ["battle", "long"],
+  "timescale": 4,
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 91}}],
+  "actions": [
+    {"action": "op", "op": "xp", "params": {"amount": 254}},
+    {"action": "op", "op": "unit", "params": {"unit": "Zed", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Yone", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Malphite", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Jinx", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Caitlyn", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Teemo", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Morgana", "rank": "S"}},
+    {"action": "repeat", "times": 6, "as": "round", "until": {"path": "phase", "equals": "Finished"}, "untilRequired": true, "actions": [
+      {"action": "op", "op": "ready"},
+      {"action": "wait_state", "path": "phase", "in": ["Transition", "Battle", "Summary"], "timeoutMs": 10000},
+      {"action": "wait_state", "path": "phase", "in": ["Preparation", "Finished"], "timeoutMs": 120000},
+      {"action": "invariants", "minSeverity": "medium"}
+    ]},
+    {"action": "assert", "path": "flags.isGameOver", "equals": true},
+    {"action": "logs", "level": "error", "failOnRed": true},
+    {"action": "screenshot"}
+  ]
+}

@@ -276,8 +276,6 @@ MonoBehaviour:
   rankIcon: {fileID: 6088032701334737958}
   trait: {fileID: 0}
   rank: 0
-  side: 0
-  target: {fileID: 0}
 --- !u!4 &8724210966527760486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8494226802168659207, guid: 9b00a5bcaa357bd4e812117e914f0359,

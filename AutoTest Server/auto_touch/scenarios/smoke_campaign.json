@@ -1,0 +1,8 @@
+{
+  "note": "Smoke campaign: the editor-level checks that must pass before any game scenario is worth running.",
+  "scenarios": [
+    "smoke_editor.json"
+  ],
+  "stopOnFail": false,
+  "freshPlay": false
+}

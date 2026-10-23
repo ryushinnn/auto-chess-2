@@ -1,0 +1,11 @@
+{
+  "note": "Editor smoke test: enter Play mode, let the game boot for one second, fail on any red log (Error / Assert / Exception) since the run started, and keep a screenshot of the first frame as evidence. Game-agnostic: needs no adapter.",
+  "tags": ["smoke", "editor"],
+  "requiresPlay": true,
+  "actions": [
+    {"action": "play", "on": true, "label": "Play mode on"},
+    {"action": "wait", "ms": 1000, "label": "let the game boot"},
+    {"action": "logs", "level": "error", "failOnRed": true, "label": "no red logs since the run started"},
+    {"action": "screenshot", "name": "smoke_editor", "label": "evidence"}
+  ]
+}

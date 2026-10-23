@@ -1,0 +1,4 @@
+# auto_touch outputs (screens, diagnostics, reports, Unity test results)
+auto_touch/out/
+__pycache__/
+*.pyc

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "autotest": {
+      "command": "py",
+      "args": [
+        "AutoTest Server/auto_touch/mcp_server.py"
+      ]
+    }
+  }
+}

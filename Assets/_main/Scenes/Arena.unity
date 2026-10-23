@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 473208185}
-  m_IndirectSpecularColor: {r: 0.18028498, g: 0.22571477, b: 0.30692294, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -194,12 +193,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!20 &9023574
 Camera:
   m_ObjectHideFlags: 0
@@ -327,7 +326,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 142944191}
-  - component: {fileID: 142944192}
   m_Layer: 0
   m_Name: Destinies
   m_TagString: Untagged
@@ -350,18 +348,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1473852640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &142944192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142944190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8583534132334ec6b3759eecc8dd1078, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &290188743
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +360,7 @@ GameObject:
   - component: {fileID: 290188745}
   - component: {fileID: 290188744}
   - component: {fileID: 290188747}
+  - component: {fileID: 290188748}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -495,12 +482,28 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+--- !u!114 &290188748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290188743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c49b4cc203aa6414fae5c798d1d0e7d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &386755911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,7 +2068,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 640781488}
-  - component: {fileID: 640781489}
   m_Layer: 0
   m_Name: Progress
   m_TagString: Untagged
@@ -2088,21 +2090,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1473852640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &640781489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640781487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4636c670dff47e9906b41e4ece0db84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 11400000, guid: 5fb88dd84a9c3ae429d94cc9815e1b7c, type: 2}
-  phase: 0
 --- !u!1 &749995523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2325,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1014229706}
-  - component: {fileID: 1014229707}
   m_Layer: 0
   m_Name: Nodes
   m_TagString: Untagged
@@ -2361,18 +2347,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1379350717}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1014229707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014229705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 632ae7eb1d4ce49d38a1e38ee7efe7c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1106741104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,13 +2543,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersistent: 0
-  shop: {fileID: 2122394115}
   lineUp: {fileID: 797194647}
-  destinies: {fileID: 142944192}
-  inventory: {fileID: 1947817720}
   battleField: {fileID: 502237318}
-  level: {fileID: 2091054113}
-  progress: {fileID: 640781489}
+  stages:
+  - {fileID: 11400000, guid: 5fb88dd84a9c3ae429d94cc9815e1b7c, type: 2}
+  settings:
+    spawnEnemiesDelay: 2
+    portalCloseDelay: 1
+    rankScale:
+    - 1
+    - 1.15
+    - 1.4
+  randomSeed: 1
+  seed: 1
+  allowCheats: 0
+  hackItems: []
 --- !u!4 &1473852640
 Transform:
   m_ObjectHideFlags: 0
@@ -2935,6 +2917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c261d50b2317b4549a4857f856006d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logClicks: 0
 --- !u!4 &1946159296
 Transform:
   m_ObjectHideFlags: 0
@@ -2959,7 +2942,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1947817721}
-  - component: {fileID: 1947817720}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -2967,21 +2949,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1947817720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947817719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1903d825656421ab09c1dc52ae3c181, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroLayerMask:
-    serializedVersion: 2
-    m_Bits: 65536
 --- !u!4 &1947817721
 Transform:
   m_ObjectHideFlags: 0
@@ -3006,7 +2973,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2091054112}
-  - component: {fileID: 2091054113}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -3029,20 +2995,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1473852640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2091054113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2091054111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ae8727cb17430784a395bff27e97c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  xp: 0
 --- !u!1 &2122394113
 GameObject:
   m_ObjectHideFlags: 0
@@ -3052,7 +3004,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2122394114}
-  - component: {fileID: 2122394115}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Untagged
@@ -3075,26 +3026,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1473852640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2122394115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122394113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4290c8138fb43d84188d87f20ec47910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  lockAutoRefresh: 0
-  insurance: 0
 --- !u!4 &2122916280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8cdd8c5aeb2300749806368def98f7bd,

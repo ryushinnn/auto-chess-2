@@ -1,0 +1,23 @@
+{
+  "note": "Shop lock keeps the offer through a round; a paid refresh rerolls it, costs gold and unlocks the shop.",
+  "tags": ["shop", "round"],
+  "timescale": 2,
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 51}}],
+  "actions": [
+    {"action": "op", "op": "gold", "params": {"amount": 10}},
+    {"action": "click", "path": "ArenaUIManager/Arena/shop", "label": "open the shop"},
+    {"action": "wait_ui", "path": "ArenaUIManager/Shop/Rates/Lock", "state": "interactable"},
+    {"action": "state", "path": "player.shop.slots", "saveAs": "offer"},
+    {"action": "click", "path": "ArenaUIManager/Shop/Rates/Lock", "label": "lock"},
+    {"action": "assert", "path": "player.shop.locked", "equals": true},
+    {"action": "op", "op": "ready"},
+    {"action": "wait_state", "path": "phase", "equals": "Transition", "timeoutMs": 5000},
+    {"action": "wait_state", "path": "phase", "equals": "Preparation", "timeoutMs": 60000, "label": "next round"},
+    {"action": "assert", "path": "player.shop.slots", "equals": "${offer}", "label": "locked offer kept"},
+    {"action": "state", "path": "player.gold", "saveAs": "gold"},
+    {"action": "click", "path": "ArenaUIManager/Shop/Refresh", "label": "paid refresh"},
+    {"action": "assert", "path": "player.shop.locked", "equals": false, "label": "refresh unlocks"},
+    {"action": "assert", "path": "player.gold", "lt": "${gold}", "label": "refresh cost gold"},
+    {"action": "invariants", "minSeverity": "medium"}
+  ]
+}

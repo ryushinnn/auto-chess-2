@@ -1,0 +1,30 @@
+{
+  "note": "Shop through the UI: three copies of an elite hero bought from the shop cards merge into one rank-A unit and cost 3 x 3 gold; a legendary costs 5; a purchase without enough gold changes nothing.",
+  "tags": ["shop", "economy", "merge"],
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 11}}],
+  "actions": [
+    {"action": "op", "op": "gold", "params": {"amount": 20}, "expect": {"ok": true}},
+    {"action": "op", "op": "set-shop", "params": {"units": "Malphite,Malphite,Malphite,Zed,-"}, "expect": {"ok": true}},
+    {"action": "click", "path": "ArenaUIManager/Arena/shop", "label": "open the shop"},
+    {"action": "wait_ui", "path": "ArenaUIManager/Shop", "state": "active"},
+    {"action": "click", "target": "shop:0", "label": "buy Malphite #1"},
+    {"action": "click", "target": "shop:1", "label": "buy Malphite #2"},
+    {"action": "assert", "path": "player.unitCount", "equals": 3},
+    {"action": "click", "target": "shop:2", "label": "buy Malphite #3 (merges)"},
+    {"action": "assert", "path": "player.unitCount", "equals": 2, "label": "three copies became one"},
+    {"action": "assert", "path": "player.units.1.unit", "equals": "Malphite"},
+    {"action": "assert", "path": "player.units.1.rank", "equals": "A"},
+    {"action": "assert", "path": "player.gold", "equals": 11},
+    {"action": "assert", "path": "player.shop.slots.0", "equals": null},
+    {"action": "click", "target": "shop:3", "label": "buy Zed (legendary)"},
+    {"action": "assert", "path": "player.gold", "equals": 6},
+    {"action": "assert", "path": "player.unitCount", "equals": 3},
+    {"action": "op", "op": "gold", "params": {"amount": -6}},
+    {"action": "op", "op": "set-shop", "params": {"units": "Zed"}},
+    {"action": "click", "target": "shop:0", "label": "try to buy without gold"},
+    {"action": "assert", "path": "player.unitCount", "equals": 3, "label": "nothing bought"},
+    {"action": "assert", "path": "player.gold", "equals": 0},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "screenshot"}
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  // auto_touch configuration (JSONC: comments and trailing commas are fine).
+  // Precedence: built-in defaults < this file < env AUTOTEST_HOST / AUTOTEST_PORT
+  // < CLI --host / --port. Effective values: py -m auto_touch config
+  // Relative paths below are relative to the "AutoTest Server" folder.
+
+  // ---- Unity Editor bridge (Assets/AutoTest/Editor) ------------------------
+  "host": "127.0.0.1",
+  "port": 8766,                // 8765 belongs to the chirpy-sort rig
+  "http_timeout": 10.0,        // seconds per request
+  "server_retries": 8,         // extra tries for read-only GETs while Unity reloads its domain
+  "server_retry_delay": 1.0,   // seconds between those tries (POSTs are never retried)
+
+  // ---- waiting -------------------------------------------------------------
+  "poll_ms": 200,              // default poll interval of wait_state / wait_ui / play / compile
+  "play_timeout_s": 120,       // enter/exit Play mode
+  "compile_timeout_s": 300,    // refresh + recompile, Unity Test Runner runs
+
+  // ---- scenario runner -----------------------------------------------------
+  "default_timescale": null,   // e.g. 2.0 to run every scenario faster; null = leave Time.timeScale
+  "auto_enter_play": true,     // enter Play by ourselves when a scenario needs it
+  // Red logs (Error / Assert / Exception) whose message matches one of these
+  // regexes are ignored by every watchdog. Keep this list short and explained.
+  "red_log_ignore": [
+  ],
+  "fail_on_red_logs": true,        // a new red log after a step fails that step
+  "invariants_every_step": true,   // run the adapter's /invariants after every mutating step
+  "fail_on_invariants": "high",    // never | high | medium | low: lowest severity that fails a step
+  "keep_diagnostics": 50,          // newest N report JSONs kept in out/diagnostics (0 = keep all)
+
+  // ---- folders ---------------------------------------------------------------
+  "scenarios_dir": "auto_touch/scenarios",
+  "out_dir": "auto_touch/out"      // screens/ diagnostics/ reports/ unity-tests/
+}

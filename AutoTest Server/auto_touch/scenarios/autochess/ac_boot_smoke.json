@@ -1,0 +1,15 @@
+{
+  "note": "Boot smoke: a match starts in the starter-pack phase with three offers on screen, no red logs and every invariant holding.",
+  "tags": ["smoke"],
+  "actions": [
+    {"action": "op", "op": "restart", "params": {"seed": 1}, "label": "fresh match"},
+    {"action": "wait_state", "path": "phase", "equals": "Setup", "timeoutMs": 5000},
+    {"action": "assert", "path": "views.ui.starterPack", "equals": true, "label": "starter pack shown"},
+    {"action": "assert", "path": "views.ui.arena", "equals": false},
+    {"action": "assert", "path": "player.starterOffers", "length": 3},
+    {"action": "assert", "path": "player.gold", "equals": 0},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "logs", "level": "error", "failOnRed": true},
+    {"action": "screenshot", "name": "ac_boot_smoke"}
+  ]
+}

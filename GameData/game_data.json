@@ -1,0 +1,2677 @@
+{
+  "format": 1,
+  "rules": {
+    "cellWidth": 1.8799999952316284,
+    "cellHeight": 1.8899999856948853
+  },
+  "units": [
+    {
+      "id": "Aatrox_Dark",
+      "name": "A Chốc",
+      "summoned": false,
+      "realm": "Chaos",
+      "roles": 9,
+      "reputation": "Legendary",
+      "moveable": true,
+      "maxHp": 2540,
+      "physicalDamage": 200,
+      "magicalDamage": 0,
+      "armor": 99,
+      "resistance": 100,
+      "attackSpeed": 0.44999998807907104,
+      "movementSpeed": 2,
+      "energyPerAttack": 0,
+      "energyPerHit": 0,
+      "attackRange": 1,
+      "unstoppable": true,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "CriticalDamage",
+            "value": 0.20000000298023224,
+            "type": "Flat"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "CriticalDamage",
+            "value": 0.5,
+            "type": "Flat"
+          },
+          {
+            "stat": "Tenacity",
+            "value": 0.20000000298023224,
+            "type": "Flat"
+          }
+        ]
+      ],
+      "skillParams": [
+        0.5,
+        1,
+        80,
+        0.699999988079071,
+        1.5,
+        2,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.5,
+        -0.25,
+        5,
+        0.5,
+        120,
+        0.5
+      ],
+      "skillParamKeys": [
+        "atk_dmg_mul_min",
+        "atk_dmg_mul_max",
+        "base_dmg",
+        "dmg_mul_0",
+        "dmg_mul_1",
+        "dmg_mul_2",
+        "airborne_duration_0",
+        "airborne_duration_1",
+        "airborne_duration_2",
+        "armor_reduce_mul",
+        "armor_reduce_duration",
+        "hp_threshold",
+        "base_true_dmg",
+        "true_dmg_mul"
+      ],
+      "specialKeys": [
+        "aatrox_curse"
+      ]
+    },
+    {
+      "id": "Aatrox_Light",
+      "name": "A Chốc",
+      "summoned": false,
+      "realm": "Chaos",
+      "roles": 3,
+      "reputation": "Legendary",
+      "moveable": true,
+      "maxHp": 2540,
+      "physicalDamage": 0,
+      "magicalDamage": 200,
+      "armor": 100,
+      "resistance": 100,
+      "attackSpeed": 0.44999998807907104,
+      "movementSpeed": 2,
+      "energyPerAttack": 0,
+      "energyPerHit": 0,
+      "attackRange": 1,
+      "unstoppable": true,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "LifeSteal",
+            "value": 0.10000000149011612,
+            "type": "Flat"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "LifeSteal",
+            "value": 0.20000000298023224,
+            "type": "Flat"
+          },
+          {
+            "stat": "Tenacity",
+            "value": 0.20000000298023224,
+            "type": "Flat"
+          }
+        ]
+      ],
+      "skillParams": [
+        80,
+        0.699999988079071,
+        1.5,
+        2,
+        0.20000000298023224,
+        0.20000000298023224,
+        0.5,
+        0.25,
+        0.5,
+        1,
+        2,
+        0.5
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_mul_0",
+        "dmg_mul_1",
+        "dmg_mul_2",
+        "airborne_duration_0",
+        "airborne_duration_1",
+        "airborne_duration_2",
+        "vamp_0",
+        "vamp_1",
+        "vamp_2",
+        "vamp_mul_on_low_hp",
+        "hp_threshold"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Yasuo",
+      "name": "Dạ Xuân",
+      "summoned": false,
+      "realm": "Divine",
+      "roles": 1,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 2000,
+      "physicalDamage": 90,
+      "magicalDamage": 0,
+      "armor": 30,
+      "resistance": 9999,
+      "attackSpeed": 0.60000002384185791,
+      "movementSpeed": 1.7999999523162842,
+      "energyPerAttack": 20,
+      "energyPerHit": 1,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        1,
+        50,
+        0.5,
+        80,
+        1,
+        5,
+        0.10000000149011612,
+        4,
+        0.33300000429153442
+      ],
+      "skillParamKeys": [
+        "airborne_duration",
+        "base_dmg_0",
+        "dmg_mul_0",
+        "base_dmg_1",
+        "dmg_mul_1",
+        "dot_base_dmg",
+        "dot_dmg_mul",
+        "duration",
+        "interval"
+      ],
+      "specialKeys": [
+        "yasuo_wind_claws"
+      ]
+    },
+    {
+      "id": "Zed",
+      "name": "Rét",
+      "summoned": false,
+      "realm": "Mecha",
+      "roles": 8,
+      "reputation": "Legendary",
+      "moveable": true,
+      "maxHp": 1700,
+      "physicalDamage": 175,
+      "magicalDamage": 0,
+      "armor": 18,
+      "resistance": 21,
+      "attackSpeed": 0.33000001311302185,
+      "movementSpeed": 2.2000000476837158,
+      "energyPerAttack": 10,
+      "energyPerHit": 9,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "CriticalChance",
+            "value": 0.10000000149011612,
+            "type": "Flat"
+          },
+          {
+            "stat": "CriticalDamage",
+            "value": 0.25,
+            "type": "Flat"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "CriticalChance",
+            "value": 0.25,
+            "type": "Flat"
+          },
+          {
+            "stat": "CriticalDamage",
+            "value": 1,
+            "type": "Flat"
+          }
+        ]
+      ],
+      "skillParams": [
+        180,
+        1.2000000476837158,
+        1,
+        1,
+        0.5
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_mul",
+        "range",
+        "stun_main",
+        "stun_others"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Yone",
+      "name": "Du Thiên",
+      "summoned": false,
+      "realm": "Nether",
+      "roles": 33,
+      "reputation": "Legendary",
+      "moveable": true,
+      "maxHp": 2120,
+      "physicalDamage": 168,
+      "magicalDamage": 0,
+      "armor": 28,
+      "resistance": 25,
+      "attackSpeed": 0.550000011920929,
+      "movementSpeed": 1.7999999523162842,
+      "energyPerAttack": 23,
+      "energyPerHit": 0,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        -0.05000000074505806,
+        3,
+        5,
+        0,
+        0.20000000298023224,
+        200,
+        2,
+        1.5,
+        50,
+        60,
+        0.5,
+        150,
+        2
+      ],
+      "skillParamKeys": [
+        "eff_dmg_reduce_mul",
+        "eff_max_stacks",
+        "eff_duration",
+        "vamp_min",
+        "vamp_max",
+        "divine_base_dmg",
+        "divine_dmg_mul",
+        "airbone_duration",
+        "energy_regen",
+        "devil_base_dmg_0",
+        "devil_dmg_mul_0",
+        "devil_base_dmg_1",
+        "devil_dmg_mul_1"
+      ],
+      "specialKeys": [
+        "yone_weakening"
+      ]
+    },
+    {
+      "id": "Akali",
+      "name": "Khánh Linh",
+      "summoned": false,
+      "realm": "Mortal",
+      "roles": 8,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 1650,
+      "physicalDamage": 0,
+      "magicalDamage": 169,
+      "armor": 19,
+      "resistance": 19,
+      "attackSpeed": 0.30000001192092896,
+      "movementSpeed": 2.0999999046325684,
+      "energyPerAttack": 20,
+      "energyPerHit": 7,
+      "attackRange": 2,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        50,
+        2,
+        1
+      ],
+      "skillParamKeys": [
+        "energy_threshold",
+        "silent_duration",
+        "stun_duration"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Ashe",
+      "name": "Ánh",
+      "summoned": false,
+      "realm": "Nether",
+      "roles": 4,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 1980,
+      "physicalDamage": 144,
+      "magicalDamage": 0,
+      "armor": 16,
+      "resistance": 15,
+      "attackSpeed": 0.47999998927116394,
+      "movementSpeed": 1.7999999523162842,
+      "energyPerAttack": 30,
+      "energyPerHit": 4,
+      "attackRange": 2,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        10,
+        20,
+        5,
+        0.10000000149011612,
+        0.20000000298023224,
+        2,
+        2
+      ],
+      "skillParamKeys": [
+        "arrow_set_min",
+        "arrow_set_max",
+        "dmg_base",
+        "pdmg_mul",
+        "mdmg_mul",
+        "total_time",
+        "radius"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Caitlyn",
+      "name": "Cát Linh",
+      "summoned": false,
+      "realm": "Mortal",
+      "roles": 4,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 1980,
+      "physicalDamage": 150,
+      "magicalDamage": 0,
+      "armor": 20,
+      "resistance": 22,
+      "attackSpeed": 0.30000001192092896,
+      "movementSpeed": 1.7999999523162842,
+      "energyPerAttack": 15,
+      "energyPerHit": 4,
+      "attackRange": 4,
+      "unstoppable": true,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        0.029999999329447746,
+        0.15000000596046448,
+        1.5,
+        0.25,
+        0.25,
+        3
+      ],
+      "skillParamKeys": [
+        "heal_by_hp_mul",
+        "heal_by_dmg_mul",
+        "duration",
+        "interval",
+        "atk_spd_mul",
+        "atk_spd_duration"
+      ],
+      "specialKeys": [
+        "caitlyn_cake",
+        "caitlyn_cake_atkspd"
+      ]
+    },
+    {
+      "id": "Jinx",
+      "name": "Trinh",
+      "summoned": false,
+      "realm": "Mortal",
+      "roles": 4,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 1980,
+      "physicalDamage": 125,
+      "magicalDamage": 0,
+      "armor": 20,
+      "resistance": 22,
+      "attackSpeed": 0.40000000596046448,
+      "movementSpeed": 1.7999999523162842,
+      "energyPerAttack": 15,
+      "energyPerHit": 4,
+      "attackRange": 8,
+      "unstoppable": true,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        5,
+        0.20000000298023224,
+        30,
+        0.33000001311302185
+      ],
+      "skillParamKeys": [
+        "rockets",
+        "interval",
+        "base_dmg_per_rocket",
+        "dmg_mul_per_rocket"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Irelia",
+      "name": "Ái Liên",
+      "summoned": false,
+      "realm": "Divine",
+      "roles": 1,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 2540,
+      "physicalDamage": 120,
+      "magicalDamage": 0,
+      "armor": 32,
+      "resistance": 24,
+      "attackSpeed": 0.44999998807907104,
+      "movementSpeed": 2,
+      "energyPerAttack": 8,
+      "energyPerHit": 12,
+      "attackRange": 2,
+      "unstoppable": true,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        120,
+        1.5,
+        1
+      ],
+      "skillParamKeys": [
+        "base_dmg",
+        "dmg_mul",
+        "airborne_duration"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Katarina",
+      "name": "Cẩm Thanh",
+      "summoned": false,
+      "realm": "Mortal",
+      "roles": 8,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 1700,
+      "physicalDamage": 175,
+      "magicalDamage": 0,
+      "armor": 18,
+      "resistance": 21,
+      "attackSpeed": 0.33000001311302185,
+      "movementSpeed": 2.2000000476837158,
+      "energyPerAttack": 10,
+      "energyPerHit": 9,
+      "attackRange": 1,
+      "unstoppable": true,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        15,
+        0.20000000298023224,
+        10,
+        0.20000000298023224,
+        3
+      ],
+      "skillParamKeys": [
+        "hits",
+        "interval",
+        "base_dmg_per_hit",
+        "dmg_mul_per_hit",
+        "anti_heal_duration"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Malphite",
+      "name": "Mạnh Phi",
+      "summoned": false,
+      "realm": "Mecha",
+      "roles": 16,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 2540,
+      "physicalDamage": 140,
+      "magicalDamage": 0,
+      "armor": 100,
+      "resistance": 200,
+      "attackSpeed": 0.25,
+      "movementSpeed": 1.2000000476837158,
+      "energyPerAttack": 8,
+      "energyPerHit": 50,
+      "attackRange": 2,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        2,
+        -0.5,
+        5,
+        80,
+        0.5,
+        2
+      ],
+      "skillParamKeys": [
+        "def_mul",
+        "atk_spd_reduce_mul",
+        "effect_duration",
+        "base_dmg",
+        "dmg_mul",
+        "airborne_duration"
+      ],
+      "specialKeys": [
+        "malphite_unstoppable"
+      ]
+    },
+    {
+      "id": "MissFortune",
+      "name": "Mỹ Phương",
+      "summoned": false,
+      "realm": "Mortal",
+      "roles": 4,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 1980,
+      "physicalDamage": 50,
+      "magicalDamage": 50,
+      "armor": 0,
+      "resistance": 0,
+      "attackSpeed": 0.40000000596046448,
+      "movementSpeed": 1.7999999523162842,
+      "energyPerAttack": 15,
+      "energyPerHit": 4,
+      "attackRange": 4,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        0.699999988079071,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.699999988079071,
+        0.60000002384185791,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.60000002384185791,
+        1,
+        0.5,
+        0.5,
+        1,
+        0.30000001192092896,
+        -0.30000001192092896,
+        5
+      ],
+      "skillParamKeys": [
+        "atk_pdmg_mul_0",
+        "atk_mdmd_mul_0",
+        "atk_pdmg_mul_1",
+        "atk_pdmg_mul_1",
+        "l_pdmg_mul_0",
+        "l_mdmg_mul_0",
+        "l_pdmg_mul_1",
+        "l_mdmg_mul_1",
+        "r_pdmg_mul_0",
+        "r_mdmg_mul_0",
+        "r_pdmg_mul_1",
+        "r_mdmg_mul_1",
+        "vamp_mul",
+        "reduce_def_mul",
+        "reduce_def_duration"
+      ],
+      "specialKeys": [
+        "missfortune_shield_breaker"
+      ]
+    },
+    {
+      "id": "Morgana",
+      "name": "Mạc Ngân",
+      "summoned": false,
+      "realm": "Divine",
+      "roles": 2,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 2000,
+      "physicalDamage": 0,
+      "magicalDamage": 180,
+      "armor": 32,
+      "resistance": 24,
+      "attackSpeed": 0.20000000298023224,
+      "movementSpeed": 2,
+      "energyPerAttack": 6,
+      "energyPerHit": 8,
+      "attackRange": 3,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        0.10000000149011612,
+        0.30000001192092896,
+        2
+      ],
+      "skillParamKeys": [
+        "heal_by_hp_mul_min",
+        "heal_by_hp_mul_max",
+        "heal_by_dmg_mul"
+      ],
+      "specialKeys": []
+    },
+    {
+      "id": "Teemo",
+      "name": "Tiên Mệnh",
+      "summoned": false,
+      "realm": "Nether",
+      "roles": 34,
+      "reputation": "Elite",
+      "moveable": true,
+      "maxHp": 2540,
+      "physicalDamage": 0,
+      "magicalDamage": 130,
+      "armor": 32,
+      "resistance": 24,
+      "attackSpeed": 0.5,
+      "movementSpeed": 2,
+      "energyPerAttack": 15,
+      "energyPerHit": 7,
+      "attackRange": 2,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        5,
+        3,
+        0.5,
+        0.0010000000474974513,
+        0.0099999997764825821,
+        50,
+        0.800000011920929,
+        20,
+        0.10000000149011612
+      ],
+      "skillParamKeys": [
+        "dot_max_stacks",
+        "dot_duration",
+        "dot_interval",
+        "dot_dmg_by_max_hp",
+        "dot_dmg_mul_limit",
+        "base_dmg",
+        "dmg_mul",
+        "bonus_base_dmg_per_stack",
+        "bonus_dmg_mul_per_stack"
+      ],
+      "specialKeys": [
+        "teemo_hell_flame"
+      ]
+    },
+    {
+      "id": "Tristana",
+      "name": "Trí Tâm",
+      "summoned": false,
+      "realm": "Mortal",
+      "roles": 4,
+      "reputation": "Unknown",
+      "moveable": true,
+      "maxHp": 1980,
+      "physicalDamage": 125,
+      "magicalDamage": 0,
+      "armor": 20,
+      "resistance": 22,
+      "attackSpeed": 0.40000000596046448,
+      "movementSpeed": 1.7999999523162842,
+      "energyPerAttack": 33,
+      "energyPerHit": 4,
+      "attackRange": 4,
+      "unstoppable": true,
+      "evolutions": [
+        [],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 0.800000011920929,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.20000000298023224,
+            "type": "Percent"
+          }
+        ],
+        [
+          {
+            "stat": "MaxHp",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "PhysicalDamage",
+            "value": 3.5,
+            "type": "Percent"
+          },
+          {
+            "stat": "AttackSpeed",
+            "value": 0.5,
+            "type": "Percent"
+          }
+        ]
+      ],
+      "skillParams": [
+        5,
+        0.20000000298023224,
+        4
+      ],
+      "skillParamKeys": [
+        "atk_spd_mul",
+        "crit_chance_mul",
+        "duration"
+      ],
+      "specialKeys": [
+        "tristana_furious"
+      ]
+    },
+    {
+      "id": "_Dummy",
+      "name": "",
+      "summoned": true,
+      "realm": "None",
+      "roles": 0,
+      "reputation": "None",
+      "moveable": false,
+      "maxHp": 2540,
+      "physicalDamage": 0,
+      "magicalDamage": 0,
+      "armor": 50,
+      "resistance": 50,
+      "attackSpeed": 0.0099999997764825821,
+      "movementSpeed": 0.0099999997764825821,
+      "energyPerAttack": 0,
+      "energyPerHit": 0,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [],
+        []
+      ],
+      "skillParams": [],
+      "skillParamKeys": [],
+      "specialKeys": []
+    }
+  ],
+  "items": [
+    {
+      "id": "_armor",
+      "name": "Giáp",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 7,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "_atkspd",
+      "name": "Tiễn",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.10000000149011612,
+          "type": "Percent"
+        }
+      ]
+    },
+    {
+      "id": "_crit",
+      "name": "Nhẫn",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.10000000149011612,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "_energy",
+      "name": "Liên",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.20000000298023224,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "_maxhp",
+      "name": "Hoàn",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "MaxHp",
+          "value": 100,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "_mdmg",
+      "name": "Thư",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "MagicalDamage",
+          "value": 10,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "_pdmg",
+      "name": "Kiếm",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "PhysicalDamage",
+          "value": 10,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "_resistance",
+      "name": "Y",
+      "ingredients": [],
+      "modifiers": [
+        {
+          "stat": "Resistance",
+          "value": 7,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "armor+armor",
+      "name": "Thích Lân Giáp",
+      "ingredients": [
+        "_armor",
+        "_armor"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 50,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "armor+atkspd",
+      "name": "Thái Dương Thuẫn",
+      "ingredients": [
+        "_armor",
+        "_atkspd"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "AttackSpeed",
+          "value": 0.20000000298023224,
+          "type": "Percent"
+        }
+      ]
+    },
+    {
+      "id": "armor+crit",
+      "name": "Ngạo Vương Miện",
+      "ingredients": [
+        "_armor",
+        "_crit"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "CriticalChance",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "armor+energy",
+      "name": "Chân Băng Giáp",
+      "ingredients": [
+        "_armor",
+        "_energy"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "armor+maxhp",
+      "name": "Mộc Linh Giáp",
+      "ingredients": [
+        "_armor",
+        "_maxhp"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "MaxHp",
+          "value": 400,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "armor+mdmg",
+      "name": "Oán Linh Thuẫn",
+      "ingredients": [
+        "_armor",
+        "_mdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 30,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "armor+pdmg",
+      "name": "Chân Băng Quyền",
+      "ingredients": [
+        "_armor",
+        "_pdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "PhysicalDamage",
+          "value": 30,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "armor+resistance",
+      "name": "Xích Viêm Y",
+      "ingredients": [
+        "_armor",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "Armor",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "Resistance",
+          "value": 20,
+          "type": "Flat"
+        },
+        {
+          "stat": "Tenacity",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "atkspd+atkspd",
+      "name": "Đoạn Vân Tiễn",
+      "ingredients": [
+        "_atkspd",
+        "_atkspd"
+      ],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.5,
+          "type": "Percent"
+        },
+        {
+          "stat": "Tenacity",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "atkspd+crit",
+      "name": "Bạo Lôi Đao",
+      "ingredients": [
+        "_atkspd",
+        "_crit"
+      ],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.20000000298023224,
+          "type": "Percent"
+        },
+        {
+          "stat": "MaxHp",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "atkspd+energy",
+      "name": "Lưu Quang Cung",
+      "ingredients": [
+        "_atkspd",
+        "_energy"
+      ],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.20000000298023224,
+          "type": "Percent"
+        },
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "atkspd+maxhp",
+      "name": "Tử Huyết Nỗ",
+      "ingredients": [
+        "_atkspd",
+        "_maxhp"
+      ],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.20000000298023224,
+          "type": "Percent"
+        },
+        {
+          "stat": "MaxHp",
+          "value": 400,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "atkspd+mdmg",
+      "name": "Mãng Xà Cung",
+      "ingredients": [
+        "_atkspd",
+        "_mdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.20000000298023224,
+          "type": "Percent"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 30,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "atkspd+pdmg",
+      "name": "Cuồng Phong Đao",
+      "ingredients": [
+        "_atkspd",
+        "_pdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.20000000298023224,
+          "type": "Percent"
+        },
+        {
+          "stat": "PhysicalDamage",
+          "value": 30,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "atkspd+resistance",
+      "name": "Ám Nguyệt Cung",
+      "ingredients": [
+        "_atkspd",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "AttackSpeed",
+          "value": 0.20000000298023224,
+          "type": "Percent"
+        },
+        {
+          "stat": "Resistance",
+          "value": 20,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "crit+crit",
+      "name": "Bạo Lôi Trượng",
+      "ingredients": [
+        "_crit",
+        "_crit"
+      ],
+      "modifiers": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.34999999403953552,
+          "type": "Flat"
+        },
+        {
+          "stat": "CriticalDamage",
+          "value": 0.5,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "crit+energy",
+      "name": "Đoạt Hồn Liêm",
+      "ingredients": [
+        "_crit",
+        "_energy"
+      ],
+      "modifiers": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.25,
+          "type": "Flat"
+        },
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "crit+maxhp",
+      "name": "Vong Thống Diện",
+      "ingredients": [
+        "_crit",
+        "_maxhp"
+      ],
+      "modifiers": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.25,
+          "type": "Flat"
+        },
+        {
+          "stat": "MaxHp",
+          "value": 400,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "crit+mdmg",
+      "name": "Cổ Nguyền Thư",
+      "ingredients": [
+        "_crit",
+        "_mdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.25,
+          "type": "Flat"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "CriticalDamage",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "crit+pdmg",
+      "name": "Bạo Lôi Phủ",
+      "ingredients": [
+        "_crit",
+        "_pdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.25,
+          "type": "Flat"
+        },
+        {
+          "stat": "PhysicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "CriticalDamage",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "crit+resistance",
+      "name": "Ma Vương Miện",
+      "ingredients": [
+        "_crit",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "CriticalChance",
+          "value": 0.25,
+          "type": "Flat"
+        },
+        {
+          "stat": "Resistance",
+          "value": 20,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "energy+energy",
+      "name": "Thời Không Bảo",
+      "ingredients": [
+        "_energy",
+        "_energy"
+      ],
+      "modifiers": [
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "energy+maxhp",
+      "name": "Tịnh Hồn Giáp",
+      "ingredients": [
+        "_energy",
+        "_maxhp"
+      ],
+      "modifiers": [
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        },
+        {
+          "stat": "MaxHp",
+          "value": 400,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "energy+mdmg",
+      "name": "Tịnh Hồn Trượng",
+      "ingredients": [
+        "_energy",
+        "_mdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 30,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "energy+pdmg",
+      "name": "Tịnh Hồn Kiếm",
+      "ingredients": [
+        "_energy",
+        "_pdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        },
+        {
+          "stat": "PhysicalDamage",
+          "value": 30,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "energy+resistance",
+      "name": "Vệ Vương Miện",
+      "ingredients": [
+        "_energy",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "EnergyRegenEfficiency",
+          "value": 0.33000001311302185,
+          "type": "Flat"
+        },
+        {
+          "stat": "Resistance",
+          "value": 20,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "maxhp+maxhp",
+      "name": "Bất Tử Thuẫn",
+      "ingredients": [
+        "_maxhp",
+        "_maxhp"
+      ],
+      "modifiers": [
+        {
+          "stat": "MaxHp",
+          "value": 1000,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "maxhp+mdmg",
+      "name": "Lưu Quang Trượng",
+      "ingredients": [
+        "_maxhp",
+        "_mdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "MaxHp",
+          "value": 400,
+          "type": "Flat"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "LifeSteal",
+          "value": 0.15000000596046448,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "maxhp+pdmg",
+      "name": "Huyết Cuồng Chuỳ",
+      "ingredients": [
+        "_maxhp",
+        "_pdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "MaxHp",
+          "value": 400,
+          "type": "Flat"
+        },
+        {
+          "stat": "PhysicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "LifeSteal",
+          "value": 0.15000000596046448,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "maxhp+resistance",
+      "name": "Thiên Âm Bảo",
+      "ingredients": [
+        "_maxhp",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "MaxHp",
+          "value": 400,
+          "type": "Flat"
+        },
+        {
+          "stat": "Resistance",
+          "value": 20,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "mdmg+mdmg",
+      "name": "Ma Diệm Khôi",
+      "ingredients": [
+        "_mdmg",
+        "_mdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "MagicalDamage",
+          "value": 80,
+          "type": "Flat"
+        },
+        {
+          "stat": "MagicalDamage",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "mdmg+pdmg",
+      "name": "Ám Nguyệt Liêm",
+      "ingredients": [
+        "_mdmg",
+        "_pdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "MagicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "PhysicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "MagicalPenetration",
+          "value": 0.25,
+          "type": "Flat"
+        },
+        {
+          "stat": "PhysicalPenetration",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "mdmg+resistance",
+      "name": "Nhật Nguyệt Nhẫn",
+      "ingredients": [
+        "_mdmg",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "MagicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "Resistance",
+          "value": 20,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "pdmg+pdmg",
+      "name": "Bá Vương Thương",
+      "ingredients": [
+        "_pdmg",
+        "_pdmg"
+      ],
+      "modifiers": [
+        {
+          "stat": "PhysicalDamage",
+          "value": 80,
+          "type": "Flat"
+        },
+        {
+          "stat": "PhysicalDamage",
+          "value": 0.25,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "pdmg+resistance",
+      "name": "Bạch Cốt Chuỳ",
+      "ingredients": [
+        "_pdmg",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "PhysicalDamage",
+          "value": 30,
+          "type": "Flat"
+        },
+        {
+          "stat": "Resistance",
+          "value": 20,
+          "type": "Flat"
+        }
+      ]
+    },
+    {
+      "id": "resistance+resistance",
+      "name": "Kháng Ma Thuẫn",
+      "ingredients": [
+        "_resistance",
+        "_resistance"
+      ],
+      "modifiers": [
+        {
+          "stat": "Resistance",
+          "value": 50,
+          "type": "Flat"
+        }
+      ]
+    }
+  ],
+  "traits": [
+    {
+      "kind": "Role",
+      "value": "Assassin",
+      "name": "Thích khách",
+      "checkpoints": [
+        2,
+        3,
+        4
+      ],
+      "params": [
+        0.20000000298023224,
+        0.40000000596046448,
+        0.699999988079071,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25
+      ]
+    },
+    {
+      "kind": "Role",
+      "value": "Bruiser",
+      "name": "Quyền Vương",
+      "checkpoints": [
+        2,
+        3,
+        4
+      ],
+      "params": [
+        0.699999988079071,
+        300,
+        600,
+        1200,
+        20,
+        70,
+        150
+      ]
+    },
+    {
+      "kind": "Role",
+      "value": "Cultist",
+      "name": "Tín đồ",
+      "checkpoints": [
+        2,
+        3,
+        4
+      ],
+      "params": [
+        250,
+        500,
+        1000,
+        40,
+        90,
+        180,
+        0.075000002980232239,
+        0.10000000149011612,
+        0.15000000596046448
+      ]
+    },
+    {
+      "kind": "Role",
+      "value": "Duelist",
+      "name": "Kiếm sĩ",
+      "checkpoints": [
+        2,
+        3,
+        4
+      ],
+      "params": [
+        0.30000001192092896,
+        30,
+        70,
+        150,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25
+      ]
+    },
+    {
+      "kind": "Role",
+      "value": "Marksman",
+      "name": "Xạ thủ",
+      "checkpoints": [
+        2,
+        3,
+        4
+      ],
+      "params": [
+        0.20000000298023224,
+        0.40000000596046448,
+        0.699999988079071,
+        5,
+        7,
+        12
+      ]
+    },
+    {
+      "kind": "Role",
+      "value": "Sorcerer",
+      "name": "Pháp sư",
+      "checkpoints": [
+        2,
+        3,
+        4
+      ],
+      "params": [
+        30,
+        70,
+        150,
+        0.20000000298023224,
+        0.30000001192092896,
+        0.40000000596046448
+      ]
+    },
+    {
+      "kind": "Realm",
+      "value": "Chaos",
+      "name": "Hỗn mang",
+      "checkpoints": [
+        2
+      ],
+      "params": [
+        999,
+        5,
+        0.10000000149011612,
+        1
+      ]
+    },
+    {
+      "kind": "Realm",
+      "value": "Divine",
+      "name": "Thánh thần",
+      "checkpoints": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "params": [
+        0.10000000149011612,
+        0.15000000596046448,
+        0.20000000298023224,
+        0.25,
+        1,
+        2,
+        0.5,
+        0.20000000298023224,
+        0.40000000596046448
+      ]
+    },
+    {
+      "kind": "Realm",
+      "value": "Mecha",
+      "name": "Cơ giới",
+      "checkpoints": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "params": [
+        150,
+        300,
+        100,
+        0.30000001192092896,
+        0.30000001192092896,
+        0.33000001311302185,
+        1.5
+      ]
+    },
+    {
+      "kind": "Realm",
+      "value": "Mortal",
+      "name": "Phàm nhân",
+      "checkpoints": [
+        1,
+        2,
+        4,
+        6
+      ],
+      "params": [
+        20,
+        20,
+        0.20000000298023224,
+        0.10000000149011612,
+        0.30000001192092896,
+        0.10000000149011612,
+        1,
+        1.2000000476837158,
+        1.5,
+        2,
+        0.25,
+        30
+      ]
+    },
+    {
+      "kind": "Realm",
+      "value": "Nether",
+      "name": "Âm ti",
+      "checkpoints": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "params": [
+        0.15000000596046448,
+        0.25,
+        0.34999999403953552,
+        0.5,
+        0.40000000596046448
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "name": "Stage 1",
+      "rounds": [
+        {
+          "enemies": [
+            {
+              "unit": "Katarina",
+              "rank": "B",
+              "row": 6,
+              "col": 0,
+              "items": [
+                "crit+mdmg",
+                "_mdmg"
+              ],
+              "hpScale": 3,
+              "damageScale": 0.699999988079071
+            },
+            {
+              "unit": "Ashe",
+              "rank": "A",
+              "row": 7,
+              "col": 7,
+              "items": [
+                "atkspd+atkspd",
+                "atkspd+atkspd",
+                "atkspd+pdmg"
+              ],
+              "hpScale": 3,
+              "damageScale": 1
+            },
+            {
+              "unit": "Irelia",
+              "rank": "B",
+              "row": 4,
+              "col": 2,
+              "items": [
+                "armor+atkspd",
+                "pdmg+resistance"
+              ],
+              "hpScale": 4,
+              "damageScale": 1
+            },
+            {
+              "unit": "Malphite",
+              "rank": "S",
+              "row": 4,
+              "col": 4,
+              "items": [
+                "maxhp+maxhp",
+                "maxhp+resistance",
+                "armor+maxhp"
+              ],
+              "hpScale": 7,
+              "damageScale": 1
+            },
+            {
+              "unit": "Aatrox_Dark",
+              "rank": "A",
+              "row": 7,
+              "col": 3,
+              "items": [
+                "pdmg+pdmg",
+                "crit+pdmg"
+              ],
+              "hpScale": 4,
+              "damageScale": 1
+            },
+            {
+              "unit": "Aatrox_Light",
+              "rank": "B",
+              "row": 7,
+              "col": 5,
+              "items": [
+                "armor+mdmg",
+                "armor+energy"
+              ],
+              "hpScale": 4,
+              "damageScale": 1
+            },
+            {
+              "unit": "Zed",
+              "rank": "S",
+              "row": 6,
+              "col": 7,
+              "items": [
+                "pdmg+pdmg",
+                "pdmg+pdmg",
+                "crit+pdmg"
+              ],
+              "hpScale": 3,
+              "damageScale": 1
+            },
+            {
+              "unit": "Yone",
+              "rank": "S",
+              "row": 5,
+              "col": 2,
+              "items": [
+                "energy+pdmg",
+                "crit+pdmg",
+                "atkspd+crit"
+              ],
+              "hpScale": 3,
+              "damageScale": 1
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Unit",
+              "coins": 1,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "Unknown",
+              "options": []
+            },
+            {
+              "kind": "Unit",
+              "coins": 2,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "Unknown",
+              "options": []
+            },
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "Coin",
+              "coins": 6,
+              "minCoins": 1,
+              "maxCoins": 2,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "MissFortune",
+              "rank": "B",
+              "row": 7,
+              "col": 3,
+              "items": [],
+              "hpScale": 0.60000002384185791,
+              "damageScale": 0.5
+            },
+            {
+              "unit": "Morgana",
+              "rank": "B",
+              "row": 7,
+              "col": 4,
+              "items": [],
+              "hpScale": 0.60000002384185791,
+              "damageScale": 0.5
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "Coin",
+              "coins": 8,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "Coin",
+              "coins": 8,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Yasuo",
+              "rank": "B",
+              "row": 7,
+              "col": 0,
+              "items": [
+                "_atkspd"
+              ],
+              "hpScale": 0.800000011920929,
+              "damageScale": 1
+            },
+            {
+              "unit": "Yasuo",
+              "rank": "B",
+              "row": 6,
+              "col": 4,
+              "items": [
+                "_atkspd"
+              ],
+              "hpScale": 0.800000011920929,
+              "damageScale": 1
+            },
+            {
+              "unit": "Yasuo",
+              "rank": "B",
+              "row": 7,
+              "col": 7,
+              "items": [
+                "_atkspd"
+              ],
+              "hpScale": 0.800000011920929,
+              "damageScale": 1
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "Coin",
+              "coins": 10,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "unit": "Malphite",
+              "rank": "A",
+              "row": 5,
+              "col": 4,
+              "items": [
+                "armor+maxhp",
+                "maxhp+maxhp"
+              ],
+              "hpScale": 2,
+              "damageScale": 1.7999999523162842
+            }
+          ],
+          "rewards": [
+            {
+              "kind": "RawItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "RawItem",
+              "coins": 5,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "Coin",
+              "coins": 12,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ],
+          "winRewards": [
+            {
+              "kind": "RandomCoin",
+              "coins": 0,
+              "minCoins": 12,
+              "maxCoins": 18,
+              "reputation": "None",
+              "options": []
+            },
+            {
+              "kind": "Unit",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "Elite",
+              "options": []
+            },
+            {
+              "kind": "ForgedItem",
+              "coins": 0,
+              "minCoins": 0,
+              "maxCoins": 0,
+              "reputation": "None",
+              "options": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

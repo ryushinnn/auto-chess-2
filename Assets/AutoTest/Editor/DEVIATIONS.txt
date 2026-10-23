@@ -1,0 +1,19 @@
+AutoTest.Editor 1.0.0 - deviations from AutoTest Server/PROTOCOL.md (v1)
+
+1. /timescale outside Play: Time.timeScale set in edit mode writes the TimeManager project setting, so the value
+   is parked (SessionState) and applied on the next EnteredPlayMode. The reply then carries appliesOnPlay:true and
+   timeScale is the value Play will use; /status reports the live Time.timeScale plus pendingTimeScale.
+2. Extra 409 kind "dirty_scene": /play with scene=... when a loaded scene has unsaved changes (OpenScene would
+   raise the modal save prompt), and /tests/run for the same reason (the Test Runner prompts to save).
+3. /ui/components kinds also accept "scrollbar" and "selectable" (any other Selectable subclass); the default
+   (all selectables) can therefore return rows of those two kinds. "all" = every kind.
+4. /logs "dropped" = entries of the requested range (index >= since) lost to the 2000-entry ring overflow.
+   The index survives domain reloads and the newest 300 entries are carried over; older ones count as dropped.
+5. /refresh runs AssetDatabase.Refresh(ForceUpdate) + RequestScriptCompilation on the next editor update instead
+   of inside the request, so a synchronous import/compile cannot turn the reply into a 503 timeout.
+6. Busy conditions use 400 bad_request (no dedicated kind): /input/drag while a drag runs, /tests/run while a run
+   is active or the editor is compiling.
+
+Additive only (no contract change): extra reply fields (e.g. hitPath/fired on /ui/click, labelPath on /ui/find,
+loadedScenes/projectPath on /status), GET /routes, /ui/find and /ui/click also take match=, /reflect op=types uses
+`type` (or `match`) as the name filter.

@@ -1,0 +1,26 @@
+{
+  "note": "A full round with the real views: transition (dive, battle units spawn), battle, summary, next preparation with xp, rewards, round label and the board unit back on its cell. Invariants (model / view consistency included) run after every step.",
+  "tags": ["round", "battle"],
+  "timescale": 2,
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 71}}],
+  "actions": [
+    {"action": "op", "op": "ready", "expect": {"ok": true}},
+    {"action": "wait_state", "path": "phase", "equals": "Transition", "timeoutMs": 5000},
+    {"action": "assert", "path": "player.boardCount", "equals": 1, "label": "bench unit auto-deployed"},
+    {"action": "wait_state", "path": "views.battleVisible", "equals": true, "timeoutMs": 5000, "label": "battle units out of the portal"},
+    {"action": "assert", "path": "views.battle", "equals": 9, "label": "one view per battle unit (1 vs 8)"},
+    {"action": "wait_state", "path": "phase", "equals": "Battle", "timeoutMs": 10000},
+    {"action": "screenshot", "name": "ac_round_flow_battle"},
+    {"action": "wait_state", "path": "phase", "equals": "Summary", "timeoutMs": 90000},
+    {"action": "assert", "path": "battle.finished", "equals": true},
+    {"action": "wait_state", "path": "phase", "equals": "Preparation", "timeoutMs": 10000},
+    {"action": "assert", "path": "roundLabel", "equals": "1-2"},
+    {"action": "assert", "path": "player.level", "equals": 2, "label": "+2 xp per round"},
+    {"action": "assert", "path": "player.gold", "gte": 1, "label": "round rewards paid"},
+    {"action": "assert", "path": "views.boardVisible", "equals": true},
+    {"action": "assert", "path": "views.battle", "equals": 0, "label": "battle views cleared"},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "logs", "level": "error", "failOnRed": true},
+    {"action": "screenshot"}
+  ]
+}

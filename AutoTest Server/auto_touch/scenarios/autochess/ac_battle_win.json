@@ -1,0 +1,32 @@
+{
+  "note": "A strong board (cheated S-rank heroes) wins round 1-2: HomeWin, a win recorded, the round and win coins paid at the next preparation. Round 1-1 is the stage's boss wave (Malphite S with x7 health) and is skipped with the skip-phase cheat.",
+  "tags": ["battle", "rewards"],
+  "timescale": 3,
+  "setup": [{"action": "include", "scenario": "_fresh_match.json", "params": {"seed": 81}}],
+  "actions": [
+    {"action": "op", "op": "xp", "params": {"amount": 254}, "label": "level 8"},
+    {"action": "op", "op": "unit", "params": {"unit": "Zed", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Yone", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Malphite", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Jinx", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Caitlyn", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Teemo", "rank": "S"}},
+    {"action": "op", "op": "unit", "params": {"unit": "Morgana", "rank": "S"}},
+    {"action": "op", "op": "ready"},
+    {"action": "wait_state", "path": "phase", "equals": "Battle", "timeoutMs": 10000},
+    {"action": "assert", "path": "player.boardCount", "equals": 8},
+    {"action": "op", "op": "skip-phase", "expect": {"ok": true}, "label": "skip the boss wave"},
+    {"action": "wait_state", "path": "phase", "equals": "Preparation", "timeoutMs": 20000},
+    {"action": "assert", "path": "roundLabel", "equals": "1-2"},
+    {"action": "op", "op": "ready"},
+    {"action": "wait_state", "path": "phase", "equals": "Battle", "timeoutMs": 10000},
+    {"action": "wait_state", "path": "phase", "equals": "Summary", "timeoutMs": 90000},
+    {"action": "assert", "path": "battle.outcome", "equals": "HomeWin"},
+    {"action": "assert", "path": "player.wins", "equals": 1},
+    {"action": "state", "path": "player.gold", "saveAs": "goldBefore"},
+    {"action": "wait_state", "path": "phase", "equals": "Preparation", "timeoutMs": 10000},
+    {"action": "assert", "path": "player.gold", "gt": "${goldBefore}", "label": "round + win coins"},
+    {"action": "invariants", "minSeverity": "medium"},
+    {"action": "logs", "level": "error", "failOnRed": true}
+  ]
+}

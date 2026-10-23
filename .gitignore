@@ -73,3 +73,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 .idea/
+
+# Python caches (Tools/, AutoTest Server/)
+__pycache__/
+*.pyc

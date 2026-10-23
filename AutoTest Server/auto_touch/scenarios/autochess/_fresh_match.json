@@ -1,0 +1,12 @@
+{
+  "note": "Helper (include): restart the match in place with a fixed seed, pick a starter offer through the session and wait for the first preparation. Leaves 1 B-rank unit on bench:0 (unit id 1), 1 component on the item bench, 0 gold, level 1.",
+  "tags": ["helper"],
+  "params": {"seed": 7, "offer": 0},
+  "actions": [
+    {"action": "op", "op": "restart", "params": {"seed": "${seed}"}, "label": "new match"},
+    {"action": "wait_state", "path": "phase", "equals": "Setup", "timeoutMs": 5000},
+    {"action": "op", "op": "choose-starter", "params": {"offer": "${offer}"}, "expect": {"ok": true}, "label": "pick a starter"},
+    {"action": "wait_state", "path": "phase", "equals": "Preparation", "timeoutMs": 5000},
+    {"action": "assert", "path": "player.unitCount", "equals": 1}
+  ]
+}
