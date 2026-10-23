@@ -3,6 +3,21 @@
 Unity 2022.3.62f2 TFT-like auto-battler. Design: `docs/ARCHITECTURE.md`. What changed in the 2026-10-22 refactor,
 behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes Vietnamese.
 
+## Quy ước làm việc (user: TienLD)
+
+- **Commit message**: dòng tiêu đề ngắn gọn. Nhiều task trong 1 commit thì chỉ ghi task lớn nhất kèm `...`
+  (vd `refactor core simulation...`). Phần description viết đầy đủ tuỳ ý.
+- **Không tự tạo branch mới.** Nếu user không chỉ định khác thì commit và push thẳng lên branch đang chọn
+  (thường là `dev/main`, hiện repo dùng `main`).
+- **Sau mỗi lần sửa code** chạy `py Tools/compile_check/compile_check.py --editor` (mục "Checks after a change");
+  phải 0 error mới báo xong. Tool lấy từ `D:\PROJECT\_COMPANY\chirpy-sort\Tools`; cần thêm tool thì tham khảo ở đó.
+- **Sửa prefab / scene / asset YAML bằng script Python**, giữ nguyên `fileID` / GUID (cách làm như chirpy-sort).
+  Override của prefab instance có thể xuống dòng trước `type: 3}`, nên match bằng regex `,\s*type:`. Script dài thì viết
+  file `.py` tạm rồi chạy, đừng dùng heredoc bash.
+- **Tên session**: mỗi khi bắt đầu tác vụ mới, đổi tên session (`set_session_title` "self") thành tóm tắt siêu ngắn của
+  tác vụ. Yêu cầu vẫn thuộc tác vụ mà tên session đang nói tới (fix, update, làm tiếp...) thì giữ nguyên tên; chỉ đổi khi
+  chuyển sang tác vụ mới hẳn.
+
 ## Rules of the codebase
 
 - Game rules and battle logic live in `Assets/_main/Scripts/Core` (asmdef `AutoChess.Core`,
