@@ -13,8 +13,8 @@
       "roles": 9,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2612,
-      "physicalDamage": 161,
+      "maxHp": 2911,
+      "physicalDamage": 179,
       "magicalDamage": 0,
       "armor": 40,
       "resistance": 38,
@@ -121,9 +121,9 @@
       "roles": 3,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2374,
+      "maxHp": 2532,
       "physicalDamage": 0,
-      "magicalDamage": 129,
+      "magicalDamage": 137,
       "armor": 39,
       "resistance": 42,
       "attackSpeed": 0.98000001907348633,
@@ -197,7 +197,9 @@
         0.5,
         1,
         2,
-        0.5
+        0.5,
+        0.10000000149011612,
+        5
       ],
       "skillParamKeys": [
         "base_dmg",
@@ -211,7 +213,9 @@
         "vamp_1",
         "vamp_2",
         "vamp_mul_on_low_hp",
-        "hp_threshold"
+        "hp_threshold",
+        "stack_bonus",
+        "max_stacks"
       ],
       "specialKeys": []
     },
@@ -223,8 +227,8 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1876,
-      "physicalDamage": 85,
+      "maxHp": 1899,
+      "physicalDamage": 86,
       "magicalDamage": 0,
       "armor": 36,
       "resistance": 32,
@@ -306,8 +310,8 @@
       "roles": 8,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2922,
-      "physicalDamage": 221,
+      "maxHp": 1868,
+      "physicalDamage": 141,
       "magicalDamage": 0,
       "armor": 34,
       "resistance": 34,
@@ -376,18 +380,20 @@
         ]
       ],
       "skillParams": [
-        180,
-        1.2000000476837158,
-        1,
-        1,
-        0.5
+        250,
+        1.6000000238418579,
+        3,
+        700,
+        0.40000000596046448,
+        3
       ],
       "skillParamKeys": [
         "base_dmg",
         "dmg_mul",
-        "range",
-        "stun_main",
-        "stun_others"
+        "line_length",
+        "dmg_threshold",
+        "clone_share",
+        "max_clones"
       ],
       "specialKeys": []
     },
@@ -399,8 +405,8 @@
       "roles": 33,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 3643,
-      "physicalDamage": 184,
+      "maxHp": 4064,
+      "physicalDamage": 205,
       "magicalDamage": 0,
       "armor": 46,
       "resistance": 42,
@@ -490,9 +496,9 @@
       "roles": 8,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1563,
+      "maxHp": 1427,
       "physicalDamage": 0,
-      "magicalDamage": 106,
+      "magicalDamage": 97,
       "armor": 24,
       "resistance": 24,
       "attackSpeed": 1.0049999952316284,
@@ -540,14 +546,18 @@
         ]
       ],
       "skillParams": [
-        50,
-        2,
+        1,
+        0.5,
+        120,
+        1,
         1
       ],
       "skillParamKeys": [
-        "energy_threshold",
-        "silent_duration",
-        "stun_duration"
+        "radius",
+        "silence",
+        "base_dmg",
+        "dmg_mul",
+        "missing_hp_amp"
       ],
       "specialKeys": []
     },
@@ -559,8 +569,8 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1869,
-      "physicalDamage": 95,
+      "maxHp": 1924,
+      "physicalDamage": 98,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
@@ -636,8 +646,8 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1878,
-      "physicalDamage": 95,
+      "maxHp": 1928,
+      "physicalDamage": 98,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
@@ -714,8 +724,8 @@
       "roles": 4,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2332,
-      "physicalDamage": 123,
+      "maxHp": 2148,
+      "physicalDamage": 113,
       "magicalDamage": 0,
       "armor": 25,
       "resistance": 25,
@@ -785,8 +795,8 @@
       "roles": 1,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 2032,
-      "physicalDamage": 92,
+      "maxHp": 2139,
+      "physicalDamage": 97,
       "magicalDamage": 0,
       "armor": 36,
       "resistance": 32,
@@ -854,8 +864,8 @@
       "roles": 8,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1795,
-      "physicalDamage": 127,
+      "maxHp": 1752,
+      "physicalDamage": 124,
       "magicalDamage": 0,
       "armor": 29,
       "resistance": 29,
@@ -865,7 +875,7 @@
       "energyPerHit": 4,
       "startingEnergy": 85,
       "attackRange": 1,
-      "unstoppable": true,
+      "unstoppable": false,
       "evolutions": [
         [],
         [
@@ -927,8 +937,8 @@
       "roles": 16,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 3171,
-      "physicalDamage": 103,
+      "maxHp": 2928,
+      "physicalDamage": 95,
       "magicalDamage": 0,
       "armor": 55,
       "resistance": 55,
@@ -1004,9 +1014,9 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1169,
-      "physicalDamage": 59,
-      "magicalDamage": 59,
+      "maxHp": 1188,
+      "physicalDamage": 60,
+      "magicalDamage": 60,
       "armor": 20,
       "resistance": 20,
       "attackSpeed": 1.1339999437332153,
@@ -1076,8 +1086,8 @@
         0.5,
         0.5,
         1,
+        2,
         0.30000001192092896,
-        -0.30000001192092896,
         5
       ],
       "skillParamKeys": [
@@ -1093,7 +1103,7 @@
         "r_mdmg_mul_0",
         "r_pdmg_mul_1",
         "r_mdmg_mul_1",
-        "vamp_mul",
+        "bounce_range",
         "reduce_def_mul",
         "reduce_def_duration"
       ],
@@ -1109,9 +1119,9 @@
       "roles": 2,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1263,
+      "maxHp": 1538,
       "physicalDamage": 0,
-      "magicalDamage": 70,
+      "magicalDamage": 85,
       "armor": 27,
       "resistance": 37,
       "attackSpeed": 0.88899999856948853,
@@ -1159,16 +1169,18 @@
         ]
       ],
       "skillParams": [
-        0.10000000149011612,
-        0.30000001192092896,
-        2
+        250,
+        1.5,
+        5
       ],
       "skillParamKeys": [
-        "heal_by_hp_mul_min",
-        "heal_by_hp_mul_max",
-        "heal_by_dmg_mul"
+        "base_shield",
+        "shield_mul",
+        "duration"
       ],
-      "specialKeys": []
+      "specialKeys": [
+        "morgana_black_shield"
+      ]
     },
     {
       "id": "Teemo",
@@ -1178,9 +1190,9 @@
       "roles": 34,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1672,
+      "maxHp": 1761,
       "physicalDamage": 0,
-      "magicalDamage": 92,
+      "magicalDamage": 97,
       "armor": 27,
       "resistance": 37,
       "attackSpeed": 0.88899999856948853,
@@ -1261,8 +1273,8 @@
       "roles": 4,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1336,
-      "physicalDamage": 68,
+      "maxHp": 1377,
+      "physicalDamage": 70,
       "magicalDamage": 0,
       "armor": 20,
       "resistance": 20,
@@ -1422,9 +1434,9 @@
       "roles": 10,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 1867,
+      "maxHp": 1787,
       "physicalDamage": 0,
-      "magicalDamage": 117,
+      "magicalDamage": 112,
       "armor": 28,
       "resistance": 33,
       "attackSpeed": 0.96700000762939453,
@@ -1493,8 +1505,8 @@
       "roles": 48,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 2220,
-      "physicalDamage": 69,
+      "maxHp": 2157,
+      "physicalDamage": 68,
       "magicalDamage": 0,
       "armor": 50,
       "resistance": 50,
@@ -1544,13 +1556,13 @@
       ],
       "skillParams": [
         40,
-        0.019999999552965164,
+        0.800000011920929,
         2,
         0.75
       ],
       "skillParamKeys": [
         "base_dmg",
-        "dmg_by_max_hp",
+        "def_mul",
         "radius",
         "stun_duration"
       ],
@@ -1564,9 +1576,9 @@
       "roles": 2,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 1748,
+      "maxHp": 1786,
       "physicalDamage": 0,
-      "magicalDamage": 92,
+      "magicalDamage": 94,
       "armor": 22,
       "resistance": 32,
       "attackSpeed": 0.85100001096725464,
@@ -1616,14 +1628,16 @@
       "skillParams": [
         80,
         0.89999997615814209,
-        1,
-        1
+        0.5,
+        1.25,
+        0.60000002384185791
       ],
       "skillParamKeys": [
         "base_dmg",
         "dmg_mul",
-        "radius",
-        "stun_duration"
+        "splash_mul",
+        "stun_center",
+        "stun_splash"
       ],
       "specialKeys": []
     },
@@ -1635,8 +1649,8 @@
       "roles": 16,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2258,
-      "physicalDamage": 74,
+      "maxHp": 2296,
+      "physicalDamage": 75,
       "magicalDamage": 0,
       "armor": 55,
       "resistance": 55,
@@ -1687,7 +1701,8 @@
       "skillParams": [
         100,
         0.05000000074505806,
-        1.5,
+        0.30000001192092896,
+        4,
         0.40000000596046448,
         0.40000000596046448,
         0.30000001192092896,
@@ -1696,14 +1711,16 @@
       "skillParamKeys": [
         "base_dmg",
         "dmg_by_max_hp",
-        "stun_duration",
+        "def_reduce",
+        "def_reduce_duration",
         "pull_duration",
         "shield_threshold",
         "shield_by_max_hp",
         "shield_duration"
       ],
       "specialKeys": [
-        "blitzcrank_mana_barrier"
+        "blitzcrank_mana_barrier",
+        "blitzcrank_shred"
       ]
     },
     {
@@ -1714,9 +1731,9 @@
       "roles": 1,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2373,
+      "maxHp": 2352,
       "physicalDamage": 0,
-      "magicalDamage": 112,
+      "magicalDamage": 111,
       "armor": 41,
       "resistance": 37,
       "attackSpeed": 0.99299997091293335,
@@ -1785,9 +1802,9 @@
       "roles": 2,
       "reputation": "Elite",
       "moveable": true,
-      "maxHp": 2150,
+      "maxHp": 2094,
       "physicalDamage": 0,
-      "magicalDamage": 118,
+      "magicalDamage": 115,
       "armor": 27,
       "resistance": 37,
       "attackSpeed": 0.88899999856948853,
@@ -1858,8 +1875,8 @@
       "roles": 36,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 2601,
-      "physicalDamage": 147,
+      "maxHp": 3052,
+      "physicalDamage": 173,
       "magicalDamage": 0,
       "armor": 30,
       "resistance": 30,
@@ -1936,19 +1953,19 @@
       "name": "Lý Thanh",
       "summoned": false,
       "realm": "Divine",
-      "roles": 17,
+      "roles": 24,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 3566,
-      "physicalDamage": 150,
+      "maxHp": 3227,
+      "physicalDamage": 166,
       "magicalDamage": 0,
-      "armor": 53,
-      "resistance": 51,
-      "attackSpeed": 0.95399999618530273,
+      "armor": 47,
+      "resistance": 47,
+      "attackSpeed": 0.98000001907348633,
       "movementSpeed": 2.2000000476837158,
-      "energyPerAttack": 11,
-      "energyPerHit": 11,
-      "startingEnergy": 10,
+      "energyPerAttack": 8.5,
+      "energyPerHit": 9,
+      "startingEnergy": 85,
       "attackRange": 1,
       "unstoppable": false,
       "evolutions": [
@@ -1994,7 +2011,8 @@
         4,
         1,
         0.5,
-        1.5
+        1.5,
+        0.40000000596046448
       ],
       "skillParamKeys": [
         "base_dmg",
@@ -2002,7 +2020,8 @@
         "knockback_cells",
         "airborne_duration",
         "splash_mul",
-        "edge_stun_duration"
+        "edge_stun_duration",
+        "leap_duration"
       ],
       "specialKeys": []
     },
@@ -2014,9 +2033,9 @@
       "roles": 2,
       "reputation": "Unknown",
       "moveable": true,
-      "maxHp": 932,
+      "maxHp": 871,
       "physicalDamage": 0,
-      "magicalDamage": 49,
+      "magicalDamage": 46,
       "armor": 22,
       "resistance": 32,
       "attackSpeed": 0.85100001096725464,
@@ -2087,9 +2106,9 @@
       "roles": 2,
       "reputation": "Legendary",
       "moveable": true,
-      "maxHp": 3565,
+      "maxHp": 3586,
       "physicalDamage": 0,
-      "magicalDamage": 211,
+      "magicalDamage": 212,
       "armor": 32,
       "resistance": 42,
       "attackSpeed": 0.92799997329711914,
@@ -2139,13 +2158,44 @@
       "skillParams": [
         250,
         1.6000000238418579,
-        8
+        8,
+        0.11999999731779099
       ],
       "skillParamKeys": [
         "base_dmg",
         "dmg_mul",
-        "length"
+        "length",
+        "bonus_per_cell"
       ],
+      "specialKeys": []
+    },
+    {
+      "id": "Zed_Shadow",
+      "name": "Phân Thân",
+      "summoned": true,
+      "realm": "None",
+      "roles": 0,
+      "reputation": "None",
+      "moveable": true,
+      "maxHp": 2922,
+      "physicalDamage": 221,
+      "magicalDamage": 0,
+      "armor": 34,
+      "resistance": 34,
+      "attackSpeed": 1.0829999446868896,
+      "movementSpeed": 2.2000000476837158,
+      "energyPerAttack": 0,
+      "energyPerHit": 0,
+      "startingEnergy": 0,
+      "attackRange": 1,
+      "unstoppable": false,
+      "evolutions": [
+        [],
+        [],
+        []
+      ],
+      "skillParams": [],
+      "skillParamKeys": [],
       "specialKeys": []
     }
   ],

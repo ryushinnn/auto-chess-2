@@ -2,7 +2,137 @@ fileFormatVersion: 2
 guid: 697169e413a1d4044a52a1c32e2234c2
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: a70673e335a64354b85f883d2931f393, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyebrow_Angry
+    second: {fileID: 2100000, guid: 69e7b36763de884418f8433c363e0756, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyebrow_Base
+    second: {fileID: 2100000, guid: 0750ed63b5284524da30a1481c726970, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyebrow_Fortitude
+    second: {fileID: 2100000, guid: a42da2b7cf8b23741a9de6f10e58580b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyebrow_Happy
+    second: {fileID: 2100000, guid: 1662136ee6d142644b6ccc48aaf97807, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyes_Angry
+    second: {fileID: 2100000, guid: b7882238d9eac65448aa3378d588ba31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyes_Base
+    second: {fileID: 2100000, guid: 1d5715b8afb479944839bb9fbb2baea8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyes_Close
+    second: {fileID: 2100000, guid: c4f57d1b467cf3240b86bd8e89ee69dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyes_Fortitude
+    second: {fileID: 2100000, guid: b3cd744eaa26a7d46b597ae56bc02df6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyes_Happy
+    second: {fileID: 2100000, guid: c91e838d4ac38454995d091aa5212a80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Eyes_Smile
+    second: {fileID: 2100000, guid: 24d2b8cf8429293438413b0dd0bde4c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Faces_Finished01
+    second: {fileID: 2100000, guid: fd5b9094acf81a64387afe40a213fae9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Faces_Finished02
+    second: {fileID: 2100000, guid: fd8cd2444ebb58444a2f6e0f9384ef56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Hair_Angry
+    second: {fileID: 2100000, guid: 5e0614143dbb3d44f994efa479eb8eff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Hair_Base
+    second: {fileID: 2100000, guid: e79d6a45ba469714d933b292a7ff2f5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Mouth_Base
+    second: {fileID: 2100000, guid: 4deb573e230c62e46a9c158bf11ed565, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Mouth_Close
+    second: {fileID: 2100000, guid: 173e67f3d25999d46846dfce115ac48e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Mouth_Fortitude
+    second: {fileID: 2100000, guid: 9ec6aea5ec39ebd4c8e2c537094363ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Mouth_Happy
+    second: {fileID: 2100000, guid: 1a015c80e76d87845acc6326a123b8f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Mouth_Smile
+    second: {fileID: 2100000, guid: 1d0a638cb48c6914fa6feb8e2bbcba15, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Mouth_Smile2
+    second: {fileID: 2100000, guid: 094c16fbdf8ee9b4b8d540e70f1f89e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glasses
+    second: {fileID: 2100000, guid: 9dbe85de380c6d84d8f72e25238fa367, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glasses1
+    second: {fileID: 2100000, guid: 38d9c744f18019b4b99fb8000293a8a3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mike
+    second: {fileID: 2100000, guid: 72d9a6ec9f4ae4746b02e42305c651a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sun
+    second: {fileID: 2100000, guid: 4510bd53b0937c54bba0746d0fa0212b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Umbrella
+    second: {fileID: 2100000, guid: 58fad311e09e02e46b44833e31d9bbd7, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

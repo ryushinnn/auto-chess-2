@@ -181,6 +181,7 @@ namespace AutoChess.Game {
                         view.Handle(unitEvent, this);
                         if (unitEvent is EffectAddedEvent added) AddEffect(view, added);
                         else if (unitEvent is EffectRemovedEvent removed) RemoveEffect(removed.EffectId);
+                        else if (unitEvent is UnitDamagedEvent damaged) PlayHit(view, damaged);
                     }
                     break;
                 case ProjectileLaunchedEvent launched:
@@ -224,6 +225,25 @@ namespace AutoChess.Game {
             var vfx = VfxPool.Instance.GetVfx(e.Visual);
             if (vfx != null) vfx.transform.position = position;
             areas[e.AreaId] = (area, vfx);
+        }
+
+        /// <summary>Hit flash of an attack or a skill on the damaged unit, colored by damage type (DoTs and items show none).</summary>
+        void PlayHit(BattleUnitView view, UnitDamagedEvent e) {
+            var kind = e.Kind switch {
+                HitKind.Attack => "hit_attack_",
+                HitKind.Ability => "hit_skill_",
+                _ => null,
+            };
+            if (kind == null || e.Amount <= 0) return;
+            var type = e.Type switch {
+                DamageType.Physical => "physical",
+                DamageType.Magical => "magical",
+                _ => "true",
+            };
+            var vfx = VfxPool.Instance.GetVfx<SkillVfx>(kind + type);
+            if (vfx == null) return;
+            var position = view.transform.position;
+            vfx.Play(VisualMode.Burst, position, position, 0.3f, e.Crit ? 1.35f : 1f, null);
         }
 
         void PlayVisual(VisualEvent e) {

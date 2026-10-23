@@ -2,7 +2,107 @@ fileFormatVersion: 2
 guid: bfea3762f690ac746942be4cd115800e
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: aecf0b46a9d0c504f94e631d83d3737d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Anger
+    second: {fileID: 2100000, guid: 998ad07132cbe0045a5476a8d773a104, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Cry
+    second: {fileID: 2100000, guid: d4a381aa0289d194a908babd93f6595a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Default
+    second: {fileID: 2100000, guid: b6826dd45272d904e9e4f5ca25f20289, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Happy
+    second: {fileID: 2100000, guid: 5a045121402f81e499c26856a9c7c0b7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Surprise
+    second: {fileID: 2100000, guid: 05e20c967b02e6844baa6ccb45a8c5e5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyebrows_Anger
+    second: {fileID: 2100000, guid: b3357541edc62b041a714bf1b255bc3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyebrows_Default
+    second: {fileID: 2100000, guid: 648f6896f8efe7545ae7954572dadb7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyesclosed
+    second: {fileID: 2100000, guid: da7e82815d30423448a707e34cb19365, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ground
+    second: {fileID: 2100000, guid: 1fa0526022b290743bc39b7a73657715, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Anger
+    second: {fileID: 2100000, guid: 9555f0cbc76e9e4488c27198e7be9bad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Cry
+    second: {fileID: 2100000, guid: 2f80e16e1dc44ce4688eca8622cfcc1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Default
+    second: {fileID: 2100000, guid: 5e95be5c151b18644add61db335bcec2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Happy
+    second: {fileID: 2100000, guid: 7ee43a7650e2fae46ad9615ffdff37dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Surprise
+    second: {fileID: 2100000, guid: 696ac4e28cff4d14fa6994ae949dc652, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Wacky
+    second: {fileID: 2100000, guid: acb6ee54a84e9224787d0f62ac3d009d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props
+    second: {fileID: 2100000, guid: a741b165ee05800459493888a2e7c6c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scars
+    second: {fileID: 2100000, guid: cdc845f15aa025b469db069dfabe1848, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sweat
+    second: {fileID: 2100000, guid: 102de1cc2d5c0974da8a8619ea5cdf0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: VFX_Dragonww
+    second: {fileID: 2100000, guid: ab758e0b741009146bccda7a378ed3a1, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

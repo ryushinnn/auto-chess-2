@@ -2,7 +2,147 @@ fileFormatVersion: 2
 guid: d3d7d12c46f8f01408c98fbbe8b180fa
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Angry
+    second: {fileID: 2100000, guid: d76bdd8a8c662bc4898f3eaea4c8e6fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 9b5484dc9d8fca843a73281f26588f7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow
+    second: {fileID: 2100000, guid: d176e578c15f99143aff89ecb1ccf75b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_airplane
+    second: {fileID: 2100000, guid: 2436d7abc0c3629469aae43802aae179, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Decor
+    second: {fileID: 2100000, guid: 142b99add4f00644496526f8a1109af7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dragon
+    second: {fileID: 2100000, guid: 92c0af151cd42fb43aa564873f539c8a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dummy
+    second: {fileID: 2100000, guid: 6e0f9a113e87e6a4f8e182b38e2fef5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 26f6e3c3a0330f54ba2a588e423079a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flesh
+    second: {fileID: 2100000, guid: ecc9068e9dfc9b645bf9049fd884af30, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame
+    second: {fileID: 2100000, guid: bf956f3c4093a4243adc8e1bc3fc82e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gard
+    second: {fileID: 2100000, guid: 5073d2e4118dcbd49875670bce6af88b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: dea68ceeff30d274982f28931aaaa5d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: a18e2674590eea046a85f53d6a0740bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Laugh
+    second: {fileID: 2100000, guid: a2f980a4c739b3e4eb53424c18f060cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth
+    second: {fileID: 2100000, guid: bbec60477e064ae449a3941e84c738e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: c10773c2482e3cb46b989673f173664b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pink
+    second: {fileID: 2100000, guid: b39ec24631fb6204f9ec537e264316c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pink1
+    second: {fileID: 2100000, guid: 3811bb9884b37a74a9484f5d7289c739, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pink_sui
+    second: {fileID: 2100000, guid: 904ed86fe4535994f8708000d788273b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props
+    second: {fileID: 2100000, guid: 5de0d42224b48b440be327ca7a0a2aac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props2
+    second: {fileID: 2100000, guid: c96c73cc31384da499cb383e3bce474c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Serious
+    second: {fileID: 2100000, guid: c3b005e7be17c294b967db48bd9bf951, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shards
+    second: {fileID: 2100000, guid: 78628d9de1e373b40b5f779eccb0b145, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shards1
+    second: {fileID: 2100000, guid: 597f40c29e05d7f46aed714abad24e34, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shards2
+    second: {fileID: 2100000, guid: 7bcd3f5090d65c246b89feb2655e0aba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Slaver
+    second: {fileID: 2100000, guid: d3fd57483556e7a4da811457995af7cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Small
+    second: {fileID: 2100000, guid: 1755965a223e96142acf8a59e1bd7a28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Surprise
+    second: {fileID: 2100000, guid: 859d2c76651220b42a427ac84e6fb727, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

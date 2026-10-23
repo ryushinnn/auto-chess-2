@@ -2,7 +2,132 @@ fileFormatVersion: 2
 guid: 3d0716dc9072d7b42a1530195f11bab9
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandage
+    second: {fileID: 2100000, guid: e91996baad4f08943b4752cdff1d1abc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandage01
+    second: {fileID: 2100000, guid: 6f620daa2cb6f2b4186da6bc0d6f093a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandage02
+    second: {fileID: 2100000, guid: 441131c5fe16fb945b2044eb080915af, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandage03
+    second: {fileID: 2100000, guid: c7b802baa3a23b84d888660a925023db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandage04
+    second: {fileID: 2100000, guid: 39d3ef53b97bf004aafea7ba74c974ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandage05
+    second: {fileID: 2100000, guid: 43aea76fed44153488960af9fb36ac66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bear
+    second: {fileID: 2100000, guid: 6d3d7d94ae0bf684c88d95ca6110ff8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 17572a9a96d1da54ea88e5be1ebd7177, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothes
+    second: {fileID: 2100000, guid: 6a34d5edea44aa4439dfc059b2be1ab3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Crying_Sad
+    second: {fileID: 2100000, guid: 53fdef3e5ff4e024485ca3b224adb3a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Angry
+    second: {fileID: 2100000, guid: f4f474b84872aad4a993fa6448fb079b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Base
+    second: {fileID: 2100000, guid: cc31cd6bb5f7c96468c935190bc6edd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Crash
+    second: {fileID: 2100000, guid: 310792571867a0b409350a495dc5fdc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Death
+    second: {fileID: 2100000, guid: 629b8c94b836ad149bb390e40c24f80f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Finisher
+    second: {fileID: 2100000, guid: fa078b9644a289542bebeeb166bcc200, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Happy
+    second: {fileID: 2100000, guid: 43b4b0e13b753ab4bb016b2c19e76e3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Sad
+    second: {fileID: 2100000, guid: f6d8c435166e9934291ae5e5dbc348c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Stunned
+    second: {fileID: 2100000, guid: efdb268af2bf1504e9836c2e3aea4b71, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2100000, guid: e309c13ed9edf3c4fa31f547078287db, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Base
+    second: {fileID: 2100000, guid: c30123d248d4fab4cb23375038b5c5c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Sad
+    second: {fileID: 2100000, guid: 65bc0b1cc0281d240a0a69eb67c7ae49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Shock
+    second: {fileID: 2100000, guid: a7d99d8390fbe474093b837840a12d9f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Stunned
+    second: {fileID: 2100000, guid: f3f0229060e235b43997b7a16ec88e0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props
+    second: {fileID: 2100000, guid: e840311aa5963584db3790a5f1936a77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props01
+    second: {fileID: 2100000, guid: 6985c6a1171c32c4bae53b05b93fc455, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

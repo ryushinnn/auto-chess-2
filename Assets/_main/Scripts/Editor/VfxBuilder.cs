@@ -14,7 +14,7 @@ namespace AutoChess.Editor {
     /// on the AutoChess/VFX Particle shader with the textures of Tools/vfx/make_textures.py. Re-run after changing a
     /// recipe; the prefabs keep their GUIDs. Register new keys in the Arena's VfxPool.
     /// </summary>
-    public static class VfxBuilder {
+    public static partial class VfxBuilder {
         const string TextureDir = "Assets/_main/Textures/VFX";
         const string MaterialDir = "Assets/_main/Materials/VFX";
         const string PrefabDir = "Assets/_main/Prefabs/VFX";
@@ -37,6 +37,7 @@ namespace AutoChess.Editor {
             Build(LeeSinSkill.LandVisual, LeeLand);
             Build(LuluSkill.GrowthVisual, Lulu);
             Build(LuxSkill.SparkVisual, Lux);
+            BuildMore();
             AssetDatabase.SaveAssets();
             Debug.Log("skill VFX built");
         }

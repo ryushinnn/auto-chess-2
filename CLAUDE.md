@@ -31,7 +31,9 @@ behaviour changes and open questions: `docs/REFACTOR_NOTES.md`. The user writes 
   `Mecanim_*` class, then an entry in `Tools/heroes/new_heroes.json` and menu *AutoChess/Hero Models/Set Up New
   Heroes* (prefab, animator, `HeroTrait` in `HeroTraitDB`; docs/ARCHITECTURE.md "Unity client"). Stats: knob in
   `Tools/balance` (`balance.py calibrate` / `apply`). Re-export `GameData/game_data.json` (menu *AutoChess/Export
-  Game Data*) so the real-data tests cover it. Skill VFX: `PlayVisual` in Core + a recipe in `VfxBuilder`.
+  Game Data*) so the real-data tests cover it. Skill VFX: `PlayVisual` in Core + a recipe in `VfxBuilder`
+  (+ `Tools/vfx/register_vfx.py`, with the Lobby scene open). Changing an existing hero's skill params / texts /
+  role: `Tools/heroes/hero_skills.json` -> menu *AutoChess/Heroes/Apply Hero Skills* -> re-export.
 - Items: edit `Tools/items/items.json` (stats, passive params / text; a new passive = an `ItemEffect` in
   `Core/Combat/ItemEffects.cs`), check with `balance.py report --candidate --sections items`, then menu
   *AutoChess/Items/Apply Item Config*, re-export, `py Tools/items/item_doc.py`.

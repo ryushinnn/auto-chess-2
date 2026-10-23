@@ -2,7 +2,162 @@ fileFormatVersion: 2
 guid: d90b1f20777693c48847deb2fb4cb3d9
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blush_Base
+    second: {fileID: 2100000, guid: 38e95bab53b19d24cb28e7734b4df5f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 3855f990089950d4db9c8aca18209ba4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Base
+    second: {fileID: 2100000, guid: ad68d4a443fe8bc409a3e283f55535ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Smirk
+    second: {fileID: 2100000, guid: e49c4f07204206842b457085d9009211, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eggplant1
+    second: {fileID: 2100000, guid: 04dac4327885c7b4d9b22279df2e5484, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eggplant2
+    second: {fileID: 2100000, guid: 6af1730446b67c645babc02cf09fa1bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eggplant3
+    second: {fileID: 2100000, guid: b92f1be8538bde74eab4bd88dbc3e560, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Elf
+    second: {fileID: 2100000, guid: 5a1775bc62ddeb447b1c32f509cf317f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Elf_Base
+    second: {fileID: 2100000, guid: 79af9d02e80e4544a850f4c6662a040a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Elf_C
+    second: {fileID: 2100000, guid: ac527c0d43328d34889d5323f11333bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emoticon_Zany
+    second: {fileID: 2100000, guid: ce09a7fe5bac928429f877f6a083850f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Base
+    second: {fileID: 2100000, guid: 3e93e8987aa9b5445a05be21d6c37de7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Close
+    second: {fileID: 2100000, guid: b82734118a46a9e4492b877b3dd447b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Evil
+    second: {fileID: 2100000, guid: cd0bf3afb37469c47baeb123e38d31b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Excited
+    second: {fileID: 2100000, guid: f5615b2f0c5a45e4f8659186e1826619, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Grinning
+    second: {fileID: 2100000, guid: 17c8fbd76d980f34aa22b1701471b385, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Smirk
+    second: {fileID: 2100000, guid: aab79ae34ede6424ab2e75bf626a9fa9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 30877a4000c5ad045a0b10bd3027f102, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: bf4f3617658225a4a977942bbcd300b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head
+    second: {fileID: 2100000, guid: 8186ea3efd8fb0e429d06ac2718ff81d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Base
+    second: {fileID: 2100000, guid: 650b03619abcdfb468391afd8e9cf868, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Chew
+    second: {fileID: 2100000, guid: 1c41fe78c7a0fa94fbcccdf7040302c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Evil
+    second: {fileID: 2100000, guid: 4524367c761ffed48bb43863524e1a4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Excited1
+    second: {fileID: 2100000, guid: c3c04115b6bdbfc4eb9050cc62fd4ca3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Excited2
+    second: {fileID: 2100000, guid: 78483cfb3a7037540ac774d978e5444e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Ridicule
+    second: {fileID: 2100000, guid: ef1995129be36144ab10af32427df033, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Projection
+    second: {fileID: 2100000, guid: 84326ccd09b642847b4c2ecbfa511c84, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Squirrel
+    second: {fileID: 2100000, guid: 005e1138b9374164c81a2c01dcd461e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Squirrel_Face
+    second: {fileID: 2100000, guid: f40f013902277fd45bca56606754984e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Squirrel_Face2
+    second: {fileID: 2100000, guid: e0196682be79e3c4a9fdf6c9897d3326, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Staff
+    second: {fileID: 2100000, guid: 42c609a344edf094c957e7121b21cee9, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

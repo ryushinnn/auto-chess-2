@@ -113,7 +113,7 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "Finisher01"
+          "clip": "Cast_In"
         },
         {
           "slot": "Death",
@@ -211,7 +211,7 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "Finisher01"
+          "clip": "Interact"
         },
         {
           "slot": "Death",
@@ -287,7 +287,11 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "Taunt"
+          "clip": "Finisher02"
+        },
+        {
+          "slot": "Skill_1",
+          "clip": "Cast_Damage"
         },
         {
           "slot": "Death",
@@ -386,7 +390,7 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "PetChibiGwen_CafeCuties_Finishe_C002.CHIBI_Gwen_CafeCuties.anm"
+          "clip": "Cast_Cycle"
         },
         {
           "slot": "Death",
@@ -443,10 +447,11 @@
       "skillIcon": "_janna",
       "show": [
         "Face_Eyebrow_Base",
-        "Face_Eyes_Base",
+        "Face_Eyes_Happy",
         "Face_Mouth_Base",
         "Face_Hair_Base",
-        "Body"
+        "Body",
+        "Glasses"
       ],
       "parts": [],
       "clips": [
@@ -546,7 +551,7 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "PetChibi_Kaisa_Finisher_C002.anm"
+          "clip": "Cast_Cycle"
         },
         {
           "slot": "Death",
@@ -650,7 +655,7 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "Laugh"
+          "clip": "Cast_Damage"
         },
         {
           "slot": "Death",
@@ -744,7 +749,7 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "Finisher02"
+          "clip": "Cast_Cycle"
         },
         {
           "slot": "Death",
@@ -824,7 +829,7 @@
         },
         {
           "slot": "Skill_0",
-          "clip": "Greeting"
+          "clip": "Cast_Cycle"
         },
         {
           "slot": "Death",

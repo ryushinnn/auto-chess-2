@@ -45,6 +45,8 @@ MonoBehaviour:
     value: {fileID: 21300000, guid: 50d0bfb2c4583af429ba195035b6508c, type: 3}
   - key: marksman_burst
     value: {fileID: 21300000, guid: f54b0cbd108696e44a60f7003df144e0, type: 3}
+  - key: blitzcrank_shred
+    value: {fileID: 21300000, guid: 24cdde6c3fdde934399c5135dca89c55, type: 3}
   roleIcons:
   - role: 1
     value: {fileID: 21300000, guid: ee0d85a512d0e1c43ad73d74ee05c09b, type: 3}

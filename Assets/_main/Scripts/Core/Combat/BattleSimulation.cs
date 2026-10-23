@@ -195,7 +195,12 @@ namespace AutoChess.Core.Combat {
             for (var i = 0; i < units.Count && !Finished; i++) {
                 var u = units[i];
                 if (!u.Alive) continue;
-                if (u.Displacement.Active) u.Position = u.Displacement.Tick(dt);
+                if (u.Displacement.Active) {
+                    // knocked back, pulled or jumping: no acting until it lands
+                    u.Position = u.Displacement.Tick(dt);
+                    u.TickEffects(dt);
+                    continue;
+                }
                 u.TickEffects(dt);
                 if (u.Alive) u.Attack.Tick(u, dt);
                 if (u.Alive) u.Skill.Tick(u, dt);
@@ -245,8 +250,18 @@ namespace AutoChess.Core.Combat {
                 StopMove(u, false);
                 return;
             }
-            PlanMove(u);
-            if (!u.Movement.Reached) return;
+            if (u.Leaps) {
+                var reach = u.OccupiedCell >= 0 && InRange(u.OccupiedCell, Grid.NearestIndex(u.Target.Position), u.AttackRange);
+                u.Movement.Reached = reach;
+                if (!reach) {
+                    LeapTo(u, u.Target, u.LeapDuration);
+                    return;
+                }
+            }
+            else {
+                PlanMove(u);
+                if (!u.Movement.Reached) return;
+            }
             if (u.Skill.TryStart(u)) return;
             u.Attack.TryStart(u);
         }
@@ -339,6 +354,30 @@ namespace AutoChess.Core.Combat {
             }
             return new Vec2(from.X + dx * length, from.Y + dy * length);
         }
+
+        /// <summary>
+        /// Jumps a unit (its own move, not crowd control) onto the free cell nearest to it from which it reaches
+        /// <paramref name="target"/>. False when it is busy or no such cell is free.
+        /// </summary>
+        public bool LeapTo(CombatUnit u, CombatUnit target, double duration) {
+            if (!u.Alive || target == null || !target.Alive || u.Displacement.Active || u.Attack.Active || u.Skill.Active
+                || u.Status.IsStunned || u.Status.IsAirborne) return false;
+            var from = Grid.NearestIndex(u.Position);
+            var cell = NearestFreeCellInRange(Grid.NearestIndex(target.Position), u.AttackRange, from);
+            if (cell < 0) {
+                StopMove(u, false);
+                return false;
+            }
+            StopMove(u, true);
+            Occupy(u, cell);
+            u.Displacement.Start(u.Position, Grid.Center(cell), duration);
+            // the view plays the hop of a knock-up (no status is set)
+            Emit(new UnitAirborneEvent { UnitId = u.Id, Duration = duration });
+            return true;
+        }
+
+        /// <summary>Cell a unit stands on (or walks to), for distances.</summary>
+        public int CellOf(CombatUnit u) => u.OccupiedCell >= 0 ? u.OccupiedCell : Grid.NearestIndex(u.Position);
 
         /// <summary>The cell lies on the border of the board.</summary>
         public bool IsEdgeCell(int cell) {

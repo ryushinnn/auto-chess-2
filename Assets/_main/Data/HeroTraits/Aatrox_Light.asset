@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 5429741766995380546, guid: f5f4ee1a0bc2be64c9e3036fa2d897ef, type: 3}
   thumbnail: {fileID: 21300000, guid: 141df307ca98aad4f9b8267a08141bf8, type: 3}
   skillIcon: {fileID: 21300000, guid: b0ae369dd797d3d4f9e1b624a1cf74a9, type: 3}
-  maxHp: 2374
+  maxHp: 2532
   physicalDamage: 0
-  magicalDamage: 129
+  magicalDamage: 137
   armor: 39
   resistance: 42
   attackSpeed: 0.98
@@ -114,15 +114,25 @@ MonoBehaviour:
   - key: hp_threshold
     value: 0.5
     isPercentage: 1
-  passiveDescription: 
-  activeDescription: "Ch\xE9m 3 nh\xE1t, l\u1EA7n l\u01B0\u1EE3t g\xE2y <color=grey>(#[0]
-    + #[1]/ #[2]/ #[3]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p
-    v\xE0 h\u1EA5t tung m\u1EE5c ti\xEAu trong <color=grey>#[4]s/ #[5]s/ #[6]s</color>
-    \u0111\u1ED3ng th\u1EDDi h\u1ED3i m\xE1u b\u1EB1ng <color=grey>#[7]/ #[8]/ #[9]</color>
-    s\xE1t th\u01B0\u01A1ng g\xE2y ra. N\u1EBFu b\u1EA3n th\xE2n c\xF3 th\u1EA5p
-    h\u01A1n #[11]<sprite name=hp>, l\u01B0\u1EE3ng m\xE1u h\u1ED3i ph\u1EE5c g\u1EA5p
-    #[10] l\u1EA7n."
+  - key: stack_bonus
+    value: 0.1
+    isPercentage: 1
+  - key: max_stacks
+    value: 5
+    isPercentage: 0
+  passiveDescription: "\u0110\xE1nh li\xEAn ti\u1EBFp v\xE0o c\xF9ng m\u1ED9t m\u1EE5c
+    ti\xEAu: m\u1ED7i \u0111\xF2n t\u0103ng #[12] s\xE1t th\u01B0\u01A1ng (t\u1ED1i
+    \u0111a #[13] l\u1EA7n), m\u1EA5t c\u1ED9ng d\u1ED3n khi \u0111\u1ED5i m\u1EE5c
+    ti\xEAu."
+  activeDescription: "Ch\xE9m 3 nh\xE1t theo \u0111\u01B0\u1EDDng th\u1EB3ng xuy\xEAn
+    qua m\u1EE5c ti\xEAu (th\xEAm 1 \xF4 ph\xEDa sau), l\u1EA7n l\u01B0\u1EE3t g\xE2y
+    <color=grey>(#[0] + #[1]/ #[2]/ #[3]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng
+    ph\xE9p v\xE0 h\u1EA5t tung m\u1EE5c ti\xEAu trong <color=grey>#[4]s/ #[5]s/
+    #[6]s</color> \u0111\u1ED3ng th\u1EDDi h\u1ED3i m\xE1u b\u1EB1ng <color=grey>#[7]/
+    #[8]/ #[9]</color> s\xE1t th\u01B0\u01A1ng g\xE2y ra. N\u1EBFu b\u1EA3n th\xE2n
+    c\xF3 th\u1EA5p h\u01A1n #[11]<sprite name=hp>, l\u01B0\u1EE3ng m\xE1u h\u1ED3i
+    ph\u1EE5c g\u1EA5p #[10] l\u1EA7n."
   specialKeys: []
-  dps: 90
-  physicalReduction: 50
-  magicalReduction: 50
+  dps: 126.420006
+  physicalReduction: 28.057554
+  magicalReduction: 29.577465

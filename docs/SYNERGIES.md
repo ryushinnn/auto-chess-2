@@ -101,7 +101,7 @@ Tham số: `dmg_to_debt_0` = 15%, `dmg_to_debt_1` = 22%, `dmg_to_debt_2` = 30%, 
 
 ### Thích khách (Assassin)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Khánh Linh (Akali, Vô danh), A Ly (Ahri, Siêu việt), Cẩm Thanh (Katarina, Siêu việt), A Chốc (Aatrox_Dark, Truyền thuyết), Rét (Zed, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Khánh Linh (Akali, Vô danh), A Ly (Ahri, Siêu việt), Cẩm Thanh (Katarina, Siêu việt), A Chốc (Aatrox_Dark, Truyền thuyết), Lý Thanh (LeeSin, Truyền thuyết), Rét (Zed, Truyền thuyết).
 
 **Thích khách** nhận thêm Tỉ lệ chí mạng. Đòn đánh chí mạng của **Thích khách** có tỉ lệ chuyển hoá thành sát thương chuẩn.
 - Mốc 2 tướng: 15% Tỉ lệ chí mạng, tỉ lệ 15%
@@ -147,7 +147,7 @@ Tham số: `hp_0` = 150, `hp_1` = 350, `hp_2` = 700, `dmg_0` = 20, `dmg_1` = 45,
 
 ### Kiếm sĩ (Duelist)
 
-Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Ái Liên (Irelia, Vô danh), Dạ Xuân (Yasuo, Vô danh), Quyên (Gwen, Siêu việt), A Chốc (Aatrox_Dark, Truyền thuyết), A Chốc (Aatrox_Light, Truyền thuyết), Lý Thanh (LeeSin, Truyền thuyết), Du Thiên (Yone, Truyền thuyết).
+Mốc kích hoạt: 2 / 3 / 4 tướng. Thành viên: Ái Liên (Irelia, Vô danh), Dạ Xuân (Yasuo, Vô danh), Quyên (Gwen, Siêu việt), A Chốc (Aatrox_Dark, Truyền thuyết), A Chốc (Aatrox_Light, Truyền thuyết), Du Thiên (Yone, Truyền thuyết).
 
 **Kiếm sĩ** nhận thêm Sát thương vật lý. Khi **Kiếm sĩ** bị tấn công bởi đòn đánh, có tỉ lệ Né tránh, miễn sát thương từ đòn đánh đó (vô hiệu với đòn đánh chí mạng hoặc sát thương chuẩn)
 - Mốc 2 tướng: 10 Sát thương vật lý, tỉ lệ 8%

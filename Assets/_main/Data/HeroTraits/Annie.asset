@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 6227724137977489828, guid: 4119e248afc4e5b49b5c5a860ee02799, type: 3}
   thumbnail: {fileID: 21300000, guid: 3a58c260e77f5694095d2b685035de1a, type: 3}
   skillIcon: {fileID: 21300000, guid: aeea4faf036a87d49b64e589aec1e0cb, type: 3}
-  maxHp: 1748
+  maxHp: 1786
   physicalDamage: 0
-  magicalDamage: 92
+  magicalDamage: 94
   armor: 22
   resistance: 32
   attackSpeed: 0.851
@@ -72,18 +72,22 @@ MonoBehaviour:
   - key: dmg_mul
     value: 0.9
     isPercentage: 1
-  - key: radius
-    value: 1
+  - key: splash_mul
+    value: 0.5
+    isPercentage: 1
+  - key: stun_center
+    value: 1.25
     isPercentage: 0
-  - key: stun_duration
-    value: 1
+  - key: stun_splash
+    value: 0.6
     isPercentage: 0
   passiveDescription: 
   activeDescription: "G\u1ECDi g\u1EA5u Tibbers \u0111\u1EADp xu\u1ED1ng m\u1EE5c
-    ti\xEAu, g\xE2y <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng
-    ph\xE9p v\xE0 l\xE0m cho\xE1ng #[3]s m\u1EE5c ti\xEAu c\xF9ng k\u1EBB \u0111\u1ECBch
-    trong ph\u1EA1m vi #[2] \xF4."
+    ti\xEAu: m\u1EE5c ti\xEAu ch\u1ECBu <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color>
+    s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0 b\u1ECB cho\xE1ng #[3]s; k\u1EBB \u0111\u1ECBch
+    \u1EDF 6 \xF4 xung quanh ch\u1ECBu #[2] l\u01B0\u1EE3ng s\xE1t th\u01B0\u01A1ng
+    \u0111\xF3 v\xE0 b\u1ECB cho\xE1ng #[4]s."
   specialKeys: []
-  dps: 45
-  physicalReduction: 23.076923
-  magicalReduction: 23.076923
+  dps: 78.292
+  physicalReduction: 18.032787
+  magicalReduction: 24.242424

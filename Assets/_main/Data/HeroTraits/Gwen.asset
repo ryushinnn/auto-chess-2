@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 4925934763973811433, guid: 309e373baef5d4845891964e4d8fc731, type: 3}
   thumbnail: {fileID: 21300000, guid: 1971d903ff4418f48bf2ce69d7f8d35d, type: 3}
   skillIcon: {fileID: 21300000, guid: 1a2622aa72c511f4399c862ed513dd7b, type: 3}
-  maxHp: 2373
+  maxHp: 2352
   physicalDamage: 0
-  magicalDamage: 112
+  magicalDamage: 111
   armor: 41
   resistance: 37
   attackSpeed: 0.993
@@ -79,12 +79,13 @@ MonoBehaviour:
     value: 0.3
     isPercentage: 1
   passiveDescription: 
-  activeDescription: "C\u1EAFt #[0] nh\xE1t v\xE0o m\u1EE5c ti\xEAu v\xE0 c\xE1c
-    k\u1EBB \u0111\u1ECBch s\xE1t b\xEAn, m\u1ED7i nh\xE1t g\xE2y <color=grey>(#[1]
-    + #[2]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0 h\u1ED3i
-    m\xE1u b\u1EB1ng #[3] s\xE1t th\u01B0\u01A1ng g\xE2y ra; nh\xE1t cu\u1ED1i g\xE2y
-    s\xE1t th\u01B0\u01A1ng chu\u1EA9n l\xEAn m\u1EE5c ti\xEAu ch\xEDnh."
+  activeDescription: "C\u1EAFt #[0] nh\xE1t theo \u0111\u01B0\u1EDDng th\u1EB3ng
+    xuy\xEAn qua m\u1EE5c ti\xEAu (th\xEAm 1 \xF4 ph\xEDa sau), m\u1ED7i nh\xE1t
+    g\xE2y <color=grey>(#[1] + #[2]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng
+    ph\xE9p v\xE0 h\u1ED3i m\xE1u b\u1EB1ng #[3] s\xE1t th\u01B0\u01A1ng g\xE2y ra;
+    nh\xE1t cu\u1ED1i g\xE2y s\xE1t th\u01B0\u01A1ng chu\u1EA9n l\xEAn m\u1EE5c ti\xEAu
+    ch\xEDnh."
   specialKeys: []
-  dps: 45
-  physicalReduction: 23.076923
-  magicalReduction: 23.076923
+  dps: 111.215996
+  physicalReduction: 29.078014
+  magicalReduction: 27.0073

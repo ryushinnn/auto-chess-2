@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 8526778735773543469, guid: e139ecf69fcc2ff4eb0acfa2918157a1, type: 3}
   thumbnail: {fileID: 21300000, guid: 87e3ae507b20c3e41a5f1e25072b8667, type: 3}
   skillIcon: {fileID: 21300000, guid: dea138e3d54e79748964180f933616ce, type: 3}
-  maxHp: 1795
-  physicalDamage: 127
+  maxHp: 1752
+  physicalDamage: 124
   magicalDamage: 0
   armor: 29
   resistance: 29
@@ -64,7 +64,7 @@ MonoBehaviour:
       value: 0.5
       type: 1
   skillName: "\u0110o\u1EA1n Thu\u1EF7 To\xE1i Phong \u0110ao"
-  unstoppable: 1
+  unstoppable: 0
   skillParams:
   - key: hits
     value: 15
@@ -87,8 +87,9 @@ MonoBehaviour:
     + #[3]<sprite name=pdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0 c\xF3
     th\u1EC3 ch\xED m\u1EA1ng, t\u1ED5ng c\u1ED9ng <color=grey>#[0]</color> l\u1EA7n.
     K\u1EBB \u0111\u1ECBch ch\u1ECBu s\xE1t th\u01B0\u01A1ng s\u1EBD nh\u1EADn hi\u1EC7u
-    \u1EE9ng gi\u1EA3m h\u1ED3i m\xE1u trong #[4]s."
+    \u1EE9ng gi\u1EA3m h\u1ED3i m\xE1u trong #[4]s. B\u1ECB ng\u1EAFt khi d\xEDnh
+    cho\xE1ng, h\u1EA5t tung ho\u1EB7c c\xE2m l\u1EB7ng."
   specialKeys: []
-  dps: 57.750004
-  physicalReduction: 15.254237
-  magicalReduction: 17.355371
+  dps: 132.588
+  physicalReduction: 22.48062
+  magicalReduction: 22.48062

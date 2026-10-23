@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 562130423724660962, guid: dfc74dea04c00af4da5014d462a88daf, type: 3}
   thumbnail: {fileID: 21300000, guid: 28a1f32dece43774c99513cac375f2e3, type: 3}
   skillIcon: {fileID: 21300000, guid: 5c9a59897c9a55c4ab3bfb50b32d5003, type: 3}
-  maxHp: 1263
+  maxHp: 1538
   physicalDamage: 0
-  magicalDamage: 70
+  magicalDamage: 85
   armor: 27
   resistance: 37
   attackSpeed: 0.889
@@ -66,20 +66,23 @@ MonoBehaviour:
   skillName: "B\xE1ch \u0110i\u1EC3u Tri\u1EC1u Ph\u1EE5ng"
   unstoppable: 0
   skillParams:
-  - key: heal_by_hp_mul_min
-    value: 0.1
+  - key: base_shield
+    value: 250
+    isPercentage: 0
+  - key: shield_mul
+    value: 1.5
     isPercentage: 1
-  - key: heal_by_hp_mul_max
-    value: 0.3
-    isPercentage: 1
-  - key: heal_by_dmg_mul
-    value: 2
-    isPercentage: 1
+  - key: duration
+    value: 5
+    isPercentage: 0
   passiveDescription: 
-  activeDescription: "H\u1ED3i <color=grey>(#[0] ~ #[1]<sprite name=hp> t\u1ED1i
-    \u0111a + #[2]<sprite name=mdmg>)</color> m\xE1u d\u1EF1a tr\xEAn m\xE1u \u0111\xE3
-    m\u1EA5t."
-  specialKeys: []
-  dps: 36
-  physicalReduction: 24.242424
-  magicalReduction: 19.35484
+  activeDescription: "T\u1EA1o [<color=purple>H\u1EAFc Thu\u1EABn</color>] cho b\u1EA3n
+    th\xE2n v\xE0 \u0111\u1ED3ng minh g\xE2y s\xE1t th\u01B0\u01A1ng cao nh\u1EA5t
+    trong #[2]s: ch\u1EB7n <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> s\xE1t
+    th\u01B0\u01A1ng PH\xC9P v\xE0 mi\u1EC5n nhi\u1EC5m m\u1ECDi kh\u1ED1ng ch\u1EBF
+    khi khi\xEAn c\xF2n."
+  specialKeys:
+  - morgana_black_shield
+  dps: 62.23
+  physicalReduction: 21.259842
+  magicalReduction: 27.0073

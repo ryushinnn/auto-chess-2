@@ -45,6 +45,8 @@ namespace AutoChess.Core.Combat {
         public double HpLost;
         /// <summary>Part of Amount taken by shields.</summary>
         public double Absorbed;
+        /// <summary>Attack, skill or effect (DoT, item, synergy): picks the hit VFX.</summary>
+        public HitKind Kind;
         public DamageType Type;
         public bool Crit;
         /// <summary>Position inside a multi-part hit (0, 1...) so the numbers can be stacked.</summary>

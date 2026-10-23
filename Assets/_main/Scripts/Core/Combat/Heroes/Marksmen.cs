@@ -81,11 +81,13 @@ namespace AutoChess.Core.Combat.Heroes {
         public override void OnHit(CombatUnit self, int index) {
             if (!self.Alive) return;
             if (index == 0) {
+                self.Battle.PlayVisual("caitlyn_tea", VisualMode.Attach, self.Position, self.Position, duration, 1, self);
                 self.AddHealOverTime(HealOverTime.Create(hotKey, self,
                     self.MaxHp * healByHpMul + self.PhysicalDamage * healByDmgMul,
                     (int)Math.Round(duration / interval), interval));
             }
             else {
+                self.Battle.PlayVisual("haste", VisualMode.Attach, self.Position, self.Position, atkSpdDuration, 1, self);
                 self.AddModifierSet(ModifierSet.Timed(self, effectKey, atkSpdDuration,
                     new[] { new StatModifier(StatKind.AttackSpeed, atkSpdMul, ModifierType.Percent) }));
             }
@@ -120,6 +122,7 @@ namespace AutoChess.Core.Combat.Heroes {
                 _ => DamageType.True
             };
             var damage = self.MakeDamage(type, self.RollCrit(), baseDmgPerRocket, dmgMulPerRocket);
+            self.Battle.PlayVisual("jinx_rocket", VisualMode.Travel, self.Position, target.Position, 0.22);
             target.TakeDamage(damage, self, affected.Add(target.Id));
         }
     }
@@ -149,10 +152,14 @@ namespace AutoChess.Core.Combat.Heroes {
         }
     }
 
-    /// <summary>Two shots: the first heals, the second shreds armor and resistance.</summary>
+    /// <summary>
+    /// Two shots: the first shreds the target's armor and resistance, the second also bounces to the enemy nearest
+    /// the target (within a few cells) for the same damage. Params 4..11: physical / magic ratios of the shots.
+    /// </summary>
     public sealed class MissFortuneSkill : SkillBehaviour {
+        public const string BulletVisual = "mf_bullet";
         readonly double lP0, lM0, lP1, lM1, rP0, rM0, rP1, rM1;
-        readonly double vampMul;
+        readonly int bounceRange;
         readonly double reduceDefMul;
         readonly double reduceDefDuration;
         readonly string effectKey;
@@ -160,39 +167,56 @@ namespace AutoChess.Core.Combat.Heroes {
         public MissFortuneSkill(UnitDefinition def) {
             AnimationLength = 2.8;
             HitTimes = new[] { 1d, 1.3 };
-            lP0 = def.Param(0);
-            lM0 = def.Param(1);
-            lP1 = def.Param(2);
-            lM1 = def.Param(3);
-            rP0 = def.Param(4);
-            rM0 = def.Param(5);
-            rP1 = def.Param(6);
-            rM1 = def.Param(7);
-            vampMul = def.Param(8);
-            reduceDefMul = def.Param(9);
-            reduceDefDuration = def.Param(10);
+            // params 0..3 belong to the attack (passive); the old code read the skill's from 0 (off by four)
+            lP0 = def.Param(4);
+            lM0 = def.Param(5);
+            lP1 = def.Param(6);
+            lM1 = def.Param(7);
+            rP0 = def.Param(8);
+            rM0 = def.Param(9);
+            rP1 = def.Param(10);
+            rM1 = def.Param(11);
+            bounceRange = (int)def.Param(12);
+            reduceDefMul = def.Param(13);
+            reduceDefDuration = def.Param(14);
             effectKey = def.SpecialKey(0);
         }
 
         public override void OnHit(CombatUnit self, int index) {
             var target = self.Target;
             if (target == null) return;
+            var battle = self.Battle;
             var crit = self.RollCrit();
+            battle.PlayVisual(BulletVisual, VisualMode.Travel, self.Position, target.Position, 0.18);
             if (index == 0) {
-                var dealt = target.TakeDamage(
+                target.TakeDamage(
                     self.MakeDamage(DamageType.Physical, crit, 0, lP0, lM0),
                     self.MakeDamage(DamageType.Magical, crit, 0, lP1, lM1), self);
-                self.Heal(dealt * vampMul);
-            }
-            else {
-                target.TakeDamage(
-                    self.MakeDamage(DamageType.Physical, crit, 0, rP0, rM0),
-                    self.MakeDamage(DamageType.Magical, crit, 0, rP1, rM1), self);
+                if (!target.Alive) return;
                 target.AddModifierSet(ModifierSet.Timed(self, effectKey, reduceDefDuration, new[] {
-                    new StatModifier(StatKind.Armor, reduceDefMul, ModifierType.Percent),
-                    new StatModifier(StatKind.Resistance, reduceDefMul, ModifierType.Percent),
+                    new StatModifier(StatKind.Armor, -Math.Abs(reduceDefMul), ModifierType.Percent),
+                    new StatModifier(StatKind.Resistance, -Math.Abs(reduceDefMul), ModifierType.Percent),
                 }));
+                return;
             }
+            var first = self.MakeDamage(DamageType.Physical, crit, 0, rP0, rM0);
+            var second = self.MakeDamage(DamageType.Magical, crit, 0, rP1, rM1);
+            CombatUnit bounce = null;
+            var from = battle.CellOf(target);
+            var best = int.MaxValue;
+            foreach (var o in battle.AliveUnits(self.Side.Opponent())) {
+                if (o == target) continue;
+                var d = battle.Grid.Distance(from, battle.CellOf(o));
+                if (d <= bounceRange && d < best) {
+                    best = d;
+                    bounce = o;
+                }
+            }
+            var bounceFrom = target.Position;
+            target.TakeDamage(first, second, self);
+            if (bounce == null || !bounce.Alive) return;
+            battle.PlayVisual(BulletVisual, VisualMode.Travel, bounceFrom, bounce.Position, 0.18);
+            bounce.TakeDamage(first, second, self);
         }
     }
 
@@ -217,6 +241,7 @@ namespace AutoChess.Core.Combat.Heroes {
 
         public override void OnHit(CombatUnit self, int index) {
             if (!self.Alive) return;
+            self.Battle.PlayVisual("haste", VisualMode.Attach, self.Position, self.Position, duration, 1, self);
             self.AddModifierSet(ModifierSet.Timed(self, effectKey, duration, new[] {
                 new StatModifier(StatKind.AttackSpeed, atkSpdMul, ModifierType.Percent),
                 new StatModifier(StatKind.CriticalChance, critChanceMul, ModifierType.Percent),

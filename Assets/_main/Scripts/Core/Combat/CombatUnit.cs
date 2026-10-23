@@ -108,7 +108,20 @@ namespace AutoChess.Core.Combat {
         /// <summary>Extra attack range in cells (items).</summary>
         internal int BonusRange;
         /// <summary>Immune to stuns, knock-ups, silences and forced moves right now.</summary>
-        public bool ResistsCrowdControl => Status.Unstoppable || Status.IsInvulnerable || Status.IsCrowdControlImmune;
+        public bool ResistsCrowdControl => Status.Unstoppable || Status.IsInvulnerable || Status.IsCrowdControlImmune || HasCrowdControlShield;
+        /// <summary>Jumps next to its target instead of walking (Lee Sin); waits when no cell there is free.</summary>
+        internal bool Leaps;
+        /// <summary>Seconds a jump of a leaping unit takes.</summary>
+        internal double LeapDuration = 0.4;
+
+        bool HasCrowdControlShield {
+            get {
+                foreach (var s in shields) {
+                    if (s.BlocksCrowdControl) return true;
+                }
+                return false;
+            }
+        }
         public double HpPercentage => MaxHp <= 0 ? 0 : Math.Clamp(Hp / MaxHp, 0, 1);
         public double HpLostPercentage => 1 - HpPercentage;
         public bool IsDrainingEnergy => drainRemaining > 0;
@@ -298,13 +311,13 @@ namespace AutoChess.Core.Combat {
                 return 0;
             }
             var dealt = Mitigate(damage);
-            var absorbed = Absorb(dealt);
+            var absorbed = Absorb(dealt, damage.Type);
             var toHealth = dealt - absorbed;
             var lost = absorbed + Math.Min(toHealth, Math.Max(0, Hp));
             Hp -= toHealth;
             Battle.Emit(new UnitDamagedEvent {
                 UnitId = Id, SourceId = source?.Id ?? -1, Amount = dealt, HpLost = lost, Absorbed = absorbed, Type = damage.Type,
-                Crit = damage.Crit, StackIndex = stackIndex
+                Crit = damage.Crit, StackIndex = stackIndex, Kind = kind
             });
             if (Hp <= 0) Die(source);
             Battle.AfterHit(this, source, damage, dealt, kind);
@@ -326,25 +339,35 @@ namespace AutoChess.Core.Combat {
         }
 
         /// <summary>Adds (or refreshes) a shield of <paramref name="amount"/> for <paramref name="duration"/> seconds.</summary>
-        public void AddShield(CombatUnit owner, string key, double amount, double duration) {
+        /// <param name="only">A spell shield: absorbs this damage type only.</param>
+        /// <param name="blocksCrowdControl">Immune to crowd control while the shield holds.</param>
+        public void AddShield(CombatUnit owner, string key, double amount, double duration, DamageType? only = null,
+            bool blocksCrowdControl = false) {
             if (!Alive || amount <= 0 || duration <= 0) return;
             for (var i = shields.Count - 1; i >= 0; i--) {
                 if (shields[i].Key == key && shields[i].Owner == owner) shields.RemoveAt(i);
             }
-            shields.Add(new Shield { Owner = owner, Key = key, Amount = amount, Remaining = duration });
+            shields.Add(new Shield {
+                Owner = owner, Key = key, Amount = amount, Remaining = duration, Only = only, BlocksCrowdControl = blocksCrowdControl,
+            });
             UpdateShieldTotal();
         }
 
-        /// <summary>Takes <paramref name="damage"/> from the shields, oldest first; returns the absorbed part.</summary>
-        double Absorb(double damage) {
+        /// <summary>Takes <paramref name="damage"/> from the shields that block its type, oldest first; returns the absorbed part.</summary>
+        double Absorb(double damage, DamageType type) {
             if (shields.Count == 0 || damage <= 0) return 0;
             var absorbed = 0d;
-            while (shields.Count > 0 && absorbed < damage) {
-                var shield = shields[0];
+            for (var i = 0; i < shields.Count && absorbed < damage;) {
+                var shield = shields[i];
+                if (shield.Only != null && shield.Only != type) {
+                    i++;
+                    continue;
+                }
                 var take = Math.Min(shield.Amount, damage - absorbed);
                 shield.Amount -= take;
                 absorbed += take;
-                if (shield.Amount <= 1e-9) shields.RemoveAt(0);
+                if (shield.Amount <= 1e-9) shields.RemoveAt(i);
+                else i++;
             }
             UpdateShieldTotal();
             return absorbed;
@@ -430,6 +453,11 @@ namespace AutoChess.Core.Combat {
         }
 
         // ------------------------------------------------------------------ lifecycle
+
+        /// <summary>Leaves the battle without a killer (a recalled summon).</summary>
+        internal void Despawn() {
+            if (Alive) Die(null);
+        }
 
         void Die(CombatUnit killer) {
             if (!Alive) return;

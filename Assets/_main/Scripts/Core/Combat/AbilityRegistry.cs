@@ -28,7 +28,7 @@ namespace AutoChess.Core.Combat {
             var r = new AbilityRegistry();
             r.Register(HeroIds.AatroxDark, d => new AatroxDarkAttack(d), (d, _) => new AatroxDarkSkill(d));
             r.Register(HeroIds.AatroxTrueForm, _ => new AatroxTrueFormAttack(), null);
-            r.Register(HeroIds.AatroxLight, _ => new BasicAttack(1.367, 0.18, DamageType.Magical), (d, _) => new AatroxLightSkill(d));
+            r.Register(HeroIds.AatroxLight, d => new AatroxLightAttack(d), (d, _) => new AatroxLightSkill(d));
             r.Register(HeroIds.Akali, _ => new BasicAttack(1.2, 0.18, DamageType.Magical), (d, _) => new AkaliSkill(d));
             r.Register(HeroIds.Ashe, _ => new AsheAttack(), (d, _) => new AsheSkill(d));
             r.Register(HeroIds.Caitlyn, _ => new BasicAttack(1.367, 0.2, DamageType.Physical), (d, _) => new CaitlynSkill(d));
@@ -43,6 +43,7 @@ namespace AutoChess.Core.Combat {
             r.Register(HeroIds.Yasuo, _ => new YasuoAttack(), (d, _) => new YasuoSkill(d));
             r.Register(HeroIds.Yone, d => new YoneAttack(d), (d, a) => new YoneSkill(d, a as YoneAttack));
             r.Register(HeroIds.Zed, _ => new BasicAttack(1.267, 0.25, DamageType.Physical), (d, _) => new ZedSkill(d));
+            r.Register(HeroIds.ZedShadow, _ => new BasicAttack(1.267, 0.25, DamageType.Physical), null);
             r.Register(HeroIds.Ahri, _ => new BasicAttack(1.067, 0.35, DamageType.Magical), (d, _) => new AhriSkill(d));
             r.Register(HeroIds.Amumu, _ => new BasicAttack(1.1, 0.35, DamageType.Physical), (d, _) => new AmumuSkill(d));
             r.Register(HeroIds.Annie, _ => new BasicAttack(1.333, 0.45, DamageType.Magical), (d, _) => new AnnieSkill(d));
@@ -77,6 +78,7 @@ namespace AutoChess.Core.Combat {
         public const string Yasuo = "Yasuo";
         public const string Yone = "Yone";
         public const string Zed = "Zed";
+        public const string ZedShadow = "Zed_Shadow";
         public const string Ahri = "Ahri";
         public const string Amumu = "Amumu";
         public const string Annie = "Annie";

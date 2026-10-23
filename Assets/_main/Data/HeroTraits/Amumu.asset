@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 3384890859083404076, guid: 7ba4b3346f5d6464db67eb759faa0413, type: 3}
   thumbnail: {fileID: 21300000, guid: e98516986821d7a4db9dde24c85d7ab2, type: 3}
   skillIcon: {fileID: 21300000, guid: eabcd5984ce8a4d479c1d370e90ec04a, type: 3}
-  maxHp: 2220
-  physicalDamage: 69
+  maxHp: 2157
+  physicalDamage: 68
   magicalDamage: 0
   armor: 50
   resistance: 50
@@ -69,8 +69,8 @@ MonoBehaviour:
   - key: base_dmg
     value: 40
     isPercentage: 0
-  - key: dmg_by_max_hp
-    value: 0.02
+  - key: def_mul
+    value: 0.8
     isPercentage: 1
   - key: radius
     value: 2
@@ -79,10 +79,11 @@ MonoBehaviour:
     value: 0.75
     isPercentage: 0
   passiveDescription: 
-  activeDescription: "B\u1EADt kh\xF3c, g\xE2y <color=grey>(#[0] + #[1]<sprite name=hp>)</color>
-    s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0 l\xE0m cho\xE1ng #[3]s m\u1ECDi k\u1EBB
-    \u0111\u1ECBch trong ph\u1EA1m vi #[2] \xF4."
+  activeDescription: "B\u1EADt kh\xF3c, g\xE2y <color=grey>(#[0] + #[1] t\u1ED5ng
+    <sprite name=arm><sprite name=res>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0
+    l\xE0m cho\xE1ng #[3]s m\u1ECDi k\u1EBB \u0111\u1ECBch trong ph\u1EA1m vi #[2]
+    \xF4."
   specialKeys: []
-  dps: 45
-  physicalReduction: 23.076923
-  magicalReduction: 23.076923
+  dps: 55.131
+  physicalReduction: 33.333332
+  magicalReduction: 33.333332

@@ -50,7 +50,9 @@ Because Core cannot see UnityEngine, it can run on a dedicated .NET server, in a
   projectiles, damage areas, synergies (`TraitEffects`), one attack + skill behaviour per hero
   (`Combat/Heroes/*`, registered in `AbilityRegistry`).
 * **Combat tools for abilities** - shields (`CombatUnit.AddShield`, absorbed before health, `UnitShieldChangedEvent`
-  -> white segment on the health bar), forced slides (`BattleSimulation.Displace`: knock-back / pull onto the free
+  -> white segment on the health bar; optionally only one damage type and / or blocking crowd control: Morgana's
+  spell shield), leaps (`CombatUnit.Leaps` + `BattleSimulation.LeapTo`: jump next to the target instead of walking,
+  Lee Sin), summons that fight like heroes (`Summon` + `HeroIds.ZedShadow`, `Despawn` to recall), forced slides (`BattleSimulation.Displace`: knock-back / pull onto the free
   cell nearest a point, airborne meanwhile), area / line queries (`UnitsInRadius`, `UnitsOnLine`, `WeakestAlly`,
   `IsEdgeCell`), `SkillBehaviour.Setup` (passives hooking into the battle) and presentation-only VFX requests
   (`PlayVisual` / `StopVisual` -> `VisualEvent`: burst, travel, beam or attached to a unit).
@@ -127,13 +129,24 @@ player visits is drawn rotated (`BoardSpace.BattleFlipped`) so their units stand
   `VfxPool.vfxPrefabs`) -> `SkillVfx` (plays / moves / stretches / follows, then returns to the pool). Prefabs are
   built by *AutoChess/VFX/Build Skill VFX* (`Scripts/Editor/VfxBuilder.cs`: particle recipes on the
   `AutoChess/VFX Particle` shader, textures from `Tools/vfx/make_textures.py`); `Tools/vfx/register_vfx.py` adds
-  new prefabs to the pool. Mark icons: `AssetDB.markIcons` (`Textures/2D/Marks/<key>.png`).
+  new prefabs to the pool. Mark icons: `AssetDB.markIcons` (`Textures/2D/Marks/<key>.png`). Besides the skill
+  VFX: a hit flash on every attack / skill damage (`hit_attack_*` / `hit_skill_*` by damage type, from
+  `UnitDamagedEvent.Kind`) and status marks kept on while a unit is stunned / silenced / anti-healed / invulnerable
+  (`BattleUnitView` reads `CombatUnit.Status` every frame, keys in `StatusVisuals`).
+* Hero skills after creation: `Tools/heroes/hero_skills.json` (role, unstoppable, skill name, params, texts,
+  special keys per hero id) -> menu *AutoChess/Heroes/Apply Hero Skills* (`Scripts/Editor/HeroSkillTool.cs`) ->
+  re-export. *AutoChess/Heroes/Build Zed Shadow* makes the clone (Zed's model on `AutoChess/Shadow Clone`).
 * Hero models: *AutoChess/Hero Models/Set Up New Heroes* (`Scripts/Editor/HeroSetupTool.cs`) reads
   `Tools/heroes/new_heroes.json` (shown meshes by material name, body parts, clips, identity, skill text) and builds
   the glb's prefab variant (import scale matched to the other heroes' height, animator override of
-  `_Base.controller`, `BodyParts`, `Mecanim_<Id>`) and the `HeroTrait` (added to `HeroTraitDB`). *Render Check
-  Sheets* / *Render Clip Sheets* draw the models and every clip to `Temp/hero_sheets` for picking meshes and clips;
-  `AutoTest Server/.../ac_hero_showcase.json` screenshots heroes in a battle.
+  `_Base.controller`, `BodyParts`, `Mecanim_<Id>`) and the `HeroTrait` (added to `HeroTraitDB`). The glb's
+  materials are extracted to `Models/Hero/<Id>/Materials` (remapped); solid parts (hair, head, body, props...) get
+  URP surface Opaque + depth write at queue 2450 like the hand-made heroes, face decals (eyes / brows / mouth) stay
+  transparent - otherwise bangs vanish behind the face. *Render Check Sheets* / *Render Clip Sheets* / *Render Clip
+  Candidates* (`Temp/clip_candidates.json`) draw the models and clips to `Temp/hero_sheets` for picking meshes and
+  clips (prefer clips without root drift / turning: *Measure Clip Motion*; a short clip can be replayed by a
+  `Mecanim_<Id>` routine, `Skill_1` is a second skill clip); `AutoTest Server/.../ac_hero_showcase.json` screenshots
+  heroes in a battle.
 
 ## Online play (lockstep)
 

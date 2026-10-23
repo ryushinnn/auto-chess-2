@@ -2,7 +2,137 @@ fileFormatVersion: 2
 guid: bdecc3d9c2e398543a970962c00035c6
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: d208a8438de6bd248aaf03ad7df8c910, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body02
+    second: {fileID: 2100000, guid: 7109a975ce65d754580142109c9ece40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BodyVFX
+    second: {fileID: 2100000, guid: b6657441f3690e84dadf3494802cad7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Base
+    second: {fileID: 2100000, guid: abbb08943fc658e40bc57d2f46944170, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Fierce_Base
+    second: {fileID: 2100000, guid: c45e79d71bf5a5a48ab51eba2f4b9aba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye02_Base
+    second: {fileID: 2100000, guid: 13f3b18e31717e04cb1acc92959c551a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Base
+    second: {fileID: 2100000, guid: 810680cba75f5a141a19a639a82db7cf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Pleep
+    second: {fileID: 2100000, guid: cd88441462388f848ba084404c676233, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fierce
+    second: {fileID: 2100000, guid: 40c274dd1591c934fa5c157a78a13463, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 16e208798009bd44eaadba9f6da34ae1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair02
+    second: {fileID: 2100000, guid: 9db92366f47b5074bab31660c4e250a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Happy
+    second: {fileID: 2100000, guid: 14f9a40bd0e96804c99ec5cb9177cf0a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth02_Base
+    second: {fileID: 2100000, guid: f15fd2a18ac86c24aba79b0a65967005, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Abdominalblackness
+    second: {fileID: 2100000, guid: e31b1608020de5649a811cad6c9a2009, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Base
+    second: {fileID: 2100000, guid: 15b103691351c4d47b1b35b076a4795a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Happy
+    second: {fileID: 2100000, guid: 730380034573e5141bcaa3b9f9305de8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Pleep
+    second: {fileID: 2100000, guid: 12840d60aea0e9d4a8bea89dd228ec31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Wink
+    second: {fileID: 2100000, guid: 1839131b539ecda45b731d5a82a0bc6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paste_Weep
+    second: {fileID: 2100000, guid: 31a78e666016fe84bbe4aa1b88c64a2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pleep
+    second: {fileID: 2100000, guid: 5c9aa8254559e3f4ab9eabd35c05d8d4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tail1
+    second: {fileID: 2100000, guid: 0f3153d3f7727d54aa2401b6e62928c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tail2
+    second: {fileID: 2100000, guid: 30648f6e6dd1eb3408df8b2f44b40153, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Weep
+    second: {fileID: 2100000, guid: 366fb6a2ceaf2be468c5b0dba638a209, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wink
+    second: {fileID: 2100000, guid: 3e848a1213295154ab3e2cdebabe692c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wink_Fierce
+    second: {fileID: 2100000, guid: d272dae2e8a58d949aaa82a136f23a25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bell
+    second: {fileID: 2100000, guid: 629334925592fa942b08ad5d24328e9e, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

@@ -131,6 +131,34 @@ def main():
         return (core + edge) * streak
     save("vfx_beam", (128, 256), beam)
 
+    # five-point star with a soft edge (stun)
+    def star5(u, v, *_):
+        r = math.hypot(u, v)
+        a = math.atan2(u, -v)  # 0 = up
+        k = math.pi / 5
+        t = abs(((a + k) % (2 * k)) - k) / k  # 0 at a tip .. 1 between tips
+        edge = 0.42 + 0.53 * (1 - t) ** 1.7
+        return min(1.0, max(0.0, (edge - r) / 0.06)) * (0.75 + 0.25 * (1 - r))
+    save("vfx_star", (128, 128), star5)
+
+    # "no" sign: a ring crossed by a diagonal bar (silence)
+    def ban(u, v, *_):
+        r = math.hypot(u, v)
+        ring = max(0.0, 1 - abs(r - 0.78) / 0.13)
+        d = abs(u - v) / math.sqrt(2)
+        bar = max(0.0, 1 - d / 0.12) * (1 if r < 0.8 else 0)
+        return min(1.0, (ring + bar) * 1.6)
+    save("vfx_ban", (128, 128), ban)
+
+    # a healing cross split by a crack (anti-heal)
+    def broken_cross(u, v, *_):
+        inside = (abs(u) < 0.26 and abs(v) < 0.82) or (abs(v) < 0.26 and abs(u) < 0.82)
+        if not inside:
+            return 0
+        crack = abs(v - (0.35 * u + 0.12 * math.sin(u * 14)))
+        return 0 if crack < 0.06 else 1
+    save("vfx_cross", (128, 128), broken_cross)
+
 
 if __name__ == "__main__":
     main()

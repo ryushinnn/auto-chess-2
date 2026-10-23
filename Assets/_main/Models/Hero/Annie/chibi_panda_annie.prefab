@@ -573,7 +573,7 @@ MonoBehaviour:
   defaultAttackTime:
   - 0.35
   skillFullTimes:
-  - 1.8000001
+  - 1.2666668
   diveInTime: 1.3333334
   diveOutTimeRange: {x: 0.15, y: 0.62}
   diveOutTime: 2.2333333

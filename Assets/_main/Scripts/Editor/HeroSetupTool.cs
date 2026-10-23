@@ -161,6 +161,7 @@ namespace AutoChess.Editor {
                 so.ApplyModifiedPropertiesWithoutUndo();
                 importer.SaveAndReimport();
             }
+            ExtractMaterials(hero, glb, importer);
 
             var model = AssetDatabase.LoadAssetAtPath<GameObject>(glb);
             var instance = (GameObject)PrefabUtility.InstantiatePrefab(model);
@@ -241,6 +242,53 @@ namespace AutoChess.Editor {
             }
         }
 
+        /// <summary>Solid parts of a chibi model (drawn with depth, before the face decals); everything else stays blended.</summary>
+        static readonly System.Text.RegularExpressions.Regex SolidPart = new(
+            "hair|head|body|hat|cloth|sleeve|arm|leg|skin|weapon|staff|tail|bell|bag|bear|bandage|pet|elf|doll|scissor|pants|" +
+            "frame|gard|decor|flesh|cape|cloak|crown|wing|horn|sword|gun|umbrella|tibbers|^face$",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// Like the heroes set up by hand: the glb's materials go to Materials/*.mat (importer remap) and every solid part
+        /// becomes depth-writing, unblended (One / Zero) and drawn before the transparent face decals (eyes, brows,
+        /// mouths), so hair, hats and heads stop sorting through each other.
+        /// </summary>
+        static void ExtractMaterials(HeroConfig hero, string glb, AssetImporter importer) {
+            var dir = $"{HeroModels}/{hero.folder}/Materials";
+            Directory.CreateDirectory(dir);
+            var changed = false;
+            foreach (var embedded in AssetDatabase.LoadAllAssetsAtPath(glb).OfType<Material>()) {
+                var path = $"{dir}/{embedded.name}.mat";
+                var material = AssetDatabase.LoadAssetAtPath<Material>(path);
+                if (material == null) {
+                    material = new Material(embedded);
+                    AssetDatabase.CreateAsset(material, path);
+                }
+                EditorUtility.SetDirty(material);
+                importer.AddRemap(new AssetImporter.SourceAssetIdentifier(typeof(Material), embedded.name), material);
+                changed = true;
+            }
+            // solid parts as set up by hand on the older heroes: URP surface Opaque (the shader graph derives blend /
+            // depth write from it), queue kept by hand before the transparent decals. "Face_*" meshes (Janna's face + hair
+            // in one) stay transparent: their eye / mouth decals sit just behind the skin and would be hidden.
+            foreach (var guid in AssetDatabase.FindAssets("t:Material", new[] { dir })) {
+                var material = AssetDatabase.LoadAssetAtPath<Material>(AssetDatabase.GUIDToAssetPath(guid));
+                if (material == null || !SolidPart.IsMatch(material.name) || material.name.StartsWith("Face_")) continue;
+                material.SetFloat("_Surface", 0);
+                material.SetFloat("_SrcBlend", 1);
+                material.SetFloat("_DstBlend", 0);
+                material.SetFloat("_ZWrite", 1);
+                material.SetFloat("_QueueControl", 1);
+                material.DisableKeyword("_SURFACE_TYPE_TRANSPARENT");
+                material.DisableKeyword("_ALPHABLEND_ON");
+                material.SetOverrideTag("RenderType", "Opaque");
+                material.renderQueue = 2450;
+                EditorUtility.SetDirty(material);
+            }
+            AssetDatabase.SaveAssets();
+            if (changed) importer.SaveAndReimport();
+        }
+
         static Dictionary<string, AnimationClip> Clips(string glb) {
             var map = new Dictionary<string, AnimationClip>();
             foreach (var clip in AssetDatabase.LoadAllAssetsAtPath(glb).OfType<AnimationClip>()) {
@@ -283,7 +331,7 @@ namespace AutoChess.Editor {
             trait.subName = hero.subName;
             trait.summoned = false;
             trait.realm = (Realm)Enum.Parse(typeof(Realm), hero.realm);
-            trait.role = (Role)Enum.Parse(typeof(Role), hero.role);
+            if (created) trait.role = (Role)Enum.Parse(typeof(Role), hero.role);
             trait.reputation = (Reputation)Enum.Parse(typeof(Reputation), hero.reputation);
             trait.moveable = true;
             trait.mecanim = mecanim;
@@ -308,12 +356,15 @@ namespace AutoChess.Editor {
                     Evolution(HeroRank.S, stat, 2.24f, 0.5f),
                 };
             }
-            trait.skillName = hero.skillName;
-            trait.unstoppable = hero.unstoppable;
-            trait.skillParams = hero.skillParams.Select(p => new HeroSkillParam { key = p.key, value = p.value, isPercentage = p.isPercentage }).ToArray();
-            trait.passiveDescription = hero.passiveDescription;
-            trait.activeDescription = hero.activeDescription;
-            trait.specialKeys = hero.specialKeys ?? Array.Empty<string>();
+            if (created) {
+                // initial skill data only: later changes go through Tools/heroes/hero_skills.json (HeroSkillTool)
+                trait.skillName = hero.skillName;
+                trait.unstoppable = hero.unstoppable;
+                trait.skillParams = hero.skillParams.Select(p => new HeroSkillParam { key = p.key, value = p.value, isPercentage = p.isPercentage }).ToArray();
+                trait.passiveDescription = hero.passiveDescription;
+                trait.activeDescription = hero.activeDescription;
+                trait.specialKeys = hero.specialKeys ?? Array.Empty<string>();
+            }
 
             if (created) AssetDatabase.CreateAsset(trait, path);
             EditorUtility.SetDirty(trait);
@@ -373,6 +424,9 @@ namespace AutoChess.Editor {
 
                 var poses = new Texture2D(Cell * 5, Cell * rows.Count, TextureFormat.RGB24, false);
                 for (var r = 0; r < rows.Count; r++) {
+                    // a fresh instance per clip: a clip leaves the bones it does not key where the previous one put them
+                    Object.DestroyImmediate(model);
+                    model = (GameObject)PrefabUtility.InstantiatePrefab(prefab, scene);
                     for (var f = 0; f < rows[r].frames; f++) {
                         rows[r].clip.SampleAnimation(model, rows[r].clip.length * f / (rows[r].frames - 1));
                         var pixels = Render(camera, model, f == 0 ? 0 : 25);
@@ -406,6 +460,123 @@ namespace AutoChess.Editor {
             finally {
                 EditorSceneManager.ClosePreviewScene(scene);
             }
+        }
+
+        /// <summary>
+        /// Writes Temp/hero_clip_motion.txt: per clip of each new hero, how far the model's body drifts from where it
+        /// starts (horizontal / vertical, cells are ~1.9) and how much it turns away; skill clips should stay in place.
+        /// </summary>
+        [MenuItem("AutoChess/Hero Models/Measure Clip Motion")]
+        public static void MeasureClipMotion() {
+            var sb = new System.Text.StringBuilder();
+            foreach (var hero in Load().heroes) {
+                var instance = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath(hero)));
+                try {
+                    var body = instance.GetComponentsInChildren<SkinnedMeshRenderer>().OrderByDescending(r => r.sharedMesh ? r.sharedMesh.vertexCount : 0).FirstOrDefault();
+                    sb.AppendLine($"== {hero.id} (skill now: {hero.clips.FirstOrDefault(c => c.slot == "Skill_0")?.clip})");
+                    foreach (var clip in Clips(GlbPath(hero)).Values.OrderBy(c => c.name)) {
+                        Vector3 Center() {
+                            var sum = Vector3.zero;
+                            foreach (var b in body.bones) sum += b.position;
+                            return sum / Mathf.Max(1, body.bones.Length);
+                        }
+                        // facing: from the body's center to its highest bone, flattened
+                        Vector3 Facing() {
+                            var top = body.bones.OrderByDescending(b => b.position.y).First();
+                            var v = Vector3.Cross(top.position - Center(), Vector3.up);
+                            v.y = 0;
+                            return v.sqrMagnitude > 1e-8f ? v.normalized : Vector3.forward;
+                        }
+                        clip.SampleAnimation(instance, 0);
+                        var start = Center();
+                        var forward = instance.transform.GetChild(0).forward;
+                        var baseRot = body.bones.Length > 0 ? body.bones[0].rotation : Quaternion.identity;
+                        float drift = 0, rise = 0, turn = 0;
+                        for (var t = 0f; t <= clip.length; t += 0.05f) {
+                            clip.SampleAnimation(instance, t);
+                            var c = Center() - start;
+                            drift = Mathf.Max(drift, new Vector2(c.x, c.z).magnitude);
+                            rise = Mathf.Max(rise, Mathf.Abs(c.y));
+                            if (body.bones.Length > 0) turn = Mathf.Max(turn, Quaternion.Angle(baseRot, body.bones[0].rotation));
+                        }
+                        sb.AppendLine($"  {clip.name,-70} {clip.length,5:0.00}s drift {drift,5:0.00} rise {rise,5:0.00} turn {turn,4:0}");
+                    }
+                }
+                finally {
+                    Object.DestroyImmediate(instance);
+                }
+            }
+            File.WriteAllText("Temp/hero_clip_motion.txt", sb.ToString());
+        }
+
+        /// <summary>
+        /// Temp/hero_sheets/&lt;id&gt;_candidates.png: the clips listed for the hero in Temp/clip_candidates.json
+        /// ({"Lulu": ["Cast_Cycle", ...]}), 6 frames each, framed as one row per clip (order of the list).
+        /// </summary>
+        [MenuItem("AutoChess/Hero Models/Render Clip Candidates")]
+        public static void RenderCandidates() {
+            var wanted = (Dictionary<string, object>)Core.MiniJson.Parse(File.ReadAllText("Temp/clip_candidates.json"));
+            foreach (var hero in Load().heroes) {
+                if (!wanted.TryGetValue(hero.id, out var list)) continue;
+                var names = ((List<object>)list).Cast<string>().ToList();
+                var scene = EditorSceneManager.NewPreviewScene();
+                try {
+                    var camera = new GameObject("cam", typeof(Camera)).GetComponent<Camera>();
+                    SceneManager_Move(camera.gameObject, scene);
+                    camera.scene = scene;
+                    camera.clearFlags = CameraClearFlags.SolidColor;
+                    camera.backgroundColor = new Color(0.32f, 0.36f, 0.42f, 1);
+                    camera.fieldOfView = 30;
+                    var light = new GameObject("light", typeof(Light)).GetComponent<Light>();
+                    light.type = LightType.Directional;
+                    light.transform.rotation = Quaternion.Euler(40, 150, 0);
+                    SceneManager_Move(light.gameObject, scene);
+                    var clips = Clips(GlbPath(hero));
+                    const int frames = 6, size = 200;
+                    var sheet = new Texture2D(size * frames, size * names.Count, TextureFormat.RGB24, false);
+                    GameObject model = null;
+                    for (var r = 0; r < names.Count; r++) {
+                        if (!clips.TryGetValue(names[r], out var clip)) continue;
+                        // a fresh instance per clip: a clip leaves the bones it does not key where the previous one put them
+                        if (model != null) Object.DestroyImmediate(model);
+                        model = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath(hero)), scene);
+                        // one framing per row (from the first frame) so movement shows
+                        clip.SampleAnimation(model, 0);
+                        var frameBounds = new Bounds(model.transform.position + Vector3.up, Vector3.one * 2.6f);
+                        for (var f = 0; f < frames; f++) {
+                            clip.SampleAnimation(model, clip.length * f / (frames - 1));
+                            var pixels = RenderFixed(camera, frameBounds, size);
+                            sheet.SetPixels(f * size, (names.Count - 1 - r) * size, size, size, pixels);
+                        }
+                    }
+                    File.WriteAllBytes($"{SheetDir}/{hero.id}_candidates.png", sheet.EncodeToPNG());
+                    Object.DestroyImmediate(sheet);
+                }
+                finally {
+                    EditorSceneManager.ClosePreviewScene(scene);
+                }
+            }
+        }
+
+        static Color[] RenderFixed(Camera camera, Bounds bounds, int size) {
+            var dir = Quaternion.Euler(20, 180, 0) * Vector3.forward;
+            camera.transform.position = bounds.center - dir * 7f;
+            camera.transform.LookAt(bounds.center);
+            camera.nearClipPlane = 0.05f;
+            camera.farClipPlane = 50;
+            var rt = RenderTexture.GetTemporary(size, size, 24, RenderTextureFormat.ARGB32);
+            camera.targetTexture = rt;
+            camera.Render();
+            var previous = RenderTexture.active;
+            RenderTexture.active = rt;
+            var tex = new Texture2D(size, size, TextureFormat.RGB24, false);
+            tex.ReadPixels(new Rect(0, 0, size, size), 0, 0);
+            RenderTexture.active = previous;
+            camera.targetTexture = null;
+            RenderTexture.ReleaseTemporary(rt);
+            var pixels = tex.GetPixels();
+            Object.DestroyImmediate(tex);
+            return pixels;
         }
 
         [MenuItem("AutoChess/Hero Models/Render Clip Sheets")]

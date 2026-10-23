@@ -47,7 +47,7 @@ namespace AutoChess.Core.Combat.Heroes {
         }
     }
 
-    /// <summary>Three bombs, stronger per ignite stack; the last one crits.</summary>
+    /// <summary>Three bombs, stronger per ignite stack.</summary>
     public sealed class TeemoSkill : SkillBehaviour {
         readonly int maxStacks;
         readonly double duration;
@@ -81,7 +81,8 @@ namespace AutoChess.Core.Combat.Heroes {
             var current = target.MarkStacks(dotKey, self);
             var stacks = Math.Min(current + 1, maxStacks);
             var ignite = TeemoIgnite.Make(self, target, stacks, dmgMulLimit, dmgByMaxHp);
-            var main = self.MakeDamage(DamageType.Magical, index == 2,
+            self.Battle.PlayVisual("teemo_bomb", VisualMode.Travel, self.Position, target.Position, 0.3);
+            var main = self.MakeDamage(DamageType.Magical, false,
                 baseDmg + bonusBaseDmgPerStack * current,
                 magicalRatio: dmgMul + bonusDmgMulPerStack * current);
             target.TakeDamage(main, ignite, self);
@@ -181,6 +182,7 @@ namespace AutoChess.Core.Combat.Heroes {
             var target = self.Target;
             if (target == null) return;
             if (sword == YoneSword.Divine) {
+                self.Battle.PlayVisual("yone_divine", VisualMode.Burst, target.Position, target.Position, 0.6, 1);
                 target.TakeDamage(self.MakeDamage(DamageType.Physical, false, divineBaseDmg, divineDmgMul), self);
                 target.Airborne(airborneDuration);
                 // As before, this refund is swallowed: energy cannot be gained while a skill is being cast.
@@ -188,6 +190,7 @@ namespace AutoChess.Core.Combat.Heroes {
                 return;
             }
             var heavy = index == 3;
+            self.Battle.PlayVisual("yone_devil", VisualMode.Burst, target.Position, target.Position, 0.5, heavy ? 1.5 : 1);
             target.TakeDamage(self.MakeDamage(DamageType.Magical, self.RollCrit(),
                 heavy ? devilBaseDmg1 : devilBaseDmg0, heavy ? devilDmgMul1 : devilDmgMul0), self);
         }
@@ -235,13 +238,14 @@ namespace AutoChess.Core.Combat.Heroes {
         }
     }
 
-    /// <summary>Tibbers slams the target: magic damage and a stun around it.</summary>
+    /// <summary>Tibbers slams the target: full damage and a long stun on it, less damage and a shorter stun around it.</summary>
     public sealed class AnnieSkill : SkillBehaviour {
         public const string SlamVisual = "annie_tibbers";
         readonly double baseDmg;
         readonly double dmgMul;
-        readonly int radius;
-        readonly double stun;
+        readonly double splashMul;
+        readonly double stunCenter;
+        readonly double stunSplash;
         readonly List<CombatUnit> hits = new();
 
         public AnnieSkill(UnitDefinition def) {
@@ -249,19 +253,22 @@ namespace AutoChess.Core.Combat.Heroes {
             HitTimes = new[] { 0.9 };
             baseDmg = def.Param(0);
             dmgMul = def.Param(1);
-            radius = (int)def.Param(2);
-            stun = def.Param(3);
+            splashMul = def.Param(2);
+            stunCenter = def.Param(3);
+            stunSplash = def.Param(4);
         }
 
         public override void OnHit(CombatUnit self, int index) {
             var target = self.Target;
             if (target == null) return;
-            self.Battle.UnitsInRadius(self.Side.Opponent(), target.Position, radius, hits);
-            self.Battle.PlayVisual(SlamVisual, VisualMode.Burst, target.Position, target.Position, 1.2, radius);
+            self.Battle.UnitsInRadius(self.Side.Opponent(), target.Position, 1, hits);
+            if (!hits.Contains(target)) hits.Insert(0, target);
+            self.Battle.PlayVisual(SlamVisual, VisualMode.Burst, target.Position, target.Position, 1.2, 1);
             var damage = self.MakeDamage(DamageType.Magical, false, baseDmg, magicalRatio: dmgMul);
             foreach (var u in hits) {
-                u.TakeDamage(damage, self);
-                u.Stun(stun);
+                var center = u == target;
+                u.TakeDamage(center ? damage : new Damage(damage.Value * splashMul, damage.Type, damage.Penetration), self);
+                u.Stun(center ? stunCenter : stunSplash);
             }
         }
     }
@@ -318,8 +325,8 @@ namespace AutoChess.Core.Combat.Heroes {
         readonly List<CombatUnit> hits = new();
 
         public LuluSkill(UnitDefinition def) {
-            AnimationLength = 1.667;
-            HitTimes = new[] { 0.7 };
+            AnimationLength = 1.3;
+            HitTimes = new[] { 0.5 };
             baseHp = def.Param(0);
             hpMul = def.Param(1);
             duration = def.Param(2);
@@ -341,20 +348,35 @@ namespace AutoChess.Core.Combat.Heroes {
         }
     }
 
-    /// <summary>A beam along a line through the target, across the board.</summary>
+    /// <summary>
+    /// Passive: her damage grows with the distance to the enemy (none next to her). Skill: a beam along a line
+    /// through the target, across the board.
+    /// </summary>
     public sealed class LuxSkill : SkillBehaviour {
         public const string SparkVisual = "lux_spark";
         readonly double baseDmg;
         readonly double dmgMul;
         readonly double length;
+        readonly double bonusPerCell;
         readonly List<CombatUnit> hits = new();
 
         public LuxSkill(UnitDefinition def) {
-            AnimationLength = 2.5;
-            HitTimes = new[] { 1.0 };
+            AnimationLength = 2.0;
+            HitTimes = new[] { 0.9 };
             baseDmg = def.Param(0);
             dmgMul = def.Param(1);
             length = def.Param(2);
+            bonusPerCell = def.Param(3);
+        }
+
+        public override void Setup(CombatUnit self) {
+            var battle = self.Battle;
+            battle.AddHitHook(new HitHook(before: (CombatUnit target, CombatUnit source, ref Damage damage, HitKind kind) => {
+                if (source != self || target == null) return true;
+                var cells = battle.Grid.Distance(battle.CellOf(self), battle.CellOf(target));
+                if (cells > 1) damage.Value *= 1 + bonusPerCell * (cells - 1);
+                return true;
+            }));
         }
 
         public override void OnHit(CombatUnit self, int index) {

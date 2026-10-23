@@ -2,7 +2,132 @@ fileFormatVersion: 2
 guid: bbc55db966c6f994e977f4b9a7e3175e
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arm
+    second: {fileID: 2100000, guid: e19c555b13b986746bbd1fb268fed0bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arm01
+    second: {fileID: 2100000, guid: 057ff423f42e22748a36c6a8c8bbfc3e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: ff3b6b3ce4ad79d448b743fd7ed4718e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat1
+    second: {fileID: 2100000, guid: 1644031f776e9d34881f4fe4a470ff52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat1_Eye
+    second: {fileID: 2100000, guid: e4d98da6e111dd24d89de72f10cf9fd8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat1_Eye_Cry
+    second: {fileID: 2100000, guid: 75ace13bf8052284c964cc9b947ec943, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat1_Eye_Shock
+    second: {fileID: 2100000, guid: f625a44ff1af1d9438f2f76b102dd837, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat1_Eye_Suprise
+    second: {fileID: 2100000, guid: c75164925e415454fbe26802d71ebdef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat2
+    second: {fileID: 2100000, guid: 3a59538d7c5f4e344907281363757da8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat2_Eye
+    second: {fileID: 2100000, guid: 346e931cf60c61240ba14923451c6c64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat2_Eye_Cry
+    second: {fileID: 2100000, guid: 39d5d424f96930e4c852f8d96938ac99, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat2_Eye_Faint
+    second: {fileID: 2100000, guid: ccbbf977ba0695446931346f15d5863b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat2_Eye_Shy
+    second: {fileID: 2100000, guid: 20733480c7e33364e83a470ca2c726d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat2_Eye_Suprise
+    second: {fileID: 2100000, guid: 653ce35f237aedf43b246af7810ca830, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat3_Eye
+    second: {fileID: 2100000, guid: 129f21fcdc5236d4c9552e827dc54fff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cat5
+    second: {fileID: 2100000, guid: 1286537da398f5442836b29b94fea7ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye
+    second: {fileID: 2100000, guid: e1d394b4f9faa524a8e34702adada356, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Squint
+    second: {fileID: 2100000, guid: 96de44b9bbea40048baa1d0eefe3822d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Superise
+    second: {fileID: 2100000, guid: cbc4386308e998848bf3cea64c080e62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassCoverVFX
+    second: {fileID: 2100000, guid: 0b70ef8cde0845144b403df4269e61c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GlassCoverVFX01
+    second: {fileID: 2100000, guid: fd656f7515fbb294c96a805df3b1e094, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Head
+    second: {fileID: 2100000, guid: a339cd29a47c0f74f9d11b9b43dc3204, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props
+    second: {fileID: 2100000, guid: aa6646f4b4bc7484b96573b0a5666653, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props01
+    second: {fileID: 2100000, guid: 7879b679a8283d94f9bc1545f123ae3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Props02
+    second: {fileID: 2100000, guid: a27f9c5d1755ef64c864a730ab4baefc, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

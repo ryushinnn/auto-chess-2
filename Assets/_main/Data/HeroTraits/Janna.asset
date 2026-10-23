@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 3616112956038365210, guid: 78985db4c2850854b9e4dc7d389b893a, type: 3}
   thumbnail: {fileID: 21300000, guid: 0b383a1e34ab185479ad83a1beb1e642, type: 3}
   skillIcon: {fileID: 21300000, guid: ec9e46d04994abe42bbbeeac64f12b3f, type: 3}
-  maxHp: 2150
+  maxHp: 2094
   physicalDamage: 0
-  magicalDamage: 118
+  magicalDamage: 115
   armor: 27
   resistance: 37
   attackSpeed: 0.889
@@ -85,8 +85,8 @@ MonoBehaviour:
   activeDescription: "\u0110\u1EE9ng y\xEAn v\u1EADn gi\xF3 trong #[0]s: m\u1ED7i
     #[1]s h\u1ED3i <color=grey>(#[2] + #[3]<sprite name=mdmg>)</color> m\xE1u cho
     b\u1EA3n th\xE2n v\xE0 \u0111\u1ED3ng minh trong ph\u1EA1m vi #[4] \xF4. B\u1ECB
-    ng\u1EAFt khi d\xEDnh cho\xE1ng ho\u1EB7c h\u1EA5t tung."
+    ng\u1EAFt khi d\xEDnh cho\xE1ng, h\u1EA5t tung ho\u1EB7c c\xE2m l\u1EB7ng."
   specialKeys: []
-  dps: 45
-  physicalReduction: 23.076923
-  magicalReduction: 23.076923
+  dps: 104.902
+  physicalReduction: 21.259842
+  magicalReduction: 27.0073

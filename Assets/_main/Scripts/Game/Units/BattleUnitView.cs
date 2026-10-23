@@ -1,3 +1,4 @@
+using System;
 using AutoChess.Core;
 using AutoChess.Core.Combat;
 using Sirenix.OdinInspector;
@@ -15,6 +16,8 @@ namespace AutoChess.Game {
         CombatUnit combatUnit;
         IGameSession session;
         int lastNextCell = -1;
+        Transform head;
+        readonly SkillVfx[] statusVfx = new SkillVfx[StatusVisuals.All.Length];
 
         /// <param name="allySide">Side of the player watching (their units are allies, drawn on the near half).</param>
         public void Bind(IGameSession gameSession, CombatUnit unit, TeamSide allySide) {
@@ -28,9 +31,11 @@ namespace AutoChess.Game {
             Rotation.Rotate(ally ? Vector3.forward : -Vector3.forward, true);
             ItemsView.SetItems(unit.Items);
             SwitchCanvas(false);
+            PlaceHead();
         }
 
         public void Unbind() {
+            StopStatusVisuals();
             combatUnit = null;
             session = null;
         }
@@ -46,9 +51,55 @@ namespace AutoChess.Game {
                 if (next >= 0) FaceTowards(BoardSpace.BattleToWorld(BoardSpace.Instance.Grid.Center(next)));
             }
 
+            UpdateStatusVisuals();
             if (!combatUnit.Alive) return;
             Bars.SetHealth(combatUnit);
             Bars.SetEnergy((float)(combatUnit.Energy / session.Db.Rules.MaxEnergy));
+        }
+
+        /// <summary>Anchor of the status marks: the top of the model (bind pose, rank scale included).</summary>
+        void PlaceHead() {
+            if (head == null) {
+                head = new GameObject("Head").transform;
+                head.SetParent(transform, false);
+            }
+            var top = float.NegativeInfinity;
+            foreach (var r in mecanim.GetComponentsInChildren<Renderer>()) {
+                if (r is SkinnedMeshRenderer || r is MeshRenderer) top = Mathf.Max(top, r.bounds.max.y);
+            }
+            var height = float.IsInfinity(top) ? 1.8f : Mathf.Clamp(top - transform.position.y, 0.8f, 4f);
+            head.localPosition = Vector3.up * height;
+        }
+
+        /// <summary>Keeps a mark on the unit for each crowd control / status it has right now.</summary>
+        void UpdateStatusVisuals() {
+            var status = combatUnit.Status;
+            for (var i = 0; i < StatusVisuals.All.Length; i++) {
+                var (key, active, onHead) = StatusVisuals.All[i];
+                var on = combatUnit.Alive && active(status);
+                if (on && statusVfx[i] == null) {
+                    var vfx = VfxPool.Instance.GetVfx<SkillVfx>(key);
+                    if (vfx == null) continue;
+                    var anchor = onHead ? head : transform;
+                    var slot = i;
+                    vfx.Released += released => {
+                        if (statusVfx[slot] == released) statusVfx[slot] = null;
+                    };
+                    vfx.Play(VisualMode.Attach, anchor.position, anchor.position, float.MaxValue, 1, anchor);
+                    statusVfx[i] = vfx;
+                }
+                else if (!on && statusVfx[i] != null) {
+                    statusVfx[i].Stop();
+                    statusVfx[i] = null;
+                }
+            }
+        }
+
+        void StopStatusVisuals() {
+            for (var i = 0; i < statusVfx.Length; i++) {
+                if (statusVfx[i] != null) statusVfx[i].Stop();
+                statusVfx[i] = null;
+            }
         }
 
         void FaceUnit(int unitId, BattleView battle) {
@@ -114,6 +165,23 @@ namespace AutoChess.Game {
         /// <summary>The battle is over: everybody still standing stops.</summary>
         public void Freeze() {
             if (combatUnit != null && combatUnit.Alive) mecanim.Idle();
+            StopStatusVisuals();
         }
+    }
+
+    /// <summary>VFX keys of the status marks (built by VfxBuilder) and when a unit shows them.</summary>
+    public static class StatusVisuals {
+        public const string Stun = "status_stun";
+        public const string Silence = "status_silence";
+        public const string AntiHeal = "status_antiheal";
+        public const string Invulnerable = "status_invulnerable";
+
+        /// <summary>(key, shown while, anchored on the head rather than the feet).</summary>
+        public static readonly (string key, Func<StatusState, bool> active, bool onHead)[] All = {
+            (Stun, s => s.IsStunned, true),
+            (Silence, s => s.IsSilenced, true),
+            (AntiHeal, s => s.IsAntiHeal, true),
+            (Invulnerable, s => s.IsInvulnerable, false),
+        };
     }
 }

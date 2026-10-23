@@ -1,0 +1,456 @@
+{
+  "note": "Skill data of heroes whose skills changed after their creation (menu AutoChess/Heroes/Apply Hero Skills writes it into Data/HeroTraits; only the listed fields). params = [key, value, isPercentage] in the order the Core code reads them; #[i] in the texts.",
+  "heroes": [
+    {
+      "id": "Akali",
+      "params": [
+        [
+          "radius",
+          1,
+          false
+        ],
+        [
+          "silence",
+          0.5,
+          false
+        ],
+        [
+          "base_dmg",
+          120,
+          false
+        ],
+        [
+          "dmg_mul",
+          1.0,
+          true
+        ],
+        [
+          "missing_hp_amp",
+          1.0,
+          true
+        ]
+      ],
+      "passive": "",
+      "active": "Ném bom khói vào mục tiêu, câm lặng #[1]s mọi kẻ địch trong phạm vi #[0] ô. Kẻ địch có tỉ lệ máu thấp nhất trong số đó chịu <color=grey>(#[2] + #[3]<sprite name=mdmg>)</color> sát thương phép (có thể chí mạng), tăng thêm tới #[4] theo lượng máu đã mất của nó.",
+      "specialKeys": []
+    },
+    {
+      "id": "Amumu",
+      "params": [
+        [
+          "base_dmg",
+          40,
+          false
+        ],
+        [
+          "def_mul",
+          0.8,
+          true
+        ],
+        [
+          "radius",
+          2,
+          false
+        ],
+        [
+          "stun_duration",
+          0.75,
+          false
+        ]
+      ],
+      "active": "Bật khóc, gây <color=grey>(#[0] + #[1] tổng <sprite name=arm><sprite name=res>)</color> sát thương phép và làm choáng #[3]s mọi kẻ địch trong phạm vi #[2] ô."
+    },
+    {
+      "id": "Annie",
+      "params": [
+        [
+          "base_dmg",
+          80,
+          false
+        ],
+        [
+          "dmg_mul",
+          0.9,
+          true
+        ],
+        [
+          "splash_mul",
+          0.5,
+          true
+        ],
+        [
+          "stun_center",
+          1.25,
+          false
+        ],
+        [
+          "stun_splash",
+          0.6,
+          false
+        ]
+      ],
+      "active": "Gọi gấu Tibbers đập xuống mục tiêu: mục tiêu chịu <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> sát thương phép và bị choáng #[3]s; kẻ địch ở 6 ô xung quanh chịu #[2] lượng sát thương đó và bị choáng #[4]s."
+    },
+    {
+      "id": "MissFortune",
+      "params": [
+        [
+          "atk_pdmg_mul_0",
+          0.7,
+          true
+        ],
+        [
+          "atk_mdmd_mul_0",
+          0.3,
+          true
+        ],
+        [
+          "atk_pdmg_mul_1",
+          0.3,
+          true
+        ],
+        [
+          "atk_pdmg_mul_1",
+          0.7,
+          true
+        ],
+        [
+          "l_pdmg_mul_0",
+          0.6,
+          true
+        ],
+        [
+          "l_mdmg_mul_0",
+          0.3,
+          true
+        ],
+        [
+          "l_pdmg_mul_1",
+          0.3,
+          true
+        ],
+        [
+          "l_mdmg_mul_1",
+          0.6,
+          true
+        ],
+        [
+          "r_pdmg_mul_0",
+          1.0,
+          true
+        ],
+        [
+          "r_mdmg_mul_0",
+          0.5,
+          true
+        ],
+        [
+          "r_pdmg_mul_1",
+          0.5,
+          true
+        ],
+        [
+          "r_mdmg_mul_1",
+          1.0,
+          true
+        ],
+        [
+          "bounce_range",
+          2,
+          false
+        ],
+        [
+          "reduce_def_mul",
+          0.3,
+          true
+        ],
+        [
+          "reduce_def_duration",
+          5.0,
+          false
+        ]
+      ],
+      "active": "Bắn lần lượt 2 viên đạn (có thể chí mạng):\n- Viên đầu tiên: gây <color=grey>(#[4]<sprite name=pdmg> + #[5]<sprite name=mdmg>)</color> sát thương vật lý cùng <color=grey>(#[6]<sprite name=pdmg> + #[7]<sprite name=mdmg>)</color> sát thương phép, giảm #[13]<sprite name=arm> và <sprite name=res> của mục tiêu trong #[14]s.\n- Viên thứ 2: gây <color=grey>(#[8]<sprite name=pdmg> + #[9]<sprite name=mdmg>)</color> sát thương vật lý cùng <color=grey>(#[10]<sprite name=pdmg> + #[11]<sprite name=mdmg>)</color> sát thương phép, rồi nảy sang kẻ địch gần nhất trong phạm vi #[12] ô và gây sát thương tương tự."
+    },
+    {
+      "id": "Blitzcrank",
+      "params": [
+        [
+          "base_dmg",
+          100,
+          false
+        ],
+        [
+          "dmg_by_max_hp",
+          0.05,
+          true
+        ],
+        [
+          "def_reduce",
+          0.3,
+          true
+        ],
+        [
+          "def_reduce_duration",
+          4,
+          false
+        ],
+        [
+          "pull_duration",
+          0.4,
+          false
+        ],
+        [
+          "shield_threshold",
+          0.4,
+          true
+        ],
+        [
+          "shield_by_max_hp",
+          0.3,
+          true
+        ],
+        [
+          "shield_duration",
+          4,
+          false
+        ]
+      ],
+      "passive": "Lần đầu tiên máu xuống dưới #[5], nhận [<color=white>Khiên</color>] bằng #[6]<sprite name=hp> tối đa trong #[7]s.",
+      "active": "Phóng cánh tay móc kẻ địch xa nhất, kéo về sát bên (bị hất tung trên đường kéo), gây <color=grey>(#[0] + #[1]<sprite name=hp>)</color> sát thương phép và giảm #[2]<sprite name=arm><sprite name=res> trong #[3]s.",
+      "specialKeys": [
+        "blitzcrank_mana_barrier",
+        "blitzcrank_shred"
+      ]
+    },
+    {
+      "id": "Gwen",
+      "active": "Cắt #[0] nhát theo đường thẳng xuyên qua mục tiêu (thêm 1 ô phía sau), mỗi nhát gây <color=grey>(#[1] + #[2]<sprite name=mdmg>)</color> sát thương phép và hồi máu bằng #[3] sát thương gây ra; nhát cuối gây sát thương chuẩn lên mục tiêu chính."
+    },
+    {
+      "id": "Janna",
+      "active": "Đứng yên vận gió trong #[0]s: mỗi #[1]s hồi <color=grey>(#[2] + #[3]<sprite name=mdmg>)</color> máu cho bản thân và đồng minh trong phạm vi #[4] ô. Bị ngắt khi dính choáng, hất tung hoặc câm lặng."
+    },
+    {
+      "id": "Katarina",
+      "unstoppable": false,
+      "active": "Biến thành lốc xoáy, liên tục gây sát thương xung quanh. Mỗi lần gây <color=grey>(#[2] + #[3]<sprite name=pdmg>)</color> sát thương phép và có thể chí mạng, tổng cộng <color=grey>#[0]</color> lần. Kẻ địch chịu sát thương sẽ nhận hiệu ứng giảm hồi máu trong #[4]s. Bị ngắt khi dính choáng, hất tung hoặc câm lặng."
+    },
+    {
+      "id": "Morgana",
+      "params": [
+        [
+          "base_shield",
+          250,
+          false
+        ],
+        [
+          "shield_mul",
+          1.5,
+          true
+        ],
+        [
+          "duration",
+          5,
+          false
+        ]
+      ],
+      "active": "Tạo [<color=purple>Hắc Thuẫn</color>] cho bản thân và đồng minh gây sát thương cao nhất trong #[2]s: chặn <color=grey>(#[0] + #[1]<sprite name=mdmg>)</color> sát thương PHÉP và miễn nhiễm mọi khống chế khi khiên còn.",
+      "specialKeys": [
+        "morgana_black_shield"
+      ]
+    },
+    {
+      "id": "Teemo",
+      "active": "Ném 3 quả bom, mỗi quả bom gây <color=grey>(#[5] + #[6]<sprite name=mdmg>)</color> sát thương phép, tăng <color=grey>(#[7] + #[8]<sprite name=mdmg>)</color> sát thương phép với mỗi cộng dồn <color=red>HOẢ NGỤC</color> trên mục tiêu. Mỗi quả bom đều thêm 1 cộng dồn và làm mới thời gian duy trì của hiệu ứng <color=red>HOẢ NGỤC</color>."
+    },
+    {
+      "id": "Aatrox_Dark",
+      "active": "Chém 3 nhát theo đường thẳng xuyên qua mục tiêu (thêm 1 ô phía sau), lần lượt gây <color=grey>(#[2] + #[3]/ #[4]/ #[5]<sprite name=pdmg>)</color> sát thương vật lý và hất tung mục tiêu trong <color=grey>#[6]s/ #[7]s/ #[8]s</color>.  Nếu mục tiêu dưới #[11]<sprite name=hp>, các nhát chém sẽ gây thêm hiệu ứng:\r\n- Đầu tiên: giảm #[9]<sprite name=arm> trong #[10]s\n- Thứ 2: gây thêm <color=grey>(#[12] + #[13]<sprite name=pdmg>)</color> sát thương chuẩn\n- Thứ 3: Có thể chí mạng"
+    },
+    {
+      "id": "Aatrox_Light",
+      "params": [
+        [
+          "base_dmg",
+          80.0,
+          false
+        ],
+        [
+          "dmg_mul_0",
+          0.7,
+          true
+        ],
+        [
+          "dmg_mul_1",
+          1.5,
+          true
+        ],
+        [
+          "dmg_mul_2",
+          2.0,
+          true
+        ],
+        [
+          "airborne_duration_0",
+          0.2,
+          false
+        ],
+        [
+          "airborne_duration_1",
+          0.2,
+          false
+        ],
+        [
+          "airborne_duration_2",
+          0.5,
+          false
+        ],
+        [
+          "vamp_0",
+          0.25,
+          true
+        ],
+        [
+          "vamp_1",
+          0.5,
+          true
+        ],
+        [
+          "vamp_2",
+          1.0,
+          true
+        ],
+        [
+          "vamp_mul_on_low_hp",
+          2.0,
+          false
+        ],
+        [
+          "hp_threshold",
+          0.5,
+          true
+        ],
+        [
+          "stack_bonus",
+          0.1,
+          true
+        ],
+        [
+          "max_stacks",
+          5,
+          false
+        ]
+      ],
+      "passive": "Đánh liên tiếp vào cùng một mục tiêu: mỗi đòn tăng #[12] sát thương (tối đa #[13] lần), mất cộng dồn khi đổi mục tiêu.",
+      "active": "Chém 3 nhát theo đường thẳng xuyên qua mục tiêu (thêm 1 ô phía sau), lần lượt gây <color=grey>(#[0] + #[1]/ #[2]/ #[3]<sprite name=mdmg>)</color> sát thương phép và hất tung mục tiêu trong <color=grey>#[4]s/ #[5]s/ #[6]s</color> đồng thời hồi máu bằng <color=grey>#[7]/ #[8]/ #[9]</color> sát thương gây ra. Nếu bản thân có thấp hơn #[11]<sprite name=hp>, lượng máu hồi phục gấp #[10] lần."
+    },
+    {
+      "id": "LeeSin",
+      "role": "Bruiser, Assassin",
+      "params": [
+        [
+          "base_dmg",
+          200.0,
+          false
+        ],
+        [
+          "dmg_mul",
+          1.8,
+          true
+        ],
+        [
+          "knockback_cells",
+          4.0,
+          false
+        ],
+        [
+          "airborne_duration",
+          1.0,
+          false
+        ],
+        [
+          "splash_mul",
+          0.5,
+          true
+        ],
+        [
+          "edge_stun_duration",
+          1.5,
+          false
+        ],
+        [
+          "leap_duration",
+          0.4,
+          false
+        ]
+      ],
+      "passive": "Không chạy bộ: khi mục tiêu ở ngoài tầm đánh, lập tức nhảy tới ô trống cạnh nó (đứng chờ nếu không còn ô trống).",
+      "active": "Tung cước vào mục tiêu, gây <color=grey>(#[0] + #[1]<sprite name=pdmg>)</color> sát thương vật lý và đá văng nó #[2] ô, hất tung #[3]s. Kẻ địch quanh chỗ nó rơi xuống chịu #[4] sát thương đó và cũng bị hất tung. Nếu bị văng tới mép bản đồ, mục tiêu còn bị choáng #[5]s. Sau đó lập tức nhảy theo áp sát mục tiêu."
+    },
+    {
+      "id": "Lux",
+      "params": [
+        [
+          "base_dmg",
+          250.0,
+          false
+        ],
+        [
+          "dmg_mul",
+          1.6,
+          true
+        ],
+        [
+          "length",
+          8.0,
+          false
+        ],
+        [
+          "bonus_per_cell",
+          0.12,
+          true
+        ]
+      ],
+      "passive": "Sát thương gây ra tăng #[3] cho mỗi ô khoảng cách tới kẻ địch, tính từ ô thứ 2 (kẻ địch đứng sát bên không được tăng)."
+    },
+    {
+      "id": "Zed",
+      "params": [
+        [
+          "base_dmg",
+          250,
+          false
+        ],
+        [
+          "dmg_mul",
+          1.6,
+          true
+        ],
+        [
+          "line_length",
+          3,
+          false
+        ],
+        [
+          "dmg_threshold",
+          700,
+          false
+        ],
+        [
+          "clone_share",
+          0.4,
+          true
+        ],
+        [
+          "max_clones",
+          3,
+          false
+        ]
+      ],
+      "passive": "Mỗi khi gây hoặc chịu tổng cộng #[3] sát thương, triệu hồi 1 [<color=purple>Phân Thân</color>] cạnh kẻ địch yếu máu nhất (tối đa #[5] phân thân cùng lúc). Phân thân có #[4] chỉ số gốc của Rét (không tính trang bị) và chiến đấu như một tướng.",
+      "active": "Thu hồi toàn bộ phân thân và hồi máu bằng tổng máu còn lại của chúng, sau đó ném phi tiêu theo đường thẳng dài #[2] ô, gây <color=grey>(#[0] + #[1]<sprite name=pdmg>)</color> sát thương vật lý (có thể chí mạng) lên mọi kẻ địch trúng đòn.",
+      "specialKeys": []
+    }
+  ]
+}

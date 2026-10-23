@@ -2,7 +2,87 @@ fileFormatVersion: 2
 guid: ec877039f912aad47a6c3e35dca08221
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Anger
+    second: {fileID: 2100000, guid: cab4216f40b24c642a5db1a41ec493ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 823446c46b72bd943a1bd135444bab4f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyesclosed
+    second: {fileID: 2100000, guid: 7638814ec59715743bb538f2028240bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Basic
+    second: {fileID: 2100000, guid: b9ce6b5a55d6343458f332678cc7a781, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Basic_Eyes
+    second: {fileID: 2100000, guid: f022f10268618c34c82067e1c98cd817, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face_Rainbow
+    second: {fileID: 2100000, guid: 86f996d318868214dbfe626ec9d4e537, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Groud
+    second: {fileID: 2100000, guid: f571906fa5178ed419b5d298d44e15c6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Happy
+    second: {fileID: 2100000, guid: ca6ef6815a36f394bbc524ab25d43d6d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pet
+    second: {fileID: 2100000, guid: c848666aa4241e5418905ccfc4f52f47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sky
+    second: {fileID: 2100000, guid: d5bbafd519c7b14458b38cc47b4f0c80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sneeze
+    second: {fileID: 2100000, guid: 71d209d1440835349a366e2c2c16bf36, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Surprise
+    second: {fileID: 2100000, guid: 991ea8ca7ff0d6f45ab05332c86eec3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Surprise_Eyes
+    second: {fileID: 2100000, guid: 81b7c68564914454da983d27c588dd46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree
+    second: {fileID: 2100000, guid: a746f0177fe9aa84393969d039a53395, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wacky
+    second: {fileID: 2100000, guid: 707f95e705c7006478cf6be297508e66, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Weapons
+    second: {fileID: 2100000, guid: daa567d63542b2248923cb63e4abeac5, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

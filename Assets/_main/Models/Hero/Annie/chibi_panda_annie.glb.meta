@@ -2,7 +2,142 @@ fileFormatVersion: 2
 guid: 9dbc99100ae7fba41b601ef4f514dbbb
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arm
+    second: {fileID: 2100000, guid: ffb72c8d14562124f94dbe778ffc0efe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bag
+    second: {fileID: 2100000, guid: e65995273389e814ba377e1b5ccd77d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bear
+    second: {fileID: 2100000, guid: 5dbbf8680fb6f8545bafa4ff213ef299, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 916f287086e015045aee6f2ce1098570, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Base
+    second: {fileID: 2100000, guid: daf714ec90739da4884f65b8e221635a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Happy
+    second: {fileID: 2100000, guid: 701e5dd0c9ca6ce4094d3de6f8bf192c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Insidious
+    second: {fileID: 2100000, guid: 981964248910bc145bd2df2260d3d642, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brow_Smirk
+    second: {fileID: 2100000, guid: ba058b6acc4c8cb4eabd5c05bb5305d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Env_Groud
+    second: {fileID: 2100000, guid: e7ee1c16b5a2444468e6c8a8b9b4f9fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Env_Sky
+    second: {fileID: 2100000, guid: 8c95e4716891aa8489d162a7b118b15b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Base
+    second: {fileID: 2100000, guid: afb1fdaac08e96042980eabd29d5df03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Happy
+    second: {fileID: 2100000, guid: 33def964f94c3cf4aa3c58d310a3fa63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Insidious
+    second: {fileID: 2100000, guid: 9fcc82c261b59264a92641165289aff1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Smirk
+    second: {fileID: 2100000, guid: d174b51ae83a8d54bacf08a2ae41d880, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyeshadow_Base
+    second: {fileID: 2100000, guid: 16774de5d9ad1824f821fbd8fe8af974, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glow
+    second: {fileID: 2100000, guid: 2e7cae6028eaee74f8eb04798288b74c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: d353f2a9a657c264ebcb1ea398b9688c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Base
+    second: {fileID: 2100000, guid: 7f7629b1b4af6ad40a3760a146d7826a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Glow
+    second: {fileID: 2100000, guid: cc54507aeffe5b0418e0cf8994b18fa1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Happy
+    second: {fileID: 2100000, guid: 3261230950bc7be45a45f0f878c75e95, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Insidious
+    second: {fileID: 2100000, guid: 1817202ffd8c4104db4e18d0f3d246ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Smirk
+    second: {fileID: 2100000, guid: 95a41135066dfde4899da36beb6f74ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shadow_Insidious
+    second: {fileID: 2100000, guid: a668565e704c8514e8f759444d9702be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 8e22fa58b7ab68449a80ff6a4b787f79, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tibbers
+    second: {fileID: 2100000, guid: ed0f36ca044d1a44aafe570e57b9adf1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TibbersHand
+    second: {fileID: 2100000, guid: bf6093ec5ca77dc4bb11c0639677cea9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Umbrella
+    second: {fileID: 2100000, guid: 469c2000feefcfb4b8f8d64933138b00, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

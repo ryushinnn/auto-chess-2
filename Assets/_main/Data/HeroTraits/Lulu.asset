@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 6510110182447272616, guid: 5841f09d5bde35f4ba1d33ae1f87656c, type: 3}
   thumbnail: {fileID: 21300000, guid: dcbd8247e4f40244d89fbd5db87dbd99, type: 3}
   skillIcon: {fileID: 21300000, guid: 705e20ef88391e2459e839b0248311e0, type: 3}
-  maxHp: 932
+  maxHp: 871
   physicalDamage: 0
-  magicalDamage: 49
+  magicalDamage: 46
   armor: 22
   resistance: 32
   attackSpeed: 0.851
@@ -85,6 +85,6 @@ MonoBehaviour:
     h\u1EA5t tung #[3]s c\xE1c k\u1EBB \u0111\u1ECBch \u0111\u1EE9ng s\xE1t b\xEAn."
   specialKeys:
   - lulu_wild_growth
-  dps: 45
-  physicalReduction: 23.076923
-  magicalReduction: 23.076923
+  dps: 41.699
+  physicalReduction: 18.032787
+  magicalReduction: 24.242424

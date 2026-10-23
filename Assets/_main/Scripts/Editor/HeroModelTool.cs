@@ -52,6 +52,32 @@ namespace AutoChess.Editor {
             Debug.Log("hero models: Temp/hero_models.txt");
         }
 
+        /// <summary>Writes Temp/hero_materials.txt: shader, queue, cull, blend and keywords of every material of the hero prefabs.</summary>
+        [MenuItem("AutoChess/Hero Models/Dump Materials")]
+        public static void DumpMaterials() {
+            var sb = new StringBuilder();
+            foreach (var dir in Directory.GetDirectories(HeroModels).OrderBy(d => d)) {
+                var prefabPath = Directory.GetFiles(dir, "*.prefab").FirstOrDefault(p => !p.Contains("shadow"));
+                if (prefabPath == null) continue;
+                var root = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath.Replace('\\', '/'));
+                sb.AppendLine($"== {Path.GetFileName(dir)}");
+                foreach (var r in root.GetComponentsInChildren<Renderer>(true)) {
+                    var shown = true;
+                    for (var t = r.transform; t != null; t = t.parent) shown &= t.gameObject.activeSelf;
+                    if (!shown) continue;
+                    foreach (var m in r.sharedMaterials) {
+                        if (m == null) continue;
+                        string F(string p) => m.HasProperty(p) ? m.GetFloat(p).ToString("0.##") : "-";
+                        sb.AppendLine($"  {m.name}: {m.shader.name} q{m.renderQueue} cull {F("_Cull")}/{F("_CullMode")} src {F("_SrcBlend")} dst {F("_DstBlend")} " +
+                                      $"zw {F("_ZWrite")} cut {F("alphaCutoff")} type {m.GetTag("RenderType", false)} kw [{string.Join(" ", m.shaderKeywords)}] " +
+                                      $"asset {AssetDatabase.GetAssetPath(m).Split('/').Last()}");
+                    }
+                }
+            }
+            Directory.CreateDirectory("Temp");
+            File.WriteAllText("Temp/hero_materials.txt", sb.ToString());
+        }
+
         /// <summary>Writes Temp/hero_renderers.txt: every renderer of every hero model with its materials and whether the
         /// set-up prefab shows it.</summary>
         [MenuItem("AutoChess/Hero Models/Dump Renderers")]

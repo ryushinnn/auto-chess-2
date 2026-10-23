@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 2632722227144001831, guid: b5e957ee627bc96408396ee11369ce0f, type: 3}
   thumbnail: {fileID: 21300000, guid: 3602271c036eace448ea2d89dec90b18, type: 3}
   skillIcon: {fileID: 21300000, guid: 6f1535f575bc2bc4eb718f35909773c7, type: 3}
-  maxHp: 2258
-  physicalDamage: 74
+  maxHp: 2296
+  physicalDamage: 75
   magicalDamage: 0
   armor: 55
   resistance: 55
@@ -72,8 +72,11 @@ MonoBehaviour:
   - key: dmg_by_max_hp
     value: 0.05
     isPercentage: 1
-  - key: stun_duration
-    value: 1.5
+  - key: def_reduce
+    value: 0.3
+    isPercentage: 1
+  - key: def_reduce_duration
+    value: 4
     isPercentage: 0
   - key: pull_duration
     value: 0.4
@@ -88,13 +91,15 @@ MonoBehaviour:
     value: 4
     isPercentage: 0
   passiveDescription: "L\u1EA7n \u0111\u1EA7u ti\xEAn m\xE1u xu\u1ED1ng d\u01B0\u1EDBi
-    #[4], nh\u1EADn [<color=white>Khi\xEAn</color>] b\u1EB1ng #[5]<sprite name=hp>
-    t\u1ED1i \u0111a trong #[6]s."
+    #[5], nh\u1EADn [<color=white>Khi\xEAn</color>] b\u1EB1ng #[6]<sprite name=hp>
+    t\u1ED1i \u0111a trong #[7]s."
   activeDescription: "Ph\xF3ng c\xE1nh tay m\xF3c k\u1EBB \u0111\u1ECBch xa nh\u1EA5t,
-    k\xE9o v\u1EC1 s\xE1t b\xEAn c\u1EA1nh, g\xE2y <color=grey>(#[0] + #[1]<sprite
-    name=hp>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p v\xE0 l\xE0m cho\xE1ng #[2]s."
+    k\xE9o v\u1EC1 s\xE1t b\xEAn (b\u1ECB h\u1EA5t tung tr\xEAn \u0111\u01B0\u1EDDng
+    k\xE9o), g\xE2y <color=grey>(#[0] + #[1]<sprite name=hp>)</color> s\xE1t th\u01B0\u01A1ng
+    ph\xE9p v\xE0 gi\u1EA3m #[2]<sprite name=arm><sprite name=res> trong #[3]s."
   specialKeys:
   - blitzcrank_mana_barrier
-  dps: 45
-  physicalReduction: 23.076923
-  magicalReduction: 23.076923
+  - blitzcrank_shred
+  dps: 62.012
+  physicalReduction: 35.48387
+  magicalReduction: 35.48387

@@ -20,6 +20,10 @@ namespace AutoChess.Core.Combat {
         public string Key;
         public double Amount;
         public double Remaining;
+        /// <summary>Absorbs only this damage type (a spell shield), or every type when null.</summary>
+        public DamageType? Only;
+        /// <summary>While it holds, its unit is immune to crowd control.</summary>
+        public bool BlocksCrowdControl;
     }
 
     /// <summary>A forced slide (knock-back / pull) from one point to a cell center.</summary>

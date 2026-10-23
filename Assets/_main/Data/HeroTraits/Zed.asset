@@ -23,8 +23,8 @@ MonoBehaviour:
   mecanim: {fileID: 5526161963982385637, guid: 9ce5cf6b7c1d3b848be1116c77fbe31e, type: 3}
   thumbnail: {fileID: 21300000, guid: 88a744f857c62db4698ee81645792935, type: 3}
   skillIcon: {fileID: 21300000, guid: 7d7ec93a7806d3049985019c00b737d2, type: 3}
-  maxHp: 2922
-  physicalDamage: 221
+  maxHp: 1868
+  physicalDamage: 141
   magicalDamage: 0
   armor: 34
   resistance: 34
@@ -83,28 +83,36 @@ MonoBehaviour:
   unstoppable: 0
   skillParams:
   - key: base_dmg
-    value: 180
+    value: 250
     isPercentage: 0
   - key: dmg_mul
-    value: 1.2
+    value: 1.6
     isPercentage: 1
-  - key: range
-    value: 1
+  - key: line_length
+    value: 3
     isPercentage: 0
-  - key: stun_main
-    value: 1
+  - key: dmg_threshold
+    value: 700
     isPercentage: 0
-  - key: stun_others
-    value: 0.5
+  - key: clone_share
+    value: 0.4
+    isPercentage: 1
+  - key: max_clones
+    value: 3
     isPercentage: 0
-  passiveDescription: 
-  activeDescription: "Nh\u1EA3y l\xEAn v\xE0 n\xE9m phi ti\xEAu v\xE0o 1 m\u1EE5c
-    ti\xEAu g\xE2y <color=grey>(#[0] + #[1]<sprite name=pdmg>)</color> s\xE1t th\u01B0\u01A1ng
-    v\u1EADt l\xFD sau \u0111\xF3 nh\u1EA3y xu\u1ED1ng, k\xEDch n\u1ED5 phi ti\xEAu
-    g\xE2y s\xE1t th\u01B0\u01A1ng ch\xED m\u1EA1ng cho m\u1EE5c ti\xEAu v\xE0 ph\u1EA1m
-    vi #[2] xung quanh, g\xE2y cho\xE1ng #[3]s cho m\u1EE5c ti\xEAu ch\xEDnh v\xE0
-    #[4]s cho c\xE1c m\u1EE5c ti\xEAu kh\xE1c."
+  passiveDescription: "M\u1ED7i khi g\xE2y ho\u1EB7c ch\u1ECBu t\u1ED5ng c\u1ED9ng
+    #[3] s\xE1t th\u01B0\u01A1ng, tri\u1EC7u h\u1ED3i 1 [<color=purple>Ph\xE2n Th\xE2n</color>]
+    c\u1EA1nh k\u1EBB \u0111\u1ECBch y\u1EBFu m\xE1u nh\u1EA5t (t\u1ED1i \u0111a
+    #[5] ph\xE2n th\xE2n c\xF9ng l\xFAc). Ph\xE2n th\xE2n c\xF3 #[4] ch\u1EC9 s\u1ED1
+    g\u1ED1c c\u1EE7a R\xE9t (kh\xF4ng t\xEDnh trang b\u1ECB) v\xE0 chi\u1EBFn \u0111\u1EA5u
+    nh\u01B0 m\u1ED9t t\u01B0\u1EDBng."
+  activeDescription: "Thu h\u1ED3i to\xE0n b\u1ED9 ph\xE2n th\xE2n v\xE0 h\u1ED3i
+    m\xE1u b\u1EB1ng t\u1ED5ng m\xE1u c\xF2n l\u1EA1i c\u1EE7a ch\xFAng, sau \u0111\xF3
+    n\xE9m phi ti\xEAu theo \u0111\u01B0\u1EDDng th\u1EB3ng d\xE0i #[2] \xF4, g\xE2y
+    <color=grey>(#[0] + #[1]<sprite name=pdmg>)</color> s\xE1t th\u01B0\u01A1ng v\u1EADt
+    l\xFD (c\xF3 th\u1EC3 ch\xED m\u1EA1ng) l\xEAn m\u1ECDi k\u1EBB \u0111\u1ECBch
+    tr\xFAng \u0111\xF2n."
   specialKeys: []
-  dps: 57.750004
-  physicalReduction: 15.254237
-  magicalReduction: 17.355371
+  dps: 239.34299
+  physicalReduction: 25.373135
+  magicalReduction: 25.373135

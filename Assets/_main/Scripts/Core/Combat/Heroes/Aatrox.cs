@@ -1,7 +1,7 @@
 using System;
+using System.Collections.Generic;
 
 namespace AutoChess.Core.Combat.Heroes {
-    /// <summary>Two slashes scaling with the target's missing health; the second always crits.</summary>
     /// <summary>
     /// The Apocalypse Warrior (Chaos synergy): every swing hits with both its physical and its magic damage
     /// (it sums both Aatrox halves), with lifesteal and one crit roll.
@@ -22,6 +22,7 @@ namespace AutoChess.Core.Combat.Heroes {
         }
     }
 
+    /// <summary>Two slashes scaling with the target's missing health; the second always crits.</summary>
     public sealed class AatroxDarkAttack : AttackBehaviour {
         readonly double dmgMulMin;
         readonly double dmgMulMax;
@@ -46,8 +47,12 @@ namespace AutoChess.Core.Combat.Heroes {
         static double Lerp(double a, double b, double t) => a + (b - a) * Math.Clamp(t, 0, 1);
     }
 
-    /// <summary>Three slashes knocking up; below the health threshold they shred armor and add true damage.</summary>
+    /// <summary>
+    /// Three slashes along a line through the target (and one cell behind it), knocking up; enemies below the health
+    /// threshold get their armor shredded, extra true damage and a possible crit.
+    /// </summary>
     public sealed class AatroxDarkSkill : SkillBehaviour {
+        public const string SlashVisual = "aatrox_dark_slash";
         readonly double baseDmg;
         readonly double[] dmgMul;
         readonly double[] airborne;
@@ -57,6 +62,7 @@ namespace AutoChess.Core.Combat.Heroes {
         readonly double baseTrueDmg;
         readonly double trueDmgMul;
         readonly string effectKey;
+        readonly List<CombatUnit> hits = new();
 
         public AatroxDarkSkill(UnitDefinition def) {
             AnimationLength = 5;
@@ -75,40 +81,92 @@ namespace AutoChess.Core.Combat.Heroes {
         public override void OnHit(CombatUnit self, int index) {
             var target = self.Target;
             if (target == null) return;
-            switch (index) {
-                case 0:
-                    target.TakeDamage(self.MakeDamage(DamageType.Physical, false, baseDmg, dmgMul[0]), self);
-                    if (target.HpPercentage < hpThreshold) {
-                        target.AddModifierSet(ModifierSet.Timed(self, effectKey, armorReduceDuration,
-                            new[] { new StatModifier(StatKind.Armor, armorReduceMul, ModifierType.Percent) }));
-                    }
-                    break;
-                case 1:
-                    if (target.HpPercentage >= hpThreshold) {
-                        target.TakeDamage(self.MakeDamage(DamageType.Physical, false, baseDmg, dmgMul[1]), self);
-                    }
-                    else {
-                        target.TakeDamage(
-                            self.MakeDamage(DamageType.Physical, false, baseDmg, dmgMul[1]),
-                            self.MakeDamage(DamageType.True, false, baseTrueDmg, trueDmgMul), self);
-                    }
-                    break;
-                default:
-                    target.TakeDamage(self.MakeDamage(DamageType.Physical, self.RollCrit(), baseDmg, dmgMul[2]), self);
-                    break;
+            AatroxLine.Collect(self, target, hits);
+            self.Battle.PlayVisual(SlashVisual, VisualMode.Beam, self.Position, AatroxLine.End(self, target), 0.45);
+            foreach (var u in hits) {
+                if (!u.Alive) continue;
+                var low = u.HpPercentage < hpThreshold;
+                switch (index) {
+                    case 0:
+                        u.TakeDamage(self.MakeDamage(DamageType.Physical, false, baseDmg, dmgMul[0]), self);
+                        if (low && u.Alive) {
+                            u.AddModifierSet(ModifierSet.Timed(self, effectKey, armorReduceDuration,
+                                new[] { new StatModifier(StatKind.Armor, armorReduceMul, ModifierType.Percent) }));
+                        }
+                        break;
+                    case 1:
+                        if (!low) u.TakeDamage(self.MakeDamage(DamageType.Physical, false, baseDmg, dmgMul[1]), self);
+                        else {
+                            u.TakeDamage(self.MakeDamage(DamageType.Physical, false, baseDmg, dmgMul[1]),
+                                self.MakeDamage(DamageType.True, false, baseTrueDmg, trueDmgMul), self);
+                        }
+                        break;
+                    default:
+                        u.TakeDamage(self.MakeDamage(DamageType.Physical, low && self.RollCrit(), baseDmg, dmgMul[2]), self);
+                        break;
+                }
+                u.Airborne(airborne[index]);
             }
-            target.Airborne(airborne[index]);
         }
     }
 
-    /// <summary>Three magic slashes knocking up and healing for a share of the damage (more when low).</summary>
+    /// <summary>Aatrox's skills cut through the target and one cell behind it.</summary>
+    static class AatroxLine {
+        public static void Collect(CombatUnit self, CombatUnit target, List<CombatUnit> into) =>
+            HeroLines.ThroughTarget(self, target, 1, into);
+
+        public static Vec2 End(CombatUnit self, CombatUnit target) {
+            var dx = target.Position.X - self.Position.X;
+            var dy = target.Position.Y - self.Position.Y;
+            var norm = Math.Sqrt(dx * dx + dy * dy);
+            if (norm < 1e-9) return target.Position;
+            return target.Position + new Vec2(dx / norm, dy / norm) * self.Battle.Grid.AverageCellDistance;
+        }
+    }
+
+    /// <summary>Magic attacks growing on the same target (reset when it changes). Params 12: bonus per hit, 13: max hits.</summary>
+    public sealed class AatroxLightAttack : AttackBehaviour {
+        readonly double bonusPerHit;
+        readonly int maxStacks;
+        CombatUnit last;
+        int stacks;
+
+        public AatroxLightAttack(UnitDefinition def) {
+            AnimationLength = 1.367;
+            HitTimes = new[] { 0.18 };
+            bonusPerHit = def.Param(12);
+            maxStacks = (int)def.Param(13);
+        }
+
+        public override void OnHit(CombatUnit self, int index) {
+            var target = self.Target;
+            if (target == null) return;
+            if (target == last) stacks = Math.Min(maxStacks, stacks + 1);
+            else {
+                last = target;
+                stacks = 0;
+            }
+            var damage = self.BasicDamage(DamageType.Magical);
+            damage.Value *= 1 + stacks * bonusPerHit;
+            var dealt = target.TakeDamage(damage, self);
+            self.StealLife(dealt);
+            self.RegenEnergy(self.Def.EnergyRegenPerAttack);
+        }
+    }
+
+    /// <summary>
+    /// Three magic slashes along a line through the target (and one cell behind it), knocking up and healing for a
+    /// share of the damage (more when low).
+    /// </summary>
     public sealed class AatroxLightSkill : SkillBehaviour {
+        public const string SlashVisual = "aatrox_light_slash";
         readonly double baseDmg;
         readonly double[] dmgMul;
         readonly double[] airborne;
         readonly double[] vamp;
         readonly double vampMulOnLowHp;
         readonly double hpThreshold;
+        readonly List<CombatUnit> hits = new();
 
         public AatroxLightSkill(UnitDefinition def) {
             AnimationLength = 5;
@@ -126,10 +184,16 @@ namespace AutoChess.Core.Combat.Heroes {
         public override void OnHit(CombatUnit self, int index) {
             var target = self.Target;
             if (target == null) return;
-            var dealt = target.TakeDamage(self.MakeDamage(DamageType.Magical, false, baseDmg, magicalRatio: dmgMul[index]), self);
+            AatroxLine.Collect(self, target, hits);
+            self.Battle.PlayVisual(SlashVisual, VisualMode.Beam, self.Position, AatroxLine.End(self, target), 0.45);
+            var dealt = 0d;
+            foreach (var u in hits) {
+                if (!u.Alive) continue;
+                dealt += u.TakeDamage(self.MakeDamage(DamageType.Magical, false, baseDmg, magicalRatio: dmgMul[index]), self);
+                u.Airborne(airborne[index]);
+            }
             var ratio = self.HpPercentage < hpThreshold ? vamp[index] * vampMulOnLowHp : vamp[index];
             self.Heal(dealt * ratio);
-            target.Airborne(airborne[index]);
         }
     }
 }

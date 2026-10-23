@@ -2,7 +2,137 @@ fileFormatVersion: 2
 guid: b651c8f5514f0034f88bb49b9a51d334
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Arms
+    second: {fileID: 2100000, guid: 90c33dbc7d7890d4da62671dba816e64, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: be6360e20f9483c4f9358cbc9cea5eeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Clothing
+    second: {fileID: 2100000, guid: b5bfa587f37a8ec4c9f895102d395ff4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ClothingVFX
+    second: {fileID: 2100000, guid: a5f23cb4a67d58b42a87f963f0a80817, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Doll
+    second: {fileID: 2100000, guid: d1497547be077f946bd5099adff1683b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DollVFX
+    second: {fileID: 2100000, guid: 18b0de1adc3fd9947913d8e38c98bc88, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Base
+    second: {fileID: 2100000, guid: e873c8a1f0c0e884b816f57eed01925c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_BaseFinisher
+    second: {fileID: 2100000, guid: 5e5deccb79ed23e4cac47f03b8c78b97, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Finisher
+    second: {fileID: 2100000, guid: 1111553847805d049b386fdcc8f78c48, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Love
+    second: {fileID: 2100000, guid: 20644565cbca7a744bc5de534bd90ef7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Playful
+    second: {fileID: 2100000, guid: b2b3958a36ae17e4fb967961da1bae43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Scallion
+    second: {fileID: 2100000, guid: e165976631d3ce541b9d26efd4a04cbd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Smile
+    second: {fileID: 2100000, guid: ae3232de07bd29748b616522be8978fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Surprise
+    second: {fileID: 2100000, guid: b9bd679cc1fd65840a05110d41f2c33e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_Tongue
+    second: {fileID: 2100000, guid: b527cbee873c791448614343f9f28576, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_TongueFinisher
+    second: {fileID: 2100000, guid: 45a74a7472b328e4abc226298eaa62d2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Face
+    second: {fileID: 2100000, guid: d364d64c73ad1a145880e2733d681ee7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair
+    second: {fileID: 2100000, guid: 0f0a05d699bc4ce4db95f5181425a1cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Base
+    second: {fileID: 2100000, guid: e1478728c11a6fb46a93e0cf5b13254b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Playful
+    second: {fileID: 2100000, guid: 72e5652cc9f4d7e409a04ef05455ac42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Smile
+    second: {fileID: 2100000, guid: f8d9ffab6fc79f141b99b818f04082b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouth_Surprise
+    second: {fileID: 2100000, guid: d0250c331d4646846b38bca552482391, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scissors
+    second: {fileID: 2100000, guid: 4f4974e5787a4c248ae36cdbc854db23, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScissorsBlade
+    second: {fileID: 2100000, guid: 9a6036d29bbf186498345ccc69f62d8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sleeves
+    second: {fileID: 2100000, guid: 5bb43d26a419cda49a5e51914a8c930f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Smears
+    second: {fileID: 2100000, guid: 35130171308e6a04eac387e9484e6aa5, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 

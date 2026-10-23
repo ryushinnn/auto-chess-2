@@ -28,6 +28,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5026977900168229590, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5026977900168229590, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.052347362
+      objectReference: {fileID: 0}
+    - target: {fileID: -5026977900168229590, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.3102396
+      objectReference: {fileID: 0}
+    - target: {fileID: -5026977900168229590, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.043903574
+      objectReference: {fileID: 0}
+    - target: {fileID: -5026977900168229590, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.33815396
+      objectReference: {fileID: 0}
+    - target: {fileID: -5026977900168229590, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.23254436
+      objectReference: {fileID: 0}
+    - target: {fileID: -5026977900168229590, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.25615543
+      objectReference: {fileID: 0}
     - target: {fileID: -3969067634491840686, guid: ec877039f912aad47a6c3e35dca08221,
         type: 3}
       propertyPath: m_IsActive
@@ -43,6 +78,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1534534410147071685, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1534534410147071685, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.14461371
+      objectReference: {fileID: 0}
+    - target: {fileID: -1534534410147071685, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.51198596
+      objectReference: {fileID: 0}
+    - target: {fileID: -1534534410147071685, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.053723395
+      objectReference: {fileID: 0}
+    - target: {fileID: -1534534410147071685, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.7404479
+      objectReference: {fileID: 0}
+    - target: {fileID: -1534534410147071685, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.9737448
+      objectReference: {fileID: 0}
+    - target: {fileID: -1534534410147071685, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.590223
       objectReference: {fileID: 0}
     - target: {fileID: -808828599480248858, guid: ec877039f912aad47a6c3e35dca08221,
         type: 3}
@@ -99,6 +169,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1619986112283296630, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619986112283296630, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: -0.2566339
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619986112283296630, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.011687055
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619986112283296630, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: -0.08596316
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619986112283296630, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.4565985
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619986112283296630, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.21226454
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619986112283296630, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.66666746
+      objectReference: {fileID: 0}
     - target: {fileID: 1873583847087052586, guid: ec877039f912aad47a6c3e35dca08221,
         type: 3}
       propertyPath: m_IsActive
@@ -108,6 +213,76 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054607364288072354, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054607364288072354, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.107815176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054607364288072354, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.520593
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054607364288072354, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.18134259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054607364288072354, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.23976955
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054607364288072354, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.12500924
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054607364288072354, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.11325748
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770094768814353341, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770094768814353341, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.13169105
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770094768814353341, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.51621354
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770094768814353341, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.1877993
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770094768814353341, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.22680448
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770094768814353341, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.16973497
+      objectReference: {fileID: 0}
+    - target: {fileID: 5770094768814353341, guid: ec877039f912aad47a6c3e35dca08221,
+        type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.11113321
       objectReference: {fileID: 0}
     - target: {fileID: 7405949663929406205, guid: ec877039f912aad47a6c3e35dca08221,
         type: 3}
@@ -175,7 +350,7 @@ MonoBehaviour:
   defaultAttackTime:
   - 0.35
   skillFullTimes:
-  - 2.5000002
+  - 0.86666673
   diveInTime: 1.2666668
   diveOutTimeRange: {x: 0.15, y: 0.62}
   diveOutTime: 1.7666668

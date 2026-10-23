@@ -23,9 +23,9 @@ MonoBehaviour:
   mecanim: {fileID: 2676055251035741358, guid: 233d9d1010477c649a73ae30ec5c60de, type: 3}
   thumbnail: {fileID: 21300000, guid: 4b20cea7462464647b7011f55acb5d6e, type: 3}
   skillIcon: {fileID: 21300000, guid: b1b54d06fe508c743a862ab74141f423, type: 3}
-  maxHp: 1563
+  maxHp: 1427
   physicalDamage: 0
-  magicalDamage: 106
+  magicalDamage: 97
   armor: 24
   resistance: 24
   attackSpeed: 1.005
@@ -66,20 +66,29 @@ MonoBehaviour:
   skillName: "\xC1m Quang Chi Thu\u1EADt"
   unstoppable: 0
   skillParams:
-  - key: energy_threshold
-    value: 50
-    isPercentage: 0
-  - key: silent_duration
-    value: 2
-    isPercentage: 0
-  - key: stun_duration
+  - key: radius
     value: 1
     isPercentage: 0
+  - key: silence
+    value: 0.5
+    isPercentage: 0
+  - key: base_dmg
+    value: 120
+    isPercentage: 0
+  - key: dmg_mul
+    value: 1
+    isPercentage: 1
+  - key: missing_hp_amp
+    value: 1
+    isPercentage: 1
   passiveDescription: 
-  activeDescription: "N\xE9m bom m\xF9 v\xE0o 1 m\u1EE5c ti\xEAu, n\u1EBFu m\u1EE5c
-    ti\xEAu c\xF3 \xEDt nh\u1EA5t #[0]<sprite name=eng>, g\xE2y c\xE2m l\u1EB7ng
-    trong #[1]s, ng\u01B0\u1EE3c l\u1EA1i g\xE2y cho\xE1ng trong #[2]s."
+  activeDescription: "N\xE9m bom kh\xF3i v\xE0o m\u1EE5c ti\xEAu, c\xE2m l\u1EB7ng
+    #[1]s m\u1ECDi k\u1EBB \u0111\u1ECBch trong ph\u1EA1m vi #[0] \xF4. K\u1EBB \u0111\u1ECBch
+    c\xF3 t\u1EC9 l\u1EC7 m\xE1u th\u1EA5p nh\u1EA5t trong s\u1ED1 \u0111\xF3 ch\u1ECBu
+    <color=grey>(#[2] + #[3]<sprite name=mdmg>)</color> s\xE1t th\u01B0\u01A1ng ph\xE9p
+    (c\xF3 th\u1EC3 ch\xED m\u1EA1ng), t\u0103ng th\xEAm t\u1EDBi #[4] theo l\u01B0\u1EE3ng
+    m\xE1u \u0111\xE3 m\u1EA5t c\u1EE7a n\xF3."
   specialKeys: []
-  dps: 50.7
-  physicalReduction: 15.966387
-  magicalReduction: 15.966387
+  dps: 106.53
+  physicalReduction: 19.35484
+  magicalReduction: 19.35484
